@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ingeniería Web</title>
+
+		<meta name="description" content="Introducción al curso de Ingeniería Web de la UCA">
+		<meta name="author" content="Juan Manuel Dodero">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+       
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+
+					<section>
+						<h1>Ingeniería Web</h1>
+						<h2>Spring</h2>
+						<h3>Inyección de dependencias</h3>
+						<p>
+							<small>Created by <a href="https://twitter.com/jmdodero">Juan Manuel Dodero</a> / <a href="https://twitter.com/jmdodero">@jmdodero</a></small>
+						</p>
+					</section>
+
+					<section id="transitions">
+						<h2>transiciones</h2>
+						<p>
+							<a href="?transition=cube#/transitions">Cube</a> -
+							<a href="?transition=page#/transitions">Page</a> -
+							<a href="?transition=concave#/transitions">Concave</a> -
+							<a href="?transition=zoom#/transitions">Zoom</a> -
+							<a href="?transition=linear#/transitions">Linear</a> -
+							<a href="?transition=fade#/transitions">Fade</a> -
+							<a href="?transition=none#/transitions">None</a> -
+							<a href="?#/transitions">Default</a>
+						</p>
+					</section>
+
+					<section id="themes">
+						<h2>temas</h2>
+						<p>
+							<a href="?#/themes">Default</a> -
+							<a href="?theme=sky#/themes">Sky</a> -
+							<a href="?theme=beige#/themes">Beige</a> -
+							<a href="?theme=simple#/themes">Simple</a> -
+							<a href="?theme=serif#/themes">Serif</a> -
+							<a href="?theme=night#/themes">Night</a> <br>
+							<a href="?theme=moon#/themes">Moon</a> -
+							<a href="?theme=solarized#/themes">Solarized</a>
+						</p>
+					</section>
+
+				</section>
+
+			<section>
+
+				<section>
+					<h2>Ejemplo</h2>
+					<h3>Versión 1</h3>
+					<p>
+						ATM Implementation does not care about the transport
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						
+public interface AutomatedTellerMachine {
+    void deposit(BigDecimal bd);
+    void withdraw(BigDecimal bd);
+}
+
+public interface ATMTransport {
+    void communicateWithBank(byte [] datapacket);
+}
+
+public class AutomatedTellerMachineImpl implements AutomatedTellerMachine{
+    
+    private ATMTransport transport;
+    
+    public void deposit(BigDecimal bd) {
+       ...
+       transport.communicateWithBank(...);
+    }
+
+    public void withdraw(BigDecimal bd) {
+       ...
+       transport.communicateWithBank(...);
+    }
+
+    public void setTransport(ATMTransport transport) {
+       this.transport = transport;
+    }
+}
+
+public class SoapAtmTransport implements ATMTransport {
+    public void communicateWithBank(byte[] datapacket) {
+       ...
+    }
+}
+
+public class StandardAtmTransport implements ATMTransport {
+    public void communicateWithBank(byte[] datapacket) {
+       ...
+    }
+}
+
+public class SimulationAtmTransport implements ATMTransport {
+    public void communicateWithBank(byte[] datapacket) {
+       ...
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 1</h3>
+					<p>
+						DI without Spring
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+public class AtmMain {       
+    public void main (String[] args) {
+        AutomatedTellerMachine atm = new AutomatedTellerMachineImpl();
+        ATMTransport transport = new SoapAtmTransport();
+        /* Inject the transport. */           
+        ((AutomatedTellerMachineImpl)atm).setTransport(transport);
+        atm.withdraw(new BigDecimal("10.00"));
+        atm.deposit(new BigDecimal("100.00"));
+    }
+}
+
+ATMTransport transport = new SimulationAtmTransport();
+((AutomatedTellerMachineImpl)atm).setTransport(transport);
+
+					</code></pre>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+					<h3>Versión 2</h3>
+					<p>
+						DI with Spring
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class AtmMain {       
+    public static void main (String[] args) {
+        ApplicationContext appContext = new ClassPathXmlApplicationContext("classpath:./spring/applicationContext.xml");
+        AutomatedTellerMachine atm = (AutomatedTellerMachine) appContext.getBean("atm");                
+        atm.withdraw(new BigDecimal("10.00"));                
+        atm.deposit(new BigDecimal("100.00"));
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 2</h3>
+					<p>
+						ApplicationContext XML
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="atmTransport" class="com...SoapAtmTransport" /></bean>
+
+    <bean id="atm" class="com...AutomatedTellerMachineImpl">
+         <property name="transport" ref="atmTransport"></property>
+    </bean>
+
+</beans>						
+					</code></pre>
+				</section>
+
+				<section>
+					<img width="780" src="./img/spring-di-01.png" alt="Injecting dependency using JavaBean property">
+				</section>
+
+			</section>
+
+			<section>
+				<h2>Spring Application context</h2>
+				<p>proporciona...
+				</p>
+				<ul>
+					<li>bean factory methods</li>
+					<li>carga de recursos en ficheros</li>
+					<li>resolución de mensajes</li>
+					<li>soporte para internacionalización</li>
+				</ul>
+			</section>
+
+			<section>
+
+				<section>
+					<h3>Versión 3</h3>
+					<p>
+						Using constructor to inject dependency
+					</p>					
+					<img width="780" src="./img/spring-di-02.png" alt="Using constructor to inject dependency">
+				</section>
+
+				<section>
+					<h3>Versión 3</h3>
+					<p>
+						Application context
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<bean id="standardTransport" class="com...StandardAtmTransport"/> 
+    <bean id="atm" class="com...AutomatedTellerMachineImpl">
+       <constructor-arg ref="standardTransport" />
+       <constructor-arg index="0" ref="standardTransport" />
+    </bean>
+</bean>    
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 3</h3>
+					<p>
+						Constructor
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+public class AutomatedTellerMachineImpl implements AutomatedTellerMachine{    
+
+    private ATMTransport transport;
+    
+    public AutomatedTellerMachineImpl (ATMTransport transport) {
+        this.transport = transport;
+    }
+
+}
+					</code></pre>
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+				<section>
+					<h3>Versión 4</h3>
+					<p>
+						Olvidamos inyectar la dependencia...
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<bean id="atmTransport" class="com...SoapAtmTransport"></bean>
+<bean id="atm" class="com...AutomatedTellerMachineImpl"></bean>
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 4</h3>
+					<p>
+						Pedimos a spring que lo compruebe: @Required
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import org.springframework.beans.factory.annotation.Required;
+
+public class AutomatedTellerMachineImpl implements AutomatedTellerMachine{
+    
+    private ATMTransport transport;
+
+    @Required
+    public void setTransport(ATMTransport transport) {
+        this.transport = transport;
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 4</h3>
+					<p>
+						Definimos un transporte por defecto: @Autowire y @Qualifier
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class AutomatedTellerMachineImpl implements AutomatedTellerMachine{        
+    @Autowired (required=true)
+    @Qualifier ("standardTransport")
+    private ATMTransport transport;
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 4</h3>
+					<p>
+						Application context con anotaciones
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<beans 
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="...">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="atmTransport" class="com...SoapAtmTransport"></bean>
+
+    <bean id="atm" class="com...AutomatedTellerMachineImpl">
+        <property name="transport" ref="atmTransport"/>
+    </bean>
+
+</beans>
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Versión 4</h3>
+					<img width="780" src="./img/spring-di-03.png" alt="Injecting dependency using bean name as qualifier">
+				</section>
+
+
+				<section>
+					<h3>Versión 4</h3>
+					<p>
+						XML DI tiene precedencia sobre las anotaciones
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<beans 
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="...">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="soapTransport" class="com...SoapAtmTransport"></bean>
+    <bean id="standardTransport" class="com...StandardAtmTransport"></bean>
+    <bean id="simulationTransport" class="com...SimulationAtmTransport"></bean>
+
+	<bean id="atm" class="com...AutomatedTellerMachineImpl">
+        <property name="transport" ref="simulationTransport"></property>
+	</bean>
+
+</beans>
+					</code></pre>
+				</section>
+
+
+
+			</section>
+
+			<section>
+				<p>
+					<a href="https://medium.com/on-coding/db854689243">The evolution of a Software Engineer</a>				
+				</p>
+				<p>
+					On coming full circle				
+				</p>
+
+			</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/js/meny.min.js', condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

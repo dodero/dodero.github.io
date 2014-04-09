@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BDD and cucumber</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+
+					<section data-state="alert">
+						<h2><a href="https://cucumber.pro/blog/2014/03/03/the-worlds-most-misunderstood-collaboration-tool.html">Behavior-Driven Development</a></h2>
+
+						<p>Frustration with ambiguous requirements and misunderstandings between the people who order the software and those who deliver it.</p>
+					</section>
+
+					<section>
+						<h2>BDD purpose</h2>
+
+						<p>Combine automated acceptance tests, functional requirements and software documentation into one format that would be understandable by non-technical people as well as testing tools</p>
+
+						<a class="test" href="https://cucumber.pro/blog/2014/03/03/the-worlds-most-misunderstood-collaboration-tool.html">
+							<img width="480" src="./img/cucumber-truth.png" alt="Cucumber truth">
+						</a>
+					</section>
+
+					<section data-state="blackout">
+						<h2>BDD</h2>
+						<h3>TDD evolved</h3>
+						<ul>
+							<li class="fragment highlight-blue">Collaborate on a <em>Specification</em> that <em>all</em> understand.</li>
+							<li class="fragment highlight-blue">Write in light weight markup called <em>Gherkin</em>.</li>
+							<li class="fragment highlight-blue">Make <em>Executable</em> Specifications by parsing the markup.</li>
+							<li class="fragment highlight-blue">Watch these new <em>Pending</em> unimplemented tests <em>fail</em>!</li>
+							<li class="fragment highlight-blue"><em>Implement</em> the tests, watching them <em>fail</em>.</li>
+						 	<li class="fragment highlight-blue">Write the <em>Implementation</em>, watch it <em>pass</em>!</li>
+						</ul>						
+					</section>
+
+					<section>
+						<h2>BDD tools</h2>
+
+						<p class="fragment highlight-blue">JBehave</p>
+						<p class="fragment highlight-blue">Concordian</p>
+						<p class="fragment highlight-blue">Fitnesse</p>
+						<p class="fragment highlight-blue">EasyB</p>
+						<p class="fragment highlight-blue">Spock?</p>
+						<p class="fragment highlight-blue">Jasmine (for JavaScript)</p>
+						<p class="fragment highlight-red">Cucumber</p>
+
+					</section>
+
+				</section>
+				<section>
+
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Anatomy</h3>
+						<ul>
+							<li>Dependencies</li>
+							<li>Test runner configuration</li>
+							<li>Gherkin specification</li>
+							<li>BDD step definitions</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Dependencies</h3>
+						<p style="color:grey">grails-app/conf/BuildConfig.groovy</p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+dependencies {
+    groovy 'org.codehaus.groovy:groovy:2.2.2'
+    testCompile 'junit:junit:4.11'
+    testCompile 'info.cukes:cucumber-groovy:1.1.5'
+    testCompile 'info.cukes:cucumber-junit:1.1.5'
+}
+plugins {
+	...
+	test ":cucumber:0.10.0"
+	...
+}					
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Test runner configuration</h3>
+						<p style="color:grey">grails-app/conf/CucumberConfig.groovy</p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+cucumber {
+	tags = ["~@wip"]
+	features = ["test/cucumber"]
+	glue = ["test/steps", "test/support"]
+	formats = [ "html:target/test-reports/cucumber" ]
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Gherkin</h3>
+						<p style="color:grey">test/cucumber/adding.feature</p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+Feature: Calculate
+	
+	Scenario: Add two numbers
+		Given the input "2+2"
+		When the calculator is run
+		Then the output should be "4"
+
+	Scenario: Subtract two numbers
+		Given the input "9-4"
+		When the calculator is run
+		Then the output should be "5"
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Step definitions</h3>
+						<p style="color:grey">test/cucumber/steps/add_steps.groovy</p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import static cucumber.api.groovy.EN.*
+
+Given(~'^the input "([^"]*)"$') { String input ->
+	//some groovy code
+	...
+}
+
+When(~'^the calculator is run$') { String input ->
+	//some groovy code
+	to CalculatorPage
+}
+
+Then(~'^the output should be "([^"]*)"$') { String output ->
+	//some groovy code
+	assert ...
+}
+					</code></pre>
+
+					<p class="fragment roll-in"><em>GORM</em></p>
+					<p class="fragment roll-in"><em>Selenium/Geb</em></p>
+					</section>
+				
+					<section>
+						<h2>Cucumber</h2>
+						<h3>Geb config</h3>
+						<p style="color:grey">test/functional/GebConfig.groovy</p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import org.openqa.selenium.chrome.ChromeDriver
+
+driver = {
+    new ChromeDriver()
+}							
+					</code></pre>
+					<em><a href="http://chromedriver.storage.googleapis.com/index.html" target="#">Download</a> chromedriver!</em>			
+					</section>
+
+				</section>
+
+				<section>
+						<h2>Geb</h2>
+						<h3>Sample script</h3>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+import geb.Browser
+ 
+Browser.drive {
+    go "http://myapp.com/login"
+     
+    assert $("h1").text() == "Please Login"
+     
+    $("form.login").with {
+        username = "admin"
+        password = "password"
+        login().click()
+    }
+     
+    assert $("h1").text() == "Admin Section"
+}
+						</code></pre>
+				</section>
+
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					//{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
