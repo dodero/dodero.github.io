@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Configuring JSON remoting | RESTful and JSON remoting</title>
+        <title>Step by step creation | RESTful and JSON remoting</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,11 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="./Configuring JSON remoting.html" />
         
-        <link rel="prev" href="./Step by step creation.html" />
+        
+        <link rel="prev" href="./Testing remoting.html" />
         
 
-        <meta property="og:title" content="Configuring JSON remoting | RESTful and JSON remoting">
+        <meta property="og:title" content="Step by step creation | RESTful and JSON remoting">
         <meta property="og:site_name" content="RESTful and JSON remoting">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,7 +42,7 @@
 
 
         
-    <div class="book"  data-level="3" data-basepath="." data-revision="1399982614138">
+    <div class="book"  data-level="2.2" data-basepath="." data-revision="1399982614138">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -173,7 +175,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 100%;min-width: 85.71428571428571%;"></div>
+        <div class="inner" style="width: 85.71428571428571%;min-width: 71.42857142857143%;"></div>
     </div>
     <div class="chapters">
     
@@ -191,43 +193,55 @@
     
         <a href="./Step by step creation.html" title="Step by step creation" class="chapter done " data-progress="2.2" style="left: 85.71428571428571%;"></a>
     
-        <a href="./Configuring JSON remoting.html" title="Configuring JSON remoting" class="chapter done new-chapter" data-progress="3" style="left: 100%;"></a>
+        <a href="./Configuring JSON remoting.html" title="Configuring JSON remoting" class="chapter  new-chapter" data-progress="3" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_1328">
+                    <section class="normal" id="section-gitbook_1332">
                     
-                        <h1 id="configuring-json-remoting">Configuring JSON remoting</h1>
-<h2 id="define-a-service-fa-ade-layer-">Define a service/façade layer:</h2>
-<p>Create a service layer that acts as a <a href="http://en.wikipedia.org/wiki/Facade_pattern" target="_blank">façade</a> that exposes all the PizzaShop functionalities. This is required if you want to integrate a RESTful remoting web service. Other common use case for service layers is e.g. security.</p>
-<pre><code class="lang-bash">service <span class="hljs-built_in">type</span> --interface ~.service.ToppingService --entity ~.domain.Topping
-service <span class="hljs-built_in">type</span> --interface ~.service.BaseService --entity ~.domain.Base
-service <span class="hljs-built_in">type</span> --interface ~.service.PizzaService --entity ~.domain.Pizza
-service <span class="hljs-built_in">type</span> --interface ~.service.PizzaOrderService --entity ~.domain.PizzaOrder
+                        <h1 id="step-by-step-creation">Step by step creation</h1>
+<h2 id="create-project">Create project</h2>
+<p>Create a new project that uses JPA persistence using EclipseLink and H2. Notice that the H2 database is in memory, so you will loose all data after exiting the application.</p>
+<p>From the <em>roo</em> console, run:</p>
+<pre><code class="lang-bash">project --topLevelPackage com.springsource.pizzashop
+
+jpa setup --provider ECLIPSELINK --database H2_IN_MEMORY
 </code></pre>
-<h2 id="adding-json-remoting">Adding JSON remoting</h2>
-<p>Configure JSON-based MVC controllers for all domain types:</p>
-<pre><code class="lang-bash">json all --deepSerialize
-web mvc json setup
-web mvc json all --package ~.web
+<h2 id="create-domain-entities">Create domain entities</h2>
+<p>Generate all classes needed to build the PizzaShop domain model:</p>
+<pre><code class="lang-bash">entity jpa --class ~.domain.Base --activeRecord <span class="hljs-literal">false</span> --testAutomatically
+field string --fieldName name --sizeM<span class="hljs-keyword">in</span> <span class="hljs-number">2</span> --notNull
+
+entity jpa --class ~.domain.Topping --activeRecord <span class="hljs-literal">false</span> --testAutomatically
+field string --fieldName name --sizeM<span class="hljs-keyword">in</span> <span class="hljs-number">2</span> --notNull
+
+entity jpa --class ~.domain.Pizza --activeRecord <span class="hljs-literal">false</span> --testAutomatically
+field string --fieldName name --notNull --sizeM<span class="hljs-keyword">in</span> <span class="hljs-number">2</span>
+field number --fieldName price --type java.math.BigDecimal
+field <span class="hljs-keyword">set</span> --fieldName toppings --type ~.domain.Topping
+field reference --fieldName base --type ~.domain.Base
+
+entity jpa --class ~.domain.PizzaOrder --testAutomatically --activeRecord <span class="hljs-literal">false</span> --identifierType ~.domain.PizzaOrderPk
+field string --fieldName name --notNull --sizeM<span class="hljs-keyword">in</span> <span class="hljs-number">2</span>
+field string --fieldName address --sizeMax <span class="hljs-number">30</span>
+field number --fieldName total --type java.math.BigDecimal
+field date --fieldName deliveryDate --type java.util.Date
+field <span class="hljs-keyword">set</span> --fieldName pizzas --type ~.domain.Pizza
+
+field string --fieldName shopCountry --class ~.domain.PizzaOrderPk
+field string --fieldName shopCity
+field string --fieldName shopName
 </code></pre>
-<p>Configure regular web-based MVC controllers for all domain types:</p>
-<pre><code class="lang-bash">web mvc setup
-web mvc all --package ~.web
+<h2 id="define-a-repository-layer-for-persistence">Define a repository layer for persistence</h2>
+<p>Generate a repository layer that manages the persistence. It is a <a href="http://en.wikipedia.org/wiki/Data_access_object" target="_blank">DataAccessObject</a> (DAO) alternative to the default <a href="http://en.wikipedia.org/wiki/Active_record_pattern" target="_blank">ActiveRecord</a> pattern to deal with persistence.</p>
+<pre><code class="lang-bash">repository jpa --interface ~.repository.ToppingRepository --entity ~.domain.Topping
+repository jpa --interface ~.repository.BaseRepository --entity ~.domain.Base
+repository jpa --interface ~.repository.PizzaRepository --entity ~.domain.Pizza
+repository jpa --interface ~.repository.PizzaOrderRepository --entity ~.domain.PizzaOrder
 </code></pre>
-<p>Due to a still <a href="http://forum.spring.io/forum/spring-projects/roo/122323-command-web-mvc-json-setup-was-found-but-is-not-currently-available" target="_blank">unsolved issue</a> in Spring ROO, generating JSON controllers with <code>web mvc json setup</code> does not work anymor after running once <code>web mvc setup</code> to generate regular web controllers:</p>
-<pre><code class="lang-bash">roo&gt; web mvc json setup
-Command <span class="hljs-string">'web mvc json setup'</span> was found but is not currently available
-</code></pre>
-<p>To solve that issue, the <code>@RooWebJson</code> tag can be added to the controller (e.g. PizzaController), and ROO will automatically generate the Aspect that adds the JSON implementation:</p>
-<pre><code class="lang-java"><span class="hljs-annotation">@RooWebJson</span>(jsonObject = Pizza.class)
-</code></pre>
-<h2 id="testing">Testing</h2>
-<p><a href="./Testing remoting.html">Test again</a> the JSON remoting services against the newly created application</p>
-<p>...and you&#39;re done!</p>
 
                     
                     </section>
@@ -237,8 +251,10 @@ Command <span class="hljs-string">'web mvc json setup'</span> was found but is n
         </div>
 
         
-        <a href="./Step by step creation.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="./Testing remoting.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Configuring JSON remoting.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -1,0 +1,10 @@
+project --topLevelPackage com.foo
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+entity jpa --class ~.Timer --testAutomatically
+field string --fieldName message --notNull
+web mvc setup
+web mvc all --package ~.web
+selenium test --controller ~.web.TimerController
+web gwt setup
+web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
+perform tests

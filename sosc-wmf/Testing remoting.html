@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Configuring JSON remoting | RESTful and JSON remoting</title>
+        <title>Testing remoting | RESTful and JSON remoting</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,11 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="./Step by step creation.html" />
         
-        <link rel="prev" href="./Step by step creation.html" />
+        
+        <link rel="prev" href="./Creating an app.html" />
         
 
-        <meta property="og:title" content="Configuring JSON remoting | RESTful and JSON remoting">
+        <meta property="og:title" content="Testing remoting | RESTful and JSON remoting">
         <meta property="og:site_name" content="RESTful and JSON remoting">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,7 +42,7 @@
 
 
         
-    <div class="book"  data-level="3" data-basepath="." data-revision="1399982614138">
+    <div class="book"  data-level="2.1" data-basepath="." data-revision="1399982614138">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -173,7 +175,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 100%;min-width: 85.71428571428571%;"></div>
+        <div class="inner" style="width: 71.42857142857143%;min-width: 57.142857142857146%;"></div>
     </div>
     <div class="chapters">
     
@@ -189,45 +191,80 @@
     
         <a href="./Testing remoting.html" title="Testing remoting" class="chapter done " data-progress="2.1" style="left: 71.42857142857143%;"></a>
     
-        <a href="./Step by step creation.html" title="Step by step creation" class="chapter done " data-progress="2.2" style="left: 85.71428571428571%;"></a>
+        <a href="./Step by step creation.html" title="Step by step creation" class="chapter  " data-progress="2.2" style="left: 85.71428571428571%;"></a>
     
-        <a href="./Configuring JSON remoting.html" title="Configuring JSON remoting" class="chapter done new-chapter" data-progress="3" style="left: 100%;"></a>
+        <a href="./Configuring JSON remoting.html" title="Configuring JSON remoting" class="chapter  new-chapter" data-progress="3" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_1328">
+                    <section class="normal" id="section-gitbook_1333">
                     
-                        <h1 id="configuring-json-remoting">Configuring JSON remoting</h1>
-<h2 id="define-a-service-fa-ade-layer-">Define a service/façade layer:</h2>
-<p>Create a service layer that acts as a <a href="http://en.wikipedia.org/wiki/Facade_pattern" target="_blank">façade</a> that exposes all the PizzaShop functionalities. This is required if you want to integrate a RESTful remoting web service. Other common use case for service layers is e.g. security.</p>
-<pre><code class="lang-bash">service <span class="hljs-built_in">type</span> --interface ~.service.ToppingService --entity ~.domain.Topping
-service <span class="hljs-built_in">type</span> --interface ~.service.BaseService --entity ~.domain.Base
-service <span class="hljs-built_in">type</span> --interface ~.service.PizzaService --entity ~.domain.Pizza
-service <span class="hljs-built_in">type</span> --interface ~.service.PizzaOrderService --entity ~.domain.PizzaOrder
+                        <h1 id="testing-remoting">Testing remoting</h1>
+<p>First install <a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo" target="_blank">Advanced REST Client</a> Chrome extension or use <code>curl</code> (for Unix-like systems) from the command line.</p>
+<h2 id="using-curl">Using curl</h2>
+<p>If using curl, for commodity add a line containing <code>-w &quot;\n&quot;</code> to your <code>~/.curlrc</code> file</p>
+<h3 id="example-scripts-with-curl-">Example scripts with <code>curl</code>:</h3>
+<p>Run the following scripts from the command line:</p>
+<blockquote>
+<p>Creates (POST) a new <em>Thin Crust</em> pizza base:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'{name: "Thin Crust"}'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/bases
 </code></pre>
-<h2 id="adding-json-remoting">Adding JSON remoting</h2>
-<p>Configure JSON-based MVC controllers for all domain types:</p>
-<pre><code class="lang-bash">json all --deepSerialize
-web mvc json setup
-web mvc json all --package ~.web
+<blockquote>
+<p>Creates (POST) two new pizza bases (<em>Cheesy Crust</em> and <em>Thick Crust</em>):</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'[{name: "Cheesy Crust"},{name: "Thick Crust"}]'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/bases/jsonArray
 </code></pre>
-<p>Configure regular web-based MVC controllers for all domain types:</p>
-<pre><code class="lang-bash">web mvc setup
-web mvc all --package ~.web
+<blockquote>
+<p>Creates (POST) four new toppings: <em>Fresh Tomato</em>, <em>Prawns</em>,  <em>Mozarella</em> (the <em>z</em> typo is deliberate) and <em>Bogus</em>:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'[{name: "Fresh Tomato"},{name: "Prawns"},{name: "Mozarella"},{name: "Bogus"}]'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/jsonArray
 </code></pre>
-<p>Due to a still <a href="http://forum.spring.io/forum/spring-projects/roo/122323-command-web-mvc-json-setup-was-found-but-is-not-currently-available" target="_blank">unsolved issue</a> in Spring ROO, generating JSON controllers with <code>web mvc json setup</code> does not work anymor after running once <code>web mvc setup</code> to generate regular web controllers:</p>
-<pre><code class="lang-bash">roo&gt; web mvc json setup
-Command <span class="hljs-string">'web mvc json setup'</span> was found but is not currently available
+<blockquote>
+<p>Removes (DELETE) the <em>Bogus</em> (id=7) topping:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X DELETE -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">7</span>
 </code></pre>
-<p>To solve that issue, the <code>@RooWebJson</code> tag can be added to the controller (e.g. PizzaController), and ROO will automatically generate the Aspect that adds the JSON implementation:</p>
-<pre><code class="lang-java"><span class="hljs-annotation">@RooWebJson</span>(jsonObject = Pizza.class)
+<blockquote>
+<p>Retrieves (GET) the info about topping 6 (check self-generated <code>version</code> number):</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span>
 </code></pre>
-<h2 id="testing">Testing</h2>
-<p><a href="./Testing remoting.html">Test again</a> the JSON remoting services against the newly created application</p>
-<p>...and you&#39;re done!</p>
+<blockquote>
+<p>Updates (PUT) the <em>name</em> and <em>version</em> values for <em>Mozzarella</em> (id=6) topping (in JSON data, previous <code>version</code> number must be included; <code>id=6</code> is not required here):</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X PUT -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'{name:"Mozzarella",version:1}'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/topping/<span class="hljs-number">6</span>
+</code></pre>
+<blockquote>
+<p>Retrieves (GET) the list of toppings:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings
+</code></pre>
+<blockquote>
+<p>Retrieves (GET) the info about topping 6:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span>
+</code></pre>
+<blockquote>
+<p>Creates (POST) an new <em>Napolitana</em> thin-crust pizza:</p>
+</blockquote>
+<pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'{name:"Napolitana",price:7.5,base:{id:1},toppings:[{name: "Anchovy fillets"},{name: "Mozzarella"}]}'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/pizzas
+</code></pre>
+<blockquote>
+<p>Creates (POST) a new pizza order:</p>
+</blockquote>
+<p>This does not work :-?</p>
+<pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'{name:"Stefan",total:7.5,address:"Sydney, AU",deliveryDate:1314595427866,id:{shopCountry:"AU",shopCity:"Sydney",shopName:"Pizza Pan 1"},pizzas:[{id:8,version:1}]}'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/pizzaorders
+`
+</code></pre>
+<h2 id="using-a-rest-client">Using a REST client</h2>
+<p>GET request: all toppings</p>
+<p><img src="http://dodero.github.io/assets/img/pizzashop-get-example-restclient.png" alt="GET request from REST client"></p>
+<p>POST request: create new Pizza (Atchung! POST is not safe - idempotence)</p>
+<p><img src="http://dodero.github.io/assets/img/pizzashop -post-example-restclient.png" alt="POST request from REST client"></p>
 
                     
                     </section>
@@ -237,8 +274,10 @@ Command <span class="hljs-string">'web mvc json setup'</span> was found but is n
         </div>
 
         
-        <a href="./Step by step creation.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="./Creating an app.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Step by step creation.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

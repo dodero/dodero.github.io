@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Installation | Service-oriented software construction</title>
+        <title>Installation | RESTful and JSON remoting</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,12 +13,14 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="./Ubuntu setup.html" />
+        
         
         <link rel="prev" href="./index.html" />
         
 
-        <meta property="og:title" content="Installation | Service-oriented software construction">
-        <meta property="og:site_name" content="Service-oriented software construction">
+        <meta property="og:title" content="Installation | RESTful and JSON remoting">
+        <meta property="og:site_name" content="RESTful and JSON remoting">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
 
@@ -40,7 +42,7 @@
 
 
         
-    <div class="book"  data-level="1" data-basepath="." data-revision="1399374576820">
+    <div class="book"  data-level="1" data-basepath="." data-revision="1399979888550">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -84,7 +86,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-spinner fa-spin"></i>
-        <a href="./" >Service-oriented software construction</a>
+        <a href="./" >RESTful and JSON remoting</a>
     </h1>
 </div>
 
@@ -105,6 +107,64 @@
                 </a>
                 
                 
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="Ubuntu setup.html">
+                            
+                            <a href="./Ubuntu setup.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> Linux setup
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="Windows setup.html">
+                            
+                            <a href="./Windows setup.html">
+                                <i class="fa fa-check"></i> <b>1.2.</b> Windows setup
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="Creating an app.html">
+                
+                <a href="./Creating an app.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Creating an app
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="Testing remoting.html">
+                            
+                            <a href="./Testing remoting.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Testing remoting
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="Step by step creation.html">
+                            
+                            <a href="./Step by step creation.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Step by step creation
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="Configuring JSON remoting.html">
+                
+                <a href="./Configuring JSON remoting.html">
+                    <i class="fa fa-check"></i> <b>3.</b> Configuring JSON remoting
+                </a>
+                
+                
             </li>
         
     </ul>
@@ -115,93 +175,34 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 100%;min-width: 0%;"></div>
+        <div class="inner" style="width: 14.285714285714286%;min-width: 0%;"></div>
     </div>
     <div class="chapters">
     
         <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="./Installation.html" title="Installation" class="chapter done new-chapter" data-progress="1" style="left: 100%;"></a>
+        <a href="./Installation.html" title="Installation" class="chapter done new-chapter" data-progress="1" style="left: 14.285714285714286%;"></a>
+    
+        <a href="./Ubuntu setup.html" title="Linux setup" class="chapter  " data-progress="1.1" style="left: 28.571428571428573%;"></a>
+    
+        <a href="./Windows setup.html" title="Windows setup" class="chapter  " data-progress="1.2" style="left: 42.857142857142854%;"></a>
+    
+        <a href="./Creating an app.html" title="Creating an app" class="chapter  new-chapter" data-progress="2" style="left: 57.142857142857146%;"></a>
+    
+        <a href="./Testing remoting.html" title="Testing remoting" class="chapter  " data-progress="2.1" style="left: 71.42857142857143%;"></a>
+    
+        <a href="./Step by step creation.html" title="Step by step creation" class="chapter  " data-progress="2.2" style="left: 85.71428571428571%;"></a>
+    
+        <a href="./Configuring JSON remoting.html" title="Configuring JSON remoting" class="chapter  new-chapter" data-progress="3" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_97">
+                    <section class="normal" id="section-gitbook_287">
                     
                         <h1 id="installation">Installation</h1>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Java 6</p>
-<p>mvn 2.0.9+</p>
-<h2 id="install-meta-framework">Install meta-framework</h2>
-<p>Install roo</p>
-<pre><code>$ wget http://spring-roo-repository.springsource.org/spring-roo-1.2.5.RELEASE.zip
-
-$ unzip spring-roo-1.2.5.RELEASE.zip
-
-$ export ROO_HOME=`pwd`/spring-roo-1.2.5.RELEASE
-
-$ export PATH=$PATH:$ROO_HOME/bin
-
-$  sudo ln -s $ROO_HOME/bin/roo.sh /usr/bin/roo
-
-$ export ROO_OPTS=&quot;-Droo.bright=true&quot;
-
-$ export JAVA_OPTS=&quot;-Xms512m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=1024m&quot;
-
-$ MAVEN_OPTS=&quot;-Xmx512m -XX:MaxPermSize=1024m&quot;
-</code></pre><p>Test roo</p>
-<pre><code class="lang-bash">$ mkdir hello
-$ <span class="hljs-built_in">cd</span> hello
-$ roo
-roo&gt; hint
-roo&gt; project --topLevelPackage com.foo
-roo&gt; jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
-roo&gt; entity jpa --class ~.Timer --testAutomatically
-roo&gt; field string --fieldName message --notNull
-roo&gt; hint web mvc
-roo&gt; web mvc setup
-roo&gt; web mvc all --package ~.web
-roo&gt; selenium test --controller ~.web.TimerController
-roo&gt; web gwt setup
-roo&gt; web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
-roo&gt; perform tests
-roo&gt; quit
-</code></pre>
-<pre><code>$ mvn tomcat:run
-
-$ firefox http://localhost:8080/tenminutes
-
-$ firefox http://localhost:8080/hello
-</code></pre><h2 id="tutorial-preparation">Tutorial preparation</h2>
-<pre><code class="lang-bash">$ mkdir sample
-$ <span class="hljs-built_in">cd</span> sample
-$ roo
-roo&gt; script --file pizzashop.roo
-roo&gt; quit
-$ mvn tomcat:run
-</code></pre>
-<h3 id="application-class-model">Application class model</h3>
-<p><img src="http://docs.spring.io/spring-roo/reference/html/images/pizza.png" alt="Pizzashop class model"></p>
-<p>Creating web tier: <code>hint web mvc</code></p>
-<p><em>Creating RESTful Spring MVC web controllers is quick and easy using Roo. Controllers can be made that automatically expose an entity. Alternately, we can create a stub, empty controller for you to finish off.</em></p>
-<p><em>For the former, type &#39;web mvc setup&#39; and hit ENTER followed by &#39;web mvc scaffold&#39; and hit TAB three times. The --class is the controller name; it need not reflect an entity name. We suggest putting controllers under a &#39;~.web&#39; package to improve maintenance. You can also specify the --backingType the controller should expose.</em></p>
-<p>[Try the app]</p>
-<pre><code>// Example scripts for JSON remoting:
-curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;{name: &quot;Thin Crust&quot;}&#39; http://localhost:8080/pizzashop/bases
-curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;[{name: &quot;Cheesy Crust&quot;},{name: &quot;Thick Crust&quot;}]&#39; http://localhost:8080/pizzashop/bases/jsonArray
-curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;[{name: &quot;Fresh Tomato&quot;},{name: &quot;Prawns&quot;},{name: &quot;Mozarella&quot;},{name: &quot;Bogus&quot;}]&#39; http://localhost:8080/pizzashop/toppings/jsonArray
-curl -i -X DELETE -H &quot;Accept: application/json&quot; http://localhost:8080/pizzashop/toppings/7
-curl -i -X PUT -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;{id:6,name:&quot;Mozzarella&quot;,version:1}&#39; http://localhost:8080/pizzashop/toppings
-curl -i -H &quot;Accept: application/json&quot; http://localhost:8080/pizzashop/toppings
-curl -i -H &quot;Accept: application/json&quot; http://localhost:8080/pizzashop/toppings/6
-curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;{name:&quot;Napolitana&quot;,price:7.5,base:{id:1},toppings:[{name: &quot;Anchovy fillets&quot;},{name: &quot;Mozzarella&quot;}]}&#39; http://localhost:8080/pizzashop/pizzas
-curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: application/json&quot; -d &#39;{name:&quot;Stefan&quot;,total:7.5,address:&quot;Sydney, AU&quot;,deliveryDate:1314595427866,id:{shopCountry:&quot;AU&quot;,shopCity:&quot;Sydney&quot;,shopName:&quot;Pizza Pan 1&quot;},pizzas:[{id:8,version:1}]}&#39; http://localhost:8080/pizzashop/pizzaorders
-`
-</code></pre><p>[Securing]</p>
-<p>[Customizing look and feel]</p>
-<h2 id="go-to-web-services">Go to web services</h2>
 
                     
                     </section>
@@ -213,6 +214,8 @@ curl -i -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Accept: a
         
         <a href="./index.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Ubuntu setup.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

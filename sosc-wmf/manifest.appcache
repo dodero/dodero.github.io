@@ -1,13 +1,15 @@
 CACHE MANIFEST
-# Revision 1399380243683
+# Revision 1399982614139
 
 CACHE:
 Configuring JSON remoting.html
-Creating an app.html
-Customizing look&feel.html
 Installation.html
 index.html
-Securing the app.html
+Creating an app.html
+Step by step creation.html
+Testing remoting.html
+Ubuntu setup.html
+Windows setup.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
 gitbook/fonts/anonymouspro/400i.woff
