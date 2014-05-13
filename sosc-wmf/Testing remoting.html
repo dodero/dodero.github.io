@@ -42,7 +42,7 @@
 
 
         
-    <div class="book"  data-level="2.1" data-basepath="." data-revision="1399983108592">
+    <div class="book"  data-level="2.1" data-basepath="." data-revision="1399992120430">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -200,12 +200,13 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_1353">
+                    <section class="normal" id="section-gitbook_114">
                     
                         <h1 id="testing-remoting">Testing remoting</h1>
 <p>First install <a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo" target="_blank">Advanced REST Client</a> Chrome extension or use <code>curl</code> (for Unix-like systems) from the command line.</p>
 <h2 id="using-curl">Using curl</h2>
 <p>If using curl, for commodity add a line containing <code>-w &quot;\n&quot;</code> to your <code>~/.curlrc</code> file</p>
+<p>It is also useful installing <a href="http://stedolan.github.io/jq/" target="_blank"><code>jq</code></a> command-line JSON processor to pretty-print the JSON output.</p>
 <h3 id="example-scripts-with-curl-">Example scripts with <code>curl</code>:</h3>
 <p>Run the following scripts from the command line:</p>
 <blockquote>
@@ -231,7 +232,7 @@
 <blockquote>
 <p>Retrieves (GET) the info about topping 6 (check self-generated <code>version</code> number):</p>
 </blockquote>
-<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span>
+<pre><code class="lang-bash">curl -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span> | jq .
 </code></pre>
 <blockquote>
 <p>Updates (PUT) the <em>name</em> and <em>version</em> values for <em>Mozzarella</em> (id=6) topping (in JSON data, previous <code>version</code> number must be included; <code>id=6</code> is not required here):</p>
@@ -241,12 +242,12 @@
 <blockquote>
 <p>Retrieves (GET) the list of toppings:</p>
 </blockquote>
-<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings
+<pre><code class="lang-bash">curl -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings | jq .
 </code></pre>
 <blockquote>
 <p>Retrieves (GET) the info about topping 6:</p>
 </blockquote>
-<pre><code class="lang-bash">curl -i -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span>
+<pre><code class="lang-bash">curl -H <span class="hljs-string">"Accept: application/json"</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/toppings/<span class="hljs-number">6</span> | jq .
 </code></pre>
 <blockquote>
 <p>Creates (POST) an new <em>Napolitana</em> thin-crust pizza:</p>
@@ -258,7 +259,6 @@
 </blockquote>
 <p>This does not work :-?</p>
 <pre><code class="lang-bash">curl -i -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -H <span class="hljs-string">"Accept: application/json"</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'{name:"Stefan",total:7.5,address:"Sydney, AU",deliveryDate:1314595427866,id:{shopCountry:"AU",shopCity:"Sydney",shopName:"Pizza Pan 1"},pizzas:[{id:8,version:1}]}'</span> http://localhost:<span class="hljs-number">8080</span>/pizzashop/pizzaorders
-`
 </code></pre>
 <h2 id="using-a-rest-client">Using a REST client</h2>
 <p>GET request: all toppings</p>
