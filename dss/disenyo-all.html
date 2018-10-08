@@ -684,7 +684,10 @@ Veamos una versi&#xF3;n anterior de jUnit, que expone m&#xE1;s claramente las <e
   <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EcommerceTestSuite</span> <span class="token punctuation">{</span>
       <span class="token comment">//...</span>
   <span class="token punctuation">}</span>
-</pre><h3 class="mume-header" id="arquitectura-del-framework">Arquitectura del framework</h3>
+</pre><h3 class="mume-header" id="ejercicio-creditcardtest">Ejercicio: CreditCardTest</h3>
+
+<p>Dise&#xF1;ar y codificar una suite de casos de prueba unitaria para <code>CreditCard</code> usando jUnit 4.</p>
+<h3 class="mume-header" id="arquitectura-del-framework">Arquitectura del framework</h3>
 
 <p><img src="./figuras/junit-patterns.png" alt="Clases del framework jUnit"></p>
 <p>En la arquitectura del framework se observan diversos patrones: Composite, Command, Adapter, Factory, Decorator, etc.</p>
@@ -693,6 +696,9 @@ Veamos una versi&#xF3;n anterior de jUnit, que expone m&#xE1;s claramente las <e
 <h3 class="mume-header" id="biblioteca">Biblioteca</h3>
 
 <p><img src="./figuras/biblioteca.png" alt="Flujo de control en una biblioteca"></p>
+<h4 class="mume-header" id="flujo-de-control-en-un-framework">Flujo de control en un framework</h4>
+
+<p><img src="./figuras/framework.png" alt="Flujo de control en una framework"></p>
 <h3 class="mume-header" id="span-stylecolorblueframeworksspan"><span style="color:blue;">Frameworks</span></h3>
 
 <h4 class="mume-header" id="definici%C3%B3n-de-framework">Definici&#xF3;n de <em>framework</em></h4>
@@ -726,14 +732,11 @@ Veamos una versi&#xF3;n anterior de jUnit, que expone m&#xE1;s claramente las <e
 <li>Flujo de control invertido</li>
 <li>Programador cliente (c&#xF3;digo espec&#xED;fico) vs. programador de bibliotecas (c&#xF3;digo reutilizable)</li>
 </ul>
-<h4 class="mume-header" id="flujo-de-control-en-un-framework">Flujo de control en un framework</h4>
-
-<p><img src="./figuras/framework.png" alt="Flujo de control en una framework"></p>
 <h3 class="mume-header" id="principios-y-t%C3%A9cnicas-de-un-framework">Principios y t&#xE9;cnicas de un framework</h3>
 
 <ul>
 <li>
-<p>Abstracci&#xF3;n</p>
+<p><strong>Abstracci&#xF3;n</strong></p>
 <ul>
 <li>Clases y componentes abstractos</li>
 <li>Interfaces abiertas</li>
@@ -742,12 +745,14 @@ Veamos una versi&#xF3;n anterior de jUnit, que expone m&#xE1;s claramente las <e
 </ul>
 </li>
 <li>
-<p>M&#xE1;xima cohesi&#xF3;n, m&#xED;nimo acoplamiento</p>
+<p>M&#xE1;xima <strong>cohesi&#xF3;n</strong>, m&#xED;nimo <strong>acoplamiento</strong></p>
 <ul>
 <li>Minimizar dependencias: Una clase presenta una dependencia con otra clase si la primera usa una instancia de la segunda.</li>
 <li>Cuando no se pueden eliminar las dependencias, mantener las abstractas e <em>inyectar</em> las concretas.</li>
-<li><strong>Inyecci&#xF3;n de dependencias</strong>: una clase o m&#xF3;dulo no deber&#xED;a configurar sus dependencias est&#xE1;ticamente, sino ser configurada desde fuera</li>
 </ul>
+</li>
+<li>
+<p><strong>Inyecci&#xF3;n de dependencias</strong>: una clase o m&#xF3;dulo no deber&#xED;a configurar sus dependencias est&#xE1;ticamente, sino ser configurada desde fuera</p>
 </li>
 </ul>
 <h1 class="mume-header" id="caso-pr%C3%A1ctico-3">CASO PR&#xC1;CTICO 3</h1>
@@ -755,8 +760,7 @@ Veamos una versi&#xF3;n anterior de jUnit, que expone m&#xE1;s claramente las <e
 <p><a id="knights" href=""></a></p>
 <h2 class="mume-header" id="ejemplo-caballeros-de-la-mesa-redonda">Ejemplo: Caballeros de la mesa redonda</h2>
 
-<h3 class="mume-header" id="tomado-de-a-idbibliografiahtmlspringspring-in-actiona">Tomado de <a id="bibliografia.html#spring" href="">Spring in Action</a></h3>
-
+<p><strong>Tomado de <a id="bibliografia.html#spring" href="">Spring in Action</a></strong></p>
 <p>A&#xF1;adir pruebas unitarias a la soluci&#xF3;n siguiente:</p>
 <pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">KnightOfTheRoundTable</span> <span class="token punctuation">{</span>
   <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
