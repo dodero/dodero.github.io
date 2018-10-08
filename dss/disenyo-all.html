@@ -393,7 +393,7 @@ blockquote {
 <li>Arquitectura de software</li>
 </ol>
 <p><a id="clase01"></a></p>
-<h2 id="introducci%C3%B3n">Introducción</h2>
+<h2 id="span-stylecolorblueintroducci%C3%B3nspan"><span style="color:blue;">Introducción</span></h2>
 <h3 id="problem%C3%A1ticas">Problemáticas</h3>
 <ul>
 <li>Variabilidad</li>
@@ -427,8 +427,8 @@ blockquote {
 <li>Eventos</li>
 </ul>
 <h4 id="pregunta">Pregunta</h4>
-<p><em>¿De qué fecha data cada paradigma?</em>
-<em>¿Cuál diríais que es el más antiguo?</em></p>
+<p><span style="color:red;"><em>¿De qué fecha data cada paradigma?</em>
+<em>¿Cuál diríais que es el más antiguo?</em></span></p>
 <h4 id="respuesta">Respuesta</h4>
 <p><em>¿De qué fecha data cada paradigma?</em></p>
 <ul>
@@ -438,7 +438,7 @@ blockquote {
 <li>Aspectos (G. Kiczales, 1997)</li>
 <li>Eventos</li>
 </ul>
-<h2 id="casos-pr%C3%A1cticos">Casos prácticos</h2>
+<h2 id="span-stylecolorbluecasos-pr%C3%A1cticosspan"><span style="color:blue;">Casos prácticos</span></h2>
 <ol>
 <li><a href="#handler">Identificadores</a></li>
 <li><a href="#junit">Framework de pruebas unitarias</a></li>
@@ -505,7 +505,7 @@ implementación del objeto identificado.</p>
 sencilla o compuesta.</p>
 </li>
 </ul>
-<h2 id="patr%C3%B3n-handler">Patrón Handler</h2>
+<h2 id="span-stylecolorbluepatr%C3%B3n-handlerspan"><span style="color:blue;">Patrón Handler</span></h2>
 <p><img src="./figuras/handler.png" alt="Diseño de un handler"></p>
 <ul>
 <li>
@@ -518,7 +518,7 @@ sencilla o compuesta.</p>
 <p><strong>ConcreteHandler</strong>: Implementación concreta de la interfaz <code>Handler</code></p>
 </li>
 </ul>
-<h3 id="implementaci%C3%B3n-del-patr%C3%B3n">Implementación del patrón</h3>
+<h4 id="implementaci%C3%B3n-del-patr%C3%B3n">Implementación del patrón</h4>
 <pre class="hljs"><code><div>  <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Handler</span></span>{
       <span class="hljs-function">String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>;
       <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Handler otro)</span></span>;
@@ -536,7 +536,7 @@ sencilla o compuesta.</p>
     }
   }
 </div></code></pre>
-<h2 id="ejercicio-javalangcomparable">Ejercicio: <code>java.lang.Comparable</code></h2>
+<h3 id="ejemplo-identificadores-en-java-%E2%80%93-javalangcomparable">Ejemplo: Identificadores en Java – <code>java.lang.Comparable</code></h3>
 <p>Implementar un identificador utilizando <code>java.lang.Comparable</code> del JDK.</p>
 <p><code>Comparable</code> es una interfaz implementada por <code>String</code>, <code>File</code>, <code>Date</code>, etc. y todas las llamadas <em>clases de envoltura</em> del JDK (i.e. <code>Integer</code>, <code>Long</code>, etc.)</p>
 <p><strong>Métodos de la interfaz</strong>:</p>
@@ -548,7 +548,7 @@ sencilla o compuesta.</p>
 <p><code>x.compareTo(y)=0</code> $\Rightarrow$ <code>sgn(x.compareTo(z))=sgn(y.compareTo(z))</code> $\forall$ <code>z</code></p>
 <p><strong>Consistencia con <code>equals</code></strong>:</p>
 <p><code>(x.compareTo(y)=0)</code> $\Leftrightarrow$ <code>(x.equals(y))</code></p>
-<h2 id="reutilizaci%C3%B3n-y-flexibilidad">Reutilización y flexibilidad</h2>
+<h2 id="span-stylecolorbluereutilizaci%C3%B3n-y-flexibilidadspan"><span style="color:blue;">Reutilización y flexibilidad</span></h2>
 <ul>
 <li><strong>Flexibilidad</strong>: Adaptarse a cambios de requisitos y construir software fácil de cambiar</li>
 <li><strong>Reutilización</strong>: Construir software fácil de reutilizar sin tener que cambiar los módulos ya escritos</li>
@@ -560,8 +560,8 @@ sencilla o compuesta.</p>
 <li>JUnit es un framework en Java que sirve para diseñar, construir y ejecutar <strong>pruebas unitarias</strong></li>
 <li>Una prueba unitaria comprueba la corrección de un <em>módulo</em> de software en cuanto a funcionalidades que ofrece.</li>
 <li>En el caso de Java, las pruebas unitarias comprueban la corrección de cada uno de los métodos de <em>cada clase</em>.</li>
-<li>¿Cómo funciona?</li>
 </ul>
+<p><span style="color:red;">¿Cómo funciona?</span></p>
 <h3 id="%C2%BFc%C3%B3mo-probar-saludojava">¿Cómo probar <code>Saludo.java</code>?</h3>
 <p>Incluir un método <code>main</code> que pruebe la funcionalidad de la clase:</p>
 <pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Saludo</span> </span>{
@@ -837,7 +837,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
       <span class="hljs-comment">//...</span>
   }
 </div></code></pre>
-<h3 id="ejercicio-creditcardtest">Ejercicio: CreditCardTest</h3>
+<h3 id="span-stylecolorredejercicio-creditcardtestspan"><span style="color:red;">Ejercicio: CreditCardTest</span></h3>
 <p>Diseñar y codificar una suite de casos de prueba unitaria para <code>CreditCard</code> usando jUnit 4.</p>
 <h3 id="arquitectura-del-framework">Arquitectura del framework</h3>
 <p><img src="./figuras/junit-patterns.png" alt="Clases del framework jUnit"></p>
@@ -851,7 +851,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 <h4 id="definici%C3%B3n-de-framework">Definición de <em>framework</em></h4>
 <blockquote>
 <p>Colección de clases e interfaces que cooperan para formar un diseño reutilizable de un tipo específico de software</p>
-<p>-- <cite>[E. Gamma et al.]((bibliografia.html#gamma)</cite></p>
+<p>–– <cite><a href="bibliografia.html#gamma">E. Gamma et al.</a></cite></p>
 </blockquote>
 <ul>
 <li>El framework proporciona unas guías arquitectónicas (diseño empaquetado) para dividir el diseño en clases abstractas y definir sus <em>responsabilidades</em> y <em>colaboraciones</em>.</li>
@@ -927,7 +927,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 }
 </div></code></pre>
 <h3 id="dise%C3%B1o-de-pruebas-con-junit-3">Diseño de pruebas con jUnit 3</h3>
-<p>¿Dónde está el acoplamiento?</p>
+<p><span style="color:red;">¿Dónde está el acoplamiento?</span></p>
 <pre class="hljs"><code><div><span class="hljs-keyword">import</span> junit.framework.TestCase;
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KnightOfTheRoundTableTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testEmbarkOnQuest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> GrailNotFoundException </span>{
@@ -982,7 +982,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 </div></code></pre>
 <ul>
 <li>El <code>Knight</code> aún recibe un tipo específico de <code>Quest</code></li>
-<li>¿Debe ser el caballero responsable de obtener un desafío?</li>
+<li><span style="color:red;">¿Debe ser el caballero responsable de obtener un desafío?</span></li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KnightOfTheRoundTable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Knight</span> </span>{
   <span class="hljs-keyword">private</span> String name;
@@ -1015,14 +1015,17 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 <li>Es la base de la inyección de dependencias</li>
 </ul>
 <blockquote>
-<p>The question is: &quot;what aspect of control are they inverting?&quot; [...] Early user interfaces were controlled by the application program. You would have a sequence of commands like &quot;Enter name&quot;, &quot;enter address&quot;; your program would drive the prompts and pick up a response to each one. With graphical (or even screen based) UIs the UI framework would contain this main loop and your program instead provided event handlers for the various fields on the screen. The main control of the program was inverted, moved away from you to the framework</p>
-<p><cite> Martin Fowler</cite>, http://martinfowler.com/articles/injection.html</p>
+<p>The question is: <em>what aspect of control are they inverting?</em> [...] Early <strong>user interfaces</strong> were controlled by the application program. You would have a sequence of commands like &quot;Enter name&quot;, &quot;enter address&quot;; your program would drive the prompts and pick up a response to each one. With <strong>graphical</strong> (or even screen based) UIs the UI framework would contain this main loop and your program instead provided event handlers for the various fields on the screen. The main control of the program was inverted, moved away from you to the framework.</p>
+<p><cite> Martin Fowler, <a href="http://martinfowler.com/articles/injection.html">IoC containers and the DI pattern</a> [1]</cite></p>
 </blockquote>
+<p>[1] http://martinfowler.com/articles/injection.html</p>
+<h4 id="ioc%E2%80%93inversion-of-control-di%E2%80%93dependency-injection">IoC–Inversion of Control / DI–Dependency Injection</h4>
 <ul>
-<li>Una aplicación son dos o más clases que colaboran.</li>
-<li>Los objetos deben recibir las dependencias en su creación, por parte de una entidad externa que coordina los objetos.</li>
+<li>Una aplicación está compuesta por dos o más clases que colaboran.</li>
+<li>Los objetos deben recibir las dependencias en su creación, por parte de una entidad externa o <strong>contenedor</strong> que los coordina.</li>
 <li>Inversión de la responsabilidad de cómo un objeto obtiene referencias a los objetos con los que colabora</li>
-<li>Ventaja = <strong>bajo acoplamiento</strong>: un objeto sólo sabe de sus dependencias por su interfaz, no por su implementación, ni por cómo fueron instanciados. Entonces la dependencia puede cambiarse por una implementación distinta (incluso en tiempo de ejecución)</li>
+<li>Ventaja = <strong>bajo acoplamiento</strong>: un objeto sólo sabe de sus dependencias por su interfaz, no por su implementación, ni por cómo fueron instanciados.</li>
+<li>Entonces la dependencia puede cambiarse por una implementación distinta (incluso en <strong>tiempo de ejecución</strong>)</li>
 <li><em>Hollywood Principle: Don't call us, we'll call you&quot;.</em></li>
 </ul>
 <h3 id="factor%C3%ADas">Factorías</h3>
@@ -1031,9 +1034,9 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 <h2 id="span-stylecolorbluediscusi%C3%B3n-sobre-la-reutilizaci%C3%B3nspan"><span style="color:blue;">Discusión sobre la reutilización</span></h2>
 <blockquote>
 <p>We most likely would have been better off not attempting to create a reusable function in the first place</p>
-<p>-- <cite>Roger Sessions, The Misuse of Reuse [1]</cite></p>
+<p>-- <cite>Roger Sessions, <a href="http://simplearchitectures.blogspot.com.es/2012/07/misuse-of-reuse.html">The Misuse of Reuse</a> [2]</cite></p>
 </blockquote>
-<p>[1] http://simplearchitectures.blogspot.com.es/2012/07/misuse-of-reuse.html</p>
+<p>[2] http://simplearchitectures.blogspot.com.es/2012/07/misuse-of-reuse.html</p>
 <h3 id="factorizar-una-funci%C3%B3n">Factorizar una función</h3>
 <p><img src="./figuras/misuse-reuse-1.png" alt="Reutilización de una función"></p>
 <p><img src="./figuras/misuse-reuse-2.png" alt="Reutilización de una función"></p>
