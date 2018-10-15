@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>arquitectura.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="principios-de-dise%C3%B1o-arquitect%C3%B3nico">Principios de Diseño Arquitectónico</h1>
+<h2 id="granularidad">Granularidad</h2>
+<ul>
+<li>
+<p>Las aplicaciones crecen en tamaño y complejidad</p>
+</li>
+<li>
+<p>Se requiere algún tipo de organización</p>
+</li>
+<li>
+<p>La <em>clase</em> es de un grano demasiado fino como unidad de organización</p>
+</li>
+<li>
+<p>En UML, Java y otros lenguajes se da el concepto de <strong>paquete</strong> (<em>package</em>)</p>
+</li>
+<li>
+<p>En general puede hablarse de &quot;agrupaciones lógiclas de declaraciones que pueden importarse en otros programas&quot; (<strong>componentes</strong>)</p>
+</li>
+</ul>
+<h3 id="preguntas">Preguntas</h3>
+<ul>
+<li>¿Mejor criterio de partición?</li>
+<li>¿Qué relaciones hay entre paquetes y qué principios de diseño gobiernan su uso?</li>
+<li>¿Los paquetes deben diseñarse antes que las clases, o al revés?</li>
+<li>¿Cómo se representan físicamente los paquetes?</li>
+<li>¿Para qué usaremos esos paquetes?</li>
+</ul>
+<h3 id="arquitectura-software">Arquitectura software</h3>
+<blockquote>
+<p>La arquitectura de un sistema software es la forma dada al sistema por aquellos que lo construyen. La forma es la división del sistema en componentes, la disposición de esos componentes y la manera en que se comunican entre sí.</p>
+<p><small><cite>Bob Martin</cite></small></p>
+</blockquote>
+<p>La finalidad de la arquitectura es facilitar el desarrollo, despliegue, operación y mantenimiento del sistema software.</p>
+<h2 id="implicaciones-de-solid-en-arquitectura">Implicaciones de SOLID en arquitectura</h2>
+<h3 id="srpen-arquitectura">SRPen arquitectura</h3>
+<blockquote>
+<p>A module should be responsible to one, and only one, user/stakeholder/actor.
+<cite>––Robert C. Martin (2018): <a href="bibliografia.html#cleanarch">Clean Architecture: A Craftsman's Guide to Software Structure and Design</a></cite>.</p>
+</blockquote>
+<p><a href="bibliografia.html#cleanarch">Bob Martin's</a> chapter 7</p>
+<h3 id="ocp-en-arquitectura">OCP en arquitectura</h3>
+<p><a href="bibliografia.html#cleanarch">Bob Martin's</a> chapter 8</p>
+<h3 id="lsp-en-arquitectura">LSP en arquitectura</h3>
+<p><a href="bibliografia.html#cleanarch">Bob Martin's</a> chapter 9</p>
+<p>Al pricipio de la OO, el principio LSP nació ligado al uso de la herencia para el diseño software. Hoy día, se considera más ligado al diseño de interfaces e implementaciones:</p>
+<ul>
+<li>Una interfaz Java implementada por varias clases</li>
+<li>Varias clases Ruby con las mismas signaturas</li>
+<li>Un conjunto de servicios con la misma interfaz ReST</li>
+</ul>
+<p>LSP es aplicable porque habrá usuarios que dependan de interfaces bien definidas y en la posibilidad de sustitución de sus implementaciones.</p>
+<h4 id="ejemplo-de-violaci%C3%B3n-arquitect%C3%B3nica-de-lsp">Ejemplo de violación arquitectónica de LSP</h4>
+<ul>
+<li>Un servicio agregador de taxis (uber, cabify, etc)</li>
+<li>La URI con que se llama al taxi se guarda en la base de datos en formato ReST:
+<code>purplecab.com/driver/Bob</code></li>
+<li>El agregador añade la información de pedido y hace PUT a la URI:<pre class="hljs"><code><div>purplecab.com/driver/Bob
+  /pickupAddress/24 Maple St.
+  /pickupTime/153
+  /destination/ORD
+</div></code></pre>
+</li>
+<li>Todos los taxis de diferentes compañías deben cumplir la misma interfaz ReST.</li>
+<li>La compañía ACME abrevia el destino con <code>dest</code></li>
+<li>Ahora la petición hay que construirla siguiendo una reglas distintas para cada conductor:
+<code>if (driver.getDispatchUri().startsWith(&quot;acme.com&quot;)) ...</code></li>
+<li>Pero meter &quot;acme.com&quot; en el código puede ser origen de fallos y brechas de seguridad. El arquitecto define entonces un módulo adicional que decide el formato en función de la URI:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">URI</th>
+<th style="text-align:center">Dispatch format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>acme.com</code></td>
+<td style="text-align:center"><code>pickupAddress/%s/pickupTime/%s/dest/%s</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>*.*</code></td>
+<td style="text-align:center"><code>pickupAddress/%s/pickupTime/%s/destination/%s</code></td>
+</tr>
+</tbody>
+</table>
+<p>La LSP debería extenderse hasta el nivel arquitectónico. Una violación de la posibilidad de sustitución puede contaminar la arquitectura de un sistema con mecanismos extra.</p>
+<h3 id="isp-en-arquitectura">ISP en arquitectura</h3>
+<p><a href="bibliografia.html#cleanarch">Bob Martin's</a> chapter 10</p>
+<p>ISP = es pernicioso depender de módulos que contienen más de lo que se necesita. Esto es cierto también a nivel arquitectónico</p>
+<p>Supongamos que un sistema $S$ quiere incluir un framework $F$ y que los creadores de $F$ lo han acoplado a una base de datos $D$:</p>
+<p>$S \rightarrow F \rightarrow D$</p>
+<p>Si $D$ contiene características que $F$ no usa y que a $S$ tampoco le interesan;</p>
+<ul>
+<li>los cambios en esas características de $D$ forzarán un redespliegue de $F$ y de $S$;</li>
+<li>los fallos en $D$ causarán fallos en $F$ y $S$.</li>
+</ul>
+<p>Depender de algo que trae &quot;equipaje&quot; que no se necesita puede ser origen de problemas.</p>
+<h3 id="dip-en-arquitectura">DIP en arquitectura</h3>
+<p><a href="bibliografia.html#cleanarch">Bob Martin's</a> chapter 11</p>
+<h2 id="principios-de-cohesi%C3%B3n">Principios de Cohesión</h2>
+<p><strong>REP</strong> = <em>Reuse/Release Equivalente Principle</em>
+<strong>CCP</strong>= <em>Common Closure Principle</em>
+<strong>CRP</strong>= <em>Common Reuse Principle</em></p>
+<h3 id="principio-rep-equivalencia-de-reutilizaci%C3%B3nentrega">Principio REP: Equivalencia de Reutilización/Entrega</h3>
+<blockquote>
+<p><em>The granule of reuse is the granule of release.
+Only components that are released through a tracking system can be effectively reused.</em></p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<p>$\implies$ Las clases y módulos de un componente deben formar un grupo cohesionado</p>
+<p>¿Se reutiliza código cuando se hace copia-pega? ¡No!</p>
+<ul>
+<li>Se reutiliza código si y sólo si no hace falta mirar el código fuente más allá de la parte pública del componente/biblioteca (ficheros de cabecera, etc.)</li>
+<li>Hay muchas herramientas de gestión de módulos y paquetes (v.g. Maven, Apache Ivy, RubyGems, etc.) que permiten reutilizar <strong>componentes</strong> y <strong>bibliotecas</strong> creadas por otros</li>
+<li>El código a reutilizar se debe tratar como un <strong>producto</strong> en sí mismo, que no es mantenido ni distribuido por el consumidor o cliente, sino por el autor (o alguien delegado) responsable.</li>
+</ul>
+<p>$\implies$ El autor debe <strong>distribuir/hacer entregas</strong> regulares de distintas <strong>versiones</strong> del componente/biblioteca.</p>
+<ul>
+<li>No se puede reutilizar algo que no haya sido liberado/entregado.</li>
+<li>Un cliente de una biblioteca liberada lo es <strong>de toda la biblioteca</strong>, no de parte de ella.</li>
+<li>El <strong>grano de reutilización</strong> no puede ser menor que el <strong>grano de entrega</strong></li>
+</ul>
+<h3 id="principio-ccp-clausura-com%C3%BAn">Principio CCP: Clausura Común</h3>
+<blockquote>
+<p>Reunir en componentes aquellas clases que cambian por los mismos motivos y al mismo tiempo.
+Separar en componentes distintos aquellas clases que cambian en momentos distintos y por motivos diferentes.</p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<blockquote>
+<p><em>The classes in a package should be closed together against the same kinds of changes. A change that affects a package affects all the classes in that package.</em></p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<p>La <strong>mantenibilidad</strong> suele ser más importante que la <strong>reusabilidad</strong></p>
+<ul>
+<li>Si hay que cambiar el código, ¿dónde es mejor que estén los cambios? ¿en un mismo componente, o repartidos por varios componentes?</li>
+</ul>
+<p>CCP es un intento de tener junto todo lo que es probable que cambie por una misma razón</p>
+<ul>
+<li>Es el SRP de los componentes</li>
+<li>CCP está conectado con OCP</li>
+</ul>
+<p>Como no es posible garantizar al 100% el <em>cierre</em> de OCP... el <em>cierre</em> debe ser estratégico $\implies$ diseñar los sistemas para que estén <strong>cerrados</strong> a los <strong>cambios más probables</strong> que podamos anticipar.</p>
+<ul>
+<li>CCP amplía la estrategia de cierre, juntando en un mismo componente todas las clases <strong>cerradas</strong> para un mismo tipo de cambios.</li>
+</ul>
+<h3 id="principio-crp-reutilizaci%C3%B3n-en-com%C3%BAn">Principio CRP: Reutilización en Común</h3>
+<blockquote>
+<p>No obligar a los usuarios de un componente a depender de cosas que no necesitan</p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<blockquote>
+<p><em>The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.</em></p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<p>¿Qué clases ubicar en cada paquete?</p>
+<ul>
+<li>Las clases casi no se usan por separado, sino como parte de una <strong>abstracción reutilizable</strong> (de colaboración entre clases)</li>
+<li>La abstracción donde ubicar dichas clases debe ser un mismo componente</li>
+</ul>
+<p>Ejemplo: contenedor + iteradores</p>
+<p>Cuando alguien decide usar un paquete, se crea una dependencia <strong>sobre todo el paquete</strong>.</p>
+<ul>
+<li>No es bueno tener que revalidar una aplicación porque hay que liberar o entregar una versión del paquete provocada por cambios hechos en clases que no importaban.</li>
+<li>CRP dice más sobre qué clases <em>no deben</em> ir juntas que sobre las que <em>deben</em> ir juntas.</li>
+</ul>
+<p>CRP es la versión genérica del ISP:</p>
+<ul>
+<li>ISP aconseja no depender de clases con métodos que no usamos</li>
+<li>CRP aconseja no depender de componentes con clases que no usamos</li>
+</ul>
+<h3 id="tensi%C3%B3n-entre-principios-de-cohesi%C3%B3n-de-componentes">Tensión entre principios de cohesión de componentes</h3>
+<ul>
+<li>REP y CCP son <em>inclusivos</em>: incrementan el tamaño de los componentes</li>
+<li>CRP es <em>exclusivo</em>: reduce el tamaño de los componentes</li>
+</ul>
+<p><img src="./figuras/CohesionPrinciplesTensionDiagram.png" alt="Triángulo de tensiones">
+Cada arco describe el coste de abandonar el principio del vértice opuesto:</p>
+<ul>
+<li>¿Hay demasiados componentes cambiando al mismo tiempo? $\implies$ consolidar mejor las clases (CCP)</li>
+<li>¿Hay demasiadas versiones/entregas? $\implies$ minimizar las dependencias (CRP)</li>
+<li>¿Es difícil reutilizar el código? $\implies$ mejorar los artefactos que se liberan (REP)</li>
+</ul>
+<p>La postura en el <em>triángulo de tensiones</em> debe ser coyuntural, pues las preocupaciones del equipo de desarrollo pueden cambiar con el tiempo.</p>
+<ul>
+<li>CCP es más importante que REP al principio de un desarrollo (cuando liberar es más importante que reutilizar) - YAGNI</li>
+</ul>
+<h2 id="principios-de-acoplamiento">Principios de Acoplamiento</h2>
+<p><strong>ADPP: <em>Acyclic Dependencies Principle</em></strong></p>
+<h3 id="principio-de-dependencias-ac%C3%ADclicas">Principio de Dependencias Acíclicas</h3>
+<blockquote>
+<p><em>There must be no cycles in the coimponent dependency graph</em></p>
+<p><small><cite>Robert C. Martin</cite></small></p>
+</blockquote>
+<p>El grafo de dependencias entre components debe ser un DAG (<em>Directed Acyclic Graph</em>)</p>
+<p>Hay que particionar el entorno de desarrollo en componentes &quot;liberables&quot; por separado.</p>
+<p>Varios equipos de trabajo distribuidos pueden hacer cambios a cada componente por separado, lo que puede inducir nuevas dependencias entre componentes.</p>
+<p>$\implies$ Hay que <strong>gestionar</strong> la estructura de dependencias de los paquetes</p>
+<h4 id="ejemplo-estructura-de-un-sistema">Ejemplo: estructura de un sistema</h4>
+<h5 id="diagrama-sin-ciclos">Diagrama sin ciclos</h5>
+<p><img src="./figuras/adpp-1.png" alt="Diagrama de componentes inicial"></p>
+<ul>
+<li>La estructura es un DAG:</li>
+</ul>
+<pre class="hljs"><code><div>@startuml
+skinparam component {
+   backgroundColor white
+   borderColor #FF6655
+   FontName Consolas
+   ArrowColor #FF6655
+}
+[Main] as Main
+[Database] as Database
+[View] as View
+[Presenters] as Presenters
+[Interactors] as Interactors
+[Controllers] as Controllers
+[Authorizer] as Authorizer
+[Entities] as Entities
+Main --&gt; Database
+Main --&gt; Presenters
+Main --&gt; View
+View --&gt; Presenters
+Main --&gt; Interactors
+Main --&gt; Controllers
+Main --&gt; Authorizer
+Presenters --&gt; Interactors
+Authorizer --&gt; Interactors
+Database --&gt; Interactors
+Database --&gt; Entities
+Interactors --&gt; Entities
+Controllers --&gt; Interactors
+@enduml
+</div></code></pre>
+<ul>
+<li>
+<p>¿A quién afecta la liberación de una nueva versión de <code>Presenters</code> por sus responsables? <br>
+Solo <code>Main</code>y <code>View</code> se ven afectadas</p>
+</li>
+<li>
+<p>¿A quiénes afecta la ejecución de un test en <code>Presenters</code>? <br>
+<code>Interactors</code> y <code>Entities</code> (deberían ser <em>mocked</em>)</p>
+</li>
+<li>
+<p>¿En qué orden se libera una nueva versión del sistema? <br>
+<code>Entities</code>, <code>Database</code> &amp; <code>Interactors</code>, <code>Presenters</code>, <code>View</code> &amp; <code>Controllers</code> &amp; <code>Authorizer</code></p>
+</li>
+</ul>
+<h5 id="diagrama-con-ciclos">Diagrama con ciclos</h5>
+<ul>
+<li>Un cambio de requisitos fuerza a introducir una nueva dependencia <br>
+<code>Entities</code> $\rightarrow$ <code>Authorizer</code> <br>
+(por ejemplo, la clase <code>Entities::User</code> usa la clase <code>Autohizer::Permissions</code>)</li>
+</ul>
+<p><img src="./figuras/adpp-2.png" alt="Ciclo de dependencias"></p>
+<p>Problemas:</p>
+<ul>
+<li>Los desarrolladores de <code>Database</code> saben que para liberarla, deben hacerla compatible con <code>Entities</code></li>
+<li><code>Database</code> debe ser ahora compatible también con <code>Authorizer</code></li>
+<li>Pero <code>Authorizer</code> depende de <code>Interactors</code></li>
+</ul>
+<p><img class="emoji" alt="one" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAK0ElEQVR4Xu2bW2wc1R3GvzPXXe9u1nfjXAw4iYiwyEUmCFqhlkARUCrah6q8VGqhFUIVfWofy0Nfq762glJaqQ9V+4JKVQkhoKooIBVCbgqlxalCrtjZ2F57b7NzLv3PObseGXtnE+8ujku/yaestMnO+X1zzv9c7GVKKXyeZeHzrf8H4OAaxUj7j3z3kGNbD9i2e8h23Z3MYh5j9qalKMlKCSip6iIMLwgRHuNCvnbyjd8cU6SuBTB9/5PfuOfRH/w4ne0/nM5mHdf3YNkOmGUDDIBi2BQxBUR/pIAUHGFQf7xaKnFq67vU5p8dff3XL6GNEovgHQ98f6zPtZ/Lj9z0WG5gCKlcBkQPELzruvB9Gw69ttjmBCCVAifwIBAIwxAQHDwMUFsuY3nhKopXPvlTJRRPnXrtV7PX3QMOHvnOVH7b4B8Gx3dM5YeG4GUzsD0fO0f6cfvECCbG8hjMpdHnOxSChc86A2IneIlKwDG/XMW52SI+OHcFF64sIpXNoS+XQyqTe2z+8sU9xPKt42/89vQ1B3DHl57YlR8afHlkx62TA2NDcFJ9GB3qx4PTuzG9dwye66BW5yjVQgRcoMY5PuPZVAduWQyZtIexgQwO7bkJD9+1G0c/msWrR89gznHhpjzYjjeFi3iZmL586m8vnm8bACPd/dVnnh8en5gcGB/V8LfdPIZv3z+FXNrHzOUiLs2XUQo4hFRQZHN9tmLadFkMNjnrO9g+mMHh28axb2IQv3v9NP718SwGxm0oKSZFnT9PaI8oUmIAd37lqcf7R8Yfyo8Ow0tlsHvXKJ54cD8WygHe/uccykGoxzylbxrBTEM2TVKBk+frAQpLNZy5vIT9tw7qNr/wykmcOT+HiCWoVB+K2AD8vmURvPPOp9z0rm3vjO/ZOz0wNop8vh9Pf+0QKoHA8f8UTNpErHBjipGFMr3y4OQw+nwbv/zzMRSLi1iYncPlmY+OVs8v3fPee8+F6/YAMaQO9+UHp/u25cBcD1+Y2gkuFN4/cwW2LnQMEjeulBnCgAXd5rtvG9MMr7xbQcQUsZUqxcMA3l43AMf27+vL5+CmUujP9WFyvB+nzhZMhY+SJW8VMQacpLbv3d6vWa7WA0Rs9qx3pGUArps66Pq+XuDcNJDDUqWOpWqopzm5BTdNy9T2IjGME8v8whIiNs9LH2hZBB3H3eG4LmwKIJtyUShWdZK9gjdFtPkqloou1ZVeoBkyacNEbJqxZQCM2SnLtmDZNphloVzjgELvuj6DLrB1LtDktRhD2nPg2AzdqLYVYmDMMBGbZmwZAFhkmwyEXMBzbPSMnUEHPHO1gsW6BIPh9Qn8lryPkZzflelVKhmxrGJLCECxxh5LP5W0VJCyd09/oRLghw/fjptHcqsAXnrnDGbny/oBdCoGpllMvFIztgzA7KxM1+NCQEgJ0YMuYFsMC6U6Up6LnUPZte8zpoedUBIdS7KIZRVbQgBqxVKQuzz1Mbocgl+ucnxwaQnPPHqHDuPTUqp795aRRcxFbh2ABAFDrDRASokORoAuaDYzixMC0huoDwslzBQqePL+fTh4yxDWk9BDz7hjsWaYhk0iIYAmq9JWpiFq40VubqmGj6+WUaoLlEOBOgHtGcvj2W9OY3pyOKlw6RAscqdSTLPEbMm7QQEoCUgJSVaKLNWG4INQ6r3D5K4hpH0Xtw5nsH9iALtHtyFB8RCQAqobAVhMs4Cs2SASAtDQ+gWEDkFtbBGkTABf3DeOIwcmcL0y9zXuWBKaBdBsmjF5FlCmw/BQdFYDlNzwGFbN+iMZOhYzLJpKF0G0qQGN1CtBiByXAAOwAQ4hzBDagDS8EGTGOoQHhDIsMGztakA89VDF1iHQ+N3Qk1Rk37E3GICCaLgTWRZDNQg1C6nBppKGgCArMCU1QrFchW2buft6h6NjgbbSc/h4dnFN6voezMKj9+zFQDa17mmv0vWIdbTUrnPDABgmDaFEYg8whZDMpEIYSlwtVrCtz4PnOnGK16iFpSoKi5V1x3ikoM6xjjS80GYbADeh1etcb+c51yyaCeSkHhBvRRnIChY55EIfO6c8B2kvPgJv5qDadsN1AFXyFlsodc0BsBXw+Ki8SvA1slIgBkCyBpOBT14HKKVWmSGihRlLAYfrWPBdWwdhW839Gruuc2HVZplr1h+RWQK4qc7SrBw1eBAKhFxqUKYvrOFJXAcI1Xw8Bh7kBuHKh9VDjoBsMaYDcKMgIluWTpuxeBOrEgIQ5Jbvr14Kx5+3sk8ARGOmCMmisW5gzWhYfHc0waXhEUnToAFf7bWKw6C0yWJl7FmRLXL8unlsbv5mK1FCJHw+J7iAcwAGVhpAY7lmo7QqdHz6NOnTPFK1mwbj6YKua1wDGBi+pocZ3vjJNPEjELScXsu1EMvlAIFnA6rV55kw2xfmBotqBtMmAEA2gJrTELkD6QzjcOMhoINuXQOiC8pK+DwD01aGJWZLCsBAq9gNgu6q/aGnQrwk71hrCmHiXiDeDWpbZDB0XUoZtwA0Bcu4c6mYR8nkhVDctvgp9EAJBXZN4epSf1uTZ9KBiIQis7gG9CKAxC6u9NbVuHMpwwLZYGt7Jght4gdj6I0UWbZ/n9wVmRrYtGqzEoRceTpMJ8Z6wJ88xZr7S+1OxWBYDFPyidDaigmy6mENYImzgHbHYi0WdgnnAXEvkApATxJoUia8L407v1XM1PY8QIo4rZ4WQSRvhiC7NwvCsMRLYZF8Joj4H2/aNEjgXbx/zGJ6VeIQIHg0opdki9yjGuDZFrJpH+sp6znm/uSOxeKdoFpn+nGwCWIN//G195FJeQ3OeNq9VCjqc4deKXkzpCTiMdOjpTADuBD4+4mZdR+y79r6jEFBdqO7xSzkxCIolWIGPHYv5XtO4jDpjgxH7ITvC0jFQ6XHHv73JIGIjcuw3rIHhEFtTvIQQnJIKcGEGZhbWuanTJpJswW1q60DqFU+4GHwiAg5ZEqCRZfa4vx0SbpEGILYUA9qp1sGEJRKbwW18o94GEIKCYvZgLXFA5DQLDzkIDZiXHqrZQBnz556v3/7xOlc/+iUn0lD/8aYsrGVJZUA5wHqlTJKxSunI8aWAaBaLZUKl16sDI7/3O/LwLEdMJfBXFtLSlvpcV8vV1FZnkfEFjEmLYSqMyfe/ks6P/p1L5W713IcpLI2LIvMGKCwNcTQOEIXqFWqKBcXMT97/s2ILWJM+tZYLfLlfx//yeLcuQvRf6yVyxA81JVUQW2NoielbjO1XcNHLBFTk6/1kRiJMTZf+OSs7+eyTyvFfiGF2CXy/UilU7BcV/cGZmK+AdGhn7oMCb5aQ4XgFz45d/7CzPGniekygHlFavulKQphB4DM8M4923fs3v9s/9jEfZltA/D6+qB/l9ixb6wZQppiJ7gAJ/h6pYLy0gIWZ8/99eKZkz8tXJi5BKBMrBeh1T4AB8AuskvG7gP3PpgfnfheNj98wE9l4fhRT3DIDGDWps9zUioyBw9CBLUSSsXCieLcuRfOnHjzVRiF5PPEytsHEIfgA9iuQzCybpm661AqM3zYS2X2uZ4/xmzbsRhINjZHwux0heBhPZit18of1sqFd8+e/scxADKGxyXiDNp9b7BVTxgjZ7A1VSbPxk8+OYCkILIABskpbA3VGgWvtIFvjiYGkQYQ2Sc7N9BUoMicHJCrxFTFNeq/PB+lOayxMyUAAAAASUVORK5CYII=" /> $\implies$ ahora <code>Database</code> es mucho más difícil de <strong>liberar</strong>, porque:</p>
+<ul>
+<li><code>Entities</code> + <code>Authorizer</code> + <code>Interactors</code> se convierten en un solo componente</li>
+<li>Los cambios que haga cualquier responsable de alguno de estos tres componentes afectarán al resto</li>
+</ul>
+<p><img class="emoji" alt="two" src="data:image/png;base64,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" /> $\implies$ el desarrollo de <strong>pruebas</strong> es más difícil:</p>
+<ul>
+<li>si se quiere probar <code>Entities</code>, antes hay que construir e integrar <code>Authorizer</code> y <code>Interactors</code> (más <em>mocks</em>!)</li>
+</ul>
+<h5 id="ruptura-de-ciclos">Ruptura de ciclos</h5>
+<p>Dos posibles mecanismos:</p>
+<ol>
+<li>Aplicar el principio DIP
+<ul>
+<li>Crear una interfaz con los métodos que necesita la clase <code>User</code></li>
+<li>Incluir la interfaz en <code>Entities</code></li>
+<li>Heredar de la interfaz desde <code>Authorizer</code></li>
+</ul>
+</li>
+</ol>
+<p><img src="./figuras/adpp-3.png" alt="Inversión de dependencias entre dos componentes"></p>
+<ol start="2">
+<li>Crear un componente nuevo (<code>Permissions</code>) del que dependan ambos (<code>Authorizer</code> y <code>Entities</code>)</li>
+</ol>
+<p><img src="./figuras/adpp-4.png" alt="Nuevo componente en el diagrama final"></p>
+<p>La segunda alternativa puede provocar <em>jitters</em> (lo que hacen los <em>gremlins</em>) en presencia de requisitos cambiantes: la estructura de dependencia <em>jitters and grows</em></p>
+<h2 id="informaci%C3%B3n-adicional">Información adicional</h2>
+<p>Leer más sobre <a href="https://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a> y herramientas de <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a>:</p>
+<ul>
+<li>Ejemplo: <a href="https://jenkins.io/">Jenkins</a>, etc.</li>
+</ul>
+
+</body>
+</html>
