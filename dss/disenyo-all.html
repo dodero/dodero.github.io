@@ -446,7 +446,7 @@ blockquote {
 <li><a href="#guitarras">Guitarras Paco</a></li>
 <li><a href="#figuras">Figuras geométricas</a></li>
 </ol>
-<h1 id="caso-pr%C3%A1ctico-1">CASO PRÁCTICO 1</h1>
+<h1 id="caso-pr%C3%A1ctico-1-identificadores">CASO PRÁCTICO 1: identificadores</h1>
 <p><a id="handler"></a></p>
 <h2 id="identificadores">Identificadores</h2>
 <h3 id="versi%C3%B3n-inicial-identificadores-v01">Versión inicial: Identificadores v0.1</h3>
@@ -553,7 +553,7 @@ sencilla o compuesta.</p>
 <li><strong>Flexibilidad</strong>: Adaptarse a cambios de requisitos y construir software fácil de cambiar</li>
 <li><strong>Reutilización</strong>: Construir software fácil de reutilizar sin tener que cambiar los módulos ya escritos</li>
 </ul>
-<h1 id="caso-pr%C3%A1ctico-2">CASO PRÁCTICO 2</h1>
+<h1 id="caso-pr%C3%A1ctico-2-pruebas-unitarias">CASO PRÁCTICO 2: pruebas unitarias</h1>
 <p><a id="junit"></a></p>
 <h2 id="framework-de-pruebas-unitarias">Framework de pruebas unitarias</h2>
 <ul>
@@ -897,7 +897,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 <p><strong>Inyección de dependencias</strong>: una clase o módulo no debería configurar sus dependencias estáticamente, sino ser configurada desde fuera</p>
 </li>
 </ul>
-<h1 id="caso-pr%C3%A1ctico-3">CASO PRÁCTICO 3</h1>
+<h1 id="caso-pr%C3%A1ctico-3-caballeros-de-la-mesa-redonda">CASO PRÁCTICO 3: caballeros de la mesa redonda</h1>
 <p><a id="knights"></a></p>
 <h2 id="ejemplo-caballeros-de-la-mesa-redonda">Ejemplo: Caballeros de la mesa redonda</h2>
 <p><strong>Tomado de <a href="bibliografia.html#spring">Spring in Action</a></strong></p>
@@ -1059,7 +1059,7 @@ Veamos una versión anterior de jUnit, que expone más claramente las <em>tripas
 <h3 id="conclusi%C3%B3n">Conclusión</h3>
 <p>No crear funciones reutilizables en primer lugar</p>
 <p>Aplicar el principio <strong>YAGNI</strong>: <strong>You Ain't Gonna Need It</strong></p>
-<h1 id="caso-pr%C3%A1ctico-4">CASO PRÁCTICO 4</h1>
+<h1 id="caso-pr%C3%A1ctico-4-guitarras">CASO PRÁCTICO 4: guitarras</h1>
 <p><a id="guitarras"></a></p>
 <h2 id="guitarras-paco">Guitarras Paco</h2>
 <p>El cliente (Paco) quiere:</p>
@@ -1212,15 +1212,26 @@ de datos:</p>
 </ul>
 <h2 id="ejercicio">Ejercicio</h2>
 <p>Hacer refactoring de la aplicación heredada de Guitarras Paco</p>
-<h1 id="caso-pr%C3%A1ctico-5">CASO PRÁCTICO 5</h1>
+<h1 id="caso-pr%C3%A1ctico-5-figuras-geom%C3%A9tricas">CASO PRÁCTICO 5: figuras geométricas</h1>
 <p><a id="figuras"></a></p>
-<h2 id="figuras-geom%C3%A9tricas">Figuras geométricas</h2>
+<h2 id="span-stylecolorblueprincipios-solidspan"><span style="color:blue;">Principios SOLID</span></h2>
+<p>Los principios SOLID nos dicen:</p>
+<ul>
+<li>Cómo organizar en <em>módulos</em> (en OO, <em>clases</em>) las estructuras de datos y las funciones</li>
+<li>Cómo deben quedar <em>interconectadas</em> las clases</li>
+</ul>
+<p>El objetivo de SOLID es crear estructuras software de nivel intermedio que sean:</p>
+<ul>
+<li>tolerantes a los cambios</li>
+<li>fáciles de comprender</li>
+<li>la base de componentes útiles para muchos sistemas software</li>
+</ul>
 <p><a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">Uncle Bob Martin principles</a></p>
 <h2 id="span-stylecolorblueprincipio-de-responsabilidad-%C3%BAnica-span"><span style="color:blue;">Principio de responsabilidad única </span></h2>
 <p><strong>SRP: <em>Single responsibility Principle</em></strong></p>
 <blockquote>
-<p>A class should have onlye one reason to change
-<cite>-- Uncle Bob Martin</cite></p>
+<p>A class should have only one reason to change
+<cite>–– Uncle Bob Martin</cite></p>
 </blockquote>
 <ul>
 <li>Una clase que modela múltiples aspectos genera acoplamiento entre los distintos aspectos</li>
@@ -1228,13 +1239,13 @@ de datos:</p>
 </ul>
 <!-- Los módulos enmarañados que nunca cambian no son problemáticos-->
 <p>SRP es lo mismo que el principio de <strong>cohesión</strong> de <a href="bibliografia.html#demarco">DeMarco</a></p>
+<p>Consecuencia de la <a href="http://www.melconway.com/Home/Committees_Paper.html">ley de Conway</a>:</p>
+<blockquote>
+<p>Organizations which design systems [...] are constrained to produce designs which are copies of the communication structures of these organizations.
+<cite>–– M. Conway</cite></p>
+</blockquote>
 <h3 id="ejemplo-shapes-v1-en-java">Ejemplo: Shapes v1 en Java</h3>
 <p><a id="shapesV1"></a></p>
-<ul>
-<li>¿Cuántas responsabilidades tienen las clases que implementan la interfaz <code>Shape</code>?</li>
-<li>¿Cuáles son estas responsabilidades?</li>
-<li>¿Qué parte no cumple SRP en el ejemplo?</li>
-</ul>
 <pre class="hljs"><code><div><span class="hljs-keyword">package</span> shapes;
 
 <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>{
@@ -1286,15 +1297,23 @@ de datos:</p>
   <span class="hljs-function">String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{...}
 }
 </div></code></pre>
+<h4 id="span-stylecolorredpreguntascode"><span style="color:red;">Preguntas</code></h4>
+<ul>
+<li>¿Cuántas responsabilidades tienen las clases que implementan la interfaz <code>Shape</code>?</li>
+<li>¿Cuáles son estas responsabilidades?</li>
+<li>¿Qué parte no cumple SRP en el ejemplo?</li>
+</ul>
+<h4 id="span-stylecolorgreyrespuestascode"><span style="color:grey;">Respuestas</code></h4>
 <ul>
 <li>Dos responsabilidades: geometría computacional + dibujo en pantalla</li>
 <li>Todas las figuras tienen métodos <code>draw</code> y <code>toString</code> (dibujar en pantalla) además del método <code>area</code> que calcula el área (geometría computacional) $\rightarrow$ Violación del SRP</li>
 </ul>
 <h4 id="soluci%C3%B3n">Solución</h4>
-<p>Patrones de diseño: <em>visitor</em></p>
-<h4 id="otros-ejemplos">Otros ejemplos</h4>
+<p>Patrones de diseño: <em>Visitor</em></p>
+<h4 id="ejercicio">Ejercicio</h4>
 <ul>
-<li>ActiveRecord viola SRP. Sustituir por DAO</li>
+<li>Buscar información de los patrones <em>ActiveRecord</em> y <em>Data Access Object (DAO)</em>.</li>
+<li>Discutir si cumplen o violan el SRP.</li>
 </ul>
 <h2 id="span-stylecolorblueprincipio-de-abierto-cerradospan"><span style="color:blue;">Principio de Abierto-Cerrado</span></h2>
 <p><strong>OCP: <em>Open-Closed Principle</em></strong></p>
@@ -1302,6 +1321,7 @@ de datos:</p>
 <p>Toda clase, módulo, aspecto o función debe quedar abierto para extensiones pero cerrado para modificaciones</p>
 <p><cite>B. Meyer, <a href="#meyer">Object Oriented Software Construction</a></cite></p>
 </blockquote>
+<p>Para que un sistema software sea fácil de cambiar, debe diseñarse para que permita cambiar el comportamiento del sistema añadiendo código, no cambiando código existente.</p>
 <ul>
 <li>Si un cambio en un sitio origina una cascada de cambios en otros puntos del sistema, el resultado es un sistema frágil y rígido</li>
 <li>Es difícil averiguar todos los puntos que requieren cambios</li>
@@ -1396,6 +1416,8 @@ typedef <span class="hljs-keyword">struct</span> Shape *ShapePointer;
 <p>Since closure cannot be complete, it must be strategic. That is, the designer must choose the kinds of changes against which to close the design, must guess at the kinds of changes that are most likely, and then construct abstractions to protect against those changes.</p>
 <p><cite>-- Bob C. Martin</cite></p>
 </blockquote>
+<h4 id="implicaciones-arquitect%C3%B3nicas">Implicaciones arquitectónicas</h4>
+<p>OCP es un principio más arquitectónico que de diseño de clases y módulos. Lo veremos más adelante...</p>
 <h2 id="span-stylecolorblueprincipo-de-segregaci%C3%B3n-de-interfacesspan"><span style="color:blue;">Principo de segregación de interfaces</span></h2>
 <p><strong>ISP: <em>Interface Segregation Principle</em></strong></p>
 <blockquote>
