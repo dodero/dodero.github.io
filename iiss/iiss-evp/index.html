@@ -10,7 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
+        <meta name="description" content="Apuntes de Implementación e Implantación de Sistemas Software">
       
+      
+      
+        <meta name="author" content="Juan Manuel Dodero">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +40,7 @@
     
     
       
-        <title>Eventos - Implementación e Implantación de Sistemas Software</title>
+        <title>Eventos - IISS</title>
       
     
     
@@ -86,7 +90,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Implementación e Implantación de Sistemas Software" aria-label="Implementación e Implantación de Sistemas Software" class="md-header-nav__button md-logo">
+        <a href=".." title="IISS" aria-label="IISS" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../figuras/uca.svg" width="24" height="24">
           
@@ -99,7 +103,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Implementación e Implantación de Sistemas Software
+              IISS
             </span>
             <span class="md-header-nav__topic">
               
@@ -178,12 +182,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Implementación e Implantación de Sistemas Software" class="md-nav__button md-logo">
+    <a href=".." title="IISS" class="md-nav__button md-logo">
       
         <img alt="logo" src="../figuras/uca.svg" width="48" height="48">
       
     </a>
-    Implementación e Implantación de Sistemas Software
+    IISS
   </label>
   
     <div class="md-nav__source">
@@ -1034,7 +1038,7 @@
                   <a href="https://github.com/dodero/gii-dss-iiss/edit/master/docs/iiss-evp.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="eventos-asincronos">EVENTOS ASÍNCRONOS</h1>
+                <h1 id="eventos-asincronos">EVENTOS ASÍNCRONOS<a class="headerlink" href="#eventos-asincronos" title="Permanent link">&para;</a></h1>
 <ul>
 <li><a href="#programaci%C3%B3n-as%C3%ADncrona">Programación asíncrona</a><ul>
 <li><a href="#a-idlistenersejercicio-introductorio---listenersa"><a id="listeners">Ejercicio introductorio - Listeners</a></a><ul>
@@ -1058,9 +1062,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="ejercicio-introductorio-listeners"><a id="listeners">Ejercicio introductorio - Listeners</a></h2>
-<h3 id="implementando-listeners-en-java">Implementando listeners en Java</h3>
-<h4 id="listener-con-un-solo-control">Listener con un solo control</h4>
+<h2 id="ejercicio-introductorio-listeners"><a id="listeners">Ejercicio introductorio - Listeners</a><a class="headerlink" href="#ejercicio-introductorio-listeners" title="Permanent link">&para;</a></h2>
+<h3 id="implementando-listeners-en-java">Implementando listeners en Java<a class="headerlink" href="#implementando-listeners-en-java" title="Permanent link">&para;</a></h3>
+<h4 id="listener-con-un-solo-control">Listener con un solo control<a class="headerlink" href="#listener-con-un-solo-control" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEventsFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEventsFrame</span><span class="p">();</span>
@@ -1109,7 +1113,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="listener-con-varios-controles">Listener con varios controles</h4>
+<h4 id="listener-con-varios-controles">Listener con varios controles<a class="headerlink" href="#listener-con-varios-controles" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents2</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEvents2Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents2Frame</span><span class="p">();</span>
@@ -1176,7 +1180,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="listener-con-clases-anonimas">Listener con clases anónimas</h4>
+<h4 id="listener-con-clases-anonimas">Listener con clases anónimas<a class="headerlink" href="#listener-con-clases-anonimas" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents3</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEvents3Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents3Frame</span><span class="p">();</span>
@@ -1226,7 +1230,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="listener-con-adaptador">Listener con adaptador</h4>
+<h4 id="listener-con-adaptador">Listener con adaptador<a class="headerlink" href="#listener-con-adaptador" title="Permanent link">&para;</a></h4>
 <ul>
 <li>No hay que redefinir todos los métodos de <code>KeyListener</code></li>
 <li>Los métodos de <code>KeyAdapter</code> están definidos pero vacíos</li>
@@ -1274,7 +1278,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="listener-con-lambdas-y-dispatch-table">Listener con lambdas y dispatch table</h4>
+<h4 id="listener-con-lambdas-y-dispatch-table">Listener con lambdas y dispatch table<a class="headerlink" href="#listener-con-lambdas-y-dispatch-table" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.KeyAdapter</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.KeyEvent</span><span class="p">;</span>
@@ -1335,7 +1339,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="ejemplo-de-listener-con-y-sin-lambdas">Ejemplo de listener con y sin lambdas</h3>
+<h3 id="ejemplo-de-listener-con-y-sin-lambdas">Ejemplo de listener con y sin lambdas<a class="headerlink" href="#ejemplo-de-listener-con-y-sin-lambdas" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
@@ -1385,11 +1389,11 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="ejercicio">Ejercicio</h3>
+<h3 id="ejercicio">Ejercicio<a class="headerlink" href="#ejercicio" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Refactorizar <code>DemoKeyEvents2</code> con adaptador, interfaces funcionales (lambdas) y tabla de dispatch</li>
 </ul>
-<h2 id="modelos-de-programacion-asincrona">Modelos de programación asíncrona</h2>
+<h2 id="modelos-de-programacion-asincrona">Modelos de programación asíncrona<a class="headerlink" href="#modelos-de-programacion-asincrona" title="Permanent link">&para;</a></h2>
 <p>La programación asíncrona promueve la definición de operaciones <strong>no bloqueantes</strong>.</p>
 <blockquote>
 <p><img alt="modelos de ejecución" src="../figuras/modelos-ejecucion.png" /></p>
@@ -1414,9 +1418,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="modelo-de-paso-de-continuaciones">Modelo de paso de continuaciones</h2>
+<h2 id="modelo-de-paso-de-continuaciones">Modelo de paso de continuaciones<a class="headerlink" href="#modelo-de-paso-de-continuaciones" title="Permanent link">&para;</a></h2>
 <p>Aumentar la aridad de la función no bloqueante en 1 argumento adicional, donde se indica la lógica de continuación.</p>
-<h3 id="callbacks">Callbacks</h3>
+<h3 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h3>
 <p>La lógica de continuación se indica mediante una función de <strong>retrollamada</strong> o <em>callback</em>.</p>
 <p><img alt="Paso de callback" src="../figuras/cont-callback.png" /></p>
 <p>Ejemplos: implementaciones de <em>listener</em> del <a href="#a-idlistenersejercicio-introductorio---listenersa">ejercicio introductorio</a></p>
@@ -1425,13 +1429,13 @@
 <li>Con adaptadores</li>
 <li>Con funciones anónimas o lambdas</li>
 </ul>
-<h4 id="ejemplo-ajax-jquery-callbacks">Ejemplo: Ajax + jQuery callbacks</h4>
+<h4 id="ejemplo-ajax-jquery-callbacks">Ejemplo: Ajax + jQuery callbacks<a class="headerlink" href="#ejemplo-ajax-jquery-callbacks" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="http://learn.jquery.com/ajax/">Ajax</a></li>
 <li><a href="http://devdocs.io/jquery/">jQuery</a></li>
 <li><a href="http://devdocs.io/jquery-callbacks-object/">jQuery Callbacks object</a></li>
 </ul>
-<h4 id="ejemplo-callback-en-typescript">Ejemplo: callback en TypeScript</h4>
+<h4 id="ejemplo-callback-en-typescript">Ejemplo: callback en TypeScript<a class="headerlink" href="#ejemplo-callback-en-typescript" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">delayedResponseWithCallback</span><span class="p">(</span><span class="nx">callback</span>: <span class="kt">Function</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">function</span> <span class="nx">delayedAfterTimeout() {</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`delayedAfterTimeout`</span><span class="p">);</span>
@@ -1459,7 +1463,7 @@ afterWait
 </code></pre></div>
 
 <p>El uso de callbacks hace el código complejo, repetitivo y difícil de entender, especialmente cuando el tamaño del código crece.</p>
-<h3 id="thunks">Thunks</h3>
+<h3 id="thunks">Thunks<a class="headerlink" href="#thunks" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://en.wikipedia.org/wiki/Thunk">thunk</a></strong> = subrutina empleada para inyectar un cómputo adicional en otra subrutina</p>
 <ul>
 <li>Difieren un cómputo hasta que éste se necesita</li>
@@ -1468,12 +1472,12 @@ afterWait
 <li>Un thunk puede guardar su estado final para evitar recalcularlo (<em>memoization</em>)</li>
 </ul>
 <p><img alt="Paso de thunk" src="../figuras/cont-thunk.png" /></p>
-<h4 id="lenguajes-ruby">Lenguajes: Ruby</h4>
+<h4 id="lenguajes-ruby">Lenguajes: Ruby<a class="headerlink" href="#lenguajes-ruby" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Cualquier función en Ruby puede recibir un <strong>bloque</strong> <code>do</code>... <code>end</code> como argumento adicional (no explícito) a la llamada</li>
 <li>Un <em>thunk</em> es como un bloque con un <code>yield</code> al final</li>
 </ul>
-<h3 id="promesas">Promesas</h3>
+<h3 id="promesas">Promesas<a class="headerlink" href="#promesas" title="Permanent link">&para;</a></h3>
 <p>Modelo de <a href="https://en.wikipedia.org/wiki/Futures_and_promises">futuros y promesas</a></p>
 <ul>
 <li><strong>Futuro</strong>: marcador de posición (<em>placeholder</em>), de solo lectura, para una variable que representa el resultado de un cómputo asíncrono</li>
@@ -1483,9 +1487,9 @@ afterWait
 <p><img alt="Promesas" src="../figuras/promesas.png" /></p>
 <p>El cliente recibe como respuesta inmediata una abstracción de datos (la promesa) que representa un compromiso de valor futuro, con inyectores (then, catch) para incluir la lógica de continuación.</p>
 <p>Se pueden encadenar cálculos usando futuros <em>computables</em> o <em>escuchables</em>, que sirven para indicar a un thread que ejecute una determinada tarea y, cuando termine, se dirija a hacer otra tarea usando el resultado de la tarea anterior.</p>
-<h4 id="lenguajes-typescript">Lenguajes: TypeScript</h4>
+<h4 id="lenguajes-typescript">Lenguajes: TypeScript<a class="headerlink" href="#lenguajes-typescript" title="Permanent link">&para;</a></h4>
 <p>En TypeScript, una <code>Promise&lt;T&gt;</code> es un objeto que, en su creación, recibe una función (anónima o no) que acepta dos callbacks (<code>resolve</code> y <code>reject</code>) y devuelve un valor de tipo <code>T</code>.</p>
-<h5 id="ejemplo-definicion-de-promesa-que-resuelve">Ejemplo: definición de promesa que resuelve</h5>
+<h5 id="ejemplo-definicion-de-promesa-que-resuelve">Ejemplo: definición de promesa que resuelve<a class="headerlink" href="#ejemplo-definicion-de-promesa-que-resuelve" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">delayedPromise</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span>
     <span class="p">(</span>
@@ -1503,7 +1507,7 @@ afterWait
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="ejemplo-uso-para-resolver">Ejemplo: uso para resolver</h5>
+<h5 id="ejemplo-uso-para-resolver">Ejemplo: uso para resolver<a class="headerlink" href="#ejemplo-uso-para-resolver" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">callDelayedPromise() {</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling delayedPromise`</span><span class="p">);</span>
     <span class="nx">delayedPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
@@ -1521,7 +1525,7 @@ delayedPromise.then()
 </code></pre></div>
 
 
-<h5 id="ejemplo-definicion-de-promesa-que-rechaza">Ejemplo: definición de promesa que rechaza</h5>
+<h5 id="ejemplo-definicion-de-promesa-que-rechaza">Ejemplo: definición de promesa que rechaza<a class="headerlink" href="#ejemplo-definicion-de-promesa-que-rechaza" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">errorPromise</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span>
     <span class="p">(</span>
@@ -1534,7 +1538,7 @@ delayedPromise.then()
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="ejemplo-uso-para-rechazar">Ejemplo: uso para rechazar</h5>
+<h5 id="ejemplo-uso-para-rechazar">Ejemplo: uso para rechazar<a class="headerlink" href="#ejemplo-uso-para-rechazar" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">callErrorPromise() {</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling errorPromise`</span><span class="p">);</span>
     <span class="nx">errorPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
@@ -1553,8 +1557,8 @@ an error occurred
 </code></pre></div>
 
 
-<h4 id="comparacion-callbacks-promises-en-typescript">Comparación callbacks-promises en TypeScript</h4>
-<h5 id="mecanismo-de-los-callback">Mecanismo de los callback</h5>
+<h4 id="comparacion-callbacks-promises-en-typescript">Comparación callbacks-promises en TypeScript<a class="headerlink" href="#comparacion-callbacks-promises-en-typescript" title="Permanent link">&para;</a></h4>
+<h5 id="mecanismo-de-los-callback">Mecanismo de los callback<a class="headerlink" href="#mecanismo-de-los-callback" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">standardCallback() {</span>
     <span class="kd">function</span> <span class="nx">afterCallbackSuccess() {</span>
     <span class="c1">// execute this code</span>
@@ -1567,7 +1571,7 @@ an error occurred
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="sintaxis-fluent-de-las-promesas">Sintaxis (<em>fluent</em>) de las promesas:</h5>
+<h5 id="sintaxis-fluent-de-las-promesas">Sintaxis (<em>fluent</em>) de las promesas:<a class="headerlink" href="#sintaxis-fluent-de-las-promesas" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">usingPromises() {</span>
     <span class="c1">// invoke async function</span>
     <span class="nx">delayedPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
@@ -1582,7 +1586,7 @@ an error occurred
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="asyncawait">Async/await</h4>
+<h4 id="asyncawait">Async/await<a class="headerlink" href="#asyncawait" title="Permanent link">&para;</a></h4>
 <ul>
 <li>El prefijo <code>await</code> hace que se espere a que se llame a la función asíncrona antes de continuar con la ejecución del programa.</li>
 <li>Esto genera un flujo de ejecución de la lógica del programa más fácil de leer y de seguir, pausando la ejecución hasta que se cumpla la promesa.</li>
@@ -1615,7 +1619,7 @@ calling resolve
 after awaitDelayed
 </code></pre></div>
 
-<h5 id="comparacion-sintaxis-thencatch-y-asyncawait">Comparación sintaxis then/catch y async/await</h5>
+<h5 id="comparacion-sintaxis-thencatch-y-asyncawait">Comparación sintaxis then/catch y async/await<a class="headerlink" href="#comparacion-sintaxis-thencatch-y-asyncawait" title="Permanent link">&para;</a></h5>
 <p>Promesas que usan then/catch para definir funciones anónimas a llamar dependiendo del resultado éxito/fracaso de la ejecución:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">simplePromises() {</span>
     <span class="c1">// invoke async function</span>
@@ -1644,13 +1648,13 @@ after awaitDelayed
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="lenguajes-java">Lenguajes: Java</h4>
+<h4 id="lenguajes-java">Lenguajes: Java<a class="headerlink" href="#lenguajes-java" title="Permanent link">&para;</a></h4>
 <p>En Java hay definida una interfaz explícita para los futuros:</p>
 <ul>
 <li>Desde Java 5: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Future.html"><code>java.util.concurrent.Future</code></a> </li>
 <li>Desde Java 8, inspirado por los <a href="https://github.com/google/guava/wiki/ListenableFutureExplained"><code>ListenableFuture</code></a> de Guava: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/CompletableFuture.html"><code>java.util.concurrent.CompletableFuture</code></a></li>
 </ul>
-<h5 id="ejemplo-future-en-java">Ejemplo: <code>Future</code> en Java</h5>
+<h5 id="ejemplo-future-en-java">Ejemplo: <code>Future</code> en Java<a class="headerlink" href="#ejemplo-future-en-java" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="c1">// Callable&lt;V&gt; = Interfaz funcional que representa a una operación sin args</span>
 <span class="c1">// y que devuelve un resultado de tipo V (permite checked exceptions)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyCallable</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -1669,7 +1673,7 @@ after awaitDelayed
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="ejemplo-completablefuture-en-java">Ejemplo: <code>CompletableFuture</code> en Java</h5>
+<h5 id="ejemplo-completablefuture-en-java">Ejemplo: <code>CompletableFuture</code> en Java<a class="headerlink" href="#ejemplo-completablefuture-en-java" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="c1">// Supplier&lt;T&gt; = Interfaz funcional que representa a una operación sin args</span>
 <span class="c1">// y que devuelve un resultado de tipo T (no permite checked exceptions)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MySupplier</span> <span class="kd">implements</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -1700,18 +1704,18 @@ after awaitDelayed
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="lenguajes-javascript">Lenguajes, JavaScript</h3>
+<h3 id="lenguajes-javascript">Lenguajes, JavaScript<a class="headerlink" href="#lenguajes-javascript" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>LECTURA recomendada: <a href="https://promisesaplus.com/">Promises/A+</a>: An open standard for sound, interoperable JavaScript promises.</p>
 </blockquote>
-<h2 id="modelos-basados-en-eventos">Modelos basados en eventos</h2>
+<h2 id="modelos-basados-en-eventos">Modelos basados en eventos<a class="headerlink" href="#modelos-basados-en-eventos" title="Permanent link">&para;</a></h2>
 <p>Las operaciones disparan eventos de diferentes tipos, que son escuchados por los manejadores (<em>listeners</em>) de eventos, que los clientes han registrado en un bus de eventos</p>
-<h3 id="eventos">Eventos</h3>
+<h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
 <p><img alt="Eventos" src="../figuras/eventos.png" /></p>
-<h3 id="streams">Streams</h3>
+<h3 id="streams">Streams<a class="headerlink" href="#streams" title="Permanent link">&para;</a></h3>
 <p>Los datos fluyen por pipelines y se consumen siguiendo modelos <em>push</em> o <em>pull</em></p>
 <p><img alt="Streams" src="../figuras/streams.png" /></p>
-<h4 id="observables">Observables</h4>
+<h4 id="observables">Observables<a class="headerlink" href="#observables" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>LECTURA recomendada: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing (by @andrestaltz)</a></p>
 </blockquote>

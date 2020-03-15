@@ -10,7 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
+        <meta name="description" content="Apuntes de Implementación e Implantación de Sistemas Software">
       
+      
+      
+        <meta name="author" content="Juan Manuel Dodero">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +40,7 @@
     
     
       
-        <title>Objetos - Implementación e Implantación de Sistemas Software</title>
+        <title>Objetos - IISS</title>
       
     
     
@@ -86,7 +90,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Implementación e Implantación de Sistemas Software" aria-label="Implementación e Implantación de Sistemas Software" class="md-header-nav__button md-logo">
+        <a href=".." title="IISS" aria-label="IISS" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../figuras/uca.svg" width="24" height="24">
           
@@ -99,7 +103,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Implementación e Implantación de Sistemas Software
+              IISS
             </span>
             <span class="md-header-nav__topic">
               
@@ -178,12 +182,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Implementación e Implantación de Sistemas Software" class="md-nav__button md-logo">
+    <a href=".." title="IISS" class="md-nav__button md-logo">
       
         <img alt="logo" src="../figuras/uca.svg" width="48" height="48">
       
     </a>
-    Implementación e Implantación de Sistemas Software
+    IISS
   </label>
   
     <div class="md-nav__source">
@@ -369,11 +373,11 @@
                   <a href="https://github.com/dodero/gii-dss-iiss/edit/master/docs/iiss-oop.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="objetos">OBJETOS</h1>
-<h1 id="caso-1-ocultacion-de-la-implementacion">Caso 1 - Ocultación de la implementación</h1>
+                <h1 id="objetos">OBJETOS<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h1>
+<h1 id="caso-1-ocultacion-de-la-implementacion">Caso 1 - Ocultación de la implementación<a class="headerlink" href="#caso-1-ocultacion-de-la-implementacion" title="Permanent link">&para;</a></h1>
 <p><a id="recorridolista"></a></p>
-<h2 id="recorrido-de-una-lista">Recorrido de una lista</h2>
-<h3 id="version-inicial-lista-v01">Versión inicial: Lista v0.1</h3>
+<h2 id="recorrido-de-una-lista">Recorrido de una lista<a class="headerlink" href="#recorrido-de-una-lista" title="Permanent link">&para;</a></h2>
+<h3 id="version-inicial-lista-v01">Versión inicial: Lista v0.1<a class="headerlink" href="#version-inicial-lista-v01" title="Permanent link">&para;</a></h3>
 <p><strong>Abstracción</strong>: La clase abstracta <code>List&lt;T&gt;</code>diferencia entre el <em>qué</em> y el <em>cómo</em>: Qué hace la lista vs. cómo se almacenan los elementos</p>
 <p>Criticar la implementación siguiente:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -392,22 +396,22 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="cohesion"><span style="color:blue">Cohesión</span></h4>
+<h4 id="cohesion"><span style="color:blue">Cohesión</span><a class="headerlink" href="#cohesion" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>Cohesion refers to the degree to which the elements inside a module belong together</p>
 <p>-- <cite><a href="../bibliografia/#yourdon">E. Yourdon &amp; L. Constantine</a></cite></p>
 </blockquote>
-<h4 id="criticas-a-lista-v01">Críticas a Lista v0.1</h4>
+<h4 id="criticas-a-lista-v01">Críticas a Lista v0.1<a class="headerlink" href="#criticas-a-lista-v01" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>List&lt;T&gt;</code> aglutina más de una responsabilidad: almacenar y recorrer. Implementación no cohesionada</li>
 <li>¿Y si hay distintas implementaciones de <code>traverse()</code>? Si implementamos varias versiones de la lista, introducimos más dependencias (acoplamiento)</li>
 </ul>
-<h4 id="problematicas-de-lista-v01">Problemáticas de Lista v0.1</h4>
+<h4 id="problematicas-de-lista-v01">Problemáticas de Lista v0.1<a class="headerlink" href="#problematicas-de-lista-v01" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Baja <strong>cohesión</strong></li>
 <li>Alta <strong>variabilidad</strong> no bien tratada &rarr; poca <strong>flexibilidad</strong></li>
 </ul>
-<h3 id="implementacion-alternativa-lista-v02">Implementación alternativa: Lista v0.2</h3>
+<h3 id="implementacion-alternativa-lista-v02">Implementación alternativa: Lista v0.2<a class="headerlink" href="#implementacion-alternativa-lista-v02" title="Permanent link">&para;</a></h3>
 <p>Delegar funcionalidad hacia las subclases (vía <strong>herencia</strong>).</p>
 <p>Criticar la implementación:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">ListForward</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -420,17 +424,17 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-lista-v02">Críticas a Lista v0.2</h4>
+<h4 id="criticas-a-lista-v02">Críticas a Lista v0.2<a class="headerlink" href="#criticas-a-lista-v02" title="Permanent link">&para;</a></h4>
 <ul>
 <li>¿Qué operación hace <code>traverse()</code> con cada elemento individual (imprimir, sumar, etc.)? ¿Hay que especializar de nuevo para cada tipo de operación? </li>
 <li>¿Y si hay que especializar de nuevo el recorrido: sólo los pares, sólo los impares, etc.? </li>
 </ul>
-<h4 id="problematicas-de-lista-v02">Problemáticas de Lista v0.2</h4>
+<h4 id="problematicas-de-lista-v02">Problemáticas de Lista v0.2<a class="headerlink" href="#problematicas-de-lista-v02" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Elevada <strong>complejidad</strong></li>
 <li>Alta <strong>variabilidad</strong> no bien tratada &rarr; poca <strong>flexibilidad</strong>, mala <strong>reutilización</strong></li>
 </ul>
-<h3 id="implementacion-alternativa-lista-v03">Implementación alternativa: Lista v0.3</h3>
+<h3 id="implementacion-alternativa-lista-v03">Implementación alternativa: Lista v0.3<a class="headerlink" href="#implementacion-alternativa-lista-v03" title="Permanent link">&para;</a></h3>
 <p>Ampliamos la interfaz...</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
@@ -451,17 +455,17 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-lista-v03">Críticas a Lista v0.3</h4>
+<h4 id="criticas-a-lista-v03">Críticas a Lista v0.3<a class="headerlink" href="#criticas-a-lista-v03" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Si hay que cambiar la operación básica que hace <code>traverse()</code> con cada elemento (imprimir, sumar, etc.), ¿cuántos métodos hay que cambiar? Hay muchas dependencias</li>
 <li>Cuanto más variedad de recorridos (la interfaz es mayor), menos flexibilidad para los cambios. Implementación poco flexible</li>
 </ul>
-<h4 id="problematicas-de-lista-v03">Problemáticas de Lista v0.3</h4>
+<h4 id="problematicas-de-lista-v03">Problemáticas de Lista v0.3<a class="headerlink" href="#problematicas-de-lista-v03" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Muchas <strong>dependencias</strong> &rarr; <strong>acoplamiento</strong></li>
 <li>Poca <strong>flexibilidad</strong></li>
 </ul>
-<h3 id="implementacion-alternativa-lista-v04">Implementación alternativa: Lista v0.4</h3>
+<h3 id="implementacion-alternativa-lista-v04">Implementación alternativa: Lista v0.4<a class="headerlink" href="#implementacion-alternativa-lista-v04" title="Permanent link">&para;</a></h3>
 <p><strong>Delegar</strong> hacia otra clase</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kt">void</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
@@ -484,12 +488,12 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="ventajas">Ventajas</h4>
+<h4 id="ventajas">Ventajas<a class="headerlink" href="#ventajas" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Mayor <strong>cohesión</strong>: Las responsabilidades están ahora separadas: <code>List</code> almacena, <code>Iterator</code> recorre. <code>List</code> está más cohesionada</li>
 <li>Uso de <strong>delegación</strong>: la responsabilidad de recorrer se ha delegado hacia otro sitio</li>
 </ul>
-<h2 id="ocultar-la-implementacion"><span style="color:blue">Ocultar la implementación</span></h2>
+<h2 id="ocultar-la-implementacion"><span style="color:blue">Ocultar la implementación</span><a class="headerlink" href="#ocultar-la-implementacion" title="Permanent link">&para;</a></h2>
 <p><a id="ocultacion"></a></p>
 <ul>
 <li><strong>Cohesión</strong>: módulos auto-contenidos, independientes y con un
@@ -498,14 +502,14 @@
 <li><strong>Abstracción</strong>: diferenciar el <em>qué</em> y el <em>cómo</em></li>
 <li><strong>Modularidad</strong>: clases, interfaces y componentes/módulos</li>
 </ul>
-<h3 id="alta-cohesion-bajo-acoplamiento">Alta cohesión, bajo acoplamiento</h3>
+<h3 id="alta-cohesion-bajo-acoplamiento">Alta cohesión, bajo acoplamiento<a class="headerlink" href="#alta-cohesion-bajo-acoplamiento" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>Cuando los componentes están aislados, puedes cambiar uno sin preocuparte por el resto. Mientras no cambies las interfaces externas, no habrá problemas en el resto del sistema</p>
 <p>-- <cite><a href="../bibliografia/#yourdon">Eric Yourdon</a></cite></p>
 </blockquote>
-<h3 id="modularidad">Modularidad</h3>
+<h3 id="modularidad">Modularidad<a class="headerlink" href="#modularidad" title="Permanent link">&para;</a></h3>
 <p>Reducir el acoplamiento usando módulos o componentes con distintas responsabilidades, agrupados en bibliotecas</p>
-<h3 id="tecnicas-de-ocultacion">Técnicas de ocultación</h3>
+<h3 id="tecnicas-de-ocultacion">Técnicas de ocultación<a class="headerlink" href="#tecnicas-de-ocultacion" title="Permanent link">&para;</a></h3>
 <p>Hay diversas técnicas para ocultar la implementación...</p>
 <ul>
 <li><strong>Encapsular</strong>: agrupar en módulos y clases</li>
@@ -515,7 +519,7 @@
 <li><strong>Polimorfismo</strong>: ocultar la implementación de un método, manteniendo la misma interfaz de la clase base</li>
 <li><strong>Interfaces</strong>: usar interfaces bien documentadas</li>
 </ul>
-<h2 id="herencia-generalizacion-y-especializacion"><span style="color:blue">Herencia: generalización y especialización</span></h2>
+<h2 id="herencia-generalizacion-y-especializacion"><span style="color:blue">Herencia: generalización y especialización</span><a class="headerlink" href="#herencia-generalizacion-y-especializacion" title="Permanent link">&para;</a></h2>
 <p><a id="herencia"></a></p>
 <ul>
 <li>
@@ -544,7 +548,7 @@
 <p>When you inherit, you take an existing class and make a special version of it. In general, this means that you’re taking a general-purpose class and specializing it for a particular need. [...] it would make no sense to compose a car using a vehicle object —a car doesn’t contain a vehicle, it is a vehicle. The <em>is-a</em> relationship is expressed with inheritance, and the <em>has-a</em> relationship is expressed with composition.</p>
 <p>-- <cite><a href="../bibliografia/#eckel">Bruce Eckel</a></cite></p>
 </blockquote>
-<h3 id="ejemplo-aventura-v01">Ejemplo: Aventura v0.1</h3>
+<h3 id="ejemplo-aventura-v01">Ejemplo: Aventura v0.1<a class="headerlink" href="#ejemplo-aventura-v01" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonajeDeAccion</span> <span class="p">{</span>
      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">luchar</span><span class="p">()</span> <span class="p">{}</span>
    <span class="p">}</span>
@@ -584,7 +588,7 @@
    <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-aventura-v01">Críticas a Aventura v0.1</h4>
+<h4 id="criticas-a-aventura-v01">Críticas a Aventura v0.1<a class="headerlink" href="#criticas-a-aventura-v01" title="Permanent link">&para;</a></h4>
 <ul>
 <li>¿De qué tipos van a ser los personales de acción? &rarr; problema de <em>downcasting</em></li>
 <li>Hay que rediseñar la solución por ser insegura</li>
@@ -630,7 +634,7 @@
    <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="uso-correcto-de-la-herencia">Uso correcto de la herencia</h3>
+<h3 id="uso-correcto-de-la-herencia">Uso correcto de la herencia<a class="headerlink" href="#uso-correcto-de-la-herencia" title="Permanent link">&para;</a></h3>
 <p>Hay dos formas de contemplar la herencia:</p>
 <ul>
 <li>
@@ -648,7 +652,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="ejemplo-herencia-como-estructura">Ejemplo: herencia como estructura</h4>
+<h4 id="ejemplo-herencia-como-estructura">Ejemplo: herencia como estructura<a class="headerlink" href="#ejemplo-herencia-como-estructura" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Account</span> <span class="p">{</span>
   <span class="kt">float</span> <span class="n">balance</span><span class="p">;</span>
   <span class="kt">float</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">balance</span><span class="p">;</span> <span class="p">}</span>
@@ -682,7 +686,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="polimorfismo"><span style="color:blue">Polimorfismo</span></h2>
+<h2 id="polimorfismo"><span style="color:blue">Polimorfismo</span><a class="headerlink" href="#polimorfismo" title="Permanent link">&para;</a></h2>
 <p><a id="polimorfismo"></a></p>
 <p>Fenómeno por el que, cuando se llama a una operación de un objeto del que no se sabe su tipo específico, se ejecuta el método adecuado de acuerdo con su tipo.</p>
 <p>El polimorfismo se basa en:</p>
@@ -698,10 +702,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="caso-2-delegacion">Caso 2 - Delegación</h1>
+<h1 id="caso-2-delegacion">Caso 2 - Delegación<a class="headerlink" href="#caso-2-delegacion" title="Permanent link">&para;</a></h1>
 <p><a id="orquesta"></a></p>
-<h2 id="implementacion-de-una-orquesta">Implementación de una orquesta</h2>
-<h3 id="version-inicial-orquesta-v01">Versión inicial: Orquesta v0.1</h3>
+<h2 id="implementacion-de-una-orquesta">Implementación de una orquesta<a class="headerlink" href="#implementacion-de-una-orquesta" title="Permanent link">&para;</a></h2>
+<h3 id="version-inicial-orquesta-v01">Versión inicial: Orquesta v0.1<a class="headerlink" href="#version-inicial-orquesta-v01" title="Permanent link">&para;</a></h3>
 <p>Criticar la solución siguiente (parte 1):</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Instrumento</span> <span class="p">{</span>
       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tocar</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
@@ -753,12 +757,12 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-orquesta-v01">Críticas a la Orquesta v0.1</h4>
+<h4 id="criticas-a-la-orquesta-v01">Críticas a la Orquesta v0.1<a class="headerlink" href="#criticas-a-la-orquesta-v01" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Acoplamiento</strong>: método <code>static</code></li>
 <li><strong>Cohesión</strong>: ubicación de <code>main</code></li>
 </ul>
-<h3 id="implementacion-alternativa-orquesta-v02">Implementación alternativa: Orquesta v0.2</h3>
+<h3 id="implementacion-alternativa-orquesta-v02">Implementación alternativa: Orquesta v0.2<a class="headerlink" href="#implementacion-alternativa-orquesta-v02" title="Permanent link">&para;</a></h3>
 <p>Usar polimorfismo. Seguir criticando la implementación...</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
     <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
@@ -810,13 +814,13 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-orquesta-v02">Críticas a la Orquesta v0.2</h4>
+<h4 id="criticas-a-la-orquesta-v02">Críticas a la Orquesta v0.2<a class="headerlink" href="#criticas-a-la-orquesta-v02" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Encapsulación</strong>: método <code>add</code></li>
 <li><strong>Encapsulación</strong>: visibilidad de <code>Orquesta::instrumentos</code> (en C++ sería <code>friend</code>)</li>
 <li><strong>Flexibilidad</strong>: la implementación <code>Orquesta::instrumentos</code> puede variar, pero no hay colección (agregado) en quien confíe <code>Orquesta</code> por delegación.</li>
 </ul>
-<h3 id="implementacion-alternativa-orquesta-v03">Implementación alternativa: Orquesta v0.3</h3>
+<h3 id="implementacion-alternativa-orquesta-v03">Implementación alternativa: Orquesta v0.3<a class="headerlink" href="#implementacion-alternativa-orquesta-v03" title="Permanent link">&para;</a></h3>
 <p>Delegar las altas/bajas de <code>Instrumento</code> en la colección (agregado) de <code>Orquesta</code>:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
 
@@ -854,12 +858,12 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-orquesta-v03">Críticas a la Orquesta v0.3:</h4>
+<h4 id="criticas-a-la-orquesta-v03">Críticas a la Orquesta v0.3:<a class="headerlink" href="#criticas-a-la-orquesta-v03" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Acoplamiento</strong>: <code>PruebaOrquesta</code> conoce la implementación basada en un <code>ArrayList</code> de la colección de instrumentos de la orquesta.</li>
 <li><strong>Variabilidad</strong>: ¿La colección de instrumentos será siempre lineal?</li>
 </ul>
-<h3 id="implementacion-alternativa-orquesta-v04">Implementación alternativa: Orquesta v0.4</h3>
+<h3 id="implementacion-alternativa-orquesta-v04">Implementación alternativa: Orquesta v0.4<a class="headerlink" href="#implementacion-alternativa-orquesta-v04" title="Permanent link">&para;</a></h3>
 <p>Definir una <strong>interfaz</strong> para iterar en la colección de instrumentos:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
     <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
@@ -895,12 +899,12 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-orquesta-v04">Críticas a la Orquesta v0.4</h4>
+<h4 id="criticas-a-la-orquesta-v04">Críticas a la Orquesta v0.4<a class="headerlink" href="#criticas-a-la-orquesta-v04" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Ocultación</strong>: el atributo <code>instrumentos</code> sigue sin ser privado.</li>
 </ul>
 <p>Rehacemos la implementación, aprovechando que aparece una nueva versión del lenguaje (Java JDK 1.5) que permite iterar haciendo un <strong><em>for each</em></strong> sobre una colección que implemente la interfaz <code>Iterable</code>. </p>
-<h3 id="implementacion-alternativa-orquesta-v05">Implementación alternativa: Orquesta v0.5</h3>
+<h3 id="implementacion-alternativa-orquesta-v05">Implementación alternativa: Orquesta v0.5<a class="headerlink" href="#implementacion-alternativa-orquesta-v05" title="Permanent link">&para;</a></h3>
 <p>Usando delegación + interfaces y el <em>for each</em> de Java 1.5:</p>
 <p>Criticar...</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
@@ -940,12 +944,12 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-orquesta-v05">Críticas a la Orquesta v0.5:</h4>
+<h4 id="criticas-a-la-orquesta-v05">Críticas a la Orquesta v0.5:<a class="headerlink" href="#criticas-a-la-orquesta-v05" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Ocultación</strong>: la interfaz del método <code>instrumentos()</code> sigue expuesta: el cliente sabe que devuelve una <code>List</code>.</li>
 <li>Hemos ocultado un poco la implementación de <code>instrumentos</code> (que es una <code>List</code>), pero ¿conviene saber que es una <code>List</code>? Quizá no hemos ocultado lo suficiente.</li>
 </ul>
-<h3 id="implementacion-alternativa-orquesta-v06">Implementación alternativa: Orquesta v0.6</h3>
+<h3 id="implementacion-alternativa-orquesta-v06">Implementación alternativa: Orquesta v0.6<a class="headerlink" href="#implementacion-alternativa-orquesta-v06" title="Permanent link">&para;</a></h3>
 <p>Nos quedamos sólo con lo que nos interesa de la Orquesta: que es una colección iterable.</p>
 <p>Eliminamos lo que no nos interesa: el resto de elementos de la interfaz <code>List</code> que explican la forma lineal de almacenar los instrumentos.</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -985,7 +989,7 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="implementacion-alternativa-orquesta-v07">Implementación alternativa: Orquesta v0.7</h3>
+<h3 id="implementacion-alternativa-orquesta-v07">Implementación alternativa: Orquesta v0.7<a class="headerlink" href="#implementacion-alternativa-orquesta-v07" title="Permanent link">&para;</a></h3>
 <p>Supongamos que queremos sustituir la implementación basada en una <code>List</code> por otra (quizá más eficiente) basada en un <code>Map</code>.</p>
 <p><strong>Nota</strong>: La interfaz <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html"><code>java.util.Map</code></a> declara los métodos siguientes:</p>
 <div class="codehilite"><pre><span></span><code>clear() void – Map
@@ -1108,12 +1112,12 @@ wait(long timeout, int nanos) void – Object
 </code></pre></div>
 
 <p>Esta implementación sí que podemos adaptarla más fácilmente para cambiar el <code>List</code> por un <code>Map</code>, pues la responsabilidad de ser iterable ha quedado confinada en <code>Instrumentos</code>, que desacopla <code>Orquesta</code> y la implementación elegida (<code>List</code>, <code>Map</code>, etc.) para la colección de instrumentos.</p>
-<h3 id="implementacion-final-orquesta-v08">Implementación final: Orquesta v0.8</h3>
+<h3 id="implementacion-final-orquesta-v08">Implementación final: Orquesta v0.8<a class="headerlink" href="#implementacion-final-orquesta-v08" title="Permanent link">&para;</a></h3>
 <p>Los <code>new</code> de <code>PruebaOrquesta</code> siguen introduciendo dependencias de <code>PruebaOrquesta</code> con respecto a los tipos concretos de <code>Instrumento</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Ver antes el apartado <a href="#inyeccion">inyección de dependencias</a></p>
 </div>
-<h4 id="construccion-con-spring">Construcción con spring</h4>
+<h4 id="construccion-con-spring">Construcción con spring<a class="headerlink" href="#construccion-con-spring" title="Permanent link">&para;</a></h4>
 <p>A través de un fichero de configuración <code>orquesta.xml</code> le indicamos los valores inyectables:</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cp">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot;</span>
@@ -1162,14 +1166,14 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="composicion-y-dependencias"><span style="color:blue">Composición y dependencias</span></h2>
+<h2 id="composicion-y-dependencias"><span style="color:blue">Composición y dependencias</span><a class="headerlink" href="#composicion-y-dependencias" title="Permanent link">&para;</a></h2>
 <p><a id="composicion"></a></p>
 <p>Delegación <em>en horizontal</em> hacia otras clases cuya interfaz es bien conocida</p>
 <ul>
 <li>Los objetos miembro <strong>delegados</strong> son cambiables en tiempo de ejecución sin afectar al código cliente ya existente</li>
 <li>Alternativa más flexible que la herencia. Ejemplo: <code>Cola extends ArrayList</code> implica que una cola va a implementarse como un <code>ArrayList</code> para toda la vida, sin posibilidad de cambio en ejecución</li>
 </ul>
-<h3 id="composicion-vs-herencia"><span style="color:blue">Composición vs. Herencia</span></h3>
+<h3 id="composicion-vs-herencia"><span style="color:blue">Composición vs. Herencia</span><a class="headerlink" href="#composicion-vs-herencia" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Composición</strong> (delegación <em>en horizontal</em>)</p>
@@ -1188,8 +1192,8 @@ wait(long timeout, int nanos) void – Object
 </ul>
 </li>
 </ul>
-<h3 id="ejemplo-implementacion-de-identificadores">Ejemplo: implementación de identificadores</h3>
-<h4 id="handler-en-java">Handler en Java</h4>
+<h3 id="ejemplo-implementacion-de-identificadores">Ejemplo: implementación de identificadores<a class="headerlink" href="#ejemplo-implementacion-de-identificadores" title="Permanent link">&para;</a></h3>
+<h4 id="handler-en-java">Handler en Java<a class="headerlink" href="#handler-en-java" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">interface</span> <span class="nc">Handler</span><span class="p">{</span>
       <span class="n">String</span> <span class="nf">toString</span><span class="p">();</span>
       <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Handler</span> <span class="n">otro</span><span class="p">);</span>
@@ -1208,9 +1212,9 @@ wait(long timeout, int nanos) void – Object
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="implementacion-utilizando-comparable">Implementación utilizando <code>Comparable</code></h4>
+<h4 id="implementacion-utilizando-comparable">Implementación utilizando <code>Comparable</code><a class="headerlink" href="#implementacion-utilizando-comparable" title="Permanent link">&para;</a></h4>
 <p><code>java.lang.Comparable</code> es una interfaz implementada por <code>String</code>, <code>File</code>, <code>Date</code>, etc. y todas las llamadas <em>clases de envoltura</em> del JDK (i.e. <code>Integer</code>, <code>Long</code>, etc.)</p>
-<h5 id="metodos-de-la-interfaz">Métodos de la interfaz</h5>
+<h5 id="metodos-de-la-interfaz">Métodos de la interfaz<a class="headerlink" href="#metodos-de-la-interfaz" title="Permanent link">&para;</a></h5>
 <ul>
 <li>JDK 1.4:</li>
 </ul>
@@ -1227,7 +1231,7 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="invariantes">Invariantes</h5>
+<h5 id="invariantes">Invariantes<a class="headerlink" href="#invariantes" title="Permanent link">&para;</a></h5>
 <ul>
 <li>
 <p>Anticonmutativa: <code>sgn(x.compareTo(y)) = -sgn(y.compareTo(x))</code></p>
@@ -1242,12 +1246,12 @@ wait(long timeout, int nanos) void – Object
 <p>Consistencia con <code>equals</code> (no obligatoria): <code>(x.compareTo(y)=0)</code> &larr; <code>(x.equals(y))</code></p>
 </li>
 </ul>
-<h5 id="identificador-de-bankaccount-implementacion-en-java-15">Identificador de BankAccount: Implementación en Java 1.5</h5>
+<h5 id="identificador-de-bankaccount-implementacion-en-java-15">Identificador de BankAccount: Implementación en Java 1.5<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-15" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Utilizando <em>templates</em></li>
 <li>Delegar en <code>compareTo</code> y <code>equals</code> del tipo de id <em>envuelto</em> (e.g. <code>String</code>)</li>
 </ul>
-<h5 id="identificador-de-bankaccount-implementacion-en-java-14">Identificador de BankAccount: Implementación en Java 1.4</h5>
+<h5 id="identificador-de-bankaccount-implementacion-en-java-14">Identificador de BankAccount: Implementación en Java 1.4<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-14" title="Permanent link">&para;</a></h5>
 <ul>
 <li>No hay plantillas. La genericidad se consigue con <code>Object</code>. Hay que hacer casting.</li>
 <li>Cuidado con <code>Boolean</code> que no implementa <code>Comparable</code> en JDK 1.4</li>
@@ -1338,10 +1342,10 @@ wait(long timeout, int nanos) void – Object
 <p><span style="color:red;">¿Qué ventajas tiene la opción que usa <strong>Composición</strong> frente a la que usa <strong>Herencia (estática)</strong>?</span></p>
 <p>La respuesta está en la <a href="#inyeccion">inyección de dependencias</a>...</p>
 <p><a id="inyeccion"></a></p>
-<h1 id="caso-3-inyeccion-de-dependencias">Caso 3 - Inyección de dependencias</h1>
-<h2 id="caballeros-de-la-mesa-redonda">Caballeros de la mesa redonda</h2>
+<h1 id="caso-3-inyeccion-de-dependencias">Caso 3 - Inyección de dependencias<a class="headerlink" href="#caso-3-inyeccion-de-dependencias" title="Permanent link">&para;</a></h1>
+<h2 id="caballeros-de-la-mesa-redonda">Caballeros de la mesa redonda<a class="headerlink" href="#caballeros-de-la-mesa-redonda" title="Permanent link">&para;</a></h2>
 <p><a id="knights"></a></p>
-<h3 id="tomado-de-spring-in-action">Tomado de <a id="bibliografia#spring">Spring in Action</a></h3>
+<h3 id="tomado-de-spring-in-action">Tomado de <a id="bibliografia#spring">Spring in Action</a><a class="headerlink" href="#tomado-de-spring-in-action" title="Permanent link">&para;</a></h3>
 <p>Añadir pruebas unitarias a la solución siguiente:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
@@ -1366,7 +1370,7 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="construir-pruebas-con-junit-3">Construir pruebas con jUnit 3</h3>
+<h3 id="construir-pruebas-con-junit-3">Construir pruebas con jUnit 3<a class="headerlink" href="#construir-pruebas-con-junit-3" title="Permanent link">&para;</a></h3>
 <p>¿Dónde está el acoplamiento?</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">junit.framework.TestCase</span><span class="p">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTableTest</span> <span class="kd">extends</span> <span class="n">TestCase</span> <span class="p">{</span>
@@ -1391,7 +1395,7 @@ wait(long timeout, int nanos) void – Object
 <p>No se puede pedir a <code>HolyGrailQuest</code> que se comporte de otra forma (v.g. devolver null o elevar una excepción)</p>
 </li>
 </ul>
-<h3 id="ocultar-la-implementacion-detras-de-una-interfaz">Ocultar la implementación detrás de una interfaz</h3>
+<h3 id="ocultar-la-implementacion-detras-de-una-interfaz">Ocultar la implementación detrás de una interfaz<a class="headerlink" href="#ocultar-la-implementacion-detras-de-una-interfaz" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
   <span class="n">Object</span> <span class="nf">embarkOnQuest</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">QuestFailedException</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1426,7 +1430,7 @@ wait(long timeout, int nanos) void – Object
 <li>El <code>Knight</code> aún recibe un tipo específico de <code>Quest</code></li>
 <li>¿Debe ser el caballero responsable de obtener un desafío?</li>
 </ul>
-<h3 id="inyectar-dependencias">Inyectar dependencias</h3>
+<h3 id="inyectar-dependencias">Inyectar dependencias<a class="headerlink" href="#inyectar-dependencias" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="kd">implements</span> <span class="n">Knight</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
   <span class="kd">private</span> <span class="n">Quest</span> <span class="n">quest</span><span class="p">;</span>
@@ -1449,7 +1453,7 @@ wait(long timeout, int nanos) void – Object
 <li>Puede asignársele cualquier implementación de <code>Quest</code>
     (<code>HolyGrailQuest</code>, <code>RescueDamselQuest</code>, etc.)</li>
 </ul>
-<h3 id="construccion-con-spring_1">Construcción con spring</h3>
+<h3 id="construccion-con-spring_1">Construcción con spring<a class="headerlink" href="#construccion-con-spring_1" title="Permanent link">&para;</a></h3>
 <p>A través de un fichero de configuración XML le indicamos los valores inyectables:</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cp">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot;</span>
@@ -1482,7 +1486,7 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="ejemplo-logger">Ejemplo: Logger</h3>
+<h3 id="ejemplo-logger">Ejemplo: Logger<a class="headerlink" href="#ejemplo-logger" title="Permanent link">&para;</a></h3>
 <p>También se puede inyectar la dependencia en el constructor.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="p">;</span>
 
@@ -1497,7 +1501,7 @@ wait(long timeout, int nanos) void – Object
 </code></pre></div>
 
 <p>Un <em>contenedor</em> de dependencias en el framework debe responsabilizarse de crear las instancias de <code>Logger</code> e inyectarlas en su sitio (normalmente vía <em>reflexión</em> o <em>introspección</em>)</p>
-<h3 id="implementacion-final-de-la-orquesta-v08">Implementación final de la Orquesta v0.8</h3>
+<h3 id="implementacion-final-de-la-orquesta-v08">Implementación final de la Orquesta v0.8<a class="headerlink" href="#implementacion-final-de-la-orquesta-v08" title="Permanent link">&para;</a></h3>
 <p>Los <code>new</code> de <code>PruebaOrquesta</code> de la versión v0.7 siguen introduciendo dependencias de <code>PruebaOrquesta</code> con respecto a los tipos concretos de <code>Instrumento</code>.</p>
 <p>A través de un fichero de configuración <code>orquesta.xml</code> de Spring le indicamos los valores inyectables:</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -1547,7 +1551,7 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="dependencias-en-java">Dependencias en Java</h3>
+<h3 id="dependencias-en-java">Dependencias en Java<a class="headerlink" href="#dependencias-en-java" title="Permanent link">&para;</a></h3>
 <p>JSR 330 es un estándar de Java para describir las dependencias de una clase con <code>@Inject</code> y otras anotaciones. Hay diversas implementaciones de <a href="http://javax-inject.github.io/javax-inject/">JSR 330</a>.</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPart</span> <span class="p">{</span>
 <span class="hll">  <span class="nd">@Inject</span> <span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="p">;</span>
@@ -1565,7 +1569,7 @@ wait(long timeout, int nanos) void – Object
 </code></pre></div>
 
 <p>Esta clase sigue usando <code>new</code> para ciertos elementos de la interfaz. Esto significa que no pensamos reemplazarlos ni siquiera para hacer pruebas.</p>
-<h3 id="ejercicio-identificador-de-bankaccount-con-inyeccion-de-dependencias">Ejercicio: Identificador de BankAccount con inyección de dependencias</h3>
+<h3 id="ejercicio-identificador-de-bankaccount-con-inyeccion-de-dependencias">Ejercicio: Identificador de BankAccount con inyección de dependencias<a class="headerlink" href="#ejercicio-identificador-de-bankaccount-con-inyeccion-de-dependencias" title="Permanent link">&para;</a></h3>
 <p>Supongamos que queremos obtener un listado ordenado por fecha de creación de todas las cuentas bancarias.</p>
 <p><span style="color:red;">¿Cómo afecta este cambio a la versión de <code>BankAccount</code> ya implementada con JDK 1.5? <br> Resolver mediante inyección de dependencias</span></p>
 <p><code>BankAcccount.java</code>:</p>
@@ -1645,7 +1649,7 @@ wait(long timeout, int nanos) void – Object
 </code></pre></div>
 
 <p>Ahora podría definirse una anotación del tipo <code>@comparator(BankAccountComparatorById.className)</code> o <code>@compareById</code> que inyecte a <code>BankAccount</code> una dependencia <code>BankAccountComparatorById</code> en <code>BankAccount.comparator</code>.</p>
-<h3 id="decoradores-en-typescript">Decoradores en TypeScript</h3>
+<h3 id="decoradores-en-typescript">Decoradores en TypeScript<a class="headerlink" href="#decoradores-en-typescript" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Los decoradores de TypeScript son una forma de modificar programáticamente la definición de una clase.</p>
@@ -1679,13 +1683,13 @@ wait(long timeout, int nanos) void – Object
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="declaracion">Declaración</h4>
+<h4 id="declaracion">Declaración<a class="headerlink" href="#declaracion" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">simpleDecorator</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;simpleDecorator called.&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="uso">Uso</h4>
+<h4 id="uso">Uso<a class="headerlink" href="#uso" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">@simpleDecorator</span>
 <span class="kr">class</span> <span class="nx">ClassWithSimpleDecorator</span> <span class="p">{</span>
 
@@ -1704,7 +1708,7 @@ instance_2 : [object Object]
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`instance_2 : </span><span class="si">${</span><span class="nx">instance_2</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 </code></pre></div>
 
-<h4 id="decoradores-mutiples">Decoradores mútiples</h4>
+<h4 id="decoradores-mutiples">Decoradores mútiples<a class="headerlink" href="#decoradores-mutiples" title="Permanent link">&para;</a></h4>
 <details class="question"><summary>¿Cuál es la salida del siguiente código TypeScript?</summary><div class="codehilite"><pre><span></span><code>secondDecorator called.
 simpleDecorator called.
 instance_1 : [object Object]
@@ -1728,12 +1732,12 @@ instance_1 : [object Object]
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`instance_1: </span><span class="si">${</span><span class="nx">instance_1</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 </code></pre></div>
 
-<h4 id="factorias-de-decoradores">Factorías de decoradores</h4>
+<h4 id="factorias-de-decoradores">Factorías de decoradores<a class="headerlink" href="#factorias-de-decoradores" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Los decoradores pueden aceptar parámetros</li>
 <li>Una factoría de decoradores es una función que devuelve el propio decorador.</li>
 </ul>
-<h5 id="ejemplo-de-factoria-de-decoradores">Ejemplo de factoría de decoradores</h5>
+<h5 id="ejemplo-de-factoria-de-decoradores">Ejemplo de factoría de decoradores<a class="headerlink" href="#ejemplo-de-factoria-de-decoradores" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">decoratorFactory</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`decorator function called with: </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
@@ -1749,7 +1753,7 @@ instance_1 : [object Object]
 <div class="codehilite"><pre><span></span><code>decorator function called with: testName
 </code></pre></div>
 
-<h4 id="tipos-de-decoradores">Tipos de decoradores</h4>
+<h4 id="tipos-de-decoradores">Tipos de decoradores<a class="headerlink" href="#tipos-de-decoradores" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Decoradores de clases</li>
 <li>Decoradores de propiedades</li>
@@ -1761,10 +1765,10 @@ instance_1 : [object Object]
 <p class="admonition-title">Lectura recomendada</p>
 <p>Nathan Rozentals: <a href="https://www.packtpub.com/mapt/book/application_development/9781786468710">Mastering TypeScript</a>, Packt Publishing, 2<sup>nd</sup> edition, 2017</p>
 </div>
-<h1 id="caso-4-codigo-duplicado">Caso 4 - Código duplicado</h1>
-<h2 id="calculo-de-nominas">Cálculo de nóminas</h2>
+<h1 id="caso-4-codigo-duplicado">Caso 4 - Código duplicado<a class="headerlink" href="#caso-4-codigo-duplicado" title="Permanent link">&para;</a></h1>
+<h2 id="calculo-de-nominas">Cálculo de nóminas<a class="headerlink" href="#calculo-de-nominas" title="Permanent link">&para;</a></h2>
 <p><a id="nominas"></a></p>
-<h3 id="implementacion-de-nominas-v01">Implementación de nóminas v0.1</h3>
+<h3 id="implementacion-de-nominas-v01">Implementación de nóminas v0.1<a class="headerlink" href="#implementacion-de-nominas-v01" title="Permanent link">&para;</a></h3>
 <details class="question"><summary>En la siguiente implementación, ¿dónde hay código duplicado?</summary><ul>
 <li>Código duplicado en los constructores de las clases y subclases</li>
 <li>Refactorizar delegando hacia la superclase</li>
@@ -1802,7 +1806,7 @@ instance_1 : [object Object]
   <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="nominas-v02">Nóminas v0.2</h3>
+<h3 id="nominas-v02">Nóminas v0.2<a class="headerlink" href="#nominas-v02" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Requisito: los trabajadores autónomos cobran por horas (no tienen un salario fijo bruto)</li>
 <li>Incluimos el método <code>computeMonthlySalary</code> para el cálculo de la nómina mensual</li>
@@ -1855,7 +1859,7 @@ instance_1 : [object Object]
   <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="nominas-v03">Nóminas v0.3</h3>
+<h3 id="nominas-v03">Nóminas v0.3<a class="headerlink" href="#nominas-v03" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
     <span class="cm">/* ... */</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">float</span> <span class="nf">computeMonthlySalary</span><span class="p">();</span>
@@ -1901,7 +1905,7 @@ instance_1 : [object Object]
 </code></pre></div>
 
 <p><a id="refactoring"></a></p>
-<h2 id="refactoring"><span style="color:blue;">Refactoring</span></h2>
+<h2 id="refactoring"><span style="color:blue;">Refactoring</span><a class="headerlink" href="#refactoring" title="Permanent link">&para;</a></h2>
 <p>Hacer <em>refactoring</em> es hacer pequeñas transformaciones en el código que mantienen el sistema funcional, sin añadir nuevas funcionalidades.</p>
 <blockquote>
 <p>Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior</p>
@@ -1914,7 +1918,7 @@ instance_1 : [object Object]
 <p>Hunt &amp; Thomas. <a href="../bibliografia/#pragmatic">The Pragmatic Programmer</a>, 1999.
 Capítulo: <em>Refactoring</em></p>
 </div>
-<h3 id="motivos-para-refactoring">Motivos para refactoring</h3>
+<h3 id="motivos-para-refactoring">Motivos para refactoring<a class="headerlink" href="#motivos-para-refactoring" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Código duplicado</li>
 <li>Rutinas demasiado largas</li>
@@ -1937,32 +1941,32 @@ Capítulo: <em>Refactoring</em></p>
 </ul>
 </details>
 <p><a id="duplcode"></a></p>
-<h2 id="codigo-duplicado"><span style="color:blue;">Código duplicado</span></h2>
+<h2 id="codigo-duplicado"><span style="color:blue;">Código duplicado</span><a class="headerlink" href="#codigo-duplicado" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Lectura recomendada</p>
 <p>Hunt &amp; Thomas. <a href="../bibliografia/#pragmatic">The Pragmatic Programmer</a>, 1999.
 Capítulo <em>DRY—The Evils of Duplication</em></p>
 </div>
-<h3 id="por-que-no-duplicar">¿Por qué no duplicar?</h3>
+<h3 id="por-que-no-duplicar">¿Por qué no duplicar?<a class="headerlink" href="#por-que-no-duplicar" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Mantenimiento</li>
 <li>Cambios (no sólo a nivel de código)</li>
 <li>Trazabilidad</li>
 </ul>
-<h3 id="causas-de-la-duplicacion">Causas de la duplicación</h3>
+<h3 id="causas-de-la-duplicacion">Causas de la duplicación<a class="headerlink" href="#causas-de-la-duplicacion" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Impuesta</strong>: No hay elección</li>
 <li><strong>Inadvertida</strong>: No me he dado cuenta</li>
 <li><strong>Impaciencia</strong>: No puedo esperar</li>
 <li><strong>Simultaneidad</strong>: Ha sido otro</li>
 </ul>
-<h3 id="principio-dry-dont-repeat-yourself"><span style="color:blue;">Principio DRY – <em>Don't Repeat Yourself!</em></span></h3>
+<h3 id="principio-dry-dont-repeat-yourself"><span style="color:blue;">Principio DRY – <em>Don't Repeat Yourself!</em></span><a class="headerlink" href="#principio-dry-dont-repeat-yourself" title="Permanent link">&para;</a></h3>
 <p>by <a href="../bibliografia/#pragmatic">Hunt &amp; Thomas (1999)</a></p>
 <blockquote>
 <p>Copy and paste is a design error</p>
 <p>– <cite> McConnell (1998) </cite></p>
 </blockquote>
-<h3 id="duplicacion-impuesta">Duplicación impuesta</h3>
+<h3 id="duplicacion-impuesta">Duplicación impuesta<a class="headerlink" href="#duplicacion-impuesta" title="Permanent link">&para;</a></h3>
 <p>La gestión del proyecto así nos lo exige. Algunos ejemplos:</p>
 <ul>
 <li>Representaciones múltiples de la información:<ul>
@@ -1984,7 +1988,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </ul>
 </li>
 </ul>
-<h4 id="tecnicas-de-solucion">Técnicas de solución</h4>
+<h4 id="tecnicas-de-solucion">Técnicas de solución<a class="headerlink" href="#tecnicas-de-solucion" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Generadores de código</strong>: para evitar duplicar representaciones múltiples de la información</li>
 <li>Herramientas de <strong>ingeniería inversa</strong>: para generar código a partir de un esquema de BD – v.g. <a href="https://jeddict.github.io/">jeddict</a> para crear clases JPA, visualizar y modificar BDs y automatizar la generación de código Java EE.</li>
@@ -1994,10 +1998,10 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>Herramientas de <strong><a href="http://www.literateprogramming.com/">programación literaria</a></strong></li>
 <li>Ayuda del <strong>IDE</strong></li>
 </ul>
-<h3 id="duplicacion-inadvertida">Duplicación inadvertida</h3>
+<h3 id="duplicacion-inadvertida">Duplicación inadvertida<a class="headerlink" href="#duplicacion-inadvertida" title="Permanent link">&para;</a></h3>
 <p>Normalmente tiene origen en un diseño inapropiado.</p>
 <p>Fuente de numerosos problemas de integración.</p>
-<h4 id="ejemplo-codigo-duplicado-version-1">Ejemplo: código duplicado – versión 1</h4>
+<h4 id="ejemplo-codigo-duplicado-version-1">Ejemplo: código duplicado – versión 1<a class="headerlink" href="#ejemplo-codigo-duplicado-version-1" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">start</span><span class="p">;</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">end</span><span class="p">;</span>
@@ -2018,7 +2022,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 
 <p><span style="color:red;">¿Es conveniente aplicar siempre DRY?</span></p>
 <p>A veces se puede optar por violar DRY por razones de rendimiento.</p>
-<h4 id="ejemplo-aplicando-memoization-version-2">Ejemplo: aplicando memoization – versión 2</h4>
+<h4 id="ejemplo-aplicando-memoization-version-2">Ejemplo: aplicando memoization – versión 2<a class="headerlink" href="#ejemplo-aplicando-memoization-version-2" title="Permanent link">&para;</a></h4>
 <p><a href="https://en.wikipedia.org/wiki/Memoization"><em>Memoization</em></a>: cachear los resultados de cómputos costosos</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">changed</span><span class="p">;</span>
@@ -2042,13 +2046,13 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 
 <p>La técnica de memoization es menos problemática si queda dentro de los límites de la clase/módulo.</p>
 <p>Otras veces no merece la pena violar DRY por rendimiento: ¡las cachés y los optimizadores de código también hacen su labor!</p>
-<h3 id="principio-de-acceso-uniforme"><span style="color:blue;">Principio de acceso uniforme</span></h3>
+<h3 id="principio-de-acceso-uniforme"><span style="color:blue;">Principio de acceso uniforme</span><a class="headerlink" href="#principio-de-acceso-uniforme" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>All services offered by a module should be available through a uniform notation, which does not betray whether they are implemented through storage or through computation</p>
 <p><cite><a href="../bibliografia/#meyer">B. Meyer</a></cite></p>
 </blockquote>
 <p>Conviene aplicar el principio de acceso uniforme para que sea más fácil añadir mejoras de rendimiento (v.g. caching)</p>
-<h4 id="ejemplo-acceso-uniforme-en-c-version-3">Ejemplo: acceso uniforme en C# – versión 3</h4>
+<h4 id="ejemplo-acceso-uniforme-en-c-version-3">Ejemplo: acceso uniforme en C# – versión 3<a class="headerlink" href="#ejemplo-acceso-uniforme-en-c-version-3" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Line</span> <span class="p">{</span>
   <span class="k">private</span> <span class="n">Point</span> <span class="n">Start</span><span class="p">;</span>
   <span class="k">private</span> <span class="n">Point</span> <span class="n">End</span><span class="p">;</span>
@@ -2070,7 +2074,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="duplicacion-por-impaciencia">Duplicación por impaciencia</h3>
+<h3 id="duplicacion-por-impaciencia">Duplicación por impaciencia<a class="headerlink" href="#duplicacion-por-impaciencia" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Los peligros del <em>copy&amp;paste</em></li>
 <li>"Vísteme despacio que tengo prisa" (<em>shortcuts make for long delays</em>). Ejemplos:<ul>
@@ -2079,33 +2083,33 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </ul>
 </li>
 </ul>
-<h3 id="duplicacion-por-simultaneidad">Duplicación por simultaneidad</h3>
+<h3 id="duplicacion-por-simultaneidad">Duplicación por simultaneidad<a class="headerlink" href="#duplicacion-por-simultaneidad" title="Permanent link">&para;</a></h3>
 <ul>
 <li>No resoluble a nivel de técnicas de construcción</li>
 <li>Hace falta metodología, gestión de equipos + herramientas de comunicación</li>
 </ul>
-<h2 id="ortogonalidad"><span style="color:blue;">Ortogonalidad</span></h2>
+<h2 id="ortogonalidad"><span style="color:blue;">Ortogonalidad</span><a class="headerlink" href="#ortogonalidad" title="Permanent link">&para;</a></h2>
 <p><a id="ortogonalidad"></a></p>
 <p>Dos componentes A y B son ortogonales (<span><span class="MathJax_Preview">A \perp B</span><script type="math/tex">A \perp B</script></span>) si los cambios en uno no afectan al otro. Suponen más independencia y menos acoplamiento. Por ejemplo:</p>
 <ul>
 <li>La base de datos debe ser ortogonal a la interfaz de usuario</li>
 <li>En un helicóptero, los mandos de control no suelen ser ortogonales</li>
 </ul>
-<h3 id="beneficios-de-la-ortogonalidad">Beneficios de la ortogonalidad</h3>
-<h4 id="mayor-productividad">Mayor productividad</h4>
+<h3 id="beneficios-de-la-ortogonalidad">Beneficios de la ortogonalidad<a class="headerlink" href="#beneficios-de-la-ortogonalidad" title="Permanent link">&para;</a></h3>
+<h4 id="mayor-productividad">Mayor productividad<a class="headerlink" href="#mayor-productividad" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Es más fácil escribir un componente pequeño y auto-contenido que un bloque muy grande de código. El tiempo de desarrollo y <strong>pruebas</strong> se reduce</li>
 <li>Se pueden combinar unos componentes con otros más fácilmente. Mayor <strong>reutilización</strong>.</li>
 <li>Si <span><span class="MathJax_Preview">A \perp B</span><script type="math/tex">A \perp B</script></span>, el componente A sirve para <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> propósitos y B sirve para <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>, entonces <span><span class="MathJax_Preview">A \cup B</span><script type="math/tex">A \cup B</script></span> sirve para <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> propósitos.</li>
 <li>La falta de cohesión perjudica la reutilización – v.g. ¿y si hay que hacer una nueva versión gráfica de una aplicación de línea de comandos? (los <code>System.out.println</code> pueden descohesionar)</li>
 </ul>
-<h4 id="menor-riesgo">Menor riesgo</h4>
+<h4 id="menor-riesgo">Menor riesgo<a class="headerlink" href="#menor-riesgo" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Defectos aislados, más fáciles de arreglar</li>
 <li>Menor <strong>fragilidad</strong> del sistema global, los problemas provocados por cambios en un área se limitan a ese área</li>
 <li>Más fácil de <strong>probar</strong>, pues será más fácil construir pruebas individuales de cada uno de sus componentes (e.g. <em>mocking</em> es más sencillo)</li>
 </ul>
-<h3 id="niveles-de-aplicacion-de-la-ortogonalizad">Niveles de aplicación de la ortogonalizad</h3>
+<h3 id="niveles-de-aplicacion-de-la-ortogonalizad">Niveles de aplicación de la ortogonalizad<a class="headerlink" href="#niveles-de-aplicacion-de-la-ortogonalizad" title="Permanent link">&para;</a></h3>
 <p>La ortogonalidad es aplicable a:</p>
 <ul>
 <li>la gestión de proyectos</li>
@@ -2115,7 +2119,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>la documentación</li>
 </ul>
 <p>A nivel de <em>diseño</em>, los patrones de diseño y las arquitecturas como MVC facilitan la construcción de componentes ortogonales.</p>
-<h3 id="tecnicas-de-codificacion">Técnicas de codificación</h3>
+<h3 id="tecnicas-de-codificacion">Técnicas de codificación<a class="headerlink" href="#tecnicas-de-codificacion" title="Permanent link">&para;</a></h3>
 <p>Técnicas de codificación para fomentar la ortogonalidad:</p>
 <ul>
 <li>Hacer <strong>refactoring</strong></li>
@@ -2126,7 +2130,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li><strong>Desacoplar</strong>: Ley de <span><em>Demeter</em></span>—No hables con extraños</li>
 <li>Usar programación orientada a <strong>aspectos</strong></li>
 </ul>
-<h4 id="desacoplar-ley-de-demeter">Desacoplar - ley de Demeter</h4>
+<h4 id="desacoplar-ley-de-demeter">Desacoplar - ley de Demeter<a class="headerlink" href="#desacoplar-ley-de-demeter" title="Permanent link">&para;</a></h4>
 <p>Al pedir un servicio a un objeto, el servicio debe ser realizado de parte nuestra, no que nos devuelva un tercero con el que tratar para realizarlo</p>
 <p><strong>Ejemplo</strong>:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canWrite</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
@@ -2139,11 +2143,11 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </code></pre></div>
 
 <p>Refactorización: definir un método <code>User.hasPermission()</code></p>
-<h4 id="inyectar-el-contexto">Inyectar el contexto</h4>
+<h4 id="inyectar-el-contexto">Inyectar el contexto<a class="headerlink" href="#inyectar-el-contexto" title="Permanent link">&para;</a></h4>
 <p>Pasar explícitamente el contexto (dependencia) como parámetro a los constructores de la clase</p>
-<h5 id="ejemplo-patron-estrategia">Ejemplo: patrón estrategia</h5>
+<h5 id="ejemplo-patron-estrategia">Ejemplo: patrón estrategia<a class="headerlink" href="#ejemplo-patron-estrategia" title="Permanent link">&para;</a></h5>
 <p>En el patrón de diseño <em>strategy</em>, pasar el contexto a la estrategia en su creación</p>
-<h5 id="ejemplo-caballeros-de-la-mesa-redonda">Ejemplo: caballeros de la mesa redonda</h5>
+<h5 id="ejemplo-caballeros-de-la-mesa-redonda">Ejemplo: caballeros de la mesa redonda<a class="headerlink" href="#ejemplo-caballeros-de-la-mesa-redonda" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
   <span class="n">Object</span> <span class="nf">embarkOnQuest</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">QuestFailedException</span><span class="p">;</span>
 <span class="p">}</span>
@@ -2169,7 +2173,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="ley-de-demeter-para-funciones">Ley de Demeter para funciones</h4>
+<h4 id="ley-de-demeter-para-funciones">Ley de Demeter para funciones<a class="headerlink" href="#ley-de-demeter-para-funciones" title="Permanent link">&para;</a></h4>
 <p>Los métodos de un objeto solo deben hacer llamadas a métodos...</p>
 <p>caso 1. <strong>propios</strong> 
 caso 2. de objetos pasados como <strong>parámetros</strong>
@@ -2190,9 +2194,9 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="criticas-a-la-ley-de-demeter">Críticas a la ley de Demeter</h4>
+<h4 id="criticas-a-la-ley-de-demeter">Críticas a la ley de Demeter<a class="headerlink" href="#criticas-a-la-ley-de-demeter" title="Permanent link">&para;</a></h4>
 <p>La ley de Demeter, ¿realmente ayuda a crear código más mantenible?</p>
-<h5 id="ejemplo-pintar-graficos-de-grabadoras">Ejemplo: pintar gráficos de grabadoras</h5>
+<h5 id="ejemplo-pintar-graficos-de-grabadoras">Ejemplo: pintar gráficos de grabadoras<a class="headerlink" href="#ejemplo-pintar-graficos-de-grabadoras" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Pintar un gráfico con los datos registrados por una serie de grabadoras (<code>Recorder</code>) dispersas por el mundo.</li>
 <li>Cada grabadora está en una ubicación (<code>Location</code>), que tiene una zona horaria (<code>TimeZone</code>).</li>
@@ -2203,7 +2207,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="criticas">Críticas</h5>
+<h5 id="criticas">Críticas<a class="headerlink" href="#criticas" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Multiplicidad de dependencias: <code>plotDate</code> <span><span class="MathJax_Preview">\dashrightarrow</span><script type="math/tex">\dashrightarrow</script></span> <code>Selection</code>, <code>Recorder</code>, <code>Location</code>, <code>TimeZone</code>.</li>
 <li>Si cambia la implementación de <code>Location</code> de forma que ya no incluye directamente una <code>TimeZone</code>, hay que cambiar <code>plotDate</code></li>
@@ -2217,7 +2221,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
   Ahora <code>plotDate</code> <span><span class="MathJax_Preview">\dashrightarrow</span><script type="math/tex">\dashrightarrow</script></span> <code>Selection</code>, <code>TimeZone</code>, pero se han eliminado las restantes dependencias.
 - Costes de espacio y ejecución de métodos <em>wrapper</em> que reenvían la petición al objeto delegado: violar la ley de Demeter para mejorar el <strong>rendimiento</strong>
 - Otros ejemplos de mejora del rendimiento: desnormalización de BBDD</p>
-<h2 id="toolkits-y-bibliotecas">Toolkits y bibliotecas</h2>
+<h2 id="toolkits-y-bibliotecas">Toolkits y bibliotecas<a class="headerlink" href="#toolkits-y-bibliotecas" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Usar metadatos (@tag) para propósitos específicos – v.g. persistencia de objetos, transacciones, etc.</li>
 <li><a href="../iiss-aop/">Aspect-Oriented Programming (AOP)</a></li>
@@ -2228,10 +2232,10 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <div class="admonition warning">
 <p class="admonition-title">Ver luego el capítulo <a href="../iiss-dbc/">Contratos</a></p>
 </div>
-<h2 id="errores-y-excepciones"><span style="color:blue;">Errores y Excepciones</span></h2>
+<h2 id="errores-y-excepciones"><span style="color:blue;">Errores y Excepciones</span><a class="headerlink" href="#errores-y-excepciones" title="Permanent link">&para;</a></h2>
 <p><a id="errores"></a></p>
-<h3 id="tratamiento-de-errores">Tratamiento de errores</h3>
-<h4 id="codigos-de-error">Códigos de error</h4>
+<h3 id="tratamiento-de-errores">Tratamiento de errores<a class="headerlink" href="#tratamiento-de-errores" title="Permanent link">&para;</a></h3>
+<h4 id="codigos-de-error">Códigos de error<a class="headerlink" href="#codigos-de-error" title="Permanent link">&para;</a></h4>
 <p>Un ejemplo habitual de tratamiento de errores con <strong>códigos de error</strong>:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">deletePage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">registry</span><span class="p">.</span><span class="na">deleteReference</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="p">)</span> <span class="p">{</span>
@@ -2261,7 +2265,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </code></pre></div>
 
 <p>Los programadores intentan evitar añadir nuevos motivos de error, porque eso significa tener que volver a compilar y desplegar todo el código.</p>
-<h4 id="excepciones">Excepciones</h4>
+<h4 id="excepciones">Excepciones<a class="headerlink" href="#excepciones" title="Permanent link">&para;</a></h4>
 <p>Usar <strong>excepciones</strong> en lugar de códigos de error:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
   <span class="n">deletePage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
@@ -2276,7 +2280,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <p>¿No queda más claro?</p>
 <p>Ventaja: las nuevas excepciones son derivadas de una clase base <code>Exception</code>, lo que facilita la definición de nuevos motivos de error.</p>
 <p><span style="color:red;">¿Dónde se produce el error?</span></p>
-<h4 id="separar-la-funcion-y-el-tratamiento-de-errores">Separar la función y el tratamiento de errores</h4>
+<h4 id="separar-la-funcion-y-el-tratamiento-de-errores">Separar la función y el tratamiento de errores<a class="headerlink" href="#separar-la-funcion-y-el-tratamiento-de-errores" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="p">(</span><span class="n">Page</span> <span class="n">page</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">try</span> <span class="p">{</span>
     <span class="n">deletePageAndAllReferences</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
@@ -2298,7 +2302,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </code></pre></div>
 
 <p>¿No queda más fácil de comprender, modificar y depurar?</p>
-<h3 id="excepciones-en-java">Excepciones en Java</h3>
+<h3 id="excepciones-en-java">Excepciones en Java<a class="headerlink" href="#excepciones-en-java" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Checked</strong>: instancias de clases derivadas de <code>java.lang.Throwable</code> (menos <code>RuntimeException</code>). Deben declararse en el método mediante <code>throws</code> y obligan al llamador a tratar la excepción.</p>
@@ -2313,7 +2317,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>hasta que se encuentre un bloque catch para el tipo de <code>e</code></li>
 <li>y, si no se encuentra, la excepción es capturada por la JVM, que detiene el programa</li>
 </ul>
-<h4 id="tratamiento-de-excepciones-en-java">Tratamiento de excepciones en Java</h4>
+<h4 id="tratamiento-de-excepciones-en-java">Tratamiento de excepciones en Java<a class="headerlink" href="#tratamiento-de-excepciones-en-java" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code>  <span class="k">try</span> <span class="p">{</span>
       <span class="cm">/* guarded region that can send</span>
 <span class="cm">        IOException or Exception */</span>
@@ -2330,7 +2334,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
   <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="recomendaciones">Recomendaciones</h3>
+<h3 id="recomendaciones">Recomendaciones<a class="headerlink" href="#recomendaciones" title="Permanent link">&para;</a></h3>
 <p>Incluir el <strong>contexto</strong> de la ejecución:</p>
 <ul>
 <li>Incluir información suficiente con cada excepción para determinar el motivo y la ubicación de un error</li>
@@ -2343,11 +2347,11 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>Los beneficios de las checked en Java son mínimos</li>
 <li>Se paga el precio de violar el principio OCP (Open-Closed Principle): si lanzamos una excepción <em>checked</em> desde un método y el <code>catch</code> está tres niveles por encima, hay que declarar la excepción en la signatura de todos los métodos que van entre medias. Esto significa que un cambio en un nivel bajo del software puede forzar cambios en niveles altos</li>
 </ul>
-<h3 id="transformacion-de-excepciones">Transformación de excepciones</h3>
-<h4 id="checked-vs-unchecked">Checked vs unchecked</h4>
+<h3 id="transformacion-de-excepciones">Transformación de excepciones<a class="headerlink" href="#transformacion-de-excepciones" title="Permanent link">&para;</a></h3>
+<h4 id="checked-vs-unchecked">Checked vs unchecked<a class="headerlink" href="#checked-vs-unchecked" title="Permanent link">&para;</a></h4>
 <p>Muchas APIs de Java lanzan excepciones checked cuando deberían ser unchecked</p>
 <p><strong>Ejemplo</strong>: Al ejecutar una consulta mediante <code>executeQuery</code> en el API de JDBC se lanza una excepción <code>java.sql.SQLException</code> (de tipo checked) si la SQL es errónea.</p>
-<h5 id="solucion">Solución</h5>
+<h5 id="solucion">Solución<a class="headerlink" href="#solucion" title="Permanent link">&para;</a></h5>
 <p>Transformar las excepciones checked en unchecked:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="k">try</span> <span class="p">{</span>
     <span class="c1">// Codigo que genera la excepcion checked</span>
@@ -2356,7 +2360,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
   <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="excepciones-encapsuladas">Excepciones encapsuladas</h4>
+<h4 id="excepciones-encapsuladas">Excepciones encapsuladas<a class="headerlink" href="#excepciones-encapsuladas" title="Permanent link">&para;</a></h4>
 <p>Criticar la siguiente implementación:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="n">ACMEPort</span> <span class="n">port</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ACMEPort</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
   <span class="k">try</span> <span class="p">{</span>
@@ -2411,7 +2415,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>La encapsulación de excepciones es recomendable cuando se usa un API de terceros, para minimizar las dependencias con respecto al API elegido. </li>
 <li>También facilitan la implementación de <em>mocks</em> del componente que proporciona el API para construir pruebas.</li>
 </ul>
-<h3 id="las-excepciones-son-excepcionales">Las excepciones son excepcionales</h3>
+<h3 id="las-excepciones-son-excepcionales">Las excepciones son excepcionales<a class="headerlink" href="#las-excepciones-son-excepcionales" title="Permanent link">&para;</a></h3>
 <p><strong>Recomendación de uso</strong>: Usar excepciones para problemas excepcionales (eventos inesperados)</p>
 <p><strong>Ejemplo</strong>: <span style="color:red;">¿Usar excepciones cuando se intenta abrir un fichero para leer y el fichero no existe?</span></p>
 <p>Depende de si el fichero debe estar ahí</p>
@@ -2439,9 +2443,9 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </code></pre></div>
 
 <p><a id="null"></a></p>
-<h3 id="uso-de-null">Uso de null</h3>
+<h3 id="uso-de-null">Uso de null<a class="headerlink" href="#uso-de-null" title="Permanent link">&para;</a></h3>
 <p>Obtener un <em>null</em> cuando no se espera puede ser un quebradero de cabeza para el tratamiento de errores</p>
-<h4 id="principio-general-no-devolver-null">Principio general: no devolver null</h4>
+<h4 id="principio-general-no-devolver-null">Principio general: no devolver null<a class="headerlink" href="#principio-general-no-devolver-null" title="Permanent link">&para;</a></h4>
 <p>Este código puede parecer inofensivo, pero es maligno:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">registerItem</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
@@ -2463,7 +2467,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>El problema no es que se haya olvidado uno, sino que hay demasiados</li>
 <li>En su lugar, elevar una excepción o devolver un objeto <em>especial</em></li>
 </ul>
-<h4 id="no-devolver-null">No devolver null</h4>
+<h4 id="no-devolver-null">No devolver null<a class="headerlink" href="#no-devolver-null" title="Permanent link">&para;</a></h4>
 <p>Evitar:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employees</span> <span class="o">=</span> <span class="n">getEmployees</span><span class="p">();</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">employees</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
@@ -2485,7 +2489,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="no-pasar-valores-null">No pasar valores null</h4>
+<h4 id="no-pasar-valores-null">No pasar valores null<a class="headerlink" href="#no-pasar-valores-null" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MetricsCalculator</span>
 <span class="p">{</span>
   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">xProjection</span><span class="p">(</span><span class="n">Point</span> <span class="n">p1</span><span class="p">,</span> <span class="n">Point</span> <span class="n">p2</span><span class="p">)</span> <span class="p">{</span>
@@ -2512,7 +2516,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </code></pre></div>
 
 <p>¿Qué curso de acción tomar ante un <code>InvalidArgumentException</code>? ¿Hay alguno?</p>
-<h5 id="alternativa-con-aserciones">Alternativa con aserciones</h5>
+<h5 id="alternativa-con-aserciones">Alternativa con aserciones<a class="headerlink" href="#alternativa-con-aserciones" title="Permanent link">&para;</a></h5>
 <p>(<em>solo para JDK <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 5.0</em>)</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MetricsCalculator</span>
 <span class="p">{</span>
@@ -2525,7 +2529,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </code></pre></div>
 
 <p>Es una buena forma de documentar, pero no resuelve el problema</p>
-<h3 id="optionals">Optionals</h3>
+<h3 id="optionals">Optionals<a class="headerlink" href="#optionals" title="Permanent link">&para;</a></h3>
 <ul>
 <li>En la mayoría de lenguajes no hay forma satisfactoria de tratar con <em>nulls</em> pasados como argumento accidentalmente.</li>
 <li>Para eso están los <em>options</em> u <em>optionals</em>, disponibles actualmente en muchos languajes:<ul>
@@ -2536,7 +2540,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 </li>
 <li><a href="https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined">TypeScript recomienda usar <code>undefined</code></a> (algo que no se ha inicializado) en lugar de <code>null</code> (algo que no está disponible)</li>
 </ul>
-<h4 id="scala-options"><a href="https://www.tutorialspoint.com/scala/scala_options.htm">Scala Options</a></h4>
+<h4 id="scala-options"><a href="https://www.tutorialspoint.com/scala/scala_options.htm">Scala Options</a><a class="headerlink" href="#scala-options" title="Permanent link">&para;</a></h4>
 <p>En Scala, <code>Option[T]</code> es un contenedor de un valor opcional de tipo T.</p>
 <ul>
 <li>Si el valor de tipo T está presente, <code>Option[T]</code> es una intancia de <code>Some[T]</code> que contiene el valor presente de tipo T.</li>
@@ -2568,9 +2572,9 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="o">}</span>
 </code></pre></div>
 
-<h4 id="java-8-optionals">Java 8 Optionals</h4>
+<h4 id="java-8-optionals">Java 8 Optionals<a class="headerlink" href="#java-8-optionals" title="Permanent link">&para;</a></h4>
 <p>From <a href="https://www.mkyong.com/java8/java-8-optional-in-depth/">Java 8 Optional in Depth</a></p>
-<h5 id="ejemplo-sin-optional">Ejemplo sin <code>Optional</code></h5>
+<h5 id="ejemplo-sin-optional">Ejemplo sin <code>Optional</code><a class="headerlink" href="#ejemplo-sin-optional" title="Permanent link">&para;</a></h5>
 <p>Programa de prueba:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileTesterWithoutOptional</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -2671,7 +2675,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h5 id="ejemplo-con-optionals">Ejemplo con <code>Optionals</code></h5>
+<h5 id="ejemplo-con-optionals">Ejemplo con <code>Optionals</code><a class="headerlink" href="#ejemplo-con-optionals" title="Permanent link">&para;</a></h5>
 <p>Uso de métodos de <code>Optional</code> en el programa de prueba:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileTesterWithOptional</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -2748,7 +2752,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="fronteras">Fronteras</h3>
+<h3 id="fronteras">Fronteras<a class="headerlink" href="#fronteras" title="Permanent link">&para;</a></h3>
 <p>Tensión proveedor-cliente</p>
 <ul>
 <li>Los proveedores de packages y frameworks quieren amplia aplicabilidad</li>

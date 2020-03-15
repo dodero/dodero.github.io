@@ -10,7 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
+        <meta name="description" content="Apuntes de Implementación e Implantación de Sistemas Software">
       
+      
+      
+        <meta name="author" content="Juan Manuel Dodero">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +40,7 @@
     
     
       
-        <title>Funciones - Implementación e Implantación de Sistemas Software</title>
+        <title>Funciones - IISS</title>
       
     
     
@@ -86,7 +90,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Implementación e Implantación de Sistemas Software" aria-label="Implementación e Implantación de Sistemas Software" class="md-header-nav__button md-logo">
+        <a href=".." title="IISS" aria-label="IISS" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../figuras/uca.svg" width="24" height="24">
           
@@ -99,7 +103,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Implementación e Implantación de Sistemas Software
+              IISS
             </span>
             <span class="md-header-nav__topic">
               
@@ -178,12 +182,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Implementación e Implantación de Sistemas Software" class="md-nav__button md-logo">
+    <a href=".." title="IISS" class="md-nav__button md-logo">
       
         <img alt="logo" src="../figuras/uca.svg" width="48" height="48">
       
     </a>
-    Implementación e Implantación de Sistemas Software
+    IISS
   </label>
   
     <div class="md-nav__source">
@@ -456,8 +460,8 @@
                   <a href="https://github.com/dodero/gii-dss-iiss/edit/master/docs/iiss-fp.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="funcional">FUNCIONAL</h1>
-<h2 id="tecnicas">Técnicas</h2>
+                <h1 id="funcional">FUNCIONAL<a class="headerlink" href="#funcional" title="Permanent link">&para;</a></h1>
+<h2 id="tecnicas">Técnicas<a class="headerlink" href="#tecnicas" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#anonimos">Anónimos y cierres</a>:</li>
 <li>Funciones anónimas y <a href="#lambdas">Lambdas</a></li>
@@ -469,25 +473,25 @@
 <li>Reflexión</li>
 <li>Metaprogramación</li>
 </ul>
-<h2 id="paradigmas">Paradigmas</h2>
+<h2 id="paradigmas">Paradigmas<a class="headerlink" href="#paradigmas" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Objetos</li>
 <li>Eventos</li>
 <li><strong>Funcional</strong></li>
 </ul>
-<h2 id="ejemplos-de-conexion-con-diseno-software"><a href="#dss">Ejemplos de conexión con Diseño Software</a></h2>
+<h2 id="ejemplos-de-conexion-con-diseno-software"><a href="#dss">Ejemplos de conexión con Diseño Software</a><a class="headerlink" href="#ejemplos-de-conexion-con-diseno-software" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Interfaces funcionales - <a href="#informes">Formateo de informes</a></li>
 <li>Cambio de interfaz - <a href="#adaptadores">Adaptadores</a></li>
 </ol>
-<h2 id="ejercicios">Ejercicios</h2>
+<h2 id="ejercicios">Ejercicios<a class="headerlink" href="#ejercicios" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby from other languages</a></li>
 <li><a href="http://docs.scala-lang.org/tutorials/tour/tour-of-scala">Scala tour</a></li>
 <li><a href="https://www.scala-exercises.org/std_lib/">Scala exercises</a></li>
 </ol>
-<h1 id="anonimos-y-cierres"><span style="color:blue;"><a id="anonimos">Anónimos y cierres</a></span></h1>
-<h2 id="ejemplo-comparacion-de-personas-version-con-herencia">Ejemplo: Comparación de personas - versión con herencia</h2>
+<h1 id="anonimos-y-cierres"><span style="color:blue;"><a id="anonimos">Anónimos y cierres</a></span><a class="headerlink" href="#anonimos-y-cierres" title="Permanent link">&para;</a></h1>
+<h2 id="ejemplo-comparacion-de-personas-version-con-herencia">Ejemplo: Comparación de personas - versión con herencia<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-herencia" title="Permanent link">&para;</a></h2>
 <p>Ordenación de una lista de nombres de personas:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
 <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nombres</span><span class="p">);</span>
@@ -551,7 +555,7 @@
 <p>Alternativa 2: No usar herencia, sino composición (no delegar hacia las subclases)</p>
 </li>
 </ul>
-<h2 id="ejemplo-comparacion-de-personas-version-con-composicion">Ejemplo: Comparación de personas - versión con composición</h2>
+<h2 id="ejemplo-comparacion-de-personas-version-con-composicion">Ejemplo: Comparación de personas - versión con composición<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-composicion" title="Permanent link">&para;</a></h2>
 <p>Sin usar herencia:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
@@ -567,11 +571,11 @@
 <li>No delegar hacia las subclases</li>
 <li>Delegar en objeto de otra clase que implemente la interfaz <code>java.util.Comparator</code></li>
 </ul>
-<h3 id="ventajas">¿Ventajas?</h3>
+<h3 id="ventajas">¿Ventajas?<a class="headerlink" href="#ventajas" title="Permanent link">&para;</a></h3>
 <ul>
 <li>La función factorizada (v.g. la implementación de <code>Comparator</code>) es sustituible en tiempo de ejecución mediante inyección de dependencias</li>
 </ul>
-<h2 id="ejemplo-comparacion-de-personas-version-con-clases-anonimas">Ejemplo: Comparación de personas - versión con clases anónimas</h2>
+<h2 id="ejemplo-comparacion-de-personas-version-con-clases-anonimas">Ejemplo: Comparación de personas - versión con clases anónimas<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
   <span class="n">personas</span><span class="p">,</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
@@ -581,7 +585,7 @@
 <span class="p">);</span>
 </code></pre></div>
 
-<h2 id="clases-locales">Clases locales</h2>
+<h2 id="clases-locales">Clases locales<a class="headerlink" href="#clases-locales" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Clases <strong>locales</strong>: declaradas dentro de métodos</li>
 <li>Las clases locales pueden hacer referencia a identificadores declarados en la clase y a variables de solo lectura (<code>final</code>) del método en que se declaran</li>
@@ -614,10 +618,10 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="predicados-en-java-8-y-en-la-biblioteca-guava">Predicados en Java 8 y en la biblioteca <em>guava</em></h2>
+<h2 id="predicados-en-java-8-y-en-la-biblioteca-guava">Predicados en Java 8 y en la biblioteca <em>guava</em><a class="headerlink" href="#predicados-en-java-8-y-en-la-biblioteca-guava" title="Permanent link">&para;</a></h2>
 <p>En la biblioteca Guava, los <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html"><code>Iterators</code></a> tienen un método <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html#filter"><code>filter</code></a> que recibe un objeto de tipo <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/base/Predicate.html"><code>Predicate</code></a>.
 Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate</code></a>.</p>
-<h3 id="ejemplo-partidos-de-una-competicion">Ejemplo: partidos de una competición</h3>
+<h3 id="ejemplo-partidos-de-una-competicion">Ejemplo: partidos de una competición<a class="headerlink" href="#ejemplo-partidos-de-una-competicion" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Con clases anónimas:</li>
 </ul>
@@ -667,7 +671,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="clases-anonimas-interiores-inner">Clases anónimas interiores (<em>inner</em>)</h2>
+<h2 id="clases-anonimas-interiores-inner">Clases anónimas interiores (<em>inner</em>)<a class="headerlink" href="#clases-anonimas-interiores-inner" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>Son clases locales declaradas sin nombre; sirven para clases que solo aparecen una vez en la aplicación</p>
@@ -706,9 +710,9 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="retrollamadas-callbacks"><a id="callback">Retrollamadas (<em>callbacks</em>)</a></h2>
+<h2 id="retrollamadas-callbacks"><a id="callback">Retrollamadas (<em>callbacks</em>)</a><a class="headerlink" href="#retrollamadas-callbacks" title="Permanent link">&para;</a></h2>
 <p><em>callback</em> = Fragmento de código ejecutable que se pasa como argumento</p>
-<h3 id="implementaciones-en-cc">Implementaciones en C/C++</h3>
+<h3 id="implementaciones-en-cc">Implementaciones en C/C++<a class="headerlink" href="#implementaciones-en-cc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Puntero a función:
     <div class="codehilite"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
@@ -720,7 +724,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>clase que define <code>operator()</code></li>
 <li>es una clase y por tanto pueden contener un estado</li>
 </ul>
-<h4 id="ejemplo-de-puntero-a-funcion">Ejemplo de puntero a función</h4>
+<h4 id="ejemplo-de-puntero-a-funcion">Ejemplo de puntero a función<a class="headerlink" href="#ejemplo-de-puntero-a-funcion" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
 <span class="kt">void</span> <span class="nf">PrintTwoNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">numberSource</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d and %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numberSource</span><span class="p">(),</span> <span class="n">numberSource</span><span class="p">());</span>
@@ -743,7 +747,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="ejemplo-de-puntero-a-datos">Ejemplo de puntero a datos</h4>
+<h4 id="ejemplo-de-puntero-a-datos">Ejemplo de puntero a datos<a class="headerlink" href="#ejemplo-de-puntero-a-datos" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
 <span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">event_cb_t</span><span class="p">)(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">event</span> <span class="o">*</span><span class="n">evt</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">);</span>
 
@@ -770,7 +774,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">callback</span><span class="o">-&gt;</span><span class="n">cb</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">callback</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 </code></pre></div>
 
-<h4 id="ejemplo-de-functor">Ejemplo de functor</h4>
+<h4 id="ejemplo-de-functor">Ejemplo de functor<a class="headerlink" href="#ejemplo-de-functor" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="c1">// this is a functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
@@ -792,7 +796,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">assert</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// for all i</span>
 </code></pre></div>
 
-<h4 id="functor-vs-function-pointer">Functor vs function pointer</h4>
+<h4 id="functor-vs-function-pointer">Functor vs function pointer<a class="headerlink" href="#functor-vs-function-pointer" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="c1">//Functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span><span class="n">x</span><span class="p">(</span><span class="n">y</span><span class="p">){}</span>
@@ -816,15 +820,15 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">add_x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// pass functor</span>
 </code></pre></div>
 
-<h2 id="funciones-anonimas-lambdas"><a id="lambda">Funciones anónimas (lambdas)</a></h2>
-<h3 id="funcion-anonima">Función anónima</h3>
+<h2 id="funciones-anonimas-lambdas"><a id="lambda">Funciones anónimas (lambdas)</a><a class="headerlink" href="#funciones-anonimas-lambdas" title="Permanent link">&para;</a></h2>
+<h3 id="funcion-anonima">Función anónima<a class="headerlink" href="#funcion-anonima" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Función o subrutina definida y (posiblemente) llamada sin necesidad de asociarla a un identificador o nombre</li>
 <li>Se suelen pasar como argumento a funciones de orden superior</li>
 <li>Son funciones anidadas que permiten acceder a variables definidas en el ámbito de la contenedora (variables no locales)</li>
 <li>Muchos lenguajes las introducen a través de la palabra reservada <code>lambda</code></li>
 </ul>
-<h3 id="mecanismos-de-los-lenguajes">Mecanismos de los lenguajes</h3>
+<h3 id="mecanismos-de-los-lenguajes">Mecanismos de los lenguajes<a class="headerlink" href="#mecanismos-de-los-lenguajes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>En C++: funciones anónimas, objetos función (<em>functors</em>) o <a href="http://en.cppreference.com/w/cpp/language/lambda">funciones lambda</a> (desde C++11)</li>
 <li>En Java 8: <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html">expresiones lambda</a></li>
@@ -832,7 +836,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>En C#: <a href="https://msdn.microsoft.com/en-us/library/ms173171.aspx">delegates</a> (métodos anónimos y expresiones lambda)</li>
 <li>En Python: <a href="https://docs.python.org/2/howto/functional.html">generators, comprehensions, lambda expressions</a></li>
 </ul>
-<h3 id="cierre-de-funciones-closures">Cierre de funciones (<em>closures</em>)</h3>
+<h3 id="cierre-de-funciones-closures">Cierre de funciones (<em>closures</em>)<a class="headerlink" href="#cierre-de-funciones-closures" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Cierre</strong>: Función o referencia a función junto con un <em>entorno de referencia</em></li>
 <li><strong>Entorno de referencia</strong>: tabla que guarda una referencia a cada una de las variables no locales (<em>libres</em>) de la función</li>
@@ -840,7 +844,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li><strong>Variable asignada</strong> (<em>bound</em>): variable que era libre previamente pero a la que le ha sido asignado un valor o conjunto de valores</li>
 <li>Un cierre permite acceder a las variables libres incluso cuando se invoca desde fuera de su ámbito léxico</li>
 </ul>
-<h3 id="funciones-anonimas-en-c">Funciones anónimas en C++</h3>
+<h3 id="funciones-anonimas-en-c">Funciones anónimas en C++<a class="headerlink" href="#funciones-anonimas-en-c" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">some_list</span><span class="p">;</span> <span class="c1">// assume that contains something</span>
 <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">some_list</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -855,7 +859,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="cm">   its value. */</span>
 </code></pre></div>
 
-<h3 id="funciones-anonimas-en-java">Funciones anónimas en Java</h3>
+<h3 id="funciones-anonimas-en-java">Funciones anónimas en Java<a class="headerlink" href="#funciones-anonimas-en-java" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Con clases anónimas (Java 7):</li>
 </ul>
@@ -909,9 +913,9 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="ejercicio-mejorando-codigo-con-expresiones-lambda">Ejercicio: <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#section3">Mejorando código con expresiones lambda</a></h4>
-<h3 id="funciones-anonimas-en-ruby">Funciones anónimas en Ruby</h3>
-<h4 id="bloques-blocks"><a id="blocks">Bloques (<em>blocks</em>)</a></h4>
+<h4 id="ejercicio-mejorando-codigo-con-expresiones-lambda">Ejercicio: <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#section3">Mejorando código con expresiones lambda</a><a class="headerlink" href="#ejercicio-mejorando-codigo-con-expresiones-lambda" title="Permanent link">&para;</a></h4>
+<h3 id="funciones-anonimas-en-ruby">Funciones anónimas en Ruby<a class="headerlink" href="#funciones-anonimas-en-ruby" title="Permanent link">&para;</a></h3>
+<h4 id="bloques-blocks"><a id="blocks">Bloques (<em>blocks</em>)</a><a class="headerlink" href="#bloques-blocks" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Sintaxis <code>do</code> ... <code>end</code></li>
 </ul>
@@ -929,7 +933,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p>El método <code>map</code> itera y aplica un bloque repetitivamente a cada elemento de una colección (representado por el parámetro <code>i</code>)</p>
-<h5 id="ejemplo-busqueda-en-una-lista">Ejemplo: búsqueda en una lista</h5>
+<h5 id="ejemplo-busqueda-en-una-lista">Ejemplo: búsqueda en una lista<a class="headerlink" href="#ejemplo-busqueda-en-una-lista" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Sin bloques:</li>
 </ul>
@@ -966,7 +970,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p>El método <code>find</code> itera y aplica el test del bloque a cada elemento <code>song</code> de la colección.</p>
-<h5 id="ejecucion-de-bloques">Ejecución de bloques</h5>
+<h5 id="ejecucion-de-bloques">Ejecución de bloques<a class="headerlink" href="#ejecucion-de-bloques" title="Permanent link">&para;</a></h5>
 <ul>
 <li>El bloque debe aparecer al lado de una llamada a método</li>
 <li>No se ejecuta el bloque, sino que se recuerda el contexto (variables locales, objeto actual, etc.) en que aparece</li>
@@ -974,7 +978,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>El control vuelve al método después del <code>yield</code></li>
 <li>Al bloque se le pueden pasar parámetros</li>
 </ul>
-<h6 id="ejemplo-fibonacci">Ejemplo: fibonacci</h6>
+<h6 id="ejemplo-fibonacci">Ejemplo: fibonacci<a class="headerlink" href="#ejemplo-fibonacci" title="Permanent link">&para;</a></h6>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_up_to</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
   <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
   <span class="k">while</span> <span class="n">i1</span> <span class="o">&lt;=</span> <span class="n">max</span>
@@ -987,7 +991,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="c1">#Salida =&gt; 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987</span>
 </code></pre></div>
 
-<h6 id="ejemplo-de-yield">Ejemplo de <code>yield</code>:</h6>
+<h6 id="ejemplo-de-yield">Ejemplo de <code>yield</code>:<a class="headerlink" href="#ejemplo-de-yield" title="Permanent link">&para;</a></h6>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">three_times</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
@@ -996,7 +1000,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">three_times</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;Hello&quot;</span> <span class="p">}</span>
 </code></pre></div>
 
-<h6 id="ejemplo-implementacion-de-arrayfind">Ejemplo: implementación de <code>Array.find</code></h6>
+<h6 id="ejemplo-implementacion-de-arrayfind">Ejemplo: implementación de <code>Array.find</code><a class="headerlink" href="#ejemplo-implementacion-de-arrayfind" title="Permanent link">&para;</a></h6>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Array</span>
   <span class="k">def</span> <span class="nf">find</span>
     <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">...</span><span class="n">size</span>
@@ -1008,7 +1012,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h6 id="ejemplos-iterar-con-bloques">Ejemplos: iterar con bloques</h6>
+<h6 id="ejemplos-iterar-con-bloques">Ejemplos: iterar con bloques<a class="headerlink" href="#ejemplos-iterar-con-bloques" title="Permanent link">&para;</a></h6>
 <ul>
 <li>Iterar sobre un array con <code>each</code></li>
 </ul>
@@ -1053,7 +1057,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="c1">#Devuelve =&gt; [1, 2, 3, 4]</span>
 </code></pre></div>
 
-<h4 id="procs-y-lambdas"><a id="proc">Procs y lambdas</a></h4>
+<h4 id="procs-y-lambdas"><a id="proc">Procs y lambdas</a><a class="headerlink" href="#procs-y-lambdas" title="Permanent link">&para;</a></h4>
 <ul>
 <li>En Ruby, una función anónima o <em>lambda</em> es simplemente un tipo especial de objeto <code>Proc</code></li>
 <li>Definición de procs/lambdas:</li>
@@ -1132,19 +1136,19 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="c1"># Prints &quot;Before lambda&quot; and &quot;After lambda&quot;</span>
 </code></pre></div>
 
-<h5 id="diferencias-entre-proc-y-lambda">Diferencias entre <code>Proc</code> y <code>lambda</code>:</h5>
+<h5 id="diferencias-entre-proc-y-lambda">Diferencias entre <code>Proc</code> y <code>lambda</code>:<a class="headerlink" href="#diferencias-entre-proc-y-lambda" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Las lambdas se definen con <code>-&gt; {}</code> y los procs con <code>Proc.new {}</code></li>
 <li>Los <code>Proc</code> retornan del método actual, las lambdas retornan de la propia función lambda</li>
 <li>Los <code>Proc</code> no se preocupan del número correcto de argumentos, las lambdas elevan una excepción</li>
 </ul>
-<h4 id="paso-de-bloques-como-parametros">Paso de bloques como parámetros</h4>
+<h4 id="paso-de-bloques-como-parametros">Paso de bloques como parámetros<a class="headerlink" href="#paso-de-bloques-como-parametros" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Simplemente, se añade al final de la llamada a un método </li>
 <li>¿Dónde se llama al bloque? Donde el método indique con <code>yield</code></li>
 <li>El bloque (realmente un objeto <code>Proc</code>) se pasa como una especie de parámetro no declarado</li>
 </ul>
-<h5 id="ejemplos-de-paso-de-bloques">Ejemplos de paso de bloques:</h5>
+<h5 id="ejemplos-de-paso-de-bloques">Ejemplos de paso de bloques:<a class="headerlink" href="#ejemplos-de-paso-de-bloques" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Llamada a un bloque sin parámetros</li>
 </ul>
@@ -1239,14 +1243,14 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="c1">#  After the call</span>
 </code></pre></div>
 
-<h2 id="lecturas-recomendadas">Lecturas recomendadas</h2>
+<h2 id="lecturas-recomendadas">Lecturas recomendadas<a class="headerlink" href="#lecturas-recomendadas" title="Permanent link">&para;</a></h2>
 <ul>
 <li>M. Williams: <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html">Java SE 8: Lambda Quick Start</a>, Oracle Learning Library, 2013.</li>
 <li>D. Thomas &amp; A. Hunt: <a href="http://www.ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby. The Pragmatic Programmer's Guide</a>, Addison-Wesley, 2005.</li>
 </ul>
-<h1 id="ejemplos-de-conexion-con-diseno-software_1"><span style="color:blue;"><a id="dss">Ejemplos de Conexión con Diseño Software</a></span></h1>
-<h2 id="interfaces-funcionales-formateo-de-informes">Interfaces funcionales - <a id="informes">Formateo de informes</a></h2>
-<h3 id="version-en-ruby">Versión en ruby</h3>
+<h1 id="ejemplos-de-conexion-con-diseno-software_1"><span style="color:blue;"><a id="dss">Ejemplos de Conexión con Diseño Software</a></span><a class="headerlink" href="#ejemplos-de-conexion-con-diseno-software_1" title="Permanent link">&para;</a></h1>
+<h2 id="interfaces-funcionales-formateo-de-informes">Interfaces funcionales - <a id="informes">Formateo de informes</a><a class="headerlink" href="#interfaces-funcionales-formateo-de-informes" title="Permanent link">&para;</a></h2>
+<h3 id="version-en-ruby">Versión en ruby<a class="headerlink" href="#version-en-ruby" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
   <span class="kp">attr_reader</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span>
   <span class="kp">attr_accessor</span> <span class="ss">:formatter</span>
@@ -1281,7 +1285,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
     <span class="n">context</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
 </code></pre></div>
 
-<h3 id="version-con-interfaces-funcionales-ruby-procs-blocks">Versión con interfaces funcionales (Ruby procs + blocks)</h3>
+<h3 id="version-con-interfaces-funcionales-ruby-procs-blocks">Versión con interfaces funcionales (Ruby procs + blocks)<a class="headerlink" href="#version-con-interfaces-funcionales-ruby-procs-blocks" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
   <span class="kp">attr_reader</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span>
   <span class="kp">attr_accessor</span> <span class="ss">:formatter</span>
@@ -1298,7 +1302,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h4 id="formateo-html">Formateo HTML</h4>
+<h4 id="formateo-html">Formateo HTML<a class="headerlink" href="#formateo-html" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="no">HTML_FORMATTER</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&#39;</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39; &lt;head&gt;&#39;</span><span class="p">)</span>
@@ -1315,7 +1319,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">report</span><span class="o">.</span><span class="n">output_report</span>
 </code></pre></div>
 
-<h4 id="formateo-de-texto">Formateo de texto</h4>
+<h4 id="formateo-de-texto">Formateo de texto<a class="headerlink" href="#formateo-de-texto" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="n">report</span> <span class="o">=</span> <span class="no">Report</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;***** </span><span class="si">#{</span><span class="n">context</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2"> *****&quot;</span><span class="p">)</span>
   <span class="n">context</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
@@ -1324,20 +1328,20 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h2 id="cambio-de-interfaz-adaptadores">Cambio de interfaz - <a id="adaptadores">Adaptadores</a></h2>
-<h3 id="tipos-de-adaptador">Tipos de adaptador</h3>
-<h4 id="adaptadores-de-clase">Adaptadores de clase</h4>
+<h2 id="cambio-de-interfaz-adaptadores">Cambio de interfaz - <a id="adaptadores">Adaptadores</a><a class="headerlink" href="#cambio-de-interfaz-adaptadores" title="Permanent link">&para;</a></h2>
+<h3 id="tipos-de-adaptador">Tipos de adaptador<a class="headerlink" href="#tipos-de-adaptador" title="Permanent link">&para;</a></h3>
+<h4 id="adaptadores-de-clase">Adaptadores de clase<a class="headerlink" href="#adaptadores-de-clase" title="Permanent link">&para;</a></h4>
 <p><img alt="Adaptador de clases" src="../figuras/classAdapter.png" /></p>
-<h4 id="adaptadores-de-objeto">Adaptadores de objeto</h4>
+<h4 id="adaptadores-de-objeto">Adaptadores de objeto<a class="headerlink" href="#adaptadores-de-objeto" title="Permanent link">&para;</a></h4>
 <p><img alt="Adaptador de objetos" src="../figuras/objectAdapter.png" /></p>
-<h3 id="implementaciones">Implementaciones</h3>
+<h3 id="implementaciones">Implementaciones<a class="headerlink" href="#implementaciones" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Herencia</li>
 <li>Composición</li>
 <li>Herencia múltiple</li>
 <li>Mixins</li>
 </ul>
-<h1 id="mixins"><span style="color:blue;"><a id="mixins">Mixins</a></span></h1>
+<h1 id="mixins"><span style="color:blue;"><a id="mixins">Mixins</a></span><a class="headerlink" href="#mixins" title="Permanent link">&para;</a></h1>
 <p>En POO, un <strong>mixin</strong> es una clase con métodos disponibles para otras clases sin tener que ser madre de estas otras (es decir, sin usar la herencia)</p>
 <ul>
 <li>Es una alternativa a la herencia múltiple</li>
@@ -1345,13 +1349,13 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>No se <em>heredan</em> sino que se <strong>incluyen</strong></li>
 <li>Es una forma de implementar el principio de inversión de dependencias (DIP)</li>
 </ul>
-<h2 id="ruby-modules"><a id="modules">Ruby modules</a></h2>
+<h2 id="ruby-modules"><a id="modules">Ruby modules</a><a class="headerlink" href="#ruby-modules" title="Permanent link">&para;</a></h2>
 <p>En Ruby los mixins se implementan mediante módulos (<code>module</code>).</p>
 <ul>
 <li>Un módulo no puede tener instancias (porque no es una clase)</li>
 <li>Un módulo puede incluirse (<code>include</code>) dentro de la definición de una clase</li>
 </ul>
-<h3 id="ejemplo-herencia-vs-mixins">Ejemplo: herencia vs mixins</h3>
+<h3 id="ejemplo-herencia-vs-mixins">Ejemplo: herencia vs mixins<a class="headerlink" href="#ejemplo-herencia-vs-mixins" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="k">module</span> <span class="nn">Debug</span>
   <span class="k">def</span> <span class="nf">whoAmI?</span>
     <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="se">\#</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">): </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1377,7 +1381,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="n">et</span><span class="o">.</span><span class="n">whoAmI?</span>  <span class="c1"># =&gt; &quot;EightTrack (#70315996611260): Surrealistic Pillow&quot;</span>
 </code></pre></div>
 
-<h3 id="ejemplo-comparable-en-ruby">Ejemplo: Comparable en ruby</h3>
+<h3 id="ejemplo-comparable-en-ruby">Ejemplo: Comparable en ruby<a class="headerlink" href="#ejemplo-comparable-en-ruby" title="Permanent link">&para;</a></h3>
 <p>Una manera de implementar un <code>Comparable</code> en ruby mediante el módulo <a href="https://ruby-doc.org/core-2.2.3/Comparable.html">Comparable</a>:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span>
   <span class="kp">include</span> <span class="no">Comparable</span> <span class="c1"># The class Student &#39;inherits&#39; Comparable module using include keyword</span>
@@ -1413,8 +1417,8 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>el atributo-criterio de comparación</li>
 <li>En <code>x &lt;=&gt; y</code>, <code>x</code> es el receptor del mensaje/método e <code>y</code> es el argumento</li>
 </ul>
-<h3 id="ejemplo-adaptador-de-interfaz-en-ruby">Ejemplo: Adaptador de interfaz en Ruby</h3>
-<h4 id="interfaz-americana">Interfaz americana</h4>
+<h3 id="ejemplo-adaptador-de-interfaz-en-ruby">Ejemplo: Adaptador de interfaz en Ruby<a class="headerlink" href="#ejemplo-adaptador-de-interfaz-en-ruby" title="Permanent link">&para;</a></h3>
+<h4 id="interfaz-americana">Interfaz americana<a class="headerlink" href="#interfaz-americana" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
   <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">text_object</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">text</span>
@@ -1437,7 +1441,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h4 id="interfaz-britanica">Interfaz británica</h4>
+<h4 id="interfaz-britanica">Interfaz británica<a class="headerlink" href="#interfaz-britanica" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># british_text_object.rb</span>
 <span class="k">class</span> <span class="nc">BritishTextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:string</span><span class="p">,</span> <span class="ss">:size_mm</span><span class="p">,</span> <span class="ss">:colour</span>
@@ -1446,7 +1450,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h4 id="adaptador-de-interfaz-version-clasica">Adaptador de interfaz: versión clásica</h4>
+<h4 id="adaptador-de-interfaz-version-clasica">Adaptador de interfaz: versión clásica<a class="headerlink" href="#adaptador-de-interfaz-version-clasica" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">bto</span><span class="p">)</span>
     <span class="vi">@bto</span> <span class="o">=</span> <span class="n">bto</span>
@@ -1466,7 +1470,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<h3 id="adaptador-de-interfaz-version-con-modulos">Adaptador de interfaz: versión con módulos</h3>
+<h3 id="adaptador-de-interfaz-version-con-modulos">Adaptador de interfaz: versión con módulos<a class="headerlink" href="#adaptador-de-interfaz-version-con-modulos" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Make sure the original class is loaded</span>
 <span class="nb">require</span> <span class="s1">&#39;british_text_object&#39;</span>
 
@@ -1491,7 +1495,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>la reescritura de métodos modifica la clase, no la declara de nuevo</li>
 <li>se puede hacer incluso con las clases built-in de la biblioteca de Ruby</li>
 </ul>
-<h3 id="adaptador-de-interfaz-instancia-unica">Adaptador de interfaz: instancia única</h3>
+<h3 id="adaptador-de-interfaz-instancia-unica">Adaptador de interfaz: instancia única<a class="headerlink" href="#adaptador-de-interfaz-instancia-unica" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="n">bto</span> <span class="o">=</span> <span class="no">BritishTextObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="n">bto</span>
@@ -1524,13 +1528,13 @@ o bien:</p>
 <li>Ruby llama a esto <em>singleton methods</em> y <em>singleton class</em> (no es exactamente lo mismo que el patrón singleton del GoF)</li>
 <li>Ruby primero busca los métodos definidos en una clase singleton y luego en la clase regular que ha sido redefinida</li>
 </ul>
-<h2 id="scala-traits"><a id="traits">Scala Traits</a></h2>
+<h2 id="scala-traits"><a id="traits">Scala Traits</a><a class="headerlink" href="#scala-traits" title="Permanent link">&para;</a></h2>
 <p>Los <code>trait</code>de Scala son similares a las interfaces de Java.</p>
 <ul>
 <li>Las clases y los objetos pueden extender un <code>trait</code></li>
 <li>Los <code>trait</code> no pueden instanciarse</li>
 </ul>
-<h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code>trait</code></h3>
+<h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code>trait</code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="o">()</span><span class="k">:</span> <span class="kt">A</span>
@@ -1553,7 +1557,7 @@ o bien:</p>
 <span class="n">println</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="n">next</span><span class="o">())</span>  <span class="c1">// prints 1</span>
 </code></pre></div>
 
-<h3 id="ejemplo-subtipos">Ejemplo: Subtipos</h3>
+<h3 id="ejemplo-subtipos">Ejemplo: Subtipos<a class="headerlink" href="#ejemplo-subtipos" title="Permanent link">&para;</a></h3>
 <p>Implementación del <em>polimorfismo de inclusión</em> o herencia simple con traits:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nn">scala.collection.mutable.ArrayBuffer</span>
 
@@ -1573,7 +1577,7 @@ o bien:</p>
 <span class="n">animals</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">pet</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">pet</span><span class="o">.</span><span class="n">name</span><span class="o">))</span>  <span class="c1">// Prints Harry Sally</span>
 </code></pre></div>
 
-<h3 id="ejemplo-similarity">Ejemplo: Similarity</h3>
+<h3 id="ejemplo-similarity">Ejemplo: Similarity<a class="headerlink" href="#ejemplo-similarity" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Similarity</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">isNotSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!</span><span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
@@ -1607,7 +1611,7 @@ o bien:</p>
 <li>Para ser un mixin genuino, debería mezclar comportamiento y no interfaces heredadas</li>
 <li>Leer <a href="http://baddotrobot.com/blog/2014/09/22/scala-mixins/">Scala Mixins: The right way</a></li>
 </ul>
-<h3 id="ejemplo-iterator">Ejemplo: Iterator</h3>
+<h3 id="ejemplo-iterator">Ejemplo: Iterator<a class="headerlink" href="#ejemplo-iterator" title="Permanent link">&para;</a></h3>
 <p>Cómo reutilizar comportamiento de varios tipos de iteradores a través de un mixin:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
   <span class="k">type</span> <span class="kt">T</span>
@@ -1650,12 +1654,12 @@ o bien:</p>
 <li><a href="http://www.scala-lang.org/api/current/scala/Unit.html">Unit</a> en scala: subtipo de <code>AnyVal</code>; solo hay un valor <code>()</code> que es de tipo <code>Unit</code>.</li>
 <li>Un método que devuelve <code>Unit</code> es análogo a un método Java que devuelve <code>void</code></li>
 </ul>
-<h3 id="diferencia-con-clase-abstracta">Diferencia con clase abstracta</h3>
+<h3 id="diferencia-con-clase-abstracta">Diferencia con clase abstracta<a class="headerlink" href="#diferencia-con-clase-abstracta" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="http://stackoverflow.com/questions/1991042/what-is-the-advantage-of-using-abstract-classes-instead-of-traits">Scala traits vs abstract classes</a></li>
 <li>Los constructores de un <code>trait</code> no pueden tener parámetros (de momento)</li>
 </ul>
-<h4 id="reglas">Reglas</h4>
+<h4 id="reglas">Reglas<a class="headerlink" href="#reglas" title="Permanent link">&para;</a></h4>
 <p><a href="http://www.artima.com/pins1ed/traits.html#12.7">To trait or not to trait</a></p>
 <ul>
 <li>Si no se va a reutilizar el comportamiento =&gt; clase concreta</li>
@@ -1665,7 +1669,7 @@ o bien:</p>
 <li>Si importa mucho la eficiencia =&gt; clase (los traits se compilan a interfaces y son algo más lentas de llamar)</li>
 <li>Si no se sabe =&gt; empezar por un trait y cambiarlo cuando se sepa</li>
 </ul>
-<h4 id="ejercicios-y-lecturas-recomendadas">Ejercicios y lecturas recomendadas</h4>
+<h4 id="ejercicios-y-lecturas-recomendadas">Ejercicios y lecturas recomendadas<a class="headerlink" href="#ejercicios-y-lecturas-recomendadas" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Tutorial: <a href="http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html">Ruby modules</a></li>
 <li><a href="https://docs.scala-lang.org/tour/traits.html">Scala traits</a></li>
