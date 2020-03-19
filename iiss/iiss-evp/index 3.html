@@ -1,0 +1,1791 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Eventos - Implementación e Implantación de Sistemas Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#eventos-asincronos" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Implementación e Implantación de Sistemas Software" aria-label="Implementación e Implantación de Sistemas Software" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../figuras/uca.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Implementación e Implantación de Sistemas Software
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Eventos
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dodero/gii-dss-iiss/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Implementación e Implantación de Sistemas Software" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../figuras/uca.svg" width="48" height="48">
+      
+    </a>
+    Implementación e Implantación de Sistemas Software
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dodero/gii-dss-iiss/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Introducción" class="md-nav__link">
+      Introducción
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bibliografia/" title="Bibliografía" class="md-nav__link">
+      Bibliografía
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Apuntes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Apuntes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-oop/" title="Objetos" class="md-nav__link">
+      Objetos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-aop/" title="Aspectos" class="md-nav__link">
+      Aspectos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-dbc/" title="Contratos" class="md-nav__link">
+      Contratos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp/" title="Funciones" class="md-nav__link">
+      Funciones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Eventos
+      </label>
+    
+    <a href="./" title="Eventos" class="md-nav__link md-nav__link--active">
+      Eventos
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-introductorio-listeners" class="md-nav__link">
+    Ejercicio introductorio - Listeners
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementando-listeners-en-java" class="md-nav__link">
+    Implementando listeners en Java
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-un-solo-control" class="md-nav__link">
+    Listener con un solo control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-varios-controles" class="md-nav__link">
+    Listener con varios controles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-clases-anonimas" class="md-nav__link">
+    Listener con clases anónimas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-adaptador" class="md-nav__link">
+    Listener con adaptador
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-lambdas-y-dispatch-table" class="md-nav__link">
+    Listener con lambdas y dispatch table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-listener-con-y-sin-lambdas" class="md-nav__link">
+    Ejemplo de listener con y sin lambdas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio" class="md-nav__link">
+    Ejercicio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-programacion-asincrona" class="md-nav__link">
+    Modelos de programación asíncrona
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-paso-de-continuaciones" class="md-nav__link">
+    Modelo de paso de continuaciones
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-ajax-jquery-callbacks" class="md-nav__link">
+    Ejemplo: Ajax + jQuery callbacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-callback-en-typescript" class="md-nav__link">
+    Ejemplo: callback en TypeScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thunks" class="md-nav__link">
+    Thunks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-ruby" class="md-nav__link">
+    Lenguajes: Ruby
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promesas" class="md-nav__link">
+    Promesas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-typescript" class="md-nav__link">
+    Lenguajes: TypeScript
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-definicion-de-promesa-que-resuelve" class="md-nav__link">
+    Ejemplo: definición de promesa que resuelve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-uso-para-resolver" class="md-nav__link">
+    Ejemplo: uso para resolver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-definicion-de-promesa-que-rechaza" class="md-nav__link">
+    Ejemplo: definición de promesa que rechaza
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-uso-para-rechazar" class="md-nav__link">
+    Ejemplo: uso para rechazar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-callbacks-promises-en-typescript" class="md-nav__link">
+    Comparación callbacks-promises en TypeScript
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mecanismo-de-los-callback" class="md-nav__link">
+    Mecanismo de los callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis-fluent-de-las-promesas" class="md-nav__link">
+    Sintaxis (fluent) de las promesas:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    Async/await
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-sintaxis-thencatch-y-asyncawait" class="md-nav__link">
+    Comparación sintaxis then/catch y async/await
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-java" class="md-nav__link">
+    Lenguajes: Java
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-future-en-java" class="md-nav__link">
+    Ejemplo: Future en Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-completablefuture-en-java" class="md-nav__link">
+    Ejemplo: CompletableFuture en Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-javascript" class="md-nav__link">
+    Lenguajes, JavaScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-basados-en-eventos" class="md-nav__link">
+    Modelos basados en eventos
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    Eventos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streams" class="md-nav__link">
+    Streams
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observables" class="md-nav__link">
+    Observables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-introductorio-listeners" class="md-nav__link">
+    Ejercicio introductorio - Listeners
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementando-listeners-en-java" class="md-nav__link">
+    Implementando listeners en Java
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-un-solo-control" class="md-nav__link">
+    Listener con un solo control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-varios-controles" class="md-nav__link">
+    Listener con varios controles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-clases-anonimas" class="md-nav__link">
+    Listener con clases anónimas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-adaptador" class="md-nav__link">
+    Listener con adaptador
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener-con-lambdas-y-dispatch-table" class="md-nav__link">
+    Listener con lambdas y dispatch table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-listener-con-y-sin-lambdas" class="md-nav__link">
+    Ejemplo de listener con y sin lambdas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio" class="md-nav__link">
+    Ejercicio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-programacion-asincrona" class="md-nav__link">
+    Modelos de programación asíncrona
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-paso-de-continuaciones" class="md-nav__link">
+    Modelo de paso de continuaciones
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-ajax-jquery-callbacks" class="md-nav__link">
+    Ejemplo: Ajax + jQuery callbacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-callback-en-typescript" class="md-nav__link">
+    Ejemplo: callback en TypeScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thunks" class="md-nav__link">
+    Thunks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-ruby" class="md-nav__link">
+    Lenguajes: Ruby
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promesas" class="md-nav__link">
+    Promesas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-typescript" class="md-nav__link">
+    Lenguajes: TypeScript
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-definicion-de-promesa-que-resuelve" class="md-nav__link">
+    Ejemplo: definición de promesa que resuelve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-uso-para-resolver" class="md-nav__link">
+    Ejemplo: uso para resolver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-definicion-de-promesa-que-rechaza" class="md-nav__link">
+    Ejemplo: definición de promesa que rechaza
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-uso-para-rechazar" class="md-nav__link">
+    Ejemplo: uso para rechazar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-callbacks-promises-en-typescript" class="md-nav__link">
+    Comparación callbacks-promises en TypeScript
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mecanismo-de-los-callback" class="md-nav__link">
+    Mecanismo de los callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis-fluent-de-las-promesas" class="md-nav__link">
+    Sintaxis (fluent) de las promesas:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    Async/await
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-sintaxis-thencatch-y-asyncawait" class="md-nav__link">
+    Comparación sintaxis then/catch y async/await
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-java" class="md-nav__link">
+    Lenguajes: Java
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-future-en-java" class="md-nav__link">
+    Ejemplo: Future en Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-completablefuture-en-java" class="md-nav__link">
+    Ejemplo: CompletableFuture en Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-javascript" class="md-nav__link">
+    Lenguajes, JavaScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-basados-en-eventos" class="md-nav__link">
+    Modelos basados en eventos
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    Eventos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streams" class="md-nav__link">
+    Streams
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observables" class="md-nav__link">
+    Observables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dodero/gii-dss-iiss/edit/master/docs/iiss-evp.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="eventos-asincronos">EVENTOS ASÍNCRONOS</h1>
+<ul>
+<li><a href="#programaci%C3%B3n-as%C3%ADncrona">Programación asíncrona</a><ul>
+<li><a href="#a-idlistenersejercicio-introductorio---listenersa"><a id="listeners">Ejercicio introductorio - Listeners</a></a><ul>
+<li><a href="#implementando-listeners-en-java">Implementando listeners en Java</a></li>
+<li><a href="#ejemplo-de-listener-con-y-sin-lambdas">Ejemplo de listener con y sin lambdas</a></li>
+<li><a href="#ejercicio">Ejercicio</a></li>
+</ul>
+</li>
+<li><a href="#modelos-de-programaci%C3%B3n-as%C3%ADncrona">Modelos de programación asíncrona</a></li>
+<li><a href="#modelo-de-paso-de-continuaciones">Modelo de paso de continuaciones</a><ul>
+<li><a href="#callbacks">Callbacks</a></li>
+<li><a href="#thunks">Thunks</a></li>
+<li><a href="#promesas">Promesas</a></li>
+</ul>
+</li>
+<li><a href="#modelos-basados-en-eventos">Modelos basados en eventos</a><ul>
+<li><a href="#eventos">Eventos</a></li>
+<li><a href="#streams">Streams</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ejercicio-introductorio-listeners"><a id="listeners">Ejercicio introductorio - Listeners</a></h2>
+<h3 id="implementando-listeners-en-java">Implementando listeners en Java</h3>
+<h4 id="listener-con-un-solo-control">Listener con un solo control</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">DemoKeyEventsFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEventsFrame</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;DemoKeyEvents&quot;</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">DemoKeyEventsFrame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">KeyListener</span>
+<span class="p">{</span>
+   <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">enterField</span><span class="p">;</span>
+
+   <span class="kd">public</span> <span class="nf">DemoKeyEventsFrame</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">enterField</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+      <span class="n">enterField</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+      <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Enter some text:&quot;</span><span class="p">));</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">enterField</span><span class="p">);</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">setBorder</span><span class="p">(</span><span class="n">BorderFactory</span><span class="p">.</span><span class="na">createEmptyBorder</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="na">setContentPane</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+
+      <span class="kd">final</span> <span class="n">KeyStroke</span> <span class="n">BEL</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_A</span><span class="p">,</span> <span class="n">KeyEvent</span><span class="p">.</span><span class="na">CTRL_MASK</span><span class="p">);</span>
+      <span class="n">KeyStroke</span> <span class="n">k</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">getKeyCode</span><span class="p">(),</span> <span class="n">ke</span><span class="p">.</span><span class="na">getModifiers</span><span class="p">());</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">BEL</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ctrl-A pressed!&quot;</span><span class="p">);</span>
+         <span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">beep</span><span class="p">();</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyTyped</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="listener-con-varios-controles">Listener con varios controles</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents2</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">DemoKeyEvents2Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents2Frame</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;DemoKeyEvents2&quot;</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">DemoKeyEvents2Frame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">KeyListener</span> <span class="p">{</span>
+   <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">pro</span><span class="p">;</span>
+   <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">con</span><span class="p">;</span>
+
+   <span class="c1">// constructor</span>
+   <span class="kd">public</span> <span class="nf">DemoKeyEvents2Frame</span><span class="p">()</span> <span class="p">{</span>
+
+      <span class="c1">// construct and configure components</span>
+      <span class="n">pro</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+      <span class="n">con</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+      <span class="c1">// add listeners</span>
+      <span class="n">pro</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+      <span class="n">con</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+      <span class="c1">// arrange components</span>
+      <span class="c1">// add components to panels</span>
+
+      <span class="n">JPanel</span> <span class="n">banner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">banner</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;WHAT&#39;S YOUR OPINION ON ANCHOIVES?&quot;</span><span class="p">));</span>
+
+      <span class="n">JPanel</span> <span class="n">proPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">proPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Pro:&quot;</span><span class="p">));</span>
+      <span class="n">proPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">pro</span><span class="p">);</span>
+
+      <span class="n">JPanel</span> <span class="n">conPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">conPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Con:&quot;</span><span class="p">));</span>
+      <span class="n">conPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+
+      <span class="c1">// put panels in a content pane panel</span>
+      <span class="n">JPanel</span> <span class="n">contentPane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">contentPane</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+      <span class="n">contentPane</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">banner</span><span class="p">);</span>
+      <span class="n">contentPane</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">proPanel</span><span class="p">);</span>
+      <span class="n">contentPane</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">conPanel</span><span class="p">);</span>
+
+      <span class="c1">// make panel this JFrame&#39;s content pane</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">setContentPane</span><span class="p">(</span><span class="n">contentPane</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{}</span>   <span class="c1">// do nothing</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{}</span>  <span class="c1">// do nothing</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyTyped</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Object</span> <span class="n">source</span> <span class="o">=</span> <span class="n">ke</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span>
+
+      <span class="c1">// check if event occurred on pro component</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="o">==</span> <span class="n">pro</span><span class="p">)</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Pro : &quot;</span> <span class="o">+</span> <span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+
+      <span class="c1">// check if event occurred on con component</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="o">==</span> <span class="n">con</span><span class="p">)</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Con : &quot;</span> <span class="o">+</span> <span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="listener-con-clases-anonimas">Listener con clases anónimas</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents3</span> <span class="p">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">DemoKeyEvents3Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents3Frame</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;DemoKeyEvents3&quot;</span><span class="p">);</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+      <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">DemoKeyEvents3Frame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+   <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">enterField</span><span class="p">;</span>
+
+   <span class="c1">// constructor</span>
+   <span class="kd">public</span> <span class="nf">DemoKeyEvents3Frame</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">enterField</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+      <span class="n">enterField</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">new</span> <span class="n">KeyListener</span><span class="p">()</span> <span class="p">{</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+
+            <span class="kd">final</span> <span class="n">KeyStroke</span> <span class="n">BEL</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_A</span><span class="p">,</span> <span class="n">KeyEvent</span><span class="p">.</span><span class="na">CTRL_MASK</span><span class="p">);</span>
+            <span class="n">KeyStroke</span> <span class="n">k</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">getKeyCode</span><span class="p">(),</span> <span class="n">ke</span><span class="p">.</span><span class="na">getModifiers</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">BEL</span><span class="p">)</span> <span class="p">{</span>
+               <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ctrl-A pressed!&quot;</span><span class="p">);</span>
+               <span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">beep</span><span class="p">();</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+          <span class="p">}</span>
+
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyTyped</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+          <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Enter some text:&quot;</span><span class="p">));</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">enterField</span><span class="p">);</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">setBorder</span><span class="p">(</span><span class="n">BorderFactory</span><span class="p">.</span><span class="na">createEmptyBorder</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="na">setContentPane</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="listener-con-adaptador">Listener con adaptador</h4>
+<ul>
+<li>No hay que redefinir todos los métodos de <code>KeyListener</code></li>
+<li>Los métodos de <code>KeyAdapter</code> están definidos pero vacíos</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">DemoKeyEvents4Frame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+   <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">enterField</span><span class="p">;</span>
+
+   <span class="c1">// constructor</span>
+   <span class="kd">public</span> <span class="nf">DemoKeyEvents4Frame</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">enterField</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+      <span class="n">enterField</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">new</span> <span class="n">KeyAdapter</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+
+            <span class="kd">final</span> <span class="n">KeyStroke</span> <span class="n">BEL</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_A</span><span class="p">,</span> <span class="n">KeyEvent</span><span class="p">.</span><span class="na">CTRL_MASK</span><span class="p">);</span>
+            <span class="n">KeyStroke</span> <span class="n">k</span> <span class="o">=</span> <span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">getKeyCode</span><span class="p">(),</span> <span class="n">ke</span><span class="p">.</span><span class="na">getModifiers</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">BEL</span><span class="p">)</span> <span class="p">{</span>
+               <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ctrl-A pressed!&quot;</span><span class="p">);</span>
+               <span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">beep</span><span class="p">();</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+          <span class="p">}</span>
+
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyTyped</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">ke</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ke</span><span class="p">.</span><span class="na">paramString</span><span class="p">());</span>
+          <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Enter some text:&quot;</span><span class="p">));</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">enterField</span><span class="p">);</span>
+      <span class="n">panel</span><span class="p">.</span><span class="na">setBorder</span><span class="p">(</span><span class="n">BorderFactory</span><span class="p">.</span><span class="na">createEmptyBorder</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="na">setContentPane</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="listener-con-lambdas-y-dispatch-table">Listener con lambdas y dispatch table</h4>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.KeyAdapter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.KeyEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JTextField</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+
+    <span class="nd">@FunctionalInterface</span>
+    <span class="kd">interface</span> <span class="nc">KeyAction</span> <span class="p">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doAction</span><span class="p">();</span> <span class="c1">//un sólo método abstracto</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">KeyAction</span><span class="o">&gt;</span> <span class="n">keyDispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">KeyAction</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="c1">//Crear instancias de FunctionalInterface mediante lambdas</span>
+        <span class="n">keyDispatcher</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_W</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">moveUp</span><span class="p">());</span>
+        <span class="n">keyDispatcher</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_S</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">moveDown</span><span class="p">());</span>
+        <span class="n">keyDispatcher</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_A</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">moveLeft</span><span class="p">());</span>
+        <span class="n">keyDispatcher</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_D</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">moveRight</span><span class="p">());</span>
+
+        <span class="c1">// Using a JTextField out of simplicity</span>
+        <span class="n">JTextField</span> <span class="n">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">();</span>
+        <span class="n">field</span><span class="p">.</span><span class="na">addKeyListener</span><span class="p">(</span><span class="k">new</span> <span class="n">KeyAdapter</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="n">KeyEvent</span> <span class="n">arg0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">try</span><span class="p">{</span>
+                    <span class="n">keyDispatcher</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">arg0</span><span class="p">.</span><span class="na">getKeyCode</span><span class="p">()).</span><span class="na">doAction</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">NullPointerException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;That button doesn&#39;t do anything yet...&quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;Listener Frame&quot;</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+        <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">moveUp</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Moving up&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">moveDown</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Moving down&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">moveLeft</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Moving left&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">moveRight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Moving right&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="ejemplo-de-listener-con-y-sin-lambdas">Ejemplo de listener con y sin lambdas</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * This simple Swing program demonstrates how to use Lambda expressions in</span>
+<span class="cm"> * action listener.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author www.codejava.net</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListenerLambdaExample</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Click Me!&quot;</span><span class="p">);</span>
+
+    <span class="kd">public</span> <span class="nf">ListenerLambdaExample</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Listener Lambda Example&quot;</span><span class="p">);</span>
+
+        <span class="n">getContentPane</span><span class="p">().</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">());</span>
+        <span class="n">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+        <span class="c1">// Java 7 - tradicional, sin lambdas</span>
+        <span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ActionListener</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">evt</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Handled by anonymous class listener&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// Java 8 - con lambdas</span>
+        <span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Handled by Lambda listener&quot;</span><span class="p">));</span>
+
+        <span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Handled Lambda listener&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="n">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">setLocationRelativeTo</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">new</span> <span class="n">ListenerLambdaExample</span><span class="p">().</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="ejercicio">Ejercicio</h3>
+<ul>
+<li>Refactorizar <code>DemoKeyEvents2</code> con adaptador, interfaces funcionales (lambdas) y tabla de dispatch</li>
+</ul>
+<h2 id="modelos-de-programacion-asincrona">Modelos de programación asíncrona</h2>
+<p>La programación asíncrona promueve la definición de operaciones <strong>no bloqueantes</strong>.</p>
+<blockquote>
+<p><img alt="modelos de ejecución" src="../figuras/modelos-ejecucion.png" /></p>
+<p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
+</blockquote>
+<p>Las funciones no bloqueantes afectan a:</p>
+<ul>
+<li>El <strong>estado</strong> del programa</li>
+<li>La lógica de <strong>continuación</strong> del programa</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">programación secuencial</th>
+<th align="center">programación asíncrona</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Modelo de programación secuencial" src="../figuras/prog-secuencial.png" /></td>
+<td align="center"><img alt="Modelo de programación asíncrona" src="../figuras/prog-asincrona.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="modelo-de-paso-de-continuaciones">Modelo de paso de continuaciones</h2>
+<p>Aumentar la aridad de la función no bloqueante en 1 argumento adicional, donde se indica la lógica de continuación.</p>
+<h3 id="callbacks">Callbacks</h3>
+<p>La lógica de continuación se indica mediante una función de <strong>retrollamada</strong> o <em>callback</em>.</p>
+<p><img alt="Paso de callback" src="../figuras/cont-callback.png" /></p>
+<p>Ejemplos: implementaciones de <em>listener</em> del <a href="#a-idlistenersejercicio-introductorio---listenersa">ejercicio introductorio</a></p>
+<ul>
+<li>Con clases anónimas</li>
+<li>Con adaptadores</li>
+<li>Con funciones anónimas o lambdas</li>
+</ul>
+<h4 id="ejemplo-ajax-jquery-callbacks">Ejemplo: Ajax + jQuery callbacks</h4>
+<ul>
+<li><a href="http://learn.jquery.com/ajax/">Ajax</a></li>
+<li><a href="http://devdocs.io/jquery/">jQuery</a></li>
+<li><a href="http://devdocs.io/jquery-callbacks-object/">jQuery Callbacks object</a></li>
+</ul>
+<h4 id="ejemplo-callback-en-typescript">Ejemplo: callback en TypeScript</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">delayedResponseWithCallback</span><span class="p">(</span><span class="nx">callback</span>: <span class="kt">Function</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">delayedAfterTimeout() {</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`delayedAfterTimeout`</span><span class="p">);</span>
+        <span class="nx">callback</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">delayedAfterTimeout</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">callDelayedAndWait() {</span>
+    <span class="kd">function</span> <span class="nx">afterWait() {</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`afterWait`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling delayedResponseWithCallback`</span><span class="p">);</span>
+    <span class="nx">delayedResponseWithCallback</span><span class="p">(</span><span class="nx">afterWait</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`after calling delayedResponseWithCallback`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">callDelayedAndWait</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Salida:</p>
+<div class="codehilite"><pre><span></span><code>calling delayedResponseWithCallback
+after calling delayedResponseWithCallback
+delayedAfterTimeout
+afterWait
+</code></pre></div>
+
+<p>El uso de callbacks hace el código complejo, repetitivo y difícil de entender, especialmente cuando el tamaño del código crece.</p>
+<h3 id="thunks">Thunks</h3>
+<p><strong><a href="https://en.wikipedia.org/wiki/Thunk">thunk</a></strong> = subrutina empleada para inyectar un cómputo adicional en otra subrutina</p>
+<ul>
+<li>Difieren un cómputo hasta que éste se necesita</li>
+<li>Insertan una operación al principio o al final de otra</li>
+<li>Aumentan la aridad de la función no bloqueante en una fase adicional de evaluación parcial para recibir la lógica de continuación</li>
+<li>Un thunk puede guardar su estado final para evitar recalcularlo (<em>memoization</em>)</li>
+</ul>
+<p><img alt="Paso de thunk" src="../figuras/cont-thunk.png" /></p>
+<h4 id="lenguajes-ruby">Lenguajes: Ruby</h4>
+<ul>
+<li>Cualquier función en Ruby puede recibir un <strong>bloque</strong> <code>do</code>... <code>end</code> como argumento adicional (no explícito) a la llamada</li>
+<li>Un <em>thunk</em> es como un bloque con un <code>yield</code> al final</li>
+</ul>
+<h3 id="promesas">Promesas</h3>
+<p>Modelo de <a href="https://en.wikipedia.org/wiki/Futures_and_promises">futuros y promesas</a></p>
+<ul>
+<li><strong>Futuro</strong>: marcador de posición (<em>placeholder</em>), de solo lectura, para una variable que representa el resultado de un cómputo asíncrono</li>
+<li><strong>Promesa</strong>: contenedor de una asignación escribible (solo para inicialización), que fija el valor de un <em>futuro</em>.</li>
+</ul>
+<p>En programación funcional, los futuros y promesas sirven para desacoplar un valor (el futuro) de cómo éste se calculó (la promesa), permitiendo así la paralelización de los cálculos.</p>
+<p><img alt="Promesas" src="../figuras/promesas.png" /></p>
+<p>El cliente recibe como respuesta inmediata una abstracción de datos (la promesa) que representa un compromiso de valor futuro, con inyectores (then, catch) para incluir la lógica de continuación.</p>
+<p>Se pueden encadenar cálculos usando futuros <em>computables</em> o <em>escuchables</em>, que sirven para indicar a un thread que ejecute una determinada tarea y, cuando termine, se dirija a hacer otra tarea usando el resultado de la tarea anterior.</p>
+<h4 id="lenguajes-typescript">Lenguajes: TypeScript</h4>
+<p>En TypeScript, una <code>Promise&lt;T&gt;</code> es un objeto que, en su creación, recibe una función (anónima o no) que acepta dos callbacks (<code>resolve</code> y <code>reject</code>) y devuelve un valor de tipo <code>T</code>.</p>
+<h5 id="ejemplo-definicion-de-promesa-que-resuelve">Ejemplo: definición de promesa que resuelve</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">delayedPromise</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span>
+    <span class="p">(</span>
+        <span class="c1">// función anónima con dos callbacks como argumentos</span>
+        <span class="p">(</span>   <span class="nx">resolve</span> <span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>   <span class="c1">//callback para resolver</span>
+            <span class="nx">reject</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>      <span class="c1">//callbak para rechazar</span>
+        <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// función que resuelve tras un timeout de 1 sg.</span>
+            <span class="kd">function</span> <span class="nx">afterTimeout() {</span>
+                <span class="nx">resolve</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">afterTimeout</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h5 id="ejemplo-uso-para-resolver">Ejemplo: uso para resolver</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">callDelayedPromise() {</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling delayedPromise`</span><span class="p">);</span>
+    <span class="nx">delayedPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
+        <span class="c1">// función anónima a llamar cuando se resuelva la promesa</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`delayedPromise.then()`</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">callDelayedPromise</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Salida:</p>
+<div class="codehilite"><pre><span></span><code>calling delayedPromise
+delayedPromise.then()
+</code></pre></div>
+
+
+<h5 id="ejemplo-definicion-de-promesa-que-rechaza">Ejemplo: definición de promesa que rechaza</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">errorPromise</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span>
+    <span class="p">(</span>
+        <span class="p">(</span>   <span class="nx">resolve</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+            <span class="nx">reject</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
+        <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">reject</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h5 id="ejemplo-uso-para-rechazar">Ejemplo: uso para rechazar</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">callErrorPromise() {</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling errorPromise`</span><span class="p">);</span>
+    <span class="nx">errorPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`no error.`</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">).</span><span class="k">catch</span><span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`an error occurred`</span><span class="p">)}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">callErrorPromise</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Salida:</p>
+<div class="codehilite"><pre><span></span><code>calling errorPromise
+an error occurred
+</code></pre></div>
+
+
+<h4 id="comparacion-callbacks-promises-en-typescript">Comparación callbacks-promises en TypeScript</h4>
+<h5 id="mecanismo-de-los-callback">Mecanismo de los callback</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">standardCallback() {</span>
+    <span class="kd">function</span> <span class="nx">afterCallbackSuccess() {</span>
+    <span class="c1">// execute this code</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">afterCallbackError() {</span>
+    <span class="c1">// execute on error</span>
+    <span class="p">}</span>
+    <span class="c1">// invoke async function</span>
+    <span class="nx">invokeAsync</span><span class="p">(</span><span class="nx">afterCallbackSuccess</span><span class="p">,</span> <span class="nx">afterCallbackError</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h5 id="sintaxis-fluent-de-las-promesas">Sintaxis (<em>fluent</em>) de las promesas:</h5>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">usingPromises() {</span>
+    <span class="c1">// invoke async function</span>
+    <span class="nx">delayedPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// execute on success</span>
+        <span class="p">}</span>
+    <span class="p">).</span><span class="k">catch</span> <span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// execute on error</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="asyncawait">Async/await</h4>
+<ul>
+<li>El prefijo <code>await</code> hace que se espere a que se llame a la función asíncrona antes de continuar con la ejecución del programa.</li>
+<li>Esto genera un flujo de ejecución de la lógica del programa más fácil de leer y de seguir, pausando la ejecución hasta que se cumpla la promesa.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">awaitDelayed</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">(</span>
+        <span class="p">(</span>   <span class="nx">resolve</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+            <span class="nx">reject</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">)</span> <span class="o">=&gt;</span>
+            <span class="p">{</span>
+                <span class="kd">function</span> <span class="nx">afterWait() {</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`calling resolve`</span><span class="p">);</span>
+                    <span class="nx">resolve</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">afterWait</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">callAwaitDelayed() {</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`call awaitDelayed`</span><span class="p">);</span>
+    <span class="nx">await</span> <span class="nx">awaitDelayed</span><span class="p">();</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`after awaitDelayed`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">callAwaitDelayed</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Salida:</p>
+<div class="codehilite"><pre><span></span><code>call awaitDelayed
+calling resolve
+after awaitDelayed
+</code></pre></div>
+
+<h5 id="comparacion-sintaxis-thencatch-y-asyncawait">Comparación sintaxis then/catch y async/await</h5>
+<p>Promesas que usan then/catch para definir funciones anónimas a llamar dependiendo del resultado éxito/fracaso de la ejecución:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">simplePromises() {</span>
+    <span class="c1">// invoke async function</span>
+    <span class="nx">delayedPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// execute on success</span>
+        <span class="p">}</span>
+    <span class="p">).</span><span class="k">catch</span> <span class="p">(</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// execute on error</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="c1">// code here does NOT wait for async call</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Sintaxis async/await, más legible y menos propensa a errores:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">usingAsyncSyntax() {</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nx">delayedPromise</span><span class="p">();</span>
+        <span class="c1">// execute on success</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// execute on error</span>
+    <span class="p">}</span>
+    <span class="c1">// code here waits for async call</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="lenguajes-java">Lenguajes: Java</h4>
+<p>En Java hay definida una interfaz explícita para los futuros:</p>
+<ul>
+<li>Desde Java 5: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Future.html"><code>java.util.concurrent.Future</code></a> </li>
+<li>Desde Java 8, inspirado por los <a href="https://github.com/google/guava/wiki/ListenableFutureExplained"><code>ListenableFuture</code></a> de Guava: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/CompletableFuture.html"><code>java.util.concurrent.CompletableFuture</code></a></li>
+</ul>
+<h5 id="ejemplo-future-en-java">Ejemplo: <code>Future</code> en Java</h5>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Callable&lt;V&gt; = Interfaz funcional que representa a una operación sin args</span>
+<span class="c1">// y que devuelve un resultado de tipo V (permite checked exceptions)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyCallable</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">call</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="p">{</span>
+    <span class="n">ExecutorService</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">exec</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCallable</span><span class="p">());</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">isDone</span><span class="p">());</span> <span class="c1">//False</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">());</span> <span class="c1">//Waits until the task is done, then prints 1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h5 id="ejemplo-completablefuture-en-java">Ejemplo: <code>CompletableFuture</code> en Java</h5>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Supplier&lt;T&gt; = Interfaz funcional que representa a una operación sin args</span>
+<span class="c1">// y que devuelve un resultado de tipo T (no permite checked exceptions)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MySupplier</span> <span class="kd">implements</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">get</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//Do nothing</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">PlusOne</span> <span class="kd">implements</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">apply</span><span class="p">(</span><span class="n">Integer</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">ExecutorService</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+    <span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">MySupplier</span><span class="p">(),</span> <span class="n">exec</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">isDone</span><span class="p">());</span> <span class="c1">// False</span>
+    <span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="k">new</span> <span class="n">PlusOne</span><span class="p">());</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f2</span><span class="p">.</span><span class="na">get</span><span class="p">());</span> <span class="c1">// Waits until the &quot;calculation&quot; is done, then prints 2</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="lenguajes-javascript">Lenguajes, JavaScript</h3>
+<blockquote>
+<p>LECTURA recomendada: <a href="https://promisesaplus.com/">Promises/A+</a>: An open standard for sound, interoperable JavaScript promises.</p>
+</blockquote>
+<h2 id="modelos-basados-en-eventos">Modelos basados en eventos</h2>
+<p>Las operaciones disparan eventos de diferentes tipos, que son escuchados por los manejadores (<em>listeners</em>) de eventos, que los clientes han registrado en un bus de eventos</p>
+<h3 id="eventos">Eventos</h3>
+<p><img alt="Eventos" src="../figuras/eventos.png" /></p>
+<h3 id="streams">Streams</h3>
+<p>Los datos fluyen por pipelines y se consumen siguiendo modelos <em>push</em> o <em>pull</em></p>
+<p><img alt="Streams" src="../figuras/streams.png" /></p>
+<h4 id="observables">Observables</h4>
+<blockquote>
+<p>LECTURA recomendada: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing (by @andrestaltz)</a></p>
+</blockquote>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../iiss-fp/" title="Funciones" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Funciones
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dodero" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/jmdodero" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
