@@ -2446,7 +2446,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <p>La gestión del proyecto así nos lo exige. Algunos ejemplos:</p>
 <ul>
 <li>Representaciones múltiples de la información:<ul>
-<li>un TAD para guardar elementos de distintos tipos;</li>
+<li>varias implementaciones de un TAD que necesita guardar elementos de distintos tipos, cuando el lenguaje no permite genericidad</li>
 <li>el esquema de una BD configurado en la BD y en el código fuente a través de un <a href="http://www.agiledata.org/essays/mappingObjects.html">ORM</a></li>
 </ul>
 </li>
@@ -2464,6 +2464,10 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Cómo evitaba Java la duplicación en sus <em>containers</em></p>
+<p>Cuando el lenguaje no tenía capacidad de usar tipos genéricos (hasta el JDK 1.4), podría aparecer la necesidad de duplicar código a la hora de implementar un TAD contenedor, pues habría que repetir todo el código de manejo del TAD para cada tipo de elemento contenido. Para evitarlo, Java usó un <em>workaround</em>: todas las clases en Java heredan de <code>Object</code>. Así una clase que implementara un TAD contenedor de elementos de otra clase, tan solo tenía que declarar los elementos contenidos de tipo <code>Object</code>. Más tarde (a partir del JDK 1.5) introdujo los tipos genéricos y ya no era necesario usar dicho <em>workaround</em> basado en <code>Object</code> para evitar la duplicación</p>
+</div>
 <h4 id="tecnicas-de-solucion">Técnicas de solución<a class="headerlink" href="#tecnicas-de-solucion" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Generadores de código</strong>: para evitar duplicar representaciones múltiples de la información</li>
