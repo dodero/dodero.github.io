@@ -646,6 +646,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#interfaces-fluent" class="md-nav__link">
+    Interfaces fluent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#criticas-a-la-ley-de-demeter" class="md-nav__link">
     Críticas a la ley de Demeter
   </a>
@@ -1041,6 +1048,13 @@
           <li class="md-nav__item">
   <a href="#ley-de-demeter-para-funciones" class="md-nav__link">
     Ley de Demeter para funciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces-fluent" class="md-nav__link">
+    Interfaces fluent
   </a>
   
 </li>
@@ -1555,6 +1569,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
+<h4 id="interfaces-fluent">Interfaces <em>fluent</em><a class="headerlink" href="#interfaces-fluent" title="Permanent link">&para;</a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Excepción a la ley de Demeter</p>
 <p>Hay una excepción notable a la prohibición de encadenar llamadas a funciones de la ley de Demeter. Esta regla no aplica si es muy poco probable que haya cambios en las cosas que se encadenan. En la práctica, cualquier parte de tu aplicación debe considerarse como algo que es probable que cambie; cualquier elemento de una biblioteca de un tercero debe considerarse volátil, en particular si quienes mantienen dicha biblioteca suelen cambiar su API de una versión a otra.</p>
@@ -1571,7 +1586,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
     <span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
 </code></pre></div>
 
-<p>Los métodos <code>stream</code>, <code>filter</code>, <code>map</code>, <code>sorted</code> y <code>forEach</code> son parte de la nueva interfaz funcional y los <em>streams</em> incorporados a las colecciones como <code>List</code> incorporadas al lenguaje desde Java 8.</p>
+<p>Los métodos <code>stream</code>, <code>filter</code>, <code>map</code>, <code>sorted</code> y <code>forEach</code> son parte de la nueva interfaz funcional y los <em>streams</em> incorporados a las colecciones como <code>List</code> incorporadas al lenguaje desde Java 8. Este tipo de interfaces como la del API de streams de Java se conoce como <a href="https://en.wikipedia.org/wiki/Fluent_interface"><em>fluent interfaces</em></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">La programación con streams se tratará en el capítulo sobre <a href="../iiss-evp/">Programación basada en Eventos</a></p>
 </div>
@@ -1597,14 +1612,17 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>Si cambia la implementación de <code>Location</code> de forma que ya no incluye directamente una <code>TimeZone</code>, hay que cambiar <code>plotDate</code></li>
 <li>Añadir un método <em>delegado</em> <code>getTimeZone</code> a <code>Selection</code>. Así <code>plotDate</code> no se entera de si la <code>TimeZone</code> le llega desde <code>Recorder</code> o desde un objeto contenido en <code>Recorder</code>.</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">TimeZone</span> <span class="n">tz</span><span class="p">)</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">TimeZone</span> <span class="n">tz</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* ... */</span>
 <span class="p">}</span>
 <span class="n">plotDate</span><span class="p">(</span><span class="n">someDate</span><span class="p">,</span> <span class="n">someSelection</span><span class="p">.</span><span class="na">getTimeZone</span><span class="p">());</span>
 </code></pre></div>
-  Ahora <code>plotDate</code> <span><span class="MathJax_Preview">\dashrightarrow</span><script type="math/tex">\dashrightarrow</script></span> <code>Selection</code>, <code>TimeZone</code>, pero se han eliminado las restantes dependencias.
-- Costes de espacio y ejecución de métodos <em>wrapper</em> que reenvían la petición al objeto delegado: violar la ley de Demeter para mejorar el <strong>rendimiento</strong>
-- Otros ejemplos de mejora del rendimiento: desnormalización de BBDD</p>
+
+<p>Ahora <code>plotDate</code> <span><span class="MathJax_Preview">\dashrightarrow</span><script type="math/tex">\dashrightarrow</script></span> <code>Selection</code>, <code>TimeZone</code>, pero se han eliminado las restantes dependencias.</p>
+<ul>
+<li>Costes de espacio y ejecución de métodos <em>wrapper</em> que reenvían la petición al objeto delegado: violar la ley de Demeter para mejorar el <strong>rendimiento</strong></li>
+<li>Otros ejemplos de mejora del rendimiento: desnormalización de BBDD</li>
+</ul>
 <h3 id="ortogonalidad-en-toolkits-y-bibliotecas">Ortogonalidad en toolkits y bibliotecas<a class="headerlink" href="#ortogonalidad-en-toolkits-y-bibliotecas" title="Permanent link">&para;</a></h3>
 <p>Muchas bibliotecas actuales implementan la ortogonalidad a través de metadatos, o atributos o etiquetas (@ <em>tag</em>), también llamados <a href="../iiss-oop-3/#dependencias-en-java">anotaciones</a> en Java y <a href="../iiss-oop-3/#decoradores-en-typescript">decoradores</a> en TypeScript.</p>
 <p>Los metadatos se emplean para proporcionar propósitos específicos, como v.g. persistencia de objetos, transacciones, etc. Por ejemplo, Spring o EJB utilizan anotaciones @ declarativas para expresar la transaccionalidad de una operación o la persistencia de una propiedad de una clase fuera del método que debe ejecutar dichas funcionalidades.</p>
