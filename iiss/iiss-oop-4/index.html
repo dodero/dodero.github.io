@@ -678,8 +678,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toolkits-y-bibliotecas" class="md-nav__link">
-    Toolkits y bibliotecas
+  <a href="#ortogonalidad-en-toolkits-y-bibliotecas" class="md-nav__link">
+    Ortogonalidad en toolkits y bibliotecas
   </a>
   
 </li>
@@ -1078,8 +1078,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toolkits-y-bibliotecas" class="md-nav__link">
-    Toolkits y bibliotecas
+  <a href="#ortogonalidad-en-toolkits-y-bibliotecas" class="md-nav__link">
+    Ortogonalidad en toolkits y bibliotecas
   </a>
   
 </li>
@@ -1444,30 +1444,38 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>La base de datos debe ser ortogonal a la interfaz de usuario</li>
 <li>En un helicóptero, los mandos de control no suelen ser ortogonales</li>
 </ul>
+<details class="quote"><summary>A Nonorthogonal System (<a href="../bibliografia/#pragmatic2">Hunt, 2019</a>)</summary><p>Helicopters have four basic controls. The cyclic is the stick you hold in your right hand. Move it, and the helicopter moves in the corresponding direction. Your left hand holds the collective pitch lever. Pull up on this and you increase the pitch on all the blades, generating lift. At the end of the pitch lever is the throttle. Finally you have two foot pedals, which vary the amount of tail rotor thrust and so help turn the helicopter.</p>
+<p>“Easy!,” you think. “Gently lower the collective pitch lever and you’ll descend gracefully to the ground, a hero.” However, when you try it, you discover that life isn’t that simple. The helicopter’s nose drops, and you start to spiral down to the left. Suddenly you discover that you’re flying a system where every control input has secondary effects. Lower the left-hand lever and you need to add compensating backward movement to the right-hand stick and push the right pedal. But then each of these changes affects all of the other controls again. Suddenly you’re juggling an unbelievably complex system, where every change impacts all the other inputs. Your workload is phenomenal: your hands and feet are constantly moving, trying to balance all the interacting forces.</p>
+<p>Helicopter controls are decidedly not orthogonal.</p>
+</details>
 <h3 id="beneficios-de-la-ortogonalidad">Beneficios de la ortogonalidad<a class="headerlink" href="#beneficios-de-la-ortogonalidad" title="Permanent link">&para;</a></h3>
 <h4 id="mayor-productividad">Mayor productividad<a class="headerlink" href="#mayor-productividad" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Es más fácil escribir un componente pequeño y auto-contenido que un bloque muy grande de código. El tiempo de desarrollo y <strong>pruebas</strong> se reduce</li>
 <li>Se pueden combinar unos componentes con otros más fácilmente. Mayor <strong>reutilización</strong>.</li>
-<li>Si <span><span class="MathJax_Preview">A \perp B</span><script type="math/tex">A \perp B</script></span>, el componente A sirve para <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> propósitos y B sirve para <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>, entonces <span><span class="MathJax_Preview">A \cup B</span><script type="math/tex">A \cup B</script></span> sirve para <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> propósitos.</li>
-<li>La falta de cohesión perjudica la reutilización – v.g. ¿y si hay que hacer una nueva versión gráfica de una aplicación de línea de comandos? (los <code>System.out.println</code> pueden descohesionar)</li>
+<li>En teoría, si <span><span class="MathJax_Preview">A \perp B</span><script type="math/tex">A \perp B</script></span>, el componente A sirve para <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> propósitos y B sirve para <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>, entonces <span><span class="MathJax_Preview">A \cup B</span><script type="math/tex">A \cup B</script></span> sirve para <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> propósitos.</li>
+<li>La falta de cohesión perjudica la reutilización &rarr; ¿y si hay que hacer una nueva versión gráfica de una aplicación de línea de comandos que lleva incrustada la escritura en consola con <code>System.out.println</code>? Pueden descohesionar!</li>
 </ul>
 <h4 id="menor-riesgo">Menor riesgo<a class="headerlink" href="#menor-riesgo" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Defectos aislados, más fáciles de arreglar</li>
-<li>Menor <strong>fragilidad</strong> del sistema global, los problemas provocados por cambios en un área se limitan a ese área</li>
-<li>Más fácil de <strong>probar</strong>, pues será más fácil construir pruebas individuales de cada uno de sus componentes (e.g. <em>mocking</em> es más sencillo)</li>
+<li>Menor <strong>fragilidad</strong> del sistema global. Los problemas provocados por cambios en un área se limitan a ese área</li>
+<li>Más fácil de <strong>probar</strong>, pues será más fácil construir pruebas individuales de cada uno de sus componentes (por ejemplo, las técnicas de <em><a href="https://en.wikipedia.org/wiki/Mock_object">mocking</a></em> son más sencillas)</li>
 </ul>
 <h3 id="niveles-de-aplicacion-de-la-ortogonalizad">Niveles de aplicación de la ortogonalizad<a class="headerlink" href="#niveles-de-aplicacion-de-la-ortogonalizad" title="Permanent link">&para;</a></h3>
 <p>La ortogonalidad es aplicable a:</p>
 <ul>
-<li>la gestión de proyectos</li>
 <li>el diseño</li>
 <li>la codificación</li>
 <li>las pruebas</li>
+<li>bibliotecas</li>
 <li>la documentación</li>
 </ul>
 <p>A nivel de <em>diseño</em>, los patrones de diseño y las arquitecturas como MVC facilitan la construcción de componentes ortogonales.</p>
+<div class="admonition note">
+<p class="admonition-title">Lectura recomendada</p>
+<p>Leer el <a href="https://learning-oreilly-com.bibezproxy.uca.es/library/view/the-pragmatic-programmer/9780135956977/f_0028.xhtml#orthogonality">Topic 10: Orthogonality</a> de (<a href="../bibliografia/#pragmatic2">Hunt, 2019</a>).</p>
+</div>
 <h3 id="tecnicas-de-codificacion">Técnicas de codificación<a class="headerlink" href="#tecnicas-de-codificacion" title="Permanent link">&para;</a></h3>
 <p>Técnicas de codificación para fomentar la ortogonalidad:</p>
 <ul>
@@ -1475,7 +1483,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>Codificar <strong>patrones</strong> de diseño: strategy, template method, etc.</li>
 <li>Evitar datos globales y <strong>singletons</strong>: ¿qué pasaría si hubiera que hacer una versión <em>multithreaded</em> de una aplicación?</li>
 <li><strong>Inyectar</strong>: pasar explícitamente el contexto (dependencia) como parámetro a los constructores</li>
-<li>Usar <strong>anotaciones</strong> (Java), decoradores (JavaScript) o atributos (C#)</li>
+<li>Usar <strong>anotaciones</strong> (Java), decoradores (TypeScript) o atributos (C#)</li>
 <li><strong>Desacoplar</strong>: Ley de <span><em>Demeter</em></span>—No hables con extraños</li>
 <li>Usar programación orientada a <strong>aspectos</strong></li>
 </ul>
@@ -1492,6 +1500,10 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </code></pre></div>
 
 <p>Refactorización: definir un método <code>User.hasPermission()</code></p>
+<div class="admonition note">
+<p class="admonition-title">Lectura recomendada</p>
+<p>Leer el <a href="https://learning-oreilly-com.bibezproxy.uca.es/library/view/the-pragmatic-programmer/9780135956977/f_0049.xhtml#coupling">Topic 28: Decoupling</a> de (<a href="../bibliografia/#pragmatic2">Hunt, 2019</a>).</p>
+</div>
 <h4 id="inyectar-el-contexto">Inyectar el contexto<a class="headerlink" href="#inyectar-el-contexto" title="Permanent link">&para;</a></h4>
 <p>Pasar explícitamente el contexto (dependencia) como parámetro a los constructores de la clase</p>
 <h5 id="ejemplo-patron-estrategia">Ejemplo: patrón estrategia<a class="headerlink" href="#ejemplo-patron-estrategia" title="Permanent link">&para;</a></h5>
@@ -1543,6 +1555,29 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <span class="p">}</span>
 </code></pre></div>
 
+<div class="admonition warning">
+<p class="admonition-title">Excepción a la ley de Demeter</p>
+<p>Hay una excepción notable a la prohibición de encadenar llamadas a funciones de la ley de Demeter. Esta regla no aplica si es muy poco probable que haya cambios en las cosas que se encadenan. En la práctica, cualquier parte de tu aplicación debe considerarse como algo que es probable que cambie; cualquier elemento de una biblioteca de un tercero debe considerarse volátil, en particular si quienes mantienen dicha biblioteca suelen cambiar su API de una versión a otra.</p>
+</div>
+<p>Las librerías que vienen con el lenguaje suelen ser bastante estables, así que ejemplos de código como el siguiente son aceptables como excepción a esta interpretación de la ley de Demeter:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">myList</span> <span class="o">=</span>
+    <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;a1&quot;</span><span class="p">,</span> <span class="s">&quot;a2&quot;</span><span class="p">,</span> <span class="s">&quot;b1&quot;</span><span class="p">,</span> <span class="s">&quot;c2&quot;</span><span class="p">,</span> <span class="s">&quot;c1&quot;</span><span class="p">);</span>
+
+<span class="n">myList</span>
+    <span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">sorted</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Los métodos <code>stream</code>, <code>filter</code>, <code>map</code>, <code>sorted</code> y <code>forEach</code> son parte de la nueva interfaz funcional y los <em>streams</em> incorporados a las colecciones como <code>List</code> incorporadas al lenguaje desde Java 8.</p>
+<div class="admonition warning">
+<p class="admonition-title">La programación con streams se tratará en el capítulo sobre <a href="../iiss-evp/">Programación basada en Eventos</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Las interfaces funcionales se tratarán en el capítulo sobre <a href="../iiss-fp/">Programación Funcional</a></p>
+</div>
 <h4 id="criticas-a-la-ley-de-demeter">Críticas a la ley de Demeter<a class="headerlink" href="#criticas-a-la-ley-de-demeter" title="Permanent link">&para;</a></h4>
 <p>La ley de Demeter, ¿realmente ayuda a crear código más mantenible?</p>
 <h5 id="ejemplo-pintar-graficos-de-grabadoras">Ejemplo: pintar gráficos de grabadoras<a class="headerlink" href="#ejemplo-pintar-graficos-de-grabadoras" title="Permanent link">&para;</a></h5>
@@ -1570,16 +1605,15 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
   Ahora <code>plotDate</code> <span><span class="MathJax_Preview">\dashrightarrow</span><script type="math/tex">\dashrightarrow</script></span> <code>Selection</code>, <code>TimeZone</code>, pero se han eliminado las restantes dependencias.
 - Costes de espacio y ejecución de métodos <em>wrapper</em> que reenvían la petición al objeto delegado: violar la ley de Demeter para mejorar el <strong>rendimiento</strong>
 - Otros ejemplos de mejora del rendimiento: desnormalización de BBDD</p>
-<h3 id="toolkits-y-bibliotecas">Toolkits y bibliotecas<a class="headerlink" href="#toolkits-y-bibliotecas" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Usar metadatos (@tag) para propósitos específicos – v.g. persistencia de objetos, transacciones, etc.</li>
-<li><a href="../iiss-aop/">Aspect-Oriented Programming (AOP)</a></li>
-</ul>
+<h3 id="ortogonalidad-en-toolkits-y-bibliotecas">Ortogonalidad en toolkits y bibliotecas<a class="headerlink" href="#ortogonalidad-en-toolkits-y-bibliotecas" title="Permanent link">&para;</a></h3>
+<p>Muchas bibliotecas actuales implementan la ortogonalidad a través de metadatos, o atributos o etiquetas (@ <em>tag</em>), también llamados <a href="../iiss-oop-3/#dependencias-en-java">anotaciones</a> en Java y <a href="../iiss-oop-3/#decoradores-en-typescript">decoradores</a> en TypeScript.</p>
+<p>Los metadatos se emplean para proporcionar propósitos específicos, como v.g. persistencia de objetos, transacciones, etc. Por ejemplo, Spring o EJB utilizan anotaciones @ declarativas para expresar la transaccionalidad de una operación o la persistencia de una propiedad de una clase fuera del método que debe ejecutar dichas funcionalidades.</p>
+<p>Otro método para implementar la ortogonalidad es usar <a href="../iiss-aop/">Aspectos</a> y <em>Aspect-Oriented Programming</em> (AOP). Este método es empleado por el framework Spring.</p>
 <div class="admonition warning">
-<p class="admonition-title">Ver ahora el capítulo <a href="../iiss-aop/">Aspectos</a></p>
+<p class="admonition-title">Estudiar ahora el capítulo <a href="../iiss-aop/">Aspectos</a></p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Ver luego el capítulo <a href="../iiss-dbc/">Contratos</a></p>
+<p class="admonition-title">Estudiar luego el capítulo <a href="../iiss-dbc/">Contratos</a></p>
 </div>
                 
                   
