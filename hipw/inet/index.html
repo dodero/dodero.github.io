@@ -573,13 +573,13 @@
 <p>El DNS hace posible que cualquier servicio de la red pueda moverse de un lugar geográfico a otro en la Internet, aún cuando el cambio implique que tendrá una dirección IP diferente, siempre que mantenga registrado el mismo nombre de dominio.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos de nombres de dominio</p>
-</div>
 <div class="highlight"><pre><span></span><code>icann.org
 bbb.co.uk
 www.uca.es
 meet.jit.si
 </code></pre></div>
 
+</div>
 <p>Sin la ayuda del sistema de nombres de dominio, los usuarios de Internet tendrían que acceder a cada servidor web conociendo la dirección IP del servidor (por ejemplo, sería necesario utilizar <a href="http://172.217.10.110/">http://172.217.10.110/</a> en vez de <a href="http://google.com/">http://google.com/</a>).</p>
 <p>Además, se reduciría el número de webs posibles, ya que es habitual que una misma dirección IP sea compartida por varios dominios. Por ejemplo, los nombres de dominio <code>direccioncomercial.wordpress.com</code> y <code>gastronomiaatope.wordpress.com</code> comparten una misma dirección IP.</p>
 <div class="admonition hint">
@@ -591,12 +591,12 @@ meet.jit.si
 <div class="admonition example">
 <p class="admonition-title">URL versus nombre de dominio</p>
 <p>El siguiente ejemplo ilustra la diferencia entre una URL (<em>Uniform Resource Locator</em>) y un nombre de dominio:</p>
-</div>
 <ul>
 <li>Nombre de dominio: <code>wikipedia.org</code></li>
 <li>URL de un sitio web: <code>https://www.wikipedia.org</code></li>
 <li>URL de una página web: <code>https://es.wikipedia.org/wiki/Dominio_de_Internet</code></li>
 </ul>
+</div>
 <h3 id="dominios-de-nivel-superior">Dominios de nivel superior<a class="headerlink" href="#dominios-de-nivel-superior" title="Permanent link">&para;</a></h3>
 <p>Cuando se creó el sistema de nombres de dominio DNS, el espacio de nombres se dividió en dominios que, leídos de atrás hacia adelante, definen una estructura jerárquica o arbórea de los nombres.</p>
 <p>Cualquier nombre de dominio termina en un sufijo .xxx conocido como <em>top-level domain</em> (TLD).</p>
@@ -606,16 +606,56 @@ meet.jit.si
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos de nombres de dominio</p>
-<p>Los nombres de dominio constan de una secuencia de términos separados por un punto. Cada término es un dominio de primer nivel (TLD), un dominio de segundo nivel, subdominios, etc.</p>
+<p>Los nombres de dominio constan de una secuencia de términos separados por un punto. Cada término es el nombre de un dominio de primer nivel (TLD), de un dominio de segundo nivel, de un subdominio o de un servidor.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Dominio</th>
+<th align="center">TLD</th>
+<th align="center">Domino de 2º nivel</th>
+<th align="center">Subdominio</th>
+<th align="center">Servidor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>icann.org</code></td>
+<td align="center"><code>org</code></td>
+<td align="center"><code>icann</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><code>bbc.co.uk</code></td>
+<td align="center"><code>uk</code></td>
+<td align="center"><code>co</code></td>
+<td align="center"><code>bbc</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><code>www.bbc.com</code></td>
+<td align="center"><code>uk</code></td>
+<td align="center"><code>com</code></td>
+<td align="center"></td>
+<td align="center"><code>www</code></td>
+</tr>
+<tr>
+<td align="left"><code>www.bbc.co.uk</code></td>
+<td align="center"><code>uk</code></td>
+<td align="center"><code>co</code></td>
+<td align="center"><code>bbc</code></td>
+<td align="center"><code>www</code></td>
+</tr>
+<tr>
+<td align="left"><code>www.uca.es</code></td>
+<td align="center"><code>es</code></td>
+<td align="center"><code>uca</code></td>
+<td align="center"></td>
+<td align="center"><code>www</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-<ul>
-<li><code>icann.org</code>:
-    TLD = <code>org</code>;  dominio de 2º nivel = <code>icann</code></li>
-<li><code>bbb.co.uk</code>:
-    TLD = <code>uk</code>;   subdominio de 2º nivel = <code>co</code>;   subdominio = <code>bbc</code></li>
-<li><code>www.uca.es</code>:
-    TLD = <code>es</code>;   subdominio de 2º nivel = <code>uca</code>;  nombre del servidor = <code>www</code></li>
-</ul>
 <h3 id="organizaciones-de-registro">Organizaciones de registro<a class="headerlink" href="#organizaciones-de-registro" title="Permanent link">&para;</a></h3>
 <p>El registro de los nombres DNS funciona de forma similar a cualquier otro tipo de registro (registro civil, registro mercantil, registro de la propiedad, etc.), pero con dos diferencias:</p>
 <ol>
@@ -638,15 +678,17 @@ meet.jit.si
 <p>Del registro y administración de los subdominios de una empresa o institución se encarga cada organización en cuestión. Por ejemplo, la propia UCA se encarga de los subdominios de <code>.uca.es</code>.</p>
 <p>Si un particular quiere registrar un dominio, debe acudir a alguno de los registradores autorizados de una entidad administradora. Por ejemplo, si se quiere registrar el dominio <code>yomismo.es</code>, puede consultarse la lista de <a href="https://www.dominios.es/dominios/">agentes registradores</a> de red.es y solicitar el registro, alquilando el nombre de dominio por un período determinado, si es que éste no está ya registrado por alguien.</p>
 <div class="admonition question">
-<p class="admonition-title">WHOIS: ¿cómo averiguar quién es el arrendatario de un dominio</p>
+<p class="admonition-title">WHOIS: ¿cómo averiguar quién es el arrendatario de un dominio?</p>
 <p>WHOIS es un protocolo que sirve para consultar quién es el <em>arrendatario</em> (no puede hablarse de <em>propietario</em>) de un dominio o de una dirección IP.</p>
 <p>La información de WHOIS es pública y dice el arrendatario, la persona de contacto, la fecha de alta, la fecha de caducidad, etc.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Consultar WHOIS</p>
-<p>Como ejercicio, puede consultarse la información de WHOIS de cualquier nombre de dominio en:
-<a href="https://www.internic.net/whois.html">https://www.internic.net/whois.html</a>
-<a href="https://www.dominios.es/dominios/es/busca-tu-dominio">https://www.dominios.es/dominios/es/busca-tu-dominio</a></p>
+<p>Como ejercicio, puede consultarse la información de WHOIS de cualquier nombre de dominio en:</p>
+<ul>
+<li><a href="https://www.internic.net/whois.html">https://www.internic.net/whois.html</a></li>
+<li><a href="https://www.dominios.es/dominios/es/busca-tu-dominio">https://www.dominios.es/dominios/es/busca-tu-dominio</a></li>
+</ul>
 </div>
 <h2 id="direcciones-ip-publicas-y-privadas">Direcciones IP públicas y privadas<a class="headerlink" href="#direcciones-ip-publicas-y-privadas" title="Permanent link">&para;</a></h2>
 <p>No todas las direcciones IP son públicas y globalmente conocidas. Hay un rango de direcciones IP que están reservadas para <a href="https://es.wikipedia.org/wiki/Red_privada">redes privadas</a> o <em>intranets</em>, no accesibles directamente desde fuera de dichas redes. Por ejemplo, las direcciones IP que comienzan por <code>192.168.x.x</code> o por <code>172.x.x.x</code> son privadas.</p>
@@ -660,6 +702,9 @@ meet.jit.si
 <p>Hagamos una prueba: acceder a <a href="https://www.cual-es-mi-ip.net/">https://www.cual-es-mi-ip.net/</a> desde distintos equipos (móvil, portátil, etc.) de la misma casa y comprobar que en todos se obtiene la misma IP. Ésta es la dirección IP pública que el proveedor no ha asignado temporalmente.</p>
 <p>Si tenemos un equipo en casa con un servidor web instalado, para poder acceder a él desde fuera de casa es necesario configurar el <em>router</em> de una forma determinada para que dicho equipo sea visto desde fuera como si tuviera una dirección IP pública.</p>
 </div>
+<!--
+[![asciicast](https://asciinema.org/a/40324.png)](https://asciinema.org/a/40324)
+-->
                 
                   
                 
