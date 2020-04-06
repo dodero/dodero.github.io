@@ -753,10 +753,58 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../iiss-fp/" title="IV. Funciones" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       IV. Funciones
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        IV. Funciones
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-1/" title="Interfaces" class="md-nav__link">
+      Interfaces
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-2/" title="Lambdas" class="md-nav__link">
+      Lambdas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-3/" title="Mixins" class="md-nav__link">
+      Mixins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -1458,10 +1506,12 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>La base de datos debe ser ortogonal a la interfaz de usuario</li>
 <li>En un helicóptero, los mandos de control no suelen ser ortogonales</li>
 </ul>
-<details class="quote"><summary>A Nonorthogonal System (<a href="../bibliografia/#pragmatic2">Hunt, 2019</a>)</summary><p>Helicopters have four basic controls. The cyclic is the stick you hold in your right hand. Move it, and the helicopter moves in the corresponding direction. Your left hand holds the collective pitch lever. Pull up on this and you increase the pitch on all the blades, generating lift. At the end of the pitch lever is the throttle. Finally you have two foot pedals, which vary the amount of tail rotor thrust and so help turn the helicopter.</p>
+<div class="admonition quote">
+<p class="admonition-title">A Nonorthogonal System (<a href="../bibliografia/#pragmatic2">Hunt, 2019</a>)</p>
+<p>Helicopters have four basic controls. The cyclic is the stick you hold in your right hand. Move it, and the helicopter moves in the corresponding direction. Your left hand holds the collective pitch lever. Pull up on this and you increase the pitch on all the blades, generating lift. At the end of the pitch lever is the throttle. Finally you have two foot pedals, which vary the amount of tail rotor thrust and so help turn the helicopter.</p>
 <p>“Easy!,” you think. “Gently lower the collective pitch lever and you’ll descend gracefully to the ground, a hero.” However, when you try it, you discover that life isn’t that simple. The helicopter’s nose drops, and you start to spiral down to the left. Suddenly you discover that you’re flying a system where every control input has secondary effects. Lower the left-hand lever and you need to add compensating backward movement to the right-hand stick and push the right pedal. But then each of these changes affects all of the other controls again. Suddenly you’re juggling an unbelievably complex system, where every change impacts all the other inputs. Your workload is phenomenal: your hands and feet are constantly moving, trying to balance all the interacting forces.</p>
 <p>Helicopter controls are decidedly not orthogonal.</p>
-</details>
+</div>
 <h3 id="beneficios-de-la-ortogonalidad">Beneficios de la ortogonalidad<a class="headerlink" href="#beneficios-de-la-ortogonalidad" title="Permanent link">&para;</a></h3>
 <h4 id="mayor-productividad">Mayor productividad<a class="headerlink" href="#mayor-productividad" title="Permanent link">&para;</a></h4>
 <ul>

@@ -1,0 +1,1214 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Apuntes de Implementación e Implantación de Sistemas Software – Grado en Ingeniería Informática">
+      
+      
+      
+        <meta name="author" content="Juan Manuel Dodero">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Interfaces - Implementación e Implantación de Sistemas Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#programacion-funcional" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Implementación e Implantación de Sistemas Software" aria-label="Implementación e Implantación de Sistemas Software" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Implementación e Implantación de Sistemas Software
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Interfaces
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dodero/gii-dss-iiss/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Implementación e Implantación de Sistemas Software" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Implementación e Implantación de Sistemas Software
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dodero/gii-dss-iiss/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Inicio" class="md-nav__link">
+      Inicio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Asignatura
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Asignatura
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-pres/" title="Presentación" class="md-nav__link">
+      Presentación
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bibliografia/" title="Bibliografía" class="md-nav__link">
+      Bibliografía
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-temas/" title="Temario" class="md-nav__link">
+      Temario
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      I. Objetos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        I. Objetos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-oop-1/" title="Principios" class="md-nav__link">
+      Principios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-oop-2/" title="Delegación" class="md-nav__link">
+      Delegación
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-oop-3/" title="Inyección" class="md-nav__link">
+      Inyección
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-oop-4/" title="Duplicación" class="md-nav__link">
+      Duplicación
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-err/" title="Calidad" class="md-nav__link">
+      Calidad
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-aop/" title="II. Aspectos" class="md-nav__link">
+      II. Aspectos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-dbc/" title="III. Contratos" class="md-nav__link">
+      III. Contratos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      IV. Funciones
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        IV. Funciones
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Interfaces
+      </label>
+    
+    <a href="./" title="Interfaces" class="md-nav__link md-nav__link--active">
+      Interfaces
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-funcionales" class="md-nav__link">
+    Interfaces funcionales
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-herencia" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con herencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-composicion" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con composición
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con clases anónimas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-locales-o-internas" class="md-nav__link">
+    Clases locales o internas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicados" class="md-nav__link">
+    Predicados
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-partidos-de-una-competicion" class="md-nav__link">
+    Ejemplo: partidos de una competición
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-anonimas-interiores" class="md-nav__link">
+    Clases anónimas interiores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrollamadas-callbacks" class="md-nav__link">
+    Retrollamadas (callbacks)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementaciones-en-cc" class="md-nav__link">
+    Implementaciones en C/C++
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-puntero-a-funcion" class="md-nav__link">
+    Ejemplo de puntero a función
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-puntero-a-datos" class="md-nav__link">
+    Ejemplo de puntero a datos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-functor" class="md-nav__link">
+    Ejemplo de functor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functor-vs-function-pointer" class="md-nav__link">
+    Functor vs function pointer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-2/" title="Lambdas" class="md-nav__link">
+      Lambdas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-3/" title="Mixins" class="md-nav__link">
+      Mixins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-evp/" title="V. Eventos" class="md-nav__link">
+      V. Eventos
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-funcionales" class="md-nav__link">
+    Interfaces funcionales
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-herencia" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con herencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-composicion" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con composición
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" class="md-nav__link">
+    Ejemplo: Comparación de personas - versión con clases anónimas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-locales-o-internas" class="md-nav__link">
+    Clases locales o internas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicados" class="md-nav__link">
+    Predicados
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-partidos-de-una-competicion" class="md-nav__link">
+    Ejemplo: partidos de una competición
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-anonimas-interiores" class="md-nav__link">
+    Clases anónimas interiores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrollamadas-callbacks" class="md-nav__link">
+    Retrollamadas (callbacks)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementaciones-en-cc" class="md-nav__link">
+    Implementaciones en C/C++
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-puntero-a-funcion" class="md-nav__link">
+    Ejemplo de puntero a función
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-puntero-a-datos" class="md-nav__link">
+    Ejemplo de puntero a datos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-functor" class="md-nav__link">
+    Ejemplo de functor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functor-vs-function-pointer" class="md-nav__link">
+    Functor vs function pointer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dodero/gii-dss-iiss/edit/master/docs/iiss-fp-1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h0>FUNCIONES</h0>
+<h1 id="programacion-funcional">Programación funcional<a class="headerlink" href="#programacion-funcional" title="Permanent link">&para;</a></h1>
+<h2 id="interfaces-funcionales"><span style="color:blue;"><a id="functional">Interfaces funcionales</a></span><a class="headerlink" href="#interfaces-funcionales" title="Permanent link">&para;</a></h2>
+<h3 id="ejemplo-comparacion-de-personas-version-con-herencia">Ejemplo: Comparación de personas - versión con herencia<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-herencia" title="Permanent link">&para;</a></h3>
+<p>Ordenación de una lista de nombres de personas:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
+<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nombres</span><span class="p">);</span>
+</code></pre></div>
+
+<p>¿Cómo anticipar en la implementación la posible <strong>variabilidad</strong> del criterio de ordenación?</p>
+<ul>
+<li>Definir una clase para las personas</li>
+<li>Factorizar la función de comparación: delegar en <code>compareTo(other)</code></li>
+<li>Aprovechamos que el <code>String</code> del nombre ya implementa la interfaz <code>Comparable</code></li>
+</ul>
+<p>Delegando hacia las subclases:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Persona</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">idPersona</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span> <span class="n">fechaNacimiento</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Persona</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">Persona</span><span class="p">(</span><span class="kt">int</span> <span class="n">idPersona</span><span class="p">,</span> <span class="n">String</span> <span class="n">nombre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">idPersona</span> <span class="o">=</span> <span class="n">idPersona</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">nombre</span> <span class="o">=</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getIdPersona</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">idPersona</span><span class="p">;</span>  <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIdPersona</span><span class="p">(</span><span class="kt">int</span> <span class="n">idPersona</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="na">idPersona</span> <span class="o">=</span> <span class="n">idPersona</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNombre</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">nombre</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNombre</span><span class="p">(</span><span class="n">String</span> <span class="n">nombre</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="na">nombre</span> <span class="o">=</span> <span class="n">nombre</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span> <span class="nf">getFechaNacimiento</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">fechaNacimiento</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFechaNacimiento</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span> <span class="n">fechaNacimiento</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">fechaNacimiento</span> <span class="o">=</span> <span class="n">fechaNacimiento</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;ID=%1s, Nombre:%2s&quot;</span><span class="p">,</span> <span class="n">idPersona</span><span class="p">,</span> <span class="n">nombre</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Persona</span> <span class="n">otra</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">nombre</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">otra</span><span class="p">.</span><span class="na">getNombre</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Construir y ordenar una colección de personas:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Melchor&quot;</span><span class="p">));</span>
+<span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Gaspar&quot;</span><span class="p">));</span>
+<span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;Baltasar&quot;</span><span class="p">));</span>
+<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">personas</span><span class="p">);</span>
+</code></pre></div>
+
+<p>¿Y si deseamos ordenar por fecha?</p>
+<ul>
+<li>Alternativa 1: definir subclases <code>PersonaPorNombre</code>, <code>PersonaPorFechaNacimiento</code>...</li>
+<li>Mucho código repetido (no cumple DRY)</li>
+<li>
+<p>Muchos cambios si se añade un nuevo criterio (no cumple OCP)</p>
+</li>
+<li>
+<p>Alternativa 2: No usar herencia, sino composición (no delegar hacia las subclases)</p>
+</li>
+</ul>
+<h3 id="ejemplo-comparacion-de-personas-version-con-composicion">Ejemplo: Comparación de personas - versión con composición<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-composicion" title="Permanent link">&para;</a></h3>
+<p>Sin usar herencia:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">personas</span><span class="p">,</span> <span class="k">new</span> <span class="n">OrdenarPersonaPorId</span><span class="p">());</span>
+</code></pre></div>
+
+<ul>
+<li>Factorizar la función de comparación</li>
+<li>No delegar hacia las subclases</li>
+<li>Delegar en objeto de otra clase que implemente la interfaz <code>java.util.Comparator</code></li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">¿Ventajas?</p>
+<p>La función factorizada (por ejemplo, la implementación de <code>Comparator</code>) es sustituible en tiempo de ejecución mediante inyección de dependencias</p>
+</div>
+<h3 id="ejemplo-comparacion-de-personas-version-con-clases-anonimas">Ejemplo: Comparación de personas - versión con clases anónimas<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
+  <span class="n">personas</span><span class="p">,</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<h2 id="clases-locales-o-internas">Clases locales o internas<a class="headerlink" href="#clases-locales-o-internas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Clases <strong>locales</strong> (<em>inner classes</em>): declaradas dentro de métodos</li>
+<li>Las clases locales pueden hacer referencia a identificadores declarados en la clase y a variables de solo lectura (<code>final</code>) del método en que se declaran</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnclosingClass</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">InnerClass</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">incrementAndReturnCounter</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span><span class="p">;</span>
+  <span class="p">{</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCounter</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">counter</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">EnclosingClass</span> <span class="n">enclosingClassInstance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EnclosingClass</span><span class="p">();</span>
+    <span class="n">EnclosingClass</span><span class="p">.</span><span class="na">InnerClass</span> <span class="n">innerClassInstance</span> <span class="o">=</span>
+      <span class="n">enclosingClassInstance</span><span class="p">.</span><span class="na">new</span> <span class="nf">InnerClass</span><span class="p">();</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">enclosingClassInstance</span><span class="p">.</span><span class="na">getCounter</span><span class="p">();</span>
+         <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">innerClassInstance</span><span class="p">.</span><span class="na">incrementAndReturnCounter</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="predicados">Predicados<a class="headerlink" href="#predicados" title="Permanent link">&para;</a></h2>
+<p>En Java 8, inspirado por la biblioteca <em>guava</em>, se incluyen predicados como una forma de interfaz funcional.</p>
+<p>En la biblioteca Guava, los <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html"><code>Iterators</code></a> tienen un método <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html#filter"><code>filter</code></a> que recibe un objeto de tipo <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/base/Predicate.html"><code>Predicate</code></a>.
+Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate</code></a>.</p>
+<h3 id="ejemplo-partidos-de-una-competicion">Ejemplo: partidos de una competición<a class="headerlink" href="#ejemplo-partidos-de-una-competicion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Con clases anónimas:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;Cadiz CF&quot;</span><span class="p">);</span>
+  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;RC Betis&quot;</span><span class="p">);</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">team1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">match</span><span class="p">.</span><span class="na">getVisitingTeam</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">team2</span><span class="p">)</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="n">Iterator</span> <span class="n">matchesByTeam</span> <span class="o">=</span> <span class="n">Iterators</span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">matches</span><span class="p">,</span> <span class="n">condition</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">matches</span><span class="p">:</span> <span class="n">matchesByTeam</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+</code></pre></div>
+
+<ul>
+<li>Sin clases anónimas:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">FilterByTeam</span> <span class="kd">implements</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="n">Team</span> <span class="n">localTeam</span><span class="p">,</span> <span class="n">visitingTeam</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">FilterByTeam</span><span class="p">(</span><span class="n">Team</span> <span class="n">t1</span><span class="p">,</span> <span class="n">Team</span> <span class="n">t2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">localTeam</span> <span class="o">=</span> <span class="n">t1</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">visitingTeam</span> <span class="o">=</span> <span class="n">t2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">||</span> <span class="n">match</span><span class="p">.</span><span class="na">getVisitingTeam</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Comprobar que, en un cierto grupo de la competición, un mismo partido no está repetido ni se enfrenta un equipo contra sí mismo:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">:</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Team</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">();</span>
+      <span class="n">Team</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getVisitingTeam</span><span class="p">();</span>
+      <span class="n">assertNotSame</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">);</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">firstLeg</span> <span class="o">=</span> <span class="n">FluentIterable</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">matchesInGroup</span><span class="p">)</span>
+                                           <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="k">new</span> <span class="n">FilterByTeam</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">))</span>
+                                           <span class="p">.</span><span class="na">toImmutableList</span><span class="p">();</span>
+      <span class="n">assertTrue</span><span class="p">(</span><span class="n">firstLeg</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">secondLeg</span> <span class="o">=</span> <span class="n">FluentIterable</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">matchesInGroup</span><span class="p">)</span>
+                                            <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="k">new</span> <span class="n">FilterByTeam</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">))</span>
+                                            <span class="p">.</span><span class="na">toImmutableList</span><span class="p">();</span>
+      <span class="n">assertTrue</span><span class="p">(</span><span class="n">secondLeg</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="clases-anonimas-interiores">Clases anónimas interiores<a class="headerlink" href="#clases-anonimas-interiores" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Son clases locales (<em>inner classes</em>) declaradas sin nombre; sirven para clases que solo aparecen una vez en la aplicación</p>
+</li>
+<li>
+<p>Usando Java 7:</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span>
+      <span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+          <span class="n">calculate</span><span class="p">(</span><span class="n">uri</span><span class="p">);</span>
+          <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">).</span><span class="na">start</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+<li>Usando Java 8:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// code () -&gt; { /* code */ } is a closure</span>
+    <span class="k">new</span> <span class="n">Thread</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+      <span class="n">calculate</span><span class="p">(</span><span class="n">uri</span><span class="p">);</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}).</span><span class="na">start</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="retrollamadas-callbacks"><a id="callbacks">Retrollamadas (<em>callbacks</em>)</a><a class="headerlink" href="#retrollamadas-callbacks" title="Permanent link">&para;</a></h2>
+<p><em>callback</em> = Fragmento de código ejecutable que se pasa como argumento</p>
+<h3 id="implementaciones-en-cc">Implementaciones en C/C++<a class="headerlink" href="#implementaciones-en-cc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Puntero a función:
+    <div class="codehilite"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
+</code></pre></div></li>
+<li>Con puntero asociado a datos:
+    <div class="codehilite"><pre><span></span><code>  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></li>
+<li><em>functor</em> en C++</li>
+<li>clase que define <code>operator()</code></li>
+<li>es una clase y por tanto pueden contener un estado</li>
+</ul>
+<h4 id="ejemplo-de-puntero-a-funcion">Ejemplo de puntero a función<a class="headerlink" href="#ejemplo-de-puntero-a-funcion" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
+<span class="kt">void</span> <span class="nf">PrintTwoNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">numberSource</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d and %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numberSource</span><span class="p">(),</span> <span class="n">numberSource</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="cm">/* Possible callbacks */</span>
+<span class="kt">int</span> <span class="nf">overNineThousand</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="mi">9001</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">meaningOfLife</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">PrintTwoNumbers</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rand</span><span class="p">);</span>
+    <span class="n">PrintTwoNumbers</span><span class="p">(</span><span class="o">&amp;</span><span class="n">overNineThousand</span><span class="p">);</span>
+    <span class="n">PrintTwoNumbers</span><span class="p">(</span><span class="o">&amp;</span><span class="n">meaningOfLife</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="ejemplo-de-puntero-a-datos">Ejemplo de puntero a datos<a class="headerlink" href="#ejemplo-de-puntero-a-datos" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
+<span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">event_cb_t</span><span class="p">)(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">event</span> <span class="o">*</span><span class="n">evt</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">);</span>
+
+<span class="cm">/* Define a function to register a callback */</span>
+<span class="kt">int</span> <span class="nf">event_cb_register</span><span class="p">(</span><span class="n">event_cb_t</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">);</span>
+
+<span class="o">/</span> <span class="o">*</span> <span class="n">Register</span> <span class="n">the</span> <span class="n">callback</span> <span class="err">*/</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">my_event_cb</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">event</span> <span class="o">*</span><span class="n">evt</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* do stuff and things with the event */</span>
+<span class="p">}</span>
+
+<span class="n">event_cb_register</span><span class="p">(</span><span class="n">my_event_cb</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">my_custom_data</span><span class="p">);</span>
+
+<span class="cm">/* struct to store the callback in the event dispatcher */</span>
+<span class="k">struct</span> <span class="n">event_cb</span> <span class="p">{</span>
+    <span class="n">event_cb_t</span> <span class="n">cb</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/* Execute the callback */</span>
+<span class="k">struct</span> <span class="n">event_cb</span> <span class="o">*</span><span class="n">callback</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">callback</span><span class="o">-&gt;</span><span class="n">cb</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">callback</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="ejemplo-de-functor">Ejemplo de functor<a class="headerlink" href="#ejemplo-de-functor" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">// this is a functor</span>
+<span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
+  <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">add_x</span> <span class="nf">add42</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>     <span class="c1">// create an instance of the functor class</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">add42</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>    <span class="c1">// and &quot;call&quot; it</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">50</span><span class="p">);</span>     <span class="c1">// and it added 42 to its argument</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">in</span><span class="p">;</span> <span class="c1">// assume this contains a bunch of values</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">out</span><span class="p">;</span>
+<span class="c1">// Pass a functor to std::transform, which calls the functor on every element </span>
+<span class="c1">// in the input sequence, and stores the result to the output sequence</span>
+<span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">in</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">out</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">add_x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> 
+<span class="n">assert</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// for all i</span>
+</code></pre></div>
+
+<h4 id="functor-vs-function-pointer">Functor vs function pointer<a class="headerlink" href="#functor-vs-function-pointer" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//Functor</span>
+<span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
+  <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span><span class="n">x</span><span class="p">(</span><span class="n">y</span><span class="p">){}</span>
+  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//Function pointer</span>
+<span class="kt">int</span> <span class="p">(</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">();</span>
+<span class="c1">//fill vec with 1 2 3 4 5</span>
+
+<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span> <span class="c1">// function pointer initialization</span>
+<span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">f</span><span class="p">);</span>        <span class="c1">// pass function pointer</span>
+<span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">add_x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// pass functor</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../iiss-dbc/" title="III. Contratos" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                III. Contratos
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../iiss-fp-2/" title="Lambdas" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Lambdas
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dodero" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/jmdodero" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

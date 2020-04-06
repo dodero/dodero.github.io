@@ -437,12 +437,25 @@
     Excepciones en Java
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-excepciones-en-java" class="md-nav__link">
+    Tipos de excepciones en Java
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#tratamiento-de-excepciones-en-java" class="md-nav__link">
     Tratamiento de excepciones en Java
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -462,8 +475,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checked-vs-unchecked" class="md-nav__link">
-    Checked vs unchecked
+  <a href="#transformar-en-unchecked" class="md-nav__link">
+    Transformar en unchecked
   </a>
   
 </li>
@@ -543,15 +556,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scala-options" class="md-nav__link">
-    Scala Options
+  <a href="#scala-option" class="md-nav__link">
+    Scala Option
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#java-8-optionals" class="md-nav__link">
-    Java 8 Optionals
+  <a href="#java-8-optional" class="md-nav__link">
+    Java 8 Optional
   </a>
   
 </li>
@@ -618,10 +631,58 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../iiss-fp/" title="IV. Funciones" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       IV. Funciones
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        IV. Funciones
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-1/" title="Interfaces" class="md-nav__link">
+      Interfaces
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-2/" title="Lambdas" class="md-nav__link">
+      Lambdas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iiss-fp-3/" title="Mixins" class="md-nav__link">
+      Mixins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -697,12 +758,25 @@
     Excepciones en Java
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-excepciones-en-java" class="md-nav__link">
+    Tipos de excepciones en Java
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#tratamiento-de-excepciones-en-java" class="md-nav__link">
     Tratamiento de excepciones en Java
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -722,8 +796,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checked-vs-unchecked" class="md-nav__link">
-    Checked vs unchecked
+  <a href="#transformar-en-unchecked" class="md-nav__link">
+    Transformar en unchecked
   </a>
   
 </li>
@@ -803,15 +877,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scala-options" class="md-nav__link">
-    Scala Options
+  <a href="#scala-option" class="md-nav__link">
+    Scala Option
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#java-8-optionals" class="md-nav__link">
-    Java 8 Optionals
+  <a href="#java-8-optional" class="md-nav__link">
+    Java 8 Optional
   </a>
   
 </li>
@@ -857,7 +931,7 @@
 <p><a id="errores"></a></p>
 <h2 id="tratamiento-de-errores">Tratamiento de errores<a class="headerlink" href="#tratamiento-de-errores" title="Permanent link">&para;</a></h2>
 <h3 id="codigos-de-error">Códigos de error<a class="headerlink" href="#codigos-de-error" title="Permanent link">&para;</a></h3>
-<p>Un ejemplo habitual de tratamiento de errores con <strong>códigos de error</strong>:</p>
+<p>Un ejemplo habitual de tratamiento de errores con <strong>códigos de error</strong> en un lenguaje como C:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">deletePage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">registry</span><span class="p">.</span><span class="na">deleteReference</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">configKeys</span><span class="p">.</span><span class="na">deleteKey</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">makeKey</span><span class="p">())</span> <span class="o">==</span> <span class="n">E_OK</span><span class="p">){</span>
@@ -885,23 +959,32 @@
 <span class="p">}</span>
 </code></pre></div>
 
+<div class="admonition failure mala práctica">
+<p class="admonition-title">Failure</p>
 <p>Los programadores intentan evitar añadir nuevos motivos de error, porque eso significa tener que volver a compilar y desplegar todo el código.</p>
+</div>
 <h2 id="excepciones">Excepciones<a class="headerlink" href="#excepciones" title="Permanent link">&para;</a></h2>
-<p>Usar <strong>excepciones</strong> en lugar de códigos de error:</p>
+<p>Muchos lenguajes usan <strong>excepciones</strong> en lugar de códigos de error:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
-  <span class="n">deletePage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
-  <span class="n">registry</span><span class="p">.</span><span class="na">deleteReference</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
-  <span class="n">configKeys</span><span class="p">.</span><span class="na">deleteKey</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">makeKey</span><span class="p">());</span>
-<span class="p">}</span>
+<span class="hll">  <span class="n">deletePage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+</span><span class="hll">  <span class="n">registry</span><span class="p">.</span><span class="na">deleteReference</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+</span><span class="hll">  <span class="n">configKeys</span><span class="p">.</span><span class="na">deleteKey</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">makeKey</span><span class="p">());</span>
+</span><span class="p">}</span>
 <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">logger</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>¿No queda más claro?</p>
-<p>Ventaja: las nuevas excepciones son derivadas de una clase base <code>Exception</code>, lo que facilita la definición de nuevos motivos de error.</p>
-<p><span style="color:red;">¿Dónde se produce el error?</span></p>
-<h4 id="separar-la-funcion-y-el-tratamiento-de-errores">Separar la función y el tratamiento de errores<a class="headerlink" href="#separar-la-funcion-y-el-tratamiento-de-errores" title="Permanent link">&para;</a></h4>
+<div class="admonition success">
+<p class="admonition-title">Ventaja</p>
+<p>Las nuevas excepciones son derivadas de una clase base <code>Exception</code>, lo que facilita la definición de nuevos motivos de error.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title"><span style="color:red;">¿Dónde se produce el error?</span></p>
+<p>Si se eleva una excepción en el ejemplo anterior, ¿en cuál de las instrucciones del bloque <code>try</code> se ha producido?</p>
+</div>
+<h3 id="separar-la-funcion-y-el-tratamiento-de-errores">Separar la función y el tratamiento de errores<a class="headerlink" href="#separar-la-funcion-y-el-tratamiento-de-errores" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="p">(</span><span class="n">Page</span> <span class="n">page</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">try</span> <span class="p">{</span>
     <span class="n">deletePageAndAllReferences</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
@@ -924,21 +1007,22 @@
 
 <p>¿No queda más fácil de comprender, modificar y depurar?</p>
 <h3 id="excepciones-en-java">Excepciones en Java<a class="headerlink" href="#excepciones-en-java" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Checked</strong>: instancias de clases derivadas de <code>java.lang.Throwable</code> (menos <code>RuntimeException</code>). Deben declararse en el método mediante <code>throws</code> y obligan al llamador a tratar la excepción.</p>
-</li>
-<li>
-<p><strong>Unchecked</strong>: instancias de clases derivadas de <code>java.lang.RuntimeException</code>. No se declaran en el método y no obligan al llamador a tratar la excepción.</p>
-</li>
-</ul>
-<p>Elevar una excepción <code>e</code> implica:</p>
-<ul>
-<li>Deshacer (<em>roll back</em>) la llamada a un método</li>
-<li>hasta que se encuentre un bloque catch para el tipo de <code>e</code></li>
-<li>y, si no se encuentra, la excepción es capturada por la JVM, que detiene el programa</li>
-</ul>
-<h3 id="tratamiento-de-excepciones-en-java">Tratamiento de excepciones en Java<a class="headerlink" href="#tratamiento-de-excepciones-en-java" title="Permanent link">&para;</a></h3>
+<h4 id="tipos-de-excepciones-en-java">Tipos de excepciones en Java<a class="headerlink" href="#tipos-de-excepciones-en-java" title="Permanent link">&para;</a></h4>
+<dl>
+<dt><strong>Checked</strong></dt>
+<dd>Instancias de clases derivadas de <code>java.lang.Throwable</code> (menos <code>RuntimeException</code>). Deben declararse en el método mediante <code>throws</code> y obligan al llamador a tratar la excepción.</dd>
+<dt><strong>Unchecked</strong></dt>
+<dd>Instancias de clases derivadas de <code>java.lang.RuntimeException</code>. No se declaran en el método y no obligan al llamador a tratar la excepción.</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">¿Qué implica elevar una excepción <code>e</code> en Java?</p>
+<ol>
+<li>Deshacer (<em>roll back</em>) la llamada a un método...</li>
+<li>...hasta que se encuentre un bloque catch para el tipo de <code>e</code> y...</li>
+<li>si no se encuentra, la excepción es capturada por la JVM, que detiene el programa</li>
+</ol>
+</div>
+<h4 id="tratamiento-de-excepciones-en-java">Tratamiento de excepciones en Java<a class="headerlink" href="#tratamiento-de-excepciones-en-java" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code>  <span class="k">try</span> <span class="p">{</span>
       <span class="cm">/* guarded region that can send</span>
 <span class="cm">        IOException or Exception */</span>
@@ -966,10 +1050,10 @@
 <ul>
 <li>C#, C++, Python o Ruby no ofrecen excepciones <em>checked</em>.</li>
 <li>Los beneficios de las checked en Java son mínimos</li>
-<li>Se paga el precio de violar el principio OCP (Open-Closed Principle): si lanzamos una excepción <em>checked</em> desde un método y el <code>catch</code> está tres niveles por encima, hay que declarar la excepción en la signatura de todos los métodos que van entre medias. Esto significa que un cambio en un nivel bajo del software puede forzar cambios en niveles altos</li>
+<li>Se paga el precio de violar el principio OCP (<em>Open-Closed Principle</em>): si lanzamos una excepción <em>checked</em> desde un método y el <code>catch</code> está tres niveles por encima, hay que declarar la excepción en la signatura de todos los métodos que van entre medias. Esto significa que un cambio en un nivel bajo del software puede forzar cambios en niveles altos</li>
 </ul>
 <h3 id="transformacion-de-excepciones">Transformación de excepciones<a class="headerlink" href="#transformacion-de-excepciones" title="Permanent link">&para;</a></h3>
-<h4 id="checked-vs-unchecked">Checked vs unchecked<a class="headerlink" href="#checked-vs-unchecked" title="Permanent link">&para;</a></h4>
+<h4 id="transformar-en-unchecked">Transformar en unchecked<a class="headerlink" href="#transformar-en-unchecked" title="Permanent link">&para;</a></h4>
 <p>Muchas APIs de Java lanzan excepciones checked cuando deberían ser unchecked</p>
 <p><strong>Ejemplo</strong>: Al ejecutar una consulta mediante <code>executeQuery</code> en el API de JDBC se lanza una excepción <code>java.sql.SQLException</code> (de tipo checked) si la SQL es errónea.</p>
 <p><strong>Solución</strong>:</p>
@@ -1000,48 +1084,55 @@
   <span class="p">}</span>
 </code></pre></div>
 
-<p>Excesiva duplicación de código: llamada a <code>reportPortError()</code></p>
-<p>Excepción encapsulada:</p>
-<div class="codehilite"><pre><span></span><code>    <span class="n">LocalPort</span> <span class="n">port</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalPort</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="n">port</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">PortDeviceFailure</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">reportPortError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-      <span class="n">logger</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span> <span class="n">e</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-      <span class="p">...</span>
-    <span class="p">}</span>
+<div class="admonition question">
+<p class="admonition-title">Excesiva duplicación de código</p>
+<p>La llamada a <code>reportPortError()</code> se repite mucho.
+<span style="color:red;">¿Cómo evitar la excesiva duplicación?</span></p>
+</div>
+<details class="success"><summary>Solución: Excepción encapsulada</summary><div class="codehilite"><pre><span></span><code><span class="n">LocalPort</span> <span class="n">port</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalPort</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="n">port</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">PortDeviceFailure</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">reportPortError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+  <span class="n">logger</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span> <span class="n">e</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LocalPort</span> <span class="p">{</span>
-      <span class="kd">private</span> <span class="n">ACMEPort</span> <span class="n">innerPort</span><span class="p">;</span>
-      <span class="kd">public</span> <span class="nf">LocalPort</span><span class="p">(</span><span class="kt">int</span> <span class="n">portNumber</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">innerPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ACMEPort</span><span class="p">(</span><span class="n">portNumber</span><span class="p">);</span>
-      <span class="p">}</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">open</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">PortDeviceFailure</span> <span class="p">{</span>
-        <span class="k">try</span> <span class="p">{</span>
-          <span class="n">innerPort</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">DeviceResponseException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ATM1212UnlockedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">GMXError</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="p">...</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LocalPort</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="n">ACMEPort</span> <span class="n">innerPort</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">LocalPort</span><span class="p">(</span><span class="kt">int</span> <span class="n">portNumber</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">innerPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ACMEPort</span><span class="p">(</span><span class="n">portNumber</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">open</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">PortDeviceFailure</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">innerPort</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">DeviceResponseException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ATM1212UnlockedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">GMXError</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">PortDeviceFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
     <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">}</span>
 </code></pre></div>
 
+</details>
 <ul>
-<li>La encapsulación de excepciones es recomendable cuando se usa un API de terceros, para minimizar las dependencias con respecto al API elegido. </li>
+<li>La encapsulación de excepciones es recomendable cuando se usa un API de terceros, para minimizar las dependencias con respecto al API elegido.</li>
 <li>También facilitan la implementación de <em>mocks</em> del componente que proporciona el API para construir pruebas.</li>
 </ul>
 <h3 id="las-excepciones-son-excepcionales">Las excepciones son excepcionales<a class="headerlink" href="#las-excepciones-son-excepcionales" title="Permanent link">&para;</a></h3>
 <p><strong>Recomendación de uso</strong>: Usar excepciones para problemas excepcionales (eventos inesperados)</p>
-<p><strong>Ejemplo</strong>: <span style="color:red;">¿Usar excepciones cuando se intenta abrir un fichero para leer y el fichero no existe?</span></p>
+<div class="admonition example">
+<p class="admonition-title">Excepciones tras la apertura de ficheros</p>
+<p><span style="color:red;">¿Usar excepciones cuando se intenta abrir un fichero para leer y el fichero no existe?</span></p>
+</div>
 <p>Depende de si el fichero debe estar ahí</p>
 <ul>
-<li>Usando excepciones:</li>
+<li>Caso en que se debe lanzar una excepción:</li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">open_passwd</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">FileNotFoundException</span> <span class="p">{</span>
   <span class="c1">// This may throw FileNotFoundException...</span>
@@ -1051,7 +1142,7 @@
 </code></pre></div>
 
 <ul>
-<li>Sin usar excepciones:</li>
+<li>Caso en que no se debe lanzar una excepción:</li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">open_user_file</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span>
     <span class="kd">throws</span> <span class="n">FileNotFoundException</span> <span class="p">{</span>
@@ -1138,7 +1229,9 @@
 
 <p>¿Qué curso de acción tomar ante un <code>InvalidArgumentException</code>? ¿Hay alguno?</p>
 <h4 id="alternativa-con-aserciones">Alternativa con aserciones<a class="headerlink" href="#alternativa-con-aserciones" title="Permanent link">&para;</a></h4>
-<p>(<em>solo para JDK <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 5.0</em>)</p>
+<div class="admonition tip">
+<p class="admonition-title">Solo para JDK <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 5.0</p>
+</div>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MetricsCalculator</span>
 <span class="p">{</span>
   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">xProjection</span><span class="p">(</span><span class="n">Point</span> <span class="n">p1</span><span class="p">,</span> <span class="n">Point</span> <span class="n">p2</span><span class="p">)</span> <span class="p">{</span>
@@ -1149,23 +1242,27 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Es una buena forma de documentar, pero no resuelve el problema</p>
+<p>El uso de <code>assert</code> es una buena forma de documentar, pero no resuelve el problema.</p>
 <h3 id="optionals">Optionals<a class="headerlink" href="#optionals" title="Permanent link">&para;</a></h3>
 <ul>
 <li>En la mayoría de lenguajes no hay forma satisfactoria de tratar con <em>nulls</em> pasados como argumento accidentalmente.</li>
-<li>Para eso están los <em>options</em> u <em>optionals</em>, disponibles actualmente en muchos languajes:<ul>
+<li>Para eso están los <em>options</em> u <em>optionals</em>, disponibles actualmente en muchos lenguajes como:<ul>
 <li><a href="https://www.tutorialspoint.com/scala/scala_options.htm">Scala <code>Option</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Java 8</a> <code>java.util.Optional</code></li>
-<li>C++17 <code>std::optional</code></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Java 8</a> <code class="codehilite"><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Optional</span></code></li>
+<li>C++17 <code class="codehilite"><span class="n">std</span><span class="o">::</span><span class="n">optional</span></code></li>
 </ul>
 </li>
 <li><a href="https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined">TypeScript recomienda usar <code>undefined</code></a> (algo que no se ha inicializado) en lugar de <code>null</code> (algo que no está disponible)</li>
 </ul>
-<h4 id="scala-options"><a href="https://www.tutorialspoint.com/scala/scala_options.htm">Scala Options</a><a class="headerlink" href="#scala-options" title="Permanent link">&para;</a></h4>
-<p>En Scala, <code>Option[T]</code> es un contenedor de un valor opcional de tipo T.</p>
+<div class="admonition note">
+<p class="admonition-title">Lecturas recomendadas</p>
+<p>Leer <a href="https://www.tutorialspoint.com/scala/scala_options.htm">Tutorial de <code class="codehilite"><span class="nc">Option</span></code></a> en Scala</p>
+</div>
+<h4 id="scala-option">Scala <code>Option</code><a class="headerlink" href="#scala-option" title="Permanent link">&para;</a></h4>
+<p>En Scala, <code class="codehilite"><span class="nc">Option</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span></code> es un contenedor de un valor opcional de tipo T.</p>
 <ul>
-<li>Si el valor de tipo T está presente, <code>Option[T]</code> es una intancia de <code>Some[T]</code> que contiene el valor presente de tipo T.</li>
-<li>Si el valor está ausente, <code>Option[T]</code> es el objeto <code>None</code>.</li>
+<li>Si el valor de tipo T está presente, <code class="codehilite"><span class="nc">Option</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span></code> es una intancia de <code class="codehilite"><span class="nc">Some</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span></code> que contiene el valor presente de tipo T.</li>
+<li>Si el valor está ausente, <code class="codehilite"><span class="nc">Option</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span></code> es el objeto <code class="codehilite"><span class="nc">None</span></code>.</li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="k">object</span> <span class="nc">Demo</span> <span class="o">{</span>
    <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="o">{</span>
@@ -1193,8 +1290,11 @@
 <span class="o">}</span>
 </code></pre></div>
 
-<h4 id="java-8-optionals">Java 8 Optionals<a class="headerlink" href="#java-8-optionals" title="Permanent link">&para;</a></h4>
-<p>From <a href="https://www.mkyong.com/java8/java-8-optional-in-depth/">Java 8 Optional in Depth</a></p>
+<h4 id="java-8-optional">Java 8 <code>Optional</code><a class="headerlink" href="#java-8-optional" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Lectura recomendada</p>
+<p>Leer <a href="https://www.mkyong.com/java8/java-8-optional-in-depth/">Java 8 Optional in Depth</a>.</p>
+</div>
 <p><strong>Ejemplo sin <code>Optional</code></strong></p>
 <p>Programa de prueba:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileTesterWithoutOptional</span> <span class="p">{</span>
