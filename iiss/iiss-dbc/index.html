@@ -1438,9 +1438,9 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <li>Si un contrato indica que se acepta cualquier cosa y promete la luna a cambio, habrá que escribir un montón de código!</li>
 </ul>
 <h3 id="dead-programs-tell-no-lies"><em>Dead programs tell no lies</em><a class="headerlink" href="#dead-programs-tell-no-lies" title="Permanent link">&para;</a></h3>
-<p>El diseño y la programación basada en contratos son una forma de gestionar los errores mediante
+<p>El diseño y la programación basada en contratos son una forma de incrementar la calidad del código mediante
 <em>early crash</em>.</p>
-<p>Hay diversas técnicas de gestión de errores (que veremos más adelante), pero en general el principio básico es: cuando el código descubre que sucede algo que supuestamente es imposible o "no debería suceder", el programa ya no es viable: eutanasia.</p>
+<p>Hay otras técnicas (que veremos más adelante), pero en general el principio básico es: cuando el código descubre que sucede algo que supuestamente es imposible o "no debería suceder", el programa ya no es viable: eutanasia.</p>
 <ul>
 <li>En Java se lanza una <code>RuntimeException</code> cuando sucede algo extraño en tiempo de ejecución.</li>
 <li>Se puede/debe hacer lo mismo con cualquier lenguaje</li>
