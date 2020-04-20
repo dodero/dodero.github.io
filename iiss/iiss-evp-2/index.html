@@ -1045,10 +1045,8 @@
                 <h0>EVENTOS ASÍNCRONOS</h0>
 <h1 id="programacion-asincrona">Programación asíncrona<a class="headerlink" href="#programacion-asincrona" title="Permanent link">&para;</a></h1>
 <p>La programación asíncrona promueve la definición de operaciones <strong>no bloqueantes</strong>.</p>
-<blockquote>
 <p><img alt="modelos de ejecución" src="../figuras/modelos-ejecucion.png" /></p>
 <p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
-</blockquote>
 <p>Las funciones no bloqueantes afectan a:</p>
 <ul>
 <li>El <strong>estado</strong> del programa</li>
@@ -1066,13 +1064,18 @@
 <td align="center"><img alt="Modelo de programación secuencial" src="../figuras/prog-secuencial.png" /></td>
 <td align="center"><img alt="Modelo de programación asíncrona" src="../figuras/prog-asincrona.png" /></td>
 </tr>
+<tr>
+<td align="center"><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
 <h2 id="modelos-de-paso-de-continuaciones">Modelos de paso de continuaciones<a class="headerlink" href="#modelos-de-paso-de-continuaciones" title="Permanent link">&para;</a></h2>
 <p>Aumentar la aridad de la función no bloqueante en 1 argumento adicional, donde se indica la lógica de continuación.</p>
 <h3 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h3>
 <p>La lógica de continuación se indica mediante una función de <strong>retrollamada</strong> o <em>callback</em>.</p>
-<p><img alt="Paso de callback" src="../figuras/cont-callback.png" /></p>
+<p><img alt="Paso de callback" src="../figuras/cont-callback.png" />
+<small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <p>Ejemplos: implementaciones de <em>listener</em> del <a href="#a-idlistenersejercicio-introductorio---listenersa">ejercicio introductorio</a></p>
 <ul>
 <li>Con clases anónimas</li>
@@ -1122,6 +1125,7 @@ afterWait
 <li>Un thunk puede guardar su estado final para evitar recalcularlo (<em>memoization</em>)</li>
 </ul>
 <p><img alt="Paso de thunk" src="../figuras/cont-thunk.png" /></p>
+<p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <h4 id="lenguajes-ruby">Lenguajes: Ruby<a class="headerlink" href="#lenguajes-ruby" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Cualquier función en Ruby puede recibir un <strong>bloque</strong> <code>do</code>... <code>end</code> como argumento adicional (no explícito) a la llamada</li>
@@ -1135,6 +1139,7 @@ afterWait
 </ul>
 <p>En programación funcional, los futuros y promesas sirven para desacoplar un valor (el futuro) de cómo éste se calculó (la promesa), permitiendo así la paralelización de los cálculos.</p>
 <p><img alt="Promesas" src="../figuras/promesas.png" /></p>
+<p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <p>El cliente recibe como respuesta inmediata una abstracción de datos (la promesa) que representa un compromiso de valor futuro, con inyectores (then, catch) para incluir la lógica de continuación.</p>
 <p>Se pueden encadenar cálculos usando futuros <em>computables</em> o <em>escuchables</em>, que sirven para indicar a un thread que ejecute una determinada tarea y, cuando termine, se dirija a hacer otra tarea usando el resultado de la tarea anterior.</p>
 <h4 id="lenguajes-typescript">Lenguajes: TypeScript<a class="headerlink" href="#lenguajes-typescript" title="Permanent link">&para;</a></h4>
@@ -1362,9 +1367,11 @@ after awaitDelayed
 <p>Las operaciones disparan eventos de diferentes tipos, que son escuchados por los manejadores (<em>listeners</em>) de eventos, que los clientes han registrado en un bus de eventos</p>
 <h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
 <p><img alt="Eventos" src="../figuras/eventos.png" /></p>
+<p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <h3 id="streams">Streams<a class="headerlink" href="#streams" title="Permanent link">&para;</a></h3>
 <p>Los datos fluyen por pipelines y se consumen siguiendo modelos <em>push</em> o <em>pull</em></p>
 <p><img alt="Streams" src="../figuras/streams.png" /></p>
+<p><small>por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <h3 id="observables">Observables<a class="headerlink" href="#observables" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>LECTURA recomendada: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing (by @andrestaltz)</a></p>
