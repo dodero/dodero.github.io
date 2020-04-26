@@ -1217,7 +1217,7 @@
 <li>Refactorizar delegando hacia la superclase</li>
 </ul>
 </details>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
     <span class="n">Comparable</span> <span class="n">id</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Empleado</span><span class="p">(</span><span class="n">String</span> <span class="n">id</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
@@ -1259,7 +1259,7 @@
 <li>El método de cálculo del salario está descohesionado</li>
 </ul>
 </details>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
     <span class="n">Comparable</span> <span class="n">id</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
     <span class="kt">float</span> <span class="n">yearlyGrossSalary</span><span class="p">;</span>
@@ -1303,7 +1303,7 @@
 </code></pre></div>
 
 <h3 id="nominas-v03">Nóminas v0.3<a class="headerlink" href="#nominas-v03" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Empleado</span> <span class="p">{</span>
     <span class="cm">/* ... */</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">float</span> <span class="nf">computeMonthlySalary</span><span class="p">();</span>
   <span class="p">}</span>
@@ -1449,7 +1449,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <p>Normalmente tiene origen en un diseño inapropiado.</p>
 <p>Fuente de numerosos problemas de integración.</p>
 <h4 id="ejemplo-codigo-duplicado-version-1">Ejemplo: código duplicado – versión 1<a class="headerlink" href="#ejemplo-codigo-duplicado-version-1" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">start</span><span class="p">;</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">end</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>
@@ -1458,7 +1458,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 
 <p><span style="color:red;">¿Dónde está la duplicación?</span></p>
 <p>Realmente <code>length</code> ya está definido con <code>start</code>y <code>end</code>. <span style="color:red;">¿Mejor así...?</span></p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">start</span><span class="p">;</span>
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">end</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="nf">length</span><span class="p">()</span> <span class="p">{</span>
@@ -1471,7 +1471,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <p>A veces se puede optar por violar DRY por razones de rendimiento.</p>
 <h4 id="ejemplo-aplicando-memoization-version-2">Ejemplo: aplicando memoization – versión 2<a class="headerlink" href="#ejemplo-aplicando-memoization-version-2" title="Permanent link">&para;</a></h4>
 <p><a href="https://en.wikipedia.org/wiki/Memoization"><em>Memoization</em></a>: cachear los resultados de cómputos costosos</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">changed</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">Point</span> <span class="n">start</span><span class="p">;</span>
@@ -1500,7 +1500,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </blockquote>
 <p>Conviene aplicar el principio de acceso uniforme para que sea más fácil añadir mejoras de rendimiento (v.g. caching)</p>
 <h4 id="ejemplo-acceso-uniforme-en-c-version-3">Ejemplo: acceso uniforme en C# – versión 3<a class="headerlink" href="#ejemplo-acceso-uniforme-en-c-version-3" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Line</span> <span class="p">{</span>
   <span class="k">private</span> <span class="n">Point</span> <span class="n">Start</span><span class="p">;</span>
   <span class="k">private</span> <span class="n">Point</span> <span class="n">End</span><span class="p">;</span>
   <span class="k">private</span> <span class="kt">double</span> <span class="n">Length</span><span class="p">;</span>
@@ -1590,7 +1590,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <h4 id="desacoplar-ley-de-demeter">Desacoplar - ley de Demeter<a class="headerlink" href="#desacoplar-ley-de-demeter" title="Permanent link">&para;</a></h4>
 <p>Al pedir un servicio a un objeto, el servicio debe ser realizado de parte nuestra, no que nos devuelva un tercero con el que tratar para realizarlo</p>
 <p><strong>Ejemplo</strong>:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canWrite</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canWrite</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">isAnonymous</span><span class="p">())</span>
       <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
     <span class="k">else</span> <span class="p">{</span>
@@ -1609,7 +1609,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <h5 id="ejemplo-patron-estrategia">Ejemplo: patrón estrategia<a class="headerlink" href="#ejemplo-patron-estrategia" title="Permanent link">&para;</a></h5>
 <p>En el patrón de diseño <em>strategy</em>, pasar el contexto a la estrategia en su creación</p>
 <h5 id="ejemplo-caballeros-de-la-mesa-redonda">Ejemplo: caballeros de la mesa redonda<a class="headerlink" href="#ejemplo-caballeros-de-la-mesa-redonda" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
   <span class="n">Object</span> <span class="nf">embarkOnQuest</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">QuestFailedException</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -1640,7 +1640,7 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 caso 2. de objetos pasados como <strong>parámetros</strong>
 caso 3. de objetos <strong>creados</strong> por ellos mismos
 caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Demeter</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Demeter</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
   <span class="kd">private</span> <span class="kt">int</span> <span class="nf">func</span><span class="p">();</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">example</span> <span class="p">(</span><span class="n">B</span> <span class="n">b</span><span class="p">);</span>
@@ -1661,7 +1661,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <p>Hay una excepción notable a la prohibición de encadenar llamadas a funciones de la ley de Demeter. Esta regla no aplica si es muy poco probable que haya cambios en las cosas que se encadenan. En la práctica, cualquier parte de tu aplicación debe considerarse como algo que es probable que cambie; cualquier elemento de una biblioteca de un tercero debe considerarse volátil, en particular si quienes mantienen dicha biblioteca suelen cambiar su API de una versión a otra.</p>
 </div>
 <p>Las librerías que vienen con el lenguaje suelen ser bastante estables, así que ejemplos de código como el siguiente son aceptables como excepción a esta interpretación de la ley de Demeter:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">myList</span> <span class="o">=</span>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">myList</span> <span class="o">=</span>
     <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;a1&quot;</span><span class="p">,</span> <span class="s">&quot;a2&quot;</span><span class="p">,</span> <span class="s">&quot;b1&quot;</span><span class="p">,</span> <span class="s">&quot;c2&quot;</span><span class="p">,</span> <span class="s">&quot;c1&quot;</span><span class="p">);</span>
 
 <span class="n">myList</span>
@@ -1687,7 +1687,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>Cada grabadora está en una ubicación (<code>Location</code>), que tiene una zona horaria (<code>TimeZone</code>).</li>
 <li>Los usuarios seleccionan (<code>Selection</code>) una grabadora y pintan sus datos etiquetados con la zona horaria correcta...</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">Selection</span> <span class="n">aSelection</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">Selection</span> <span class="n">aSelection</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">TimeZone</span> <span class="n">tz</span> <span class="o">=</span> <span class="n">aSelection</span><span class="p">.</span><span class="na">getRecorder</span><span class="p">().</span><span class="na">getLocation</span><span class="p">().</span><span class="na">getZone</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1698,7 +1698,7 @@ caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
 <li>Si cambia la implementación de <code>Location</code> de forma que ya no incluye directamente una <code>TimeZone</code>, hay que cambiar <code>plotDate</code></li>
 <li>Añadir un método <em>delegado</em> <code>getTimeZone</code> a <code>Selection</code>. Así <code>plotDate</code> no se entera de si la <code>TimeZone</code> le llega desde <code>Recorder</code> o desde un objeto contenido en <code>Recorder</code>.</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">TimeZone</span> <span class="n">tz</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">plotDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">aDate</span><span class="p">,</span> <span class="n">TimeZone</span> <span class="n">tz</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* ... */</span>
 <span class="p">}</span>
 <span class="n">plotDate</span><span class="p">(</span><span class="n">someDate</span><span class="p">,</span> <span class="n">someSelection</span><span class="p">.</span><span class="na">getTimeZone</span><span class="p">());</span>

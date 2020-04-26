@@ -1100,7 +1100,7 @@
 <li>Este contador nunca va a ser negativo</li>
 </ul>
 <p>Añadir <strong>aserciones</strong> al código para chequear esas situaciones:</p>
-<div class="codehilite"><pre><span></span><code>    <span class="kt">void</span> <span class="nf">writeString</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>    <span class="kt">void</span> <span class="nf">writeString</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">assert</span><span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">);</span>
       <span class="p">...</span>
     <span class="p">}</span>
@@ -1119,11 +1119,11 @@
 <p>Por ejemplo, una <em>invariante de bucle</em> es una condición que es cierta al principio y al final de cada ejecución de un bucle</p>
 <h3 id="aserciones-en-java">Aserciones en Java<a class="headerlink" href="#aserciones-en-java" title="Permanent link">&para;</a></h3>
 <p>Forma 1:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">assert</span> <span class="n">Expression1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">Expression1</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Forma 2:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">assert</span> <span class="n">Expression1</span> <span class="p">:</span> <span class="n">Expression2</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">Expression1</span> <span class="p">:</span> <span class="n">Expression2</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
@@ -1131,17 +1131,17 @@
 <li><code>Expression2</code> devuelve un valor que es pasado al constructor de <code>AssertionError</code>, que usa una representación en forma de <code>String</code> del valor como detalle del mensaje</li>
 </ul>
 <p>En versiones antiguas del JDK, notificar al compilador que las acepte:</p>
-<div class="codehilite"><pre><span></span><code>javac -source <span class="m">1</span>.4 *.java
+<div class="highlight"><pre><span></span><code>javac -source <span class="m">1</span>.4 *.java
 </code></pre></div>
 
 <p>Las aserciones en Java imponen un alto coste en rendimiento y puede ser conveniente desabilitarlas en tiempo de ejecución:</p>
-<div class="codehilite"><pre><span></span><code>java <span class="o">[</span> -enableassertions <span class="p">|</span> -ea  <span class="o">]</span> <span class="o">[</span>:&lt;package name&gt;<span class="s2">&quot;...&quot;</span> <span class="p">|</span> :&lt;class name&gt; <span class="o">]</span>
+<div class="highlight"><pre><span></span><code>java <span class="o">[</span> -enableassertions <span class="p">|</span> -ea  <span class="o">]</span> <span class="o">[</span>:&lt;package name&gt;<span class="s2">&quot;...&quot;</span> <span class="p">|</span> :&lt;class name&gt; <span class="o">]</span>
 java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <span class="o">]</span> <span class="o">[</span>:&lt;package name&gt;<span class="s2">&quot;...&quot;</span> <span class="p">|</span> :&lt;class name&gt; <span class="o">]</span>
 </code></pre></div>
 
 <h4 id="gestion-de-errores">¿Gestión de errores?<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h4>
 <p>Las aserciones no son para gestión de errores:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
   <span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span>
     <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">));</span>
   <span class="n">String</span> <span class="n">input</span><span class="p">;</span>
@@ -1157,7 +1157,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 <h4 id="efectos-colaterales">Efectos colaterales<a class="headerlink" href="#efectos-colaterales" title="Permanent link">&para;</a></h4>
 <p>Cuidado con los efectos colaterales de las expresiones de una aserción:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">Iterator</span> <span class="n">i</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">Iterator</span> <span class="n">i</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()</span> <span class="p">{</span>
 <span class="hll">  <span class="k">assert</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">next</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">);</span> <span class="cm">/* side effect */</span>
 </span>  <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
   <span class="c1">// ...</span>
@@ -1173,7 +1173,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <h3 id="tipos-de-invariantes">Tipos de invariantes<a class="headerlink" href="#tipos-de-invariantes" title="Permanent link">&para;</a></h3>
 <h4 id="invariantes-internas">Invariantes internas<a class="headerlink" href="#invariantes-internas" title="Permanent link">&para;</a></h4>
 <p>Sustituir los comentarios que indicaban invariantes:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
@@ -1183,7 +1183,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 </code></pre></div>
 
 <p>Mejor con aserciones:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
@@ -1195,7 +1195,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 <h4 id="invariantes-de-control-de-flujo">Invariantes de control de flujo<a class="headerlink" href="#invariantes-de-control-de-flujo" title="Permanent link">&para;</a></h4>
 <p>Para <strong>selectivas</strong>:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">switch</span><span class="p">(</span><span class="n">suit</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">switch</span><span class="p">(</span><span class="n">suit</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">case</span> <span class="n">Suit</span><span class="p">.</span><span class="na">CLUBS</span><span class="p">:</span>
     <span class="p">...</span>
     <span class="k">break</span><span class="p">;</span>
@@ -1211,17 +1211,17 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 </code></pre></div>
 
 <p>Añadir:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
   <span class="k">assert</span> <span class="kc">false</span> <span class="p">:</span> <span class="n">suit</span><span class="p">;</span>
 </code></pre></div>
 
 <p>o también:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
   <span class="k">throw</span> <span class="k">new</span> <span class="n">AssertionError</span><span class="p">(</span><span class="n">suit</span><span class="p">);</span>
 </code></pre></div>
 
 <p>Puntos <strong>inalcanzables</strong>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(...)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(...)</span>
       <span class="k">return</span><span class="p">;</span>
@@ -1236,20 +1236,20 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <ol>
 <li>Añadir código en Java:</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Returns true if this tree is properly balanced</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Returns true if this tree is properly balanced</span>
 <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isBalanced</span><span class="p">()</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <ol start="2">
-<li>Todo constructor y método <em>público</em> debe llamar a <code class="codehilite"><span class="k">assert</span> <span class="n">isBalanced</span><span class="p">();</span></code> antes del <code>return</code>.</li>
+<li>Todo constructor y método <em>público</em> debe llamar a <code class="highlight"><span class="k">assert</span> <span class="n">isBalanced</span><span class="p">();</span></code> antes del <code>return</code>.</li>
 </ol>
 <p>Es recomendable incluir comprobaciones de invariantes de clase al principio de los métodos de clases cuyo estado es modificable por otras clases (v.g. <em>setters</em>).</p>
 <h4 id="idiom-para-definir-aserciones-finales"><em>Idiom</em> para definir aserciones finales<a class="headerlink" href="#idiom-para-definir-aserciones-finales" title="Permanent link">&para;</a></h4>
 <p>A veces hace falta guardar datos antes de hacer un cómputo, para poder luego comprobar una condición cuando el cómputo se haya completado.</p>
 <p>Ejemplo de cómo hacerlo con una <em>inner class</em> que guarda el estado de variables:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Manipulate array</span>
         <span class="p">...</span>
         <span class="c1">// At this point, array will contain exactly the ints that it did</span>
@@ -1302,7 +1302,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <li>Una clase no puede dar permiso de escritura sin restricciones sobre las propiedades (<em>data members</em>) que participan en la definición de la invariante</li>
 </ul>
 <h3 id="ejemplo-raiz-cuadrada-en-eiffel">Ejemplo: Raíz cuadrada en Eiffel<a class="headerlink" href="#ejemplo-raiz-cuadrada-en-eiffel" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">sqrt</span><span class="p">:</span> <span class="nc">DOUBLE</span> <span class="n">is</span>
+<div class="highlight"><pre><span></span><code><span class="n">sqrt</span><span class="p">:</span> <span class="nc">DOUBLE</span> <span class="n">is</span>
   <span class="c1">-- Square root routine</span>
   <span class="kr">require</span>
     <span class="n">sqrt_arg_must_be_positive</span><span class="p">:</span> <span class="kc">Current</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
@@ -1324,7 +1324,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <p>Si se llega a pasar un número negativo, Eiffel imprime el error <code>sqrt_arg_must_be_positive</code> en tiempo de ejecición y una traza de la pila (En otros lenguajes, como Java, se devolvería un <code>Nan</code>).</p>
 <h3 id="ejemplo-cuenta-bancaria">Ejemplo: Cuenta Bancaria<a class="headerlink" href="#ejemplo-cuenta-bancaria" title="Permanent link">&para;</a></h3>
 <h4 id="cuenta-bancaria-sin-contratos">Cuenta Bancaria sin contratos<a class="headerlink" href="#cuenta-bancaria-sin-contratos" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
+<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
 <span class="kr">feature</span>
     <span class="n">balance</span><span class="p">:</span> <span class="nc">INTEGER</span>
     <span class="n">owner</span><span class="p">:</span> <span class="nc">PERSON</span>
@@ -1364,7 +1364,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <li><code>make</code> para definir el constructor</li>
 </ul>
 <h4 id="cuenta-bancaria-sin-contratos_1">Cuenta Bancaria sin contratos<a class="headerlink" href="#cuenta-bancaria-sin-contratos_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
+<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
 <span class="kr">create</span>
     <span class="n">make</span>
 <span class="kr">feature</span>
@@ -1406,7 +1406,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 </code></pre></div>
 
 <p><strong>Forma corta</strong> del contrato:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">class</span> <span class="n">interface</span> <span class="nc">ACCOUNT</span>
+<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="n">interface</span> <span class="nc">ACCOUNT</span>
 <span class="kr">create</span>
     <span class="n">make</span>
 <span class="kr">feature</span>
@@ -1432,7 +1432,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <h3 id="ejemplo-java-icontract">Ejemplo: Java + iContract<a class="headerlink" href="#ejemplo-java-icontract" title="Permanent link">&para;</a></h3>
 <p>Java no permite especificar contratos (los <em>assert</em> no son lo mismo). Así que hay que utilizar extensiones como <em>iContract</em></p>
 <p><strong>Ejemplo</strong>: Inserción en una lista ordenada</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">  * @invariant forall Node n in elements() |</span>
 <span class="cm">  *    n.prev() != null</span>
 <span class="cm">  *      implies</span>
@@ -1486,7 +1486,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 #### Método público
 
-<div class="codehilite"><pre><span></span><code>    <span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code>    <span class="cm">/**</span>
 <span class="cm">     * Sets the refresh rate.</span>
 <span class="cm">     *</span>
 <span class="cm">     * @param  rate refresh rate, in frames per second.</span>
@@ -1506,7 +1506,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 #### Método no público
 
-<div class="codehilite"><pre><span></span><code>    <span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code>    <span class="cm">/**</span>
 <span class="cm">     * Sets the refresh interval (must correspond to a legal frame rate).</span>
 <span class="cm">     *</span>
 <span class="cm">     * @param  interval refresh interval in milliseconds.</span>
@@ -1526,7 +1526,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 -   Pueden usarse en métodos públicos y no públicos
 
-<div class="codehilite"><pre><span></span><code>    <span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code>    <span class="cm">/**</span>
 <span class="cm">     * Returns a BigInteger whose value is (1/this mod m).</span>
 <span class="cm">     *</span>
 <span class="cm">     * @param  m the modulus.</span>

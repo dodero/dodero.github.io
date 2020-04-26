@@ -866,7 +866,7 @@
 <p><a id="knights"></a></p>
 <h3 id="tomado-de-spring-in-action">Tomado de <a id="bibliografia#spring">Spring in Action</a><a class="headerlink" href="#tomado-de-spring-in-action" title="Permanent link">&para;</a></h3>
 <p>Añadir pruebas unitarias a la solución siguiente:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
   <span class="kd">private</span> <span class="n">HolyGrailQuest</span> <span class="n">quest</span><span class="p">;</span>
   <span class="kd">public</span> <span class="nf">KnightOfTheRoundTable</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
@@ -891,7 +891,7 @@
 
 <h3 id="construir-pruebas-con-junit-3">Construir pruebas con jUnit 3<a class="headerlink" href="#construir-pruebas-con-junit-3" title="Permanent link">&para;</a></h3>
 <p>¿Dónde está el acoplamiento?</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">junit.framework.TestCase</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">junit.framework.TestCase</span><span class="p">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTableTest</span> <span class="kd">extends</span> <span class="n">TestCase</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testEmbarkOnQuest</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">GrailNotFoundException</span> <span class="p">{</span>
     <span class="n">KnightOfTheRoundTable</span> <span class="n">knight</span> <span class="o">=</span>
@@ -915,7 +915,7 @@
 </li>
 </ul>
 <h3 id="ocultar-la-implementacion-detras-de-una-interfaz">Ocultar la implementación detrás de una interfaz<a class="headerlink" href="#ocultar-la-implementacion-detras-de-una-interfaz" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Knight</span> <span class="p">{</span>
   <span class="n">Object</span> <span class="nf">embarkOnQuest</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">QuestFailedException</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -950,7 +950,7 @@
 <li>¿Debe ser el caballero responsable de obtener un desafío?</li>
 </ul>
 <h3 id="inyectar-dependencias">Inyectar dependencias<a class="headerlink" href="#inyectar-dependencias" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="kd">implements</span> <span class="n">Knight</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightOfTheRoundTable</span> <span class="kd">implements</span> <span class="n">Knight</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
   <span class="kd">private</span> <span class="n">Quest</span> <span class="n">quest</span><span class="p">;</span>
   <span class="kd">public</span> <span class="nf">KnightOfTheRoundTable</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
@@ -974,7 +974,7 @@
 </ul>
 <h3 id="construccion-con-spring">Construcción con spring<a class="headerlink" href="#construccion-con-spring" title="Permanent link">&para;</a></h3>
 <p>A través de un fichero de configuración XML le indicamos los valores inyectables:</p>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cp">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot;</span>
 <span class="cp">  &quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;&gt;</span>
 <span class="nt">&lt;beans&gt;</span>
@@ -993,7 +993,7 @@
 </code></pre></div>
 
 <p>La inyección de la dependencia concreta la hace el contenedor (<em>spring</em> en este ejemplo):</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.xml.XmlBeanFactory</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightApp</span> <span class="p">{</span>
@@ -1007,7 +1007,7 @@
 
 <h3 id="ejemplo-logger">Ejemplo: Logger<a class="headerlink" href="#ejemplo-logger" title="Permanent link">&para;</a></h3>
 <p>También se puede inyectar la dependencia en el constructor.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Logger</span> <span class="n">logger</span><span class="p">;</span>
@@ -1023,7 +1023,7 @@
 <h3 id="implementacion-final-de-la-orquesta-v08">Implementación final de la Orquesta v0.8<a class="headerlink" href="#implementacion-final-de-la-orquesta-v08" title="Permanent link">&para;</a></h3>
 <p>Los <code>new</code> de <code>PruebaOrquesta</code> de la versión v0.7 siguen introduciendo dependencias de <code>PruebaOrquesta</code> con respecto a los tipos concretos de <code>Instrumento</code>.</p>
 <p>A través de un fichero de configuración <code>orquesta.xml</code> de Spring le indicamos los valores inyectables:</p>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cp">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot;</span>
 <span class="cp">  &quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;&gt;</span>
 <span class="nt">&lt;beans&gt;</span>
@@ -1055,7 +1055,7 @@
 </code></pre></div>
 
 <p>La inyección de la dependencia concreta la hace el contenedor (<em>Spring</em> en este ejemplo):</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.xml.XmlBeanFactory</span><span class="p">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PruebaOrquesta</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
@@ -1072,7 +1072,7 @@
 
 <h3 id="dependencias-en-java">Dependencias en Java<a class="headerlink" href="#dependencias-en-java" title="Permanent link">&para;</a></h3>
 <p>JSR 330 es un estándar de Java para describir las dependencias de una clase con <code>@Inject</code> y otras anotaciones. Hay diversas implementaciones de <a href="http://javax-inject.github.io/javax-inject/">JSR 330</a>.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPart</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPart</span> <span class="p">{</span>
 <span class="hll">  <span class="nd">@Inject</span> <span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="p">;</span>
 </span>  <span class="c1">// inject class for database access</span>
 <span class="hll">  <span class="nd">@Inject</span> <span class="kd">private</span> <span class="n">DatabaseAccessClass</span> <span class="n">dao</span><span class="p">;</span>
@@ -1092,7 +1092,7 @@
 <p>Supongamos que queremos obtener un listado ordenado por fecha de creación de todas las cuentas bancarias.</p>
 <p><span style="color:red;">¿Cómo afecta este cambio a la versión de <code>BankAccount</code> ya implementada con JDK 1.5? <br> Resolver mediante inyección de dependencias</span></p>
 <p><code>BankAcccount.java</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.time.*</span><span class="p">;</span>
 
@@ -1148,7 +1148,7 @@
 </code></pre></div>
 
 <p><code>BankAcccountComparatorById.java</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">class</span> <span class="nc">BankAccountComparatorById</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">BankAccount</span> <span class="n">o1</span><span class="p">,</span> <span class="n">BankAccount</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
@@ -1158,7 +1158,7 @@
 </code></pre></div>
 
 <p><code>BankAcccountComparatorByCreationDate.java</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">class</span> <span class="nc">BankAccountComparatorByCreationDate</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">BankAccount</span> <span class="n">o1</span><span class="p">,</span> <span class="n">BankAccount</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
@@ -1189,7 +1189,7 @@
 </ul>
 <p>Los decoradores de TypeScript se llaman <strong>atributos</strong> en C# y <strong>anotaciones</strong> en Java</p>
 <p>Los decoradores de TypeScript son una característica <strong>experimental</strong> del compilador y se han propuesto como parte del estándar <strong>ECMAScript 7</strong>. Deben activarse modificando el parámetro <code>experimentalDecorators</code> en <code>tsconfig.json</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
     <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es3&quot;</span><span class="p">,</span>
@@ -1203,38 +1203,38 @@
 </code></pre></div>
 
 <h4 id="declaracion">Declaración<a class="headerlink" href="#declaracion" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">simpleDecorator</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">simpleDecorator</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;simpleDecorator called.&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h4 id="uso">Uso<a class="headerlink" href="#uso" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="kd">@simpleDecorator</span>
+<div class="highlight"><pre><span></span><code><span class="kd">@simpleDecorator</span>
 <span class="kr">class</span> <span class="nx">ClassWithSimpleDecorator</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </code></pre></div>
 
-<details class="question"><summary>¿Cuál es la salida del siguiente código TypeScript?</summary><div class="codehilite"><pre><span></span><code>simpleDecorator called.
+<details class="question"><summary>¿Cuál es la salida del siguiente código TypeScript?</summary><div class="highlight"><pre><span></span><code>simpleDecorator called.
 instance_1 : [object Object]
 instance_2 : [object Object]
 </code></pre></div>
 
 </details>
-<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">instance_1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassWithSimpleDecorator</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">instance_1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassWithSimpleDecorator</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">instance_2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassWithSimpleDecorator</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`instance_1: </span><span class="si">${</span><span class="nx">instance_1</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`instance_2 : </span><span class="si">${</span><span class="nx">instance_2</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 </code></pre></div>
 
 <h4 id="decoradores-mutiples">Decoradores mútiples<a class="headerlink" href="#decoradores-mutiples" title="Permanent link">&para;</a></h4>
-<details class="question"><summary>¿Cuál es la salida del siguiente código TypeScript?</summary><div class="codehilite"><pre><span></span><code>secondDecorator called.
+<details class="question"><summary>¿Cuál es la salida del siguiente código TypeScript?</summary><div class="highlight"><pre><span></span><code>secondDecorator called.
 simpleDecorator called.
 instance_1 : [object Object]
 </code></pre></div>
 
 </details>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">simpleDecorator</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">simpleDecorator</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;simpleDecorator called.&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -1257,7 +1257,7 @@ instance_1 : [object Object]
 <li>Una factoría de decoradores es una función que devuelve el propio decorador.</li>
 </ul>
 <h5 id="ejemplo-de-factoria-de-decoradores">Ejemplo de factoría de decoradores<a class="headerlink" href="#ejemplo-de-factoria-de-decoradores" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">decoratorFactory</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">decoratorFactory</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`decorator function called with: </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1269,7 +1269,7 @@ instance_1 : [object Object]
 </code></pre></div>
 
 <p>Salida:</p>
-<div class="codehilite"><pre><span></span><code>decorator function called with: testName
+<div class="highlight"><pre><span></span><code>decorator function called with: testName
 </code></pre></div>
 
 <h4 id="tipos-de-decoradores">Tipos de decoradores<a class="headerlink" href="#tipos-de-decoradores" title="Permanent link">&para;</a></h4>

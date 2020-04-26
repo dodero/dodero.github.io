@@ -1047,7 +1047,7 @@
 <h2 id="delegacion">Delegación<a class="headerlink" href="#delegacion" title="Permanent link">&para;</a></h2>
 <h3 id="version-inicial-orquesta-v01">Versión inicial: Orquesta v0.1<a class="headerlink" href="#version-inicial-orquesta-v01" title="Permanent link">&para;</a></h3>
 <p>Criticar la solución siguiente (parte 1):</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Instrumento</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Instrumento</span> <span class="p">{</span>
       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tocar</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">afinarInstrumento</span><span class="p">(</span><span class="n">Instrumento</span> <span class="n">i</span><span class="p">)</span>
       <span class="p">{</span>
@@ -1104,7 +1104,7 @@
 </ul>
 <h3 id="implementacion-alternativa-orquesta-v02">Implementación alternativa: Orquesta v0.2<a class="headerlink" href="#implementacion-alternativa-orquesta-v02" title="Permanent link">&para;</a></h3>
 <p>Usar polimorfismo. Seguir criticando la implementación...</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
     <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Orquesta</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">instrumentos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -1162,7 +1162,7 @@
 </ul>
 <h3 id="implementacion-alternativa-orquesta-v03">Implementación alternativa: Orquesta v0.3<a class="headerlink" href="#implementacion-alternativa-orquesta-v03" title="Permanent link">&para;</a></h3>
 <p>Delegar las altas/bajas de <code>Instrumento</code> en la colección (agregado) de <code>Orquesta</code>:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
 
     <span class="kd">protected</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
 
@@ -1205,7 +1205,7 @@
 </ul>
 <h3 id="implementacion-alternativa-orquesta-v04">Implementación alternativa: Orquesta v0.4<a class="headerlink" href="#implementacion-alternativa-orquesta-v04" title="Permanent link">&para;</a></h3>
 <p>Definir una <strong>interfaz</strong> para iterar en la colección de instrumentos:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
     <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Orquesta</span><span class="p">()</span> <span class="p">{</span>
        <span class="n">instrumentos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -1247,7 +1247,7 @@
 <h3 id="implementacion-alternativa-orquesta-v05">Implementación alternativa: Orquesta v0.5<a class="headerlink" href="#implementacion-alternativa-orquesta-v05" title="Permanent link">&para;</a></h3>
 <p>Usando delegación + interfaces y el <em>for each</em> de Java 1.5:</p>
 <p>Criticar...</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Orquesta</span><span class="p">()</span> <span class="p">{</span>
        <span class="n">instrumentos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -1292,7 +1292,7 @@
 <h3 id="implementacion-alternativa-orquesta-v06">Implementación alternativa: Orquesta v0.6<a class="headerlink" href="#implementacion-alternativa-orquesta-v06" title="Permanent link">&para;</a></h3>
 <p>Nos quedamos sólo con lo que nos interesa de la Orquesta: que es una colección iterable.</p>
 <p>Eliminamos lo que no nos interesa: el resto de elementos de la interfaz <code>List</code> que explican la forma lineal de almacenar los instrumentos.</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="n">instrumentos</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Orquesta</span><span class="p">()</span> <span class="p">{</span>
        <span class="n">instrumentos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -1332,7 +1332,7 @@
 <h3 id="implementacion-alternativa-orquesta-v07">Implementación alternativa: Orquesta v0.7<a class="headerlink" href="#implementacion-alternativa-orquesta-v07" title="Permanent link">&para;</a></h3>
 <p>Supongamos que queremos sustituir la implementación basada en una <code>List</code> por otra (quizá más eficiente) basada en un <code>Map</code>.</p>
 <p><strong>Nota</strong>: La interfaz <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html"><code>java.util.Map</code></a> declara los métodos siguientes:</p>
-<div class="codehilite"><pre><span></span><code>clear() void – Map
+<div class="highlight"><pre><span></span><code>clear() void – Map
 containsKey(Object key) boolean – Map
 containsValue(Object value) boolean – Map
 entrySet() Set – Map
@@ -1370,7 +1370,7 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>JDK &lt; 5.0:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>      <span class="n">Map</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code>      <span class="n">Map</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
       <span class="p">...</span>
       <span class="n">Sensor</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sensor</span><span class="p">)</span><span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">sensorId</span><span class="p">);</span>
 </code></pre></div>
@@ -1378,13 +1378,13 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>JDK &gt;= 5.0:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>      <span class="n">Map</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code>      <span class="n">Map</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span><span class="p">();</span>
       <span class="p">...</span>
       <span class="n">Sensor</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">sensorId</span><span class="p">);</span>
 </code></pre></div>
 
 <p><strong>Conclusión</strong>: <code>Map&lt;Sensor&gt;</code> ofrece más de lo que necesitamos</p>
-<div class="codehilite"><pre><span></span><code>      <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sensors</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>      <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sensors</span> <span class="p">{</span>
         <span class="kd">private</span> <span class="n">Map</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
         <span class="kd">public</span> <span class="n">Sensor</span> <span class="nf">getById</span><span class="p">(</span><span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">return</span> <span class="p">(</span><span class="n">Sensor</span><span class="p">)</span> <span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
@@ -1401,7 +1401,7 @@ wait(long timeout, int nanos) void – Object
 </ul>
 <p><strong><span style="color:blue">Interfaces de frontera<span></strong>: No todo uso de <code>Map</code> o interfaz de frontera debe quedar encapsulado. Sólo es un consejo para no <em>pasar la interfaz</em> con métodos que no vamos a necesitar.</p>
 <p>Así que proponemos esta implementación de la Orquesta:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">Orquesta</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Instrumento</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">Instrumentos</span> <span class="n">instrumentos</span><span class="p">;</span>
     <span class="kd">public</span> <span class="nf">Orquesta</span><span class="p">()</span> <span class="p">{</span>
        <span class="n">instrumentos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Instrumentos</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -1459,7 +1459,7 @@ wait(long timeout, int nanos) void – Object
 </div>
 <h4 id="construccion-con-spring">Construcción con spring<a class="headerlink" href="#construccion-con-spring" title="Permanent link">&para;</a></h4>
 <p>A través de un fichero de configuración <code>orquesta.xml</code> le indicamos los valores inyectables:</p>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cp">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot;</span>
 <span class="cp">  &quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;&gt;</span>
 <span class="nt">&lt;beans&gt;</span>
@@ -1491,7 +1491,7 @@ wait(long timeout, int nanos) void – Object
 </code></pre></div>
 
 <p>La inyección de la dependencia concreta la hace el contenedor (<em>spring</em> en este ejemplo):</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanFactory</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.xml.XmlBeanFactory</span><span class="p">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PruebaOrquesta</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
@@ -1539,7 +1539,7 @@ wait(long timeout, int nanos) void – Object
 </ul>
 <h3 id="ejemplo-implementacion-de-identificadores">Ejemplo: implementación de identificadores<a class="headerlink" href="#ejemplo-implementacion-de-identificadores" title="Permanent link">&para;</a></h3>
 <h4 id="handler-en-java">Handler en Java<a class="headerlink" href="#handler-en-java" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">interface</span> <span class="nc">Handler</span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">interface</span> <span class="nc">Handler</span><span class="p">{</span>
       <span class="n">String</span> <span class="nf">toString</span><span class="p">();</span>
       <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Handler</span> <span class="n">otro</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1563,7 +1563,7 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>JDK 1.4:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">);</span> <span class="c1">//throws ClassCastException</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1571,7 +1571,7 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>JDK 1.5:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">T</span> <span class="n">o</span><span class="p">);</span> <span class="c1">//throws ClassCastException</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1601,10 +1601,8 @@ wait(long timeout, int nanos) void – Object
 <li>No hay plantillas. La genericidad se consigue con <code>Object</code>. Hay que hacer casting.</li>
 <li>Cuidado con <code>Boolean</code> que no implementa <code>Comparable</code> en JDK 1.4</li>
 </ul>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">Java ≥ 1.5</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<div class="superfences-tabs" data-tabs="1:2">
+<input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked" /><label for="__tabbed_1_1">Java ≥ 1.5</label><div class="superfences-content"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BankAccount</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -1632,9 +1630,7 @@ wait(long timeout, int nanos) void – Object
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">Java ≤ 1.4</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<input name="__tabbed_1" type="radio" id="__tabbed_1_2" /><label for="__tabbed_1_2">Java ≤ 1.4</label><div class="superfences-content"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BankAccount</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
@@ -1667,7 +1663,7 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>Si <code>BankAccount</code> implementa <code>Comparable</code>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">BankAccountComparator</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">BankAccountComparator</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">BankAccount</span> <span class="n">o1</span><span class="p">,</span> <span class="n">BankAccount</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">o2</span><span class="p">);</span>
     <span class="p">}</span>
@@ -1677,7 +1673,7 @@ wait(long timeout, int nanos) void – Object
 <ul>
 <li>Si <code>BankAccount</code> no implementa <code>Comparable</code>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">BankAccountComparator</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">BankAccountComparator</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">BankAccount</span> <span class="n">o1</span><span class="p">,</span> <span class="n">BankAccount</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">o1</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span> <span class="n">o2</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
     <span class="p">}</span>

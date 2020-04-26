@@ -712,7 +712,7 @@
 <h1 id="programacion-asincrona">Programación asíncrona<a class="headerlink" href="#programacion-asincrona" title="Permanent link">&para;</a></h1>
 <h2 id="listeners"><a id="listeners">Listeners</a><a class="headerlink" href="#listeners" title="Permanent link">&para;</a></h2>
 <h3 id="listener-con-un-solo-control">Listener con un solo control<a class="headerlink" href="#listener-con-un-solo-control" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEventsFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEventsFrame</span><span class="p">();</span>
       <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
@@ -761,7 +761,7 @@
 </code></pre></div>
 
 <h3 id="listener-con-varios-controles">Listener con varios controles<a class="headerlink" href="#listener-con-varios-controles" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents2</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents2</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEvents2Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents2Frame</span><span class="p">();</span>
       <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
@@ -828,7 +828,7 @@
 </code></pre></div>
 
 <h3 id="listener-con-clases-anonimas">Listener con clases anónimas<a class="headerlink" href="#listener-con-clases-anonimas" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents3</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKeyEvents3</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">DemoKeyEvents3Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoKeyEvents3Frame</span><span class="p">();</span>
       <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
@@ -882,7 +882,7 @@
 <li>No hay que redefinir todos los métodos de <code>KeyListener</code></li>
 <li>Los métodos de <code>KeyAdapter</code> están definidos pero vacíos</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">DemoKeyEvents4Frame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">DemoKeyEvents4Frame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
    <span class="kd">private</span> <span class="n">JTextField</span> <span class="n">enterField</span><span class="p">;</span>
 
    <span class="c1">// constructor</span>
@@ -926,7 +926,7 @@
 </code></pre></div>
 
 <h3 id="listener-con-lambdas-y-dispatch-table">Listener con lambdas y dispatch table<a class="headerlink" href="#listener-con-lambdas-y-dispatch-table" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.KeyAdapter</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.KeyEvent</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
@@ -987,7 +987,7 @@
 </code></pre></div>
 
 <h2 id="ejemplo-de-listener-con-y-sin-lambdas">Ejemplo de listener con y sin lambdas<a class="headerlink" href="#ejemplo-de-listener-con-y-sin-lambdas" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
 

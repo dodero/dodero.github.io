@@ -913,7 +913,7 @@
 <li>Un módulo puede incluirse (<code>include</code>) dentro de la definición de una clase</li>
 </ul>
 <h4 id="ejemplo-herencia-vs-mixins">Ejemplo: herencia vs mixins<a class="headerlink" href="#ejemplo-herencia-vs-mixins" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="k">module</span> <span class="nn">Debug</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Debug</span>
   <span class="k">def</span> <span class="nf">whoAmI?</span>
     <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="se">\#</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">): </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">end</span>
@@ -940,7 +940,7 @@
 
 <h4 id="ejemplo-comparable-en-ruby">Ejemplo: Comparable en ruby<a class="headerlink" href="#ejemplo-comparable-en-ruby" title="Permanent link">&para;</a></h4>
 <p>Una manera de implementar un <code>Comparable</code> en ruby mediante el módulo <a href="https://ruby-doc.org/core-2.2.3/Comparable.html">Comparable</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span>
   <span class="kp">include</span> <span class="no">Comparable</span> <span class="c1"># The class Student &#39;inherits&#39; Comparable module using include keyword</span>
   <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:score</span>
 
@@ -976,7 +976,7 @@
 </ul>
 <h4 id="ejemplo-adaptador-de-interfaz-en-ruby">Ejemplo: Adaptador de interfaz en Ruby<a class="headerlink" href="#ejemplo-adaptador-de-interfaz-en-ruby" title="Permanent link">&para;</a></h4>
 <h5 id="interfaz-americana">Interfaz americana<a class="headerlink" href="#interfaz-americana" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
   <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">text_object</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">text</span>
     <span class="n">size</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">size_inches</span>
@@ -987,7 +987,7 @@
 <span class="k">end</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">TextObject</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:text</span><span class="p">,</span> <span class="ss">:size_inches</span><span class="p">,</span> <span class="ss">:color</span>
 
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">size_inches</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
@@ -999,7 +999,7 @@
 </code></pre></div>
 
 <h5 id="interfaz-britanica">Interfaz británica<a class="headerlink" href="#interfaz-britanica" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="c1">## british_text_object.rb</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## british_text_object.rb</span>
 <span class="k">class</span> <span class="nc">BritishTextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:string</span><span class="p">,</span> <span class="ss">:size_mm</span><span class="p">,</span> <span class="ss">:colour</span>
 
@@ -1008,7 +1008,7 @@
 </code></pre></div>
 
 <h5 id="adaptador-de-interfaz-version-clasica">Adaptador de interfaz: versión clásica<a class="headerlink" href="#adaptador-de-interfaz-version-clasica" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">bto</span><span class="p">)</span>
     <span class="vi">@bto</span> <span class="o">=</span> <span class="n">bto</span>
   <span class="k">end</span>
@@ -1028,7 +1028,7 @@
 </code></pre></div>
 
 <h4 id="adaptador-de-interfaz-version-con-modulos">Adaptador de interfaz: versión con módulos<a class="headerlink" href="#adaptador-de-interfaz-version-con-modulos" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">## Make sure the original class is loaded</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## Make sure the original class is loaded</span>
 <span class="nb">require</span> <span class="s1">&#39;british_text_object&#39;</span>
 
 <span class="c1">## Now add some methods to the original class</span>
@@ -1053,7 +1053,7 @@
 <li>se puede hacer incluso con las clases built-in de la biblioteca de Ruby</li>
 </ul>
 <h4 id="adaptador-de-interfaz-instancia-unica">Adaptador de interfaz: instancia única<a class="headerlink" href="#adaptador-de-interfaz-instancia-unica" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="n">bto</span> <span class="o">=</span> <span class="no">BritishTextObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">bto</span> <span class="o">=</span> <span class="no">BritishTextObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="n">bto</span>
   <span class="k">def</span> <span class="nf">color</span>
@@ -1071,7 +1071,7 @@
 </code></pre></div>
 
 <p>o bien:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nc">bto</span><span class="o">.</span><span class="nf">color</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nc">bto</span><span class="o">.</span><span class="nf">color</span>
   <span class="n">colour</span>
 <span class="k">end</span>
 
@@ -1093,7 +1093,7 @@
 <li>Los <code>trait</code> no pueden instanciarse</li>
 </ul>
 <h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code>trait</code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="o">()</span><span class="k">:</span> <span class="kt">A</span>
 <span class="o">}</span>
@@ -1117,7 +1117,7 @@
 
 <h3 id="ejemplo-subtipos">Ejemplo: Subtipos<a class="headerlink" href="#ejemplo-subtipos" title="Permanent link">&para;</a></h3>
 <p>Implementación del <em>polimorfismo de inclusión</em> o herencia simple con traits:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nn">scala.collection.mutable.ArrayBuffer</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nn">scala.collection.mutable.ArrayBuffer</span>
 
 <span class="k">trait</span> <span class="nc">Pet</span> <span class="o">{</span>
   <span class="k">val</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span>
@@ -1136,13 +1136,13 @@
 </code></pre></div>
 
 <h3 id="ejemplo-similarity">Ejemplo: Similarity<a class="headerlink" href="#ejemplo-similarity" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Similarity</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Similarity</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">isNotSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!</span><span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="o">(</span><span class="n">xc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">yc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Similarity</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="o">(</span><span class="n">xc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">yc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Similarity</span> <span class="o">{</span>
   <span class="k">var</span> <span class="n">x</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">xc</span>
   <span class="k">var</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">yc</span>
   <span class="k">def</span> <span class="n">isSimilar</span><span class="o">(</span><span class="n">obj</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=</span>
@@ -1171,7 +1171,7 @@
 </ul>
 <h3 id="ejemplo-iterator">Ejemplo: Iterator<a class="headerlink" href="#ejemplo-iterator" title="Permanent link">&para;</a></h3>
 <p>Cómo reutilizar comportamiento de varios tipos de iteradores a través de un mixin:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
   <span class="k">type</span> <span class="kt">T</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="k">:</span> <span class="kt">T</span>

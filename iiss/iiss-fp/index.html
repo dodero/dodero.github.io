@@ -1029,7 +1029,7 @@
 <h2 id="interfaces-funcionales"><span style="color:blue;"><a id="functional">Interfaces funcionales</a></span><a class="headerlink" href="#interfaces-funcionales" title="Permanent link">&para;</a></h2>
 <h3 id="ejemplo-comparacion-de-personas-version-con-herencia">Ejemplo: Comparación de personas - versión con herencia<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-herencia" title="Permanent link">&para;</a></h3>
 <p>Ordenación de una lista de nombres de personas:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
 <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nombres</span><span class="p">);</span>
 </code></pre></div>
 
@@ -1040,7 +1040,7 @@
 <li>Aprovechamos que el <code>String</code> del nombre ya implementa la interfaz <code>Comparable</code></li>
 </ul>
 <p>Delegando hacia las subclases:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Persona</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Persona</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">idPersona</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span> <span class="n">fechaNacimiento</span><span class="p">;</span>
@@ -1073,7 +1073,7 @@
 </code></pre></div>
 
 <p>Construir y ordenar una colección de personas:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Melchor&quot;</span><span class="p">));</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Gaspar&quot;</span><span class="p">));</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;Baltasar&quot;</span><span class="p">));</span>
@@ -1093,7 +1093,7 @@
 </ul>
 <h3 id="ejemplo-comparacion-de-personas-version-con-composicion">Ejemplo: Comparación de personas - versión con composición<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-composicion" title="Permanent link">&para;</a></h3>
 <p>Sin usar herencia:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
     <span class="p">}</span>
@@ -1112,7 +1112,7 @@
 <p>La función factorizada (por ejemplo, la implementación de <code>Comparator</code>) es sustituible en tiempo de ejecución mediante inyección de dependencias</p>
 </div>
 <h3 id="ejemplo-comparacion-de-personas-version-con-clases-anonimas">Ejemplo: Comparación de personas - versión con clases anónimas<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
   <span class="n">personas</span><span class="p">,</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
@@ -1126,7 +1126,7 @@
 <li>Clases <strong>locales</strong> (<em>inner classes</em>): declaradas dentro de métodos</li>
 <li>Las clases locales pueden hacer referencia a identificadores declarados en la clase y a variables de solo lectura (<code>final</code>) del método en que se declaran</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnclosingClass</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnclosingClass</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">InnerClass</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">incrementAndReturnCounter</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
@@ -1162,7 +1162,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con clases anónimas:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">final</span> <span class="n">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;Cadiz CF&quot;</span><span class="p">);</span>
   <span class="kd">final</span> <span class="n">Team</span> <span class="n">team2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;RC Betis&quot;</span><span class="p">);</span>
   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">)</span> <span class="p">{</span>
@@ -1176,7 +1176,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Sin clases anónimas:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">FilterByTeam</span> <span class="kd">implements</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">FilterByTeam</span> <span class="kd">implements</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="n">Team</span> <span class="n">localTeam</span><span class="p">,</span> <span class="n">visitingTeam</span><span class="p">;</span>
 
   <span class="kd">public</span> <span class="nf">FilterByTeam</span><span class="p">(</span><span class="n">Team</span> <span class="n">t1</span><span class="p">,</span> <span class="n">Team</span> <span class="n">t2</span><span class="p">)</span> <span class="p">{</span>
@@ -1191,7 +1191,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p>Comprobar que, en un cierto grupo de la competición, un mismo partido no está repetido ni se enfrenta un equipo contra sí mismo:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">:</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">Team</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">();</span>
       <span class="n">Team</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getVisitingTeam</span><span class="p">();</span>
@@ -1217,7 +1217,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <p>Usando Java 7:</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span>
@@ -1235,7 +1235,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Usando Java 8:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// code () -&gt; { /* code */ } is a closure</span>
@@ -1252,17 +1252,17 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <h3 id="implementaciones-en-cc">Implementaciones en C/C++<a class="headerlink" href="#implementaciones-en-cc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Puntero a función:
-    <div class="codehilite"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
 </code></pre></div></li>
 <li>Con puntero asociado a datos:
-    <div class="codehilite"><pre><span></span><code>  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><code>  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></li>
 <li><em>functor</em> en C++</li>
 <li>clase que define <code>operator()</code></li>
 <li>es una clase y por tanto pueden contener un estado</li>
 </ul>
 <h4 id="ejemplo-de-puntero-a-funcion">Ejemplo de puntero a función<a class="headerlink" href="#ejemplo-de-puntero-a-funcion" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
 <span class="kt">void</span> <span class="nf">PrintTwoNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">numberSource</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d and %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numberSource</span><span class="p">(),</span> <span class="n">numberSource</span><span class="p">());</span>
 <span class="p">}</span>
@@ -1285,7 +1285,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="ejemplo-de-puntero-a-datos">Ejemplo de puntero a datos<a class="headerlink" href="#ejemplo-de-puntero-a-datos" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
 <span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">event_cb_t</span><span class="p">)(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">event</span> <span class="o">*</span><span class="n">evt</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">);</span>
 
 <span class="cm">/* Define a function to register a callback */</span>
@@ -1312,7 +1312,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="ejemplo-de-functor">Ejemplo de functor<a class="headerlink" href="#ejemplo-de-functor" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// this is a functor</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// this is a functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
   <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
@@ -1334,7 +1334,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="functor-vs-function-pointer">Functor vs function pointer<a class="headerlink" href="#functor-vs-function-pointer" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">//Functor</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//Functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span><span class="n">x</span><span class="p">(</span><span class="n">y</span><span class="p">){}</span>
   <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
@@ -1382,7 +1382,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Un cierre permite acceder a las variables libres incluso cuando se invoca desde fuera de su ámbito léxico</li>
 </ul>
 <h3 id="funciones-anonimas-en-c">Funciones anónimas en C++<a class="headerlink" href="#funciones-anonimas-en-c" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">some_list</span><span class="p">;</span> <span class="c1">// assume that contains something</span>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">some_list</span><span class="p">;</span> <span class="c1">// assume that contains something</span>
 <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">some_list</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span>
@@ -1400,7 +1400,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con clases anónimas (Java 7):</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorTest</span> <span class="p">{</span> 
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorTest</span> <span class="p">{</span> 
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">personList</span> <span class="o">=</span> <span class="n">Person</span><span class="p">.</span><span class="na">createShortList</span><span class="p">();</span>
@@ -1423,7 +1423,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con lambdas (Java 8)</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorTest</span> <span class="p">{</span> 
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorTest</span> <span class="p">{</span> 
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">personList</span> <span class="o">=</span> <span class="n">Person</span><span class="p">.</span><span class="na">createShortList</span><span class="p">();</span>
@@ -1456,7 +1456,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Sintaxis <code>do</code> ... <code>end</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">some_list</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">some_list</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="o">]</span>
 <span class="n">some_list</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">end</span>
@@ -1465,7 +1465,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Sintaxis <code>{</code> ... <code>}</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">some_list</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">some_list</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="o">]</span>
 <span class="n">some_list</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
 </code></pre></div>
 
@@ -1474,7 +1474,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Sin bloques:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
   <span class="k">def</span> <span class="nf">with_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">...</span><span class="vi">@songs</span><span class="o">.</span><span class="n">length</span>
       <span class="k">return</span> <span class="vi">@songs</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="vi">@songs</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">name</span>
@@ -1487,7 +1487,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con bloques (sintaxis <code>do</code> ... <code>end</code>):</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
   <span class="k">def</span> <span class="nf">with_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     <span class="vi">@songs</span><span class="o">.</span><span class="n">find</span> <span class="k">do</span> <span class="o">|</span><span class="n">song</span><span class="o">|</span>
       <span class="n">title</span> <span class="o">==</span> <span class="n">song</span><span class="o">.</span><span class="n">name</span>
@@ -1499,7 +1499,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con bloques (sintaxis <code>{</code> ... <code>}</code>):</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SongList</span>
   <span class="k">def</span> <span class="nf">with_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     <span class="vi">@songs</span><span class="o">.</span><span class="n">find</span> <span class="p">{</span> <span class="o">|</span><span class="n">song</span><span class="o">|</span> <span class="n">title</span> <span class="o">==</span> <span class="n">song</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span>
   <span class="k">end</span>
@@ -1516,7 +1516,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Al bloque se le pueden pasar parámetros</li>
 </ul>
 <p><strong>Ejemplo: fibonacci</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_up_to</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_up_to</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
   <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
   <span class="k">while</span> <span class="n">i1</span> <span class="o">&lt;=</span> <span class="n">max</span>
     <span class="k">yield</span> <span class="n">i1</span>
@@ -1529,7 +1529,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p><strong>Ejemplo de <code>yield</code>:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">three_times</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">three_times</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
@@ -1538,7 +1538,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p><strong>Ejemplo: implementación de <code>Array.find</code></strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Array</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Array</span>
   <span class="k">def</span> <span class="nf">find</span>
     <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">...</span><span class="n">size</span>
       <span class="n">value</span> <span class="o">=</span> <span class="nb">self</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
@@ -1554,7 +1554,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Iterar sobre un array con <code>each</code></li>
 </ul>
 <p><code>Array#each</code>: recibe un array y aplica el bloque a cada item, sin modificar el array ni crear un nuevo objeto; devuelve el mismo array.</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="o">].</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">printf</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot; &quot;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="o">].</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">printf</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot; &quot;</span> <span class="p">}</span>
 <span class="c1">#Salida =&gt; 1 3 5 7 9</span>
 <span class="nb">Array</span> <span class="n">a</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">i</span><span class="o">*</span><span class="mi">2</span> <span class="p">}</span>
@@ -1568,7 +1568,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Iterar sobre un fichero con <code>each</code></li>
 </ul>
 <p><code>File#each</code>: recibe el contenido de un fichero de texto y aplica el bloque a cada línea.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;testfile&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;testfile&quot;</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="n">line</span>
 <span class="k">end</span>
@@ -1582,7 +1582,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Iterar sobre un array con <code>collect</code></li>
 </ul>
 <p><code>Array#collect</code>: aplica el bloque a todos los items y devuelve el nuevo array modificado; hace lo mismo que <code>Array#map</code></p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="o">].</span><span class="n">collect</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">succ</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="o">].</span><span class="n">collect</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">succ</span> <span class="p">}</span>
 <span class="c1"># Salida =&gt; [&#39;&#39;I&#39;&#39;, &#39;&#39;B&#39;&#39;, &#39;&#39;M&#39;&#39;]</span>
 <span class="nb">Array</span> <span class="n">a</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">}</span>
@@ -1599,7 +1599,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>En Ruby, una función anónima o <em>lambda</em> es simplemente un tipo especial de objeto <code>Proc</code></li>
 <li>Definición de procs/lambdas:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># sin argumentos:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sin argumentos:</span>
 <span class="n">say_something</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;This is a lambda&quot;</span> <span class="p">}</span>
 <span class="n">say_something</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;This is a lambda&quot;</span> <span class="p">}</span>
 <span class="n">say_otherwise</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;This is a proc&quot;</span> <span class="p">}</span>
@@ -1610,7 +1610,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Varias formas de llamar a la lambda (es preferible <code>call</code>)</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">say_something</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;This is a lambda&quot;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">say_something</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;This is a lambda&quot;</span> <span class="p">}</span>
 <span class="n">say_something</span><span class="o">.</span><span class="n">call</span>
 <span class="n">say_something</span><span class="o">.</span><span class="p">()</span>
 <span class="n">say_something</span><span class="o">[]</span>
@@ -1625,7 +1625,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Los <code>proc</code> no se preocupan de los argumentos:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;I don&#39;t care about args!&quot;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;I don&#39;t care about args!&quot;</span> <span class="p">}</span>
 <span class="n">t</span><span class="o">.</span><span class="n">call</span> <span class="c1">#Salida: I don&#39;t care about args!</span>
 <span class="n">t</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#Salida: I don&#39;t care about args!</span>
 <span class="n">t</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#Salida: I don&#39;t care about args!</span>
@@ -1640,7 +1640,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Los <code>proc</code> retornan del método actual; los lambda retornan de la función anónima:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># funciona:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># funciona:</span>
 <span class="n">my_lambda</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="p">}</span>
 <span class="nb">puts</span> <span class="s2">&quot;Lambda result: </span><span class="si">#{</span><span class="n">my_lambda</span><span class="o">.</span><span class="n">call</span><span class="si">}</span><span class="s2">&quot;</span>
 
@@ -1652,7 +1652,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Si el <code>proc</code> está dentro de un método, la llamada a <code>return</code> es equivalente a retornar de ese método:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">call_proc</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">call_proc</span>
   <span class="nb">puts</span> <span class="s2">&quot;Before proc&quot;</span>
   <span class="n">my_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span> <span class="p">}</span>
   <span class="n">my_proc</span><span class="o">.</span><span class="n">call</span>
@@ -1689,14 +1689,14 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Llamada a un bloque sin parámetros</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;Before the yield&quot;</span><span class="p">)</span>
   <span class="k">yield</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;After the yield&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="n">run_it</span> <span class="k">do</span>
+<div class="highlight"><pre><span></span><code><span class="n">run_it</span> <span class="k">do</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;Coming to you from inside the block&#39;</span><span class="p">)</span>
 <span class="k">end</span>
@@ -1711,7 +1711,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Cualquier método puede recibir un bloque como parámetro implícito, pero no lo ejecuta si no hace <code>yield</code>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
 <span class="k">end</span>
 
 <span class="n">run_it</span> <span class="k">do</span>
@@ -1724,7 +1724,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Con <code>yield</code>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it</span>
   <span class="k">yield</span> <span class="k">if</span> <span class="nb">block_given?</span>
 <span class="k">end</span>
 
@@ -1738,7 +1738,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Llamada a un bloque con parámetros:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it_with_parameter</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it_with_parameter</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;Before the yield&#39;</span><span class="p">)</span>
   <span class="k">yield</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;After the yield&#39;</span><span class="p">)</span>
@@ -1759,7 +1759,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Hacer explícito el bloque pasado como parámetro usando <em>ampersand</em>: explicitamos que se espera que el método reciba un parámetro de tipo bloque</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it_with_parameter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_it_with_parameter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;Before the call&#39;</span><span class="p">)</span>
   <span class="n">block</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;After the call&#39;</span><span class="p">)</span>
@@ -1769,7 +1769,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <ul>
 <li>Convertir un <code>Proc</code> o un lambda en un bloque pasado como parámetro:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">my_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;The value of x is </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)}</span>
+<div class="highlight"><pre><span></span><code><span class="n">my_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;The value of x is </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)}</span>
 <span class="n">run_it_with_parameter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_proc</span><span class="p">)</span>
 <span class="n">my_lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;The value of x is </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)}</span>
 <span class="n">run_it_with_parameter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_lambda</span><span class="p">)</span>
@@ -1788,7 +1788,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <p><a id="informes"></a></p>
 <h2 id="ejemplos-de-interfaces-funcionales-formateo-de-informes">Ejemplos de interfaces funcionales: Formateo de informes<a class="headerlink" href="#ejemplos-de-interfaces-funcionales-formateo-de-informes" title="Permanent link">&para;</a></h2>
 <h3 id="version-en-ruby">Versión en ruby<a class="headerlink" href="#version-en-ruby" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
   <span class="kp">attr_reader</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span>
   <span class="kp">attr_accessor</span> <span class="ss">:formatter</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
@@ -1823,7 +1823,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h3 id="version-con-interfaces-funcionales-ruby-procs-blocks">Versión con interfaces funcionales (Ruby procs + blocks)<a class="headerlink" href="#version-con-interfaces-funcionales-ruby-procs-blocks" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Report</span>
   <span class="kp">attr_reader</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span>
   <span class="kp">attr_accessor</span> <span class="ss">:formatter</span>
 
@@ -1840,7 +1840,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="formateo-html">Formateo HTML<a class="headerlink" href="#formateo-html" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="no">HTML_FORMATTER</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
+<div class="highlight"><pre><span></span><code><span class="no">HTML_FORMATTER</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&#39;</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s1">&#39; &lt;head&gt;&#39;</span><span class="p">)</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;   &lt;title&gt;</span><span class="si">#{</span><span class="n">context</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&lt;/title&gt;&quot;</span><span class="p">)</span>
@@ -1857,7 +1857,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="formateo-de-texto">Formateo de texto<a class="headerlink" href="#formateo-de-texto" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="n">report</span> <span class="o">=</span> <span class="no">Report</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
+<div class="highlight"><pre><span></span><code><span class="n">report</span> <span class="o">=</span> <span class="no">Report</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
   <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;***** </span><span class="si">#{</span><span class="n">context</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2"> *****&quot;</span><span class="p">)</span>
   <span class="n">context</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
     <span class="nb">puts</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -1880,7 +1880,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Un módulo puede incluirse (<code>include</code>) dentro de la definición de una clase</li>
 </ul>
 <h4 id="ejemplo-herencia-vs-mixins">Ejemplo: herencia vs mixins<a class="headerlink" href="#ejemplo-herencia-vs-mixins" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="k">module</span> <span class="nn">Debug</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Debug</span>
   <span class="k">def</span> <span class="nf">whoAmI?</span>
     <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="se">\#</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">): </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">end</span>
@@ -1907,7 +1907,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 
 <h4 id="ejemplo-comparable-en-ruby">Ejemplo: Comparable en ruby<a class="headerlink" href="#ejemplo-comparable-en-ruby" title="Permanent link">&para;</a></h4>
 <p>Una manera de implementar un <code>Comparable</code> en ruby mediante el módulo <a href="https://ruby-doc.org/core-2.2.3/Comparable.html">Comparable</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span>
   <span class="kp">include</span> <span class="no">Comparable</span> <span class="c1"># The class Student &#39;inherits&#39; Comparable module using include keyword</span>
   <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:score</span>
 
@@ -1943,7 +1943,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </ul>
 <h4 id="ejemplo-adaptador-de-interfaz-en-ruby">Ejemplo: Adaptador de interfaz en Ruby<a class="headerlink" href="#ejemplo-adaptador-de-interfaz-en-ruby" title="Permanent link">&para;</a></h4>
 <h5 id="interfaz-americana">Interfaz americana<a class="headerlink" href="#interfaz-americana" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
   <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">text_object</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">text</span>
     <span class="n">size</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">size_inches</span>
@@ -1954,7 +1954,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">end</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">TextObject</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:text</span><span class="p">,</span> <span class="ss">:size_inches</span><span class="p">,</span> <span class="ss">:color</span>
 
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">size_inches</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
@@ -1966,7 +1966,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h5 id="interfaz-britanica">Interfaz británica<a class="headerlink" href="#interfaz-britanica" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="c1">## british_text_object.rb</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## british_text_object.rb</span>
 <span class="k">class</span> <span class="nc">BritishTextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:string</span><span class="p">,</span> <span class="ss">:size_mm</span><span class="p">,</span> <span class="ss">:colour</span>
 
@@ -1975,7 +1975,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h5 id="adaptador-de-interfaz-version-clasica">Adaptador de interfaz: versión clásica<a class="headerlink" href="#adaptador-de-interfaz-version-clasica" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">bto</span><span class="p">)</span>
     <span class="vi">@bto</span> <span class="o">=</span> <span class="n">bto</span>
   <span class="k">end</span>
@@ -1995,7 +1995,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="adaptador-de-interfaz-version-con-modulos">Adaptador de interfaz: versión con módulos<a class="headerlink" href="#adaptador-de-interfaz-version-con-modulos" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">## Make sure the original class is loaded</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## Make sure the original class is loaded</span>
 <span class="nb">require</span> <span class="s1">&#39;british_text_object&#39;</span>
 
 <span class="c1">## Now add some methods to the original class</span>
@@ -2020,7 +2020,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>se puede hacer incluso con las clases built-in de la biblioteca de Ruby</li>
 </ul>
 <h4 id="adaptador-de-interfaz-instancia-unica">Adaptador de interfaz: instancia única<a class="headerlink" href="#adaptador-de-interfaz-instancia-unica" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="n">bto</span> <span class="o">=</span> <span class="no">BritishTextObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">bto</span> <span class="o">=</span> <span class="no">BritishTextObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="n">bto</span>
   <span class="k">def</span> <span class="nf">color</span>
@@ -2038,7 +2038,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p>o bien:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nc">bto</span><span class="o">.</span><span class="nf">color</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nc">bto</span><span class="o">.</span><span class="nf">color</span>
   <span class="n">colour</span>
 <span class="k">end</span>
 
@@ -2060,7 +2060,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <li>Los <code>trait</code> no pueden instanciarse</li>
 </ul>
 <h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code>trait</code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="o">()</span><span class="k">:</span> <span class="kt">A</span>
 <span class="o">}</span>
@@ -2084,7 +2084,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 
 <h3 id="ejemplo-subtipos">Ejemplo: Subtipos<a class="headerlink" href="#ejemplo-subtipos" title="Permanent link">&para;</a></h3>
 <p>Implementación del <em>polimorfismo de inclusión</em> o herencia simple con traits:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nn">scala.collection.mutable.ArrayBuffer</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nn">scala.collection.mutable.ArrayBuffer</span>
 
 <span class="k">trait</span> <span class="nc">Pet</span> <span class="o">{</span>
   <span class="k">val</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span>
@@ -2103,13 +2103,13 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h3 id="ejemplo-similarity">Ejemplo: Similarity<a class="headerlink" href="#ejemplo-similarity" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">trait</span> <span class="nc">Similarity</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Similarity</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">isNotSimilar</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!</span><span class="n">isSimilar</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="o">(</span><span class="n">xc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">yc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Similarity</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="o">(</span><span class="n">xc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">yc</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Similarity</span> <span class="o">{</span>
   <span class="k">var</span> <span class="n">x</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">xc</span>
   <span class="k">var</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">yc</span>
   <span class="k">def</span> <span class="n">isSimilar</span><span class="o">(</span><span class="n">obj</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=</span>
@@ -2138,7 +2138,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </ul>
 <h3 id="ejemplo-iterator">Ejemplo: Iterator<a class="headerlink" href="#ejemplo-iterator" title="Permanent link">&para;</a></h3>
 <p>Cómo reutilizar comportamiento de varios tipos de iteradores a través de un mixin:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
   <span class="k">type</span> <span class="kt">T</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="k">:</span> <span class="kt">T</span>

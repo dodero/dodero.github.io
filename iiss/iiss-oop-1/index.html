@@ -1022,7 +1022,7 @@
 <h3 id="version-inicial-lista-v01">Versión inicial: Lista v0.1<a class="headerlink" href="#version-inicial-lista-v01" title="Permanent link">&para;</a></h3>
 <p><strong>Abstracción</strong>: La clase abstracta <code>List&lt;T&gt;</code> diferencia entre el <em>qué</em> y el <em>cómo</em>: Qué hace la lista vs. cómo se almacenan los elementos</p>
 <p>Criticar la implementación siguiente:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeFirst</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addLast</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
@@ -1056,7 +1056,7 @@
 <h3 id="implementacion-alternativa-lista-v02">Implementación alternativa: Lista v0.2<a class="headerlink" href="#implementacion-alternativa-lista-v02" title="Permanent link">&para;</a></h3>
 <p>Delegar funcionalidad hacia las subclases (vía <strong>herencia</strong>).</p>
 <p>Criticar la implementación:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">ListForward</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">class</span> <span class="nc">ListForward</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="c1">//...</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">traverse</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// recorrer hacia adelante };</span>
   <span class="p">}</span>
@@ -1078,7 +1078,7 @@
 </ul>
 <h3 id="implementacion-alternativa-lista-v03">Implementación alternativa: Lista v0.3<a class="headerlink" href="#implementacion-alternativa-lista-v03" title="Permanent link">&para;</a></h3>
 <p>Ampliamos la interfaz...</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeFirst</span><span class="p">();</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addLast</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
@@ -1109,7 +1109,7 @@
 </ul>
 <h3 id="implementacion-alternativa-lista-v04">Implementación alternativa: Lista v0.4<a class="headerlink" href="#implementacion-alternativa-lista-v04" title="Permanent link">&para;</a></h3>
 <p><strong>Delegar</strong> hacia otra clase</p>
-<div class="codehilite"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kt">void</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
     <span class="kt">void</span> <span class="nf">removeFirst</span><span class="p">();</span>
     <span class="kt">void</span> <span class="nf">addLast</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">);</span>
@@ -1191,7 +1191,7 @@
 <p>-- <cite><a href="../bibliografia/#eckel">Bruce Eckel</a></cite></p>
 </blockquote>
 <h3 id="ejemplo-aventura-v01">Ejemplo: Aventura v0.1<a class="headerlink" href="#ejemplo-aventura-v01" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonajeDeAccion</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonajeDeAccion</span> <span class="p">{</span>
      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">luchar</span><span class="p">()</span> <span class="p">{}</span>
    <span class="p">}</span>
 
@@ -1235,7 +1235,7 @@
 <li>¿De qué tipos van a ser los personales de acción? &rarr; problema de <em>downcasting</em></li>
 <li>Hay que rediseñar la solución por ser insegura</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>   <span class="kd">interface</span> <span class="nc">SabeLuchar</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code>   <span class="kd">interface</span> <span class="nc">SabeLuchar</span> <span class="p">{</span>
      <span class="kt">void</span> <span class="nf">luchar</span><span class="p">();</span>
    <span class="p">}</span>
    <span class="kd">interface</span> <span class="nc">SabeNadar</span> <span class="p">{</span>
@@ -1295,7 +1295,7 @@
 </li>
 </ul>
 <h4 id="ejemplo-herencia-como-estructura">Ejemplo: herencia como estructura<a class="headerlink" href="#ejemplo-herencia-como-estructura" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Account</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Account</span> <span class="p">{</span>
   <span class="kt">float</span> <span class="n">balance</span><span class="p">;</span>
   <span class="kt">float</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">balance</span><span class="p">;</span> <span class="p">}</span>
   <span class="kt">void</span> <span class="nf">transferIn</span> <span class="p">(</span><span class="kt">float</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span> <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span> <span class="p">}</span>
@@ -1318,7 +1318,7 @@
 <li>Todos los objetos <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> de la clase <code>Account</code> deben cumplir que si <span><span class="MathJax_Preview">b=a.getBalance()</span><script type="math/tex">b=a.getBalance()</script></span> antes de ejecutar <span><span class="MathJax_Preview">a.transferIn(s)</span><script type="math/tex">a.transferIn(s)</script></span> y  <span><span class="MathJax_Preview">b´=a.getBalance()</span><script type="math/tex">b´=a.getBalance()</script></span> después de ejecutar <span><span class="MathJax_Preview">a.transferIn(s)</span><script type="math/tex">a.transferIn(s)</script></span>, entonces <span><span class="MathJax_Preview">b+s=b´</span><script type="math/tex">b+s=b´</script></span>.</li>
 <li>Sin embargo, con la estructura <code>AccountWihFee</code> &lt; <code>VerboseAccount</code> &lt; <code>Account</code>, un objeto de tipo <code>AccountWithFee</code> no funciona bien cuando se contempla como un objeto <code>Account</code>. Considérese la siguiente secuencia:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">Account</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">Account</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">float</span> <span class="n">before</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>
   <span class="n">a</span><span class="p">.</span><span class="na">transferIn</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
   <span class="kt">float</span> <span class="n">after</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>

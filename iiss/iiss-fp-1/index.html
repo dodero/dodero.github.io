@@ -833,7 +833,7 @@
 <h2 id="interfaces-funcionales"><span style="color:blue;"><a id="functional">Interfaces funcionales</a></span><a class="headerlink" href="#interfaces-funcionales" title="Permanent link">&para;</a></h2>
 <h3 id="ejemplo-comparacion-de-personas-version-con-herencia">Ejemplo: Comparación de personas - versión con herencia<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-herencia" title="Permanent link">&para;</a></h3>
 <p>Ordenación de una lista de nombres de personas:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Melchor&quot;</span><span class="p">,</span><span class="s">&quot;Gaspar&quot;</span><span class="p">,</span><span class="s">&quot;Baltasar&quot;</span><span class="p">);</span>
 <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nombres</span><span class="p">);</span>
 </code></pre></div>
 
@@ -844,7 +844,7 @@
 <li>Aprovechamos que el <code>String</code> del nombre ya implementa la interfaz <code>Comparable</code></li>
 </ul>
 <p>Delegando hacia las subclases:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Persona</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Persona</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">idPersona</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span> <span class="n">fechaNacimiento</span><span class="p">;</span>
@@ -877,7 +877,7 @@
 </code></pre></div>
 
 <p>Construir y ordenar una colección de personas:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Melchor&quot;</span><span class="p">));</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Gaspar&quot;</span><span class="p">));</span>
 <span class="n">personas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;Baltasar&quot;</span><span class="p">));</span>
@@ -897,7 +897,7 @@
 </ul>
 <h3 id="ejemplo-comparacion-de-personas-version-con-composicion">Ejemplo: Comparación de personas - versión con composición<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-composicion" title="Permanent link">&para;</a></h3>
 <p>Sin usar herencia:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">OrdenarPersonaPorId</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
     <span class="p">}</span>
@@ -916,7 +916,7 @@
 <p>La función factorizada (por ejemplo, la implementación de <code>Comparator</code>) es sustituible en tiempo de ejecución mediante inyección de dependencias</p>
 </div>
 <h3 id="ejemplo-comparacion-de-personas-version-con-clases-anonimas">Ejemplo: Comparación de personas - versión con clases anónimas<a class="headerlink" href="#ejemplo-comparacion-de-personas-version-con-clases-anonimas" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span>
   <span class="n">personas</span><span class="p">,</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="n">Persona</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Persona</span> <span class="n">o1</span><span class="p">,</span> <span class="n">Persona</span> <span class="n">o2</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">()</span> <span class="o">-</span> <span class="n">o2</span><span class="p">.</span><span class="na">getIdPersona</span><span class="p">();</span>
@@ -930,7 +930,7 @@
 <li>Clases <strong>locales</strong> (<em>inner classes</em>): declaradas dentro de métodos</li>
 <li>Las clases locales pueden hacer referencia a identificadores declarados en la clase y a variables de solo lectura (<code>final</code>) del método en que se declaran</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnclosingClass</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnclosingClass</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">InnerClass</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">incrementAndReturnCounter</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
@@ -960,13 +960,12 @@
 
 <h2 id="predicados">Predicados<a class="headerlink" href="#predicados" title="Permanent link">&para;</a></h2>
 <p>En Java 8, inspirado por la biblioteca <em>guava</em>, se incluyen predicados como una forma de interfaz funcional.</p>
-<p>En la biblioteca Guava, los <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html"><code>Iterators</code></a> tienen un método <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html#filter"><code>filter</code></a> que recibe un objeto de tipo <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/base/Predicate.html"><code>Predicate</code></a>.
-Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate</code></a>.</p>
+<p>En la biblioteca Guava, los <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html"><code>Iterators</code></a> tienen un método <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/collect/Iterators.html#filter"><code>filter</code></a> que recibe un objeto de tipo <a href="https://google.github.io/guava/releases/15.0/api/docs/com/google/common/base/Predicate.html"><code>Predicate</code></a>.</p>
+<p>Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate</code></a>.</p>
 <h3 id="ejemplo-partidos-de-una-competicion">Ejemplo: partidos de una competición<a class="headerlink" href="#ejemplo-partidos-de-una-competicion" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Con clases anónimas:</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Con clases anónimas:</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">final</span> <span class="n">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;Cadiz CF&quot;</span><span class="p">);</span>
   <span class="kd">final</span> <span class="n">Team</span> <span class="n">team2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Team</span><span class="p">(</span><span class="s">&quot;RC Betis&quot;</span><span class="p">);</span>
   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">)</span> <span class="p">{</span>
@@ -977,10 +976,9 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 <span class="k">for</span> <span class="p">(</span><span class="n">matches</span><span class="p">:</span> <span class="n">matchesByTeam</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
 </code></pre></div>
 
-<ul>
-<li>Sin clases anónimas:</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">FilterByTeam</span> <span class="kd">implements</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Sin clases anónimas:</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">FilterByTeam</span> <span class="kd">implements</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="n">Team</span> <span class="n">localTeam</span><span class="p">,</span> <span class="n">visitingTeam</span><span class="p">;</span>
 
   <span class="kd">public</span> <span class="nf">FilterByTeam</span><span class="p">(</span><span class="n">Team</span> <span class="n">t1</span><span class="p">,</span> <span class="n">Team</span> <span class="n">t2</span><span class="p">)</span> <span class="p">{</span>
@@ -995,7 +993,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <p>Comprobar que, en un cierto grupo de la competición, un mismo partido no está repetido ni se enfrenta un equipo contra sí mismo:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">:</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">Team</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">();</span>
       <span class="n">Team</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getVisitingTeam</span><span class="p">();</span>
@@ -1013,15 +1011,9 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h2 id="clases-anonimas-interiores">Clases anónimas interiores<a class="headerlink" href="#clases-anonimas-interiores" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
 <p>Son clases locales (<em>inner classes</em>) declaradas sin nombre; sirven para clases que solo aparecen una vez en la aplicación</p>
-</li>
-<li>
-<p>Usando Java 7:</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+<div class="superfences-tabs" data-tabs="3:2">
+<input name="__tabbed_3" type="radio" id="__tabbed_3_1" checked="checked" /><label for="__tabbed_3_1">Java 7</label><div class="superfences-content"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span>
@@ -1034,12 +1026,8 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
     <span class="p">).</span><span class="na">start</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-
-<ul>
-<li>Usando Java 8:</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+</code></pre></div></div>
+<input name="__tabbed_3" type="radio" id="__tabbed_3_2" /><label for="__tabbed_3_2">Java 8</label><div class="superfences-content"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">CalculationWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculateInSeparateThread</span><span class="p">(</span><span class="kd">final</span> <span class="n">URI</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// code () -&gt; { /* code */ } is a closure</span>
@@ -1049,24 +1037,26 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
     <span class="p">}).</span><span class="na">start</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-
+</code></pre></div></div>
+</div>
 <h2 id="retrollamadas-callbacks"><a id="callbacks">Retrollamadas (<em>callbacks</em>)</a><a class="headerlink" href="#retrollamadas-callbacks" title="Permanent link">&para;</a></h2>
-<p><em>callback</em> = Fragmento de código ejecutable que se pasa como argumento</p>
+<p>Un <em>callback</em> o retrollamada es un fragmento de código ejecutable que se pasa como argumento.</p>
 <h3 id="implementaciones-en-cc">Implementaciones en C/C++<a class="headerlink" href="#implementaciones-en-cc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Puntero a función:
-    <div class="codehilite"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><code>  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span>
 </code></pre></div></li>
 <li>Con puntero asociado a datos:
-    <div class="codehilite"><pre><span></span><code>  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><code>  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></li>
-<li><em>functor</em> en C++</li>
+<li><em>functor</em> en C++<ul>
 <li>clase que define <code>operator()</code></li>
 <li>es una clase y por tanto pueden contener un estado</li>
 </ul>
+</li>
+</ul>
 <h4 id="ejemplo-de-puntero-a-funcion">Ejemplo de puntero a función<a class="headerlink" href="#ejemplo-de-puntero-a-funcion" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* The calling function takes a single callback as a parameter. */</span>
 <span class="kt">void</span> <span class="nf">PrintTwoNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">numberSource</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d and %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numberSource</span><span class="p">(),</span> <span class="n">numberSource</span><span class="p">());</span>
 <span class="p">}</span>
@@ -1089,7 +1079,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="ejemplo-de-puntero-a-datos">Ejemplo de puntero a datos<a class="headerlink" href="#ejemplo-de-puntero-a-datos" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Type of function used for the callback */</span>
 <span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">event_cb_t</span><span class="p">)(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">event</span> <span class="o">*</span><span class="n">evt</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">);</span>
 
 <span class="cm">/* Define a function to register a callback */</span>
@@ -1116,7 +1106,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="ejemplo-de-functor">Ejemplo de functor<a class="headerlink" href="#ejemplo-de-functor" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// this is a functor</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// this is a functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
   <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
@@ -1138,7 +1128,7 @@ Desde Java 8 existe una clase similar <a href="https://docs.oracle.com/javase/8/
 </code></pre></div>
 
 <h4 id="functor-vs-function-pointer">Functor vs function pointer<a class="headerlink" href="#functor-vs-function-pointer" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">//Functor</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//Functor</span>
 <span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
   <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span><span class="n">x</span><span class="p">(</span><span class="n">y</span><span class="p">){}</span>
   <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
