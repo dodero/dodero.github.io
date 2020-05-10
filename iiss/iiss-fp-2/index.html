@@ -510,6 +510,19 @@
     Funciones anónimas en Java
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambdas-y-clases-anonimas-internas" class="md-nav__link">
+    Lambdas y clases anónimas internas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -714,6 +727,19 @@
   <a href="#funciones-anonimas-en-java" class="md-nav__link">
     Funciones anónimas en Java
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambdas-y-clases-anonimas-internas" class="md-nav__link">
+    Lambdas y clases anónimas internas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -937,6 +963,43 @@
 <p class="admonition-title">Ejercicio</p>
 <p><a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#section3">Mejorando código con expresiones lambda</a></p>
 </div>
+<h4 id="lambdas-y-clases-anonimas-internas">Lambdas y clases anónimas internas<a class="headerlink" href="#lambdas-y-clases-anonimas-internas" title="Permanent link">&para;</a></h4>
+<p>En Java, una expresión lambda y una clase anónima interna (<em>inner class</em>) tienen un propósito similar, pero son diferentes en un aspecto: el <strong>ámbito</strong> (scope) de la definición de las variables locales.</p>
+<p>Cuando se usa una inner class, se crea un nuevo ámbito para dicha clase. Se pueden ocultar las variables locales para el ámbito contenedor instanciando nuevas variables con el mismo nombre. También se pued usar la palabra reservada <code>this</code> dentro de una clase anónima para hacer referencia a su instancia.</p>
+<p>Sin embargo, las expresiones lambda trabajan con el ámbito contenedor. No se pueden ocultar las variables del ámbito contenedor dentro del cuerpo de la expresión lambda. En tal caso, la palabra reservada <code>this</code> hace referencia a una instancia de la clase contenedora.</p>
+<p>En el ejemplo siguiente, ¿qué valor se obtiene en la salida?:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">String</span> <span class="n">valor</span> <span class="o">=</span> <span class="s">&quot;Valor de la contenedora&quot;</span><span class="p">;</span>
+
+<span class="c1">//...</span>
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">scopeExperiment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">MiClase</span> <span class="n">unaInnerClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MiClase</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">valor</span> <span class="o">=</span> <span class="s">&quot;Valor de la inner class&quot;</span><span class="p">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">method</span><span class="p">(</span><span class="n">String</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">valor</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="n">String</span> <span class="n">resultadoInnerClass</span> <span class="o">=</span> <span class="n">unaInnerClass</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+    <span class="n">MiClase</span> <span class="n">unaLambda</span> <span class="o">=</span> <span class="n">parametro</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">valor</span><span class="o">=</span> <span class="s">&quot;Valor de la lambda&quot;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">valor</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="n">String</span> <span class="n">resultadoLambda</span> <span class="o">=</span> <span class="n">unaLambda</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="s">&quot;resultadoInnerClass = &quot;</span> <span class="o">+</span> <span class="n">resultadoInnerClass</span> <span class="o">+</span>
+      <span class="s">&quot;,\nresultadoLambda = &quot;</span> <span class="o">+</span> <span class="n">resultadoLambda</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>La salida será:
+(No se accede al <code>valor</code> de la variable definida en el cuerpo de la expresión lambda)</p>
+<div class="highlight"><pre><span></span><code>resultadoInnerClass  = Valor de la inner class,
+resultadoLambda = Valor de la contenedora
+</code></pre></div>
+
 <h3 id="funciones-anonimas-en-ruby">Funciones anónimas en Ruby<a class="headerlink" href="#funciones-anonimas-en-ruby" title="Permanent link">&para;</a></h3>
 <h4 id="bloques-blocks"><a id="blocks">Bloques (<em>blocks</em>)</a><a class="headerlink" href="#bloques-blocks" title="Permanent link">&para;</a></h4>
 <ul>

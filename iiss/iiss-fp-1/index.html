@@ -993,6 +993,11 @@
 </code></pre></div>
 
 <p>Comprobar que, en un cierto grupo de la competición, un mismo partido no está repetido ni se enfrenta un equipo contra sí mismo:</p>
+<div class="admonition question">
+<p class="admonition-title">Guava y Java 8</p>
+<p>Guava emplea <code>FluentIterable</code> para poder encadenar varios <code>Iterable</code> sin que haya problemas con el retorno de null en la programación <em>fluent</em>. La biblioteca estándar de Java 8 sustituye la solución del <code>FluentIterable</code> por los <code>Predicate</code> o por el uso de <code>StreamSupport</code> para resolver dicho problema.</p>
+<p>Lectura recomendada: <a href="https://verhoevenv.github.io/2015/08/18/fluentiterable-streamsupport-java8.html">From Guava's FluentIterable via StreamSupport to Java 8 Streams</a></p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkMatchesInGroup</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">Match</span> <span class="n">match</span><span class="p">:</span> <span class="n">matchesInGroup</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">Team</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">match</span><span class="p">.</span><span class="na">getLocalTeam</span><span class="p">();</span>

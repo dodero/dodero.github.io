@@ -516,33 +516,6 @@
     Ejemplo: Adaptador de interfaz en Ruby
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interfaz-americana" class="md-nav__link">
-    Interfaz americana
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interfaz-britanica" class="md-nav__link">
-    Interfaz británica
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptador-de-interfaz-version-clasica" class="md-nav__link">
-    Adaptador de interfaz: versión clásica
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -616,13 +589,6 @@
           <li class="md-nav__item">
   <a href="#reglas" class="md-nav__link">
     Reglas
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejercicios-y-lecturas-recomendadas" class="md-nav__link">
-    Ejercicios y lecturas recomendadas
   </a>
   
 </li>
@@ -756,33 +722,6 @@
     Ejemplo: Adaptador de interfaz en Ruby
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interfaz-americana" class="md-nav__link">
-    Interfaz americana
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interfaz-britanica" class="md-nav__link">
-    Interfaz británica
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptador-de-interfaz-version-clasica" class="md-nav__link">
-    Adaptador de interfaz: versión clásica
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -856,13 +795,6 @@
           <li class="md-nav__item">
   <a href="#reglas" class="md-nav__link">
     Reglas
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejercicios-y-lecturas-recomendadas" class="md-nav__link">
-    Ejercicios y lecturas recomendadas
   </a>
   
 </li>
@@ -975,7 +907,7 @@
 <li>En <code>x &lt;=&gt; y</code>, <code>x</code> es el receptor del mensaje/método e <code>y</code> es el argumento</li>
 </ul>
 <h4 id="ejemplo-adaptador-de-interfaz-en-ruby">Ejemplo: Adaptador de interfaz en Ruby<a class="headerlink" href="#ejemplo-adaptador-de-interfaz-en-ruby" title="Permanent link">&para;</a></h4>
-<h5 id="interfaz-americana">Interfaz americana<a class="headerlink" href="#interfaz-americana" title="Permanent link">&para;</a></h5>
+<p><strong>Interfaz americana</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Renderer</span>
   <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">text_object</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">text</span>
@@ -998,7 +930,7 @@
 <span class="k">end</span>
 </code></pre></div>
 
-<h5 id="interfaz-britanica">Interfaz británica<a class="headerlink" href="#interfaz-britanica" title="Permanent link">&para;</a></h5>
+<p><strong>Interfaz británica</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">## british_text_object.rb</span>
 <span class="k">class</span> <span class="nc">BritishTextObject</span>
   <span class="kp">attr_reader</span> <span class="ss">:string</span><span class="p">,</span> <span class="ss">:size_mm</span><span class="p">,</span> <span class="ss">:colour</span>
@@ -1007,7 +939,7 @@
 <span class="k">end</span>
 </code></pre></div>
 
-<h5 id="adaptador-de-interfaz-version-clasica">Adaptador de interfaz: versión clásica<a class="headerlink" href="#adaptador-de-interfaz-version-clasica" title="Permanent link">&para;</a></h5>
+<p><strong>Adaptador de interfaz: versión clásica</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BritishTextObjectAdapter</span> <span class="o">&lt;</span> <span class="no">TextObject</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">bto</span><span class="p">)</span>
     <span class="vi">@bto</span> <span class="o">=</span> <span class="n">bto</span>
@@ -1086,13 +1018,20 @@
 <li>Ruby llama a esto <em>singleton methods</em> y <em>singleton class</em> (no es exactamente lo mismo que el patrón singleton del GoF)</li>
 <li>Ruby primero busca los métodos definidos en una clase singleton y luego en la clase regular que ha sido redefinida</li>
 </ul>
-<h2 id="scala-traits"><a id="traits">Scala Traits</a><a class="headerlink" href="#scala-traits" title="Permanent link">&para;</a></h2>
-<p>Los <code>trait</code>de Scala son similares a las interfaces de Java.</p>
+<div class="admonition note">
+<p class="admonition-title">Tutoriales y ejercicios recomendados: Ruby</p>
 <ul>
-<li>Las clases y los objetos pueden extender un <code>trait</code></li>
-<li>Los <code>trait</code> no pueden instanciarse</li>
+<li><a href="https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby from other languages</a></li>
+<li>Tutorial: <a href="http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html">Ruby modules</a></li>
 </ul>
-<h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code>trait</code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
+</div>
+<h2 id="scala-traits"><a id="traits">Scala Traits</a><a class="headerlink" href="#scala-traits" title="Permanent link">&para;</a></h2>
+<p>Los <code class="highlight"><span class="k">trait</span></code>de Scala son similares a las interfaces de Java.</p>
+<ul>
+<li>Las clases y los objetos pueden extender un <code class="highlight"><span class="k">trait</span></code></li>
+<li>Los <code class="highlight"><span class="k">trait</span></code> no pueden instanciarse</li>
+</ul>
+<h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code class="highlight"><span class="k">trait</span></code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">hasNext</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">next</span><span class="o">()</span><span class="k">:</span> <span class="kt">A</span>
@@ -1167,8 +1106,11 @@
 <ul>
 <li>Odersky llama <em>mixin traits</em> a los traits con comportamiento</li>
 <li>Para ser un mixin genuino, debería mezclar comportamiento y no interfaces heredadas</li>
-<li>Leer <a href="http://baddotrobot.com/blog/2014/09/22/scala-mixins/">Scala Mixins: The right way</a></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Lectura recomendada: Scala mixins</p>
+<p>Leer <a href="http://baddotrobot.com/blog/2014/09/22/scala-mixins/">Scala Mixins: The right way</a></p>
+</div>
 <h3 id="ejemplo-iterator">Ejemplo: Iterator<a class="headerlink" href="#ejemplo-iterator" title="Permanent link">&para;</a></h3>
 <p>Cómo reutilizar comportamiento de varios tipos de iteradores a través de un mixin:</p>
 <div class="highlight"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbsIterator</span> <span class="o">{</span>
@@ -1209,38 +1151,38 @@
 </code></pre></div>
 
 <ul>
-<li><a href="http://www.scala-lang.org/api/current/scala/Unit.html">Unit</a> en scala: subtipo de <code>AnyVal</code>; solo hay un valor <code>()</code> que es de tipo <code>Unit</code>.</li>
-<li>Un método que devuelve <code>Unit</code> es análogo a un método Java que devuelve <code>void</code></li>
+<li>La implementación anterior usa polimorfismo paramétrico (<code class="highlight"><span class="k">type</span> <span class="kt">T</span></code>).</li>
+<li><a href="http://www.scala-lang.org/api/current/scala/Unit.html">Unit</a> en scala: subtipo de <code class="highlight"><span class="nc">AnyVal</span></code>; solo hay un valor <code>()</code> que es de tipo <code class="highlight"><span class="nc">Unit</span></code>.</li>
+<li>Un método que devuelve <code class="highlight"><span class="nc">Unit</span></code> es análogo a un método Java que devuelve <code class="highlight"><span class="kt">void</span></code></li>
 </ul>
 <h3 id="diferencia-con-clase-abstracta">Diferencia con clase abstracta<a class="headerlink" href="#diferencia-con-clase-abstracta" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="http://stackoverflow.com/questions/1991042/what-is-the-advantage-of-using-abstract-classes-instead-of-traits">Scala traits vs abstract classes</a></li>
-<li>Los constructores de un <code>trait</code> no pueden tener parámetros (de momento)</li>
+<li>Los constructores de un <code class="highlight"><span class="k">trait</span></code> no pueden tener parámetros (de momento)</li>
 </ul>
 <h4 id="reglas">Reglas<a class="headerlink" href="#reglas" title="Permanent link">&para;</a></h4>
 <p><a href="http://www.artima.com/pins1ed/traits.html#12.7">To trait or not to trait</a></p>
 <ul>
-<li>Si no se va a reutilizar el comportamiento =&gt; clase concreta</li>
-<li>Si se va a reutilizar en varias clases no relacionadas entre sí =&gt; trait (mixin)</li>
-<li>Si hace falta heredarlo en código Java =&gt; clase abstracta</li>
-<li>Si se va a distribuir compilado y se va a heredar =&gt; clase abstracta</li>
-<li>Si importa mucho la eficiencia =&gt; clase (los traits se compilan a interfaces y son algo más lentas de llamar)</li>
-<li>Si no se sabe =&gt; empezar por un trait y cambiarlo cuando se sepa</li>
+<li>Si no se va a reutilizar el comportamiento &rarr; clase concreta</li>
+<li>Si se va a reutilizar en varias clases no relacionadas entre sí &rarr; trait (mixin)</li>
+<li>Si hace falta heredarlo en código Java &rarr; clase abstracta</li>
+<li>Si se va a distribuir compilado y se va a heredar &rarr; clase abstracta</li>
+<li>Si importa mucho la eficiencia &rarr; clase (los traits se compilan a interfaces y son algo más lentas de llamar)</li>
+<li>Si no se sabe &rarr; empezar por un trait y cambiarlo cuando se sepa</li>
 </ul>
-<h4 id="ejercicios-y-lecturas-recomendadas">Ejercicios y lecturas recomendadas<a class="headerlink" href="#ejercicios-y-lecturas-recomendadas" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Tutoriales y ejercicios recomendados: Scala</p>
 <ul>
-<li>Tutorial: <a href="http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html">Ruby modules</a></li>
-<li><a href="https://docs.scala-lang.org/tour/traits.html">Scala traits</a></li>
+<li><a href="https://docs.scala-lang.org/tour/traits.html">Scala traits</a><ul>
 <li>Ejemplo: <a href="https://www.scala-exercises.org/std_lib/traits">Traits exercise</a></li>
 <li>Ejemplo: <a href="http://www.artima.com/scalazine/articles/stackable_trait_pattern.html">Stackable Traits pattern</a></li>
-<li>Lectura: <a href="http://baddotrobot.com/blog/2014/09/22/scala-mixins/">Herencia vs. composición con Scala mixins</a></li>
 </ul>
-<h1 id="ejercicios">Ejercicios<a class="headerlink" href="#ejercicios" title="Permanent link">&para;</a></h1>
-<ol>
-<li><a href="https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby from other languages</a></li>
+</li>
+<li><a href="http://baddotrobot.com/blog/2014/09/22/scala-mixins/">Herencia vs. composición con Scala mixins</a></li>
 <li><a href="http://docs.scala-lang.org/tutorials/tour/tour-of-scala">Scala tour</a></li>
 <li><a href="https://www.scala-exercises.org/std_lib/">Scala exercises</a></li>
-</ol>
+</ul>
+</div>
                 
                   
                 

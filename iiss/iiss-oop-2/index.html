@@ -1593,12 +1593,13 @@ wait(long timeout, int nanos) void – Object
 </ul>
 <h5 id="identificador-de-bankaccount-implementacion-en-java-15">Identificador de BankAccount: Implementación en Java 1.5<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-15" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Utilizando <em>templates</em></li>
+<li>Utilizando <em>templates</em> (<strong>polimorfismo paramétrico</strong>)</li>
 <li>Delegar en <code>compareTo</code> y <code>equals</code> del tipo de id <em>envuelto</em> (e.g. <code>String</code>)</li>
 </ul>
 <h5 id="identificador-de-bankaccount-implementacion-en-java-14">Identificador de BankAccount: Implementación en Java 1.4<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-14" title="Permanent link">&para;</a></h5>
 <ul>
-<li>No hay plantillas. La genericidad se consigue con <code>Object</code>. Hay que hacer casting.</li>
+<li>No hay plantillas (polimorfismo paramétrico).</li>
+<li>La genericidad se consigue con <code>Object</code>. Hay que hacer casting.</li>
 <li>Cuidado con <code>Boolean</code> que no implementa <code>Comparable</code> en JDK 1.4</li>
 </ul>
 <div class="superfences-tabs" data-tabs="1:2">
