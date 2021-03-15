@@ -545,11 +545,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementacion-utilizando-comparable" class="md-nav__link">
-    Implementación utilizando Comparable
+  <a href="#implementacion-por-herencia" class="md-nav__link">
+    Implementación por herencia
   </a>
   
-    <nav class="md-nav" aria-label="Implementación utilizando Comparable">
+    <nav class="md-nav" aria-label="Implementación por herencia">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -568,20 +568,27 @@
         
           <li class="md-nav__item">
   <a href="#identificador-de-bankaccount-implementacion-en-java-15" class="md-nav__link">
-    Identificador de BankAccount: Implementación en Java 1.5
+    Identificador de BankAccount: Implementación en Java ≥ 1.5
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#identificador-de-bankaccount-implementacion-en-java-14" class="md-nav__link">
-    Identificador de BankAccount: Implementación en Java 1.4
+    Identificador de BankAccount: Implementación en Java ≤ 1.4
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacion-por-composiciondelegacion" class="md-nav__link">
+    Implementación por composición/delegación
+  </a>
   
 </li>
         
@@ -1003,11 +1010,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementacion-utilizando-comparable" class="md-nav__link">
-    Implementación utilizando Comparable
+  <a href="#implementacion-por-herencia" class="md-nav__link">
+    Implementación por herencia
   </a>
   
-    <nav class="md-nav" aria-label="Implementación utilizando Comparable">
+    <nav class="md-nav" aria-label="Implementación por herencia">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1026,20 +1033,27 @@
         
           <li class="md-nav__item">
   <a href="#identificador-de-bankaccount-implementacion-en-java-15" class="md-nav__link">
-    Identificador de BankAccount: Implementación en Java 1.5
+    Identificador de BankAccount: Implementación en Java ≥ 1.5
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#identificador-de-bankaccount-implementacion-en-java-14" class="md-nav__link">
-    Identificador de BankAccount: Implementación en Java 1.4
+    Identificador de BankAccount: Implementación en Java ≤ 1.4
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacion-por-composiciondelegacion" class="md-nav__link">
+    Implementación por composición/delegación
+  </a>
   
 </li>
         
@@ -1576,7 +1590,7 @@ wait(long timeout, int nanos) void – Object
     <span class="p">}</span>
   <span class="p">}</span>
 </code></pre></div>
-<h4 id="implementacion-utilizando-comparable">Implementación utilizando <code>Comparable</code><a class="headerlink" href="#implementacion-utilizando-comparable" title="Permanent link">&para;</a></h4>
+<h4 id="implementacion-por-herencia">Implementación por herencia<a class="headerlink" href="#implementacion-por-herencia" title="Permanent link">&para;</a></h4>
 <p><code>java.lang.Comparable</code> es una interfaz implementada por <code>String</code>, <code>File</code>, <code>Date</code>, etc. y todas las llamadas <em>clases de envoltura</em> del JDK (i.e. <code>Integer</code>, <code>Long</code>, etc.)</p>
 <h5 id="metodos-de-la-interfaz">Métodos de la interfaz<a class="headerlink" href="#metodos-de-la-interfaz" title="Permanent link">&para;</a></h5>
 <ul>
@@ -1608,72 +1622,73 @@ wait(long timeout, int nanos) void – Object
 <p>Consistencia con <code>equals</code> (no obligatoria): <code>(x.compareTo(y)=0)</code> &larr; <code>(x.equals(y))</code></p>
 </li>
 </ul>
-<h5 id="identificador-de-bankaccount-implementacion-en-java-15">Identificador de BankAccount: Implementación en Java 1.5<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-15" title="Permanent link">&para;</a></h5>
+<h5 id="identificador-de-bankaccount-implementacion-en-java-15">Identificador de BankAccount: Implementación en Java ≥ 1.5<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-15" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Utilizando <em>templates</em> (<strong>polimorfismo paramétrico</strong>)</li>
 <li>Delegar en <code>compareTo</code> y <code>equals</code> del tipo de id <em>envuelto</em> (e.g. <code>String</code>)</li>
 </ul>
-<h5 id="identificador-de-bankaccount-implementacion-en-java-14">Identificador de BankAccount: Implementación en Java 1.4<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BankAccount</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">BankAccount</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span><span class="p">)</span>  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">number</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getId</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">id</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">BankAccount</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">assert</span> <span class="k">this</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="p">:</span> <span class="s">&quot;compareTo inconsistent with equals.&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">other</span> <span class="k">instanceof</span> <span class="n">BankAccount</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="n">BankAccount</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">BankAccount</span><span class="p">)</span><span class="n">other</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+   <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">id</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="identificador-de-bankaccount-implementacion-en-java-14">Identificador de BankAccount: Implementación en Java ≤ 1.4<a class="headerlink" href="#identificador-de-bankaccount-implementacion-en-java-14" title="Permanent link">&para;</a></h5>
 <ul>
 <li>No hay plantillas (polimorfismo paramétrico).</li>
 <li>La genericidad se consigue con <code>Object</code>. Hay que hacer casting.</li>
 <li>Cuidado con <code>Boolean</code> que no implementa <code>Comparable</code> en JDK 1.4</li>
 </ul>
-<p>```java tab="Java ≥ 1.5"
-import java.util.<em>;
-import java.io.</em>;</p>
-<p>public final class BankAccount implements Comparable<BankAccount> {
-  private final String id;
-  public BankAccount (String number)  {
-    this.id = number;
-  }
-  public String getId() { return id; }
-  @Override
-  public int compareTo(BankAccount other) {
-    if (this == other) return 0;
-    assert this.equals(other) : "compareTo inconsistent with equals.";
-    return this.id.compareTo(other.getId());
-  }
-  @Override
-  public boolean equals(Object other) {
-    if (this == other) return true;
-    if (!(other instanceof BankAccount)) return false;
-    BankAccount that = (BankAccount)other;
-    return this.id.equals(that.getId());
-   }
-  @Override
-  public String toString() {
-    return id.toString();
-  }
-}
-<div class="highlight"><pre><span></span><code>```java tab=&quot;Java ≤ 1.4&quot;
-import java.util.*;
-import java.io.*;
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
 
-public final class BankAccount implements Comparable {
-  private final String id;
-  public BankAccount (String number)  {
-    this.id = number;
-  }
-  public String getId() { return id; }
-  public int compareTo(Object other) {
-    if (this == other) return 0;
-    assert (other instanceof BankAccount) : &quot;compareTo comparing objects of different type&quot;;
-    BankAccount that = (BankAccount)other;
-    assert this.equals(that) : &quot;compareTo inconsistent with equals.&quot;;
-    return this.id.compareTo(that.getId());
-  }
-  public boolean equals(Object other) {
-    if (this == other) return true;
-    if (!(other instanceof BankAccount)) return false;
-    BankAccount that = (BankAccount)other;
-    return this.id.equals(that.getId());
-  }
-  public String toString() {
-      return id.toString();
-  }
-}
-</code></pre></div></p>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BankAccount</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">BankAccount</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span><span class="p">)</span>  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">number</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getId</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">id</span><span class="p">;</span> <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">other</span> <span class="k">instanceof</span> <span class="n">BankAccount</span><span class="p">)</span> <span class="p">:</span> <span class="s">&quot;compareTo comparing objects of different type&quot;</span><span class="p">;</span>
+    <span class="n">BankAccount</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">BankAccount</span><span class="p">)</span><span class="n">other</span><span class="p">;</span>
+    <span class="k">assert</span> <span class="k">this</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">that</span><span class="p">)</span> <span class="p">:</span> <span class="s">&quot;compareTo inconsistent with equals.&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">other</span> <span class="k">instanceof</span> <span class="n">BankAccount</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="n">BankAccount</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">BankAccount</span><span class="p">)</span><span class="n">other</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">id</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="implementacion-por-composiciondelegacion">Implementación por composición/delegación<a class="headerlink" href="#implementacion-por-composiciondelegacion" title="Permanent link">&para;</a></h4>
 <p>Cuando una clase hereda de una clase concreta que implementa <code>Comparable</code> y le añade un campo significativo para la comparación, no se puede construir una implementación correcta de <code>compareTo</code>. La única alternativa entonces es la composición en lugar de la herencia.</p>
 <p>Una alternativa (no excluyente) a implementar <code>Comparable</code> es pasar un <code>Comparator</code> como parámetro (se prefiere <strong>composición</strong> frente a <strong>herencia</strong>):</p>
 <ul>
