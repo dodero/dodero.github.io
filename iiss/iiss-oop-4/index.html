@@ -1471,7 +1471,31 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 <li>Herramientas de <strong>documentación</strong> (v.g. <a href="http://asciidoctor.org/">asciidoctor</a>: <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files">inclusión de ficheros</a> y <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#source-code">formateo de código fuente</a>).</li>
 <li>Herramientas de <strong><a href="http://www.literateprogramming.com/">programación literaria</a></strong></li>
 <li>Ayuda del <strong>IDE</strong></li>
+<li>Herramientas de <em>property-based testing</em>, como <a href="https://pypi.org/project/hypothesis/">Hypothesis</a> (python), <a href="https://github.com/emil-e/rapidcheck">RapidCheck</a> (C++), <a href="https://jqwik.net/">jqwik</a>  (Java) o <a href="https://en.wikipedia.org/wiki/QuickCheck">QuickCheck</a> (originalmente para Haskell).</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Property-based testing</p>
+<ul>
+<li>¿Cómo reducir la duplicación de código al programar pruebas unitarias?</li>
+<li>Ejemplo de property-based testing con <a href="https://pypi.org/project/hypothesis/">Hypothesis</a> en Python:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+<span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="k">as</span> <span class="nn">some</span>
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">some</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">some</span><span class="o">.</span><span class="n">integers</span><span class="p">()))</span>
+<span class="k">def</span> <span class="nf">test_list_size_is_invariant_across_sorting</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+  <span class="n">original_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+  <span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">original_length</span>
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">some</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">some</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+<span class="k">def</span> <span class="nf">test_sorted_result_is_ordered</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+  <span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">a_list</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></li>
+<li>Leer el Consejo nº 71 del libro de <a href="../bibliografia/#pragmatic2">Hunt &amp; Thomas (2020)</a>.</li>
+</ul>
+</div>
 <h3 id="duplicacion-inadvertida">Duplicación inadvertida<a class="headerlink" href="#duplicacion-inadvertida" title="Permanent link">&para;</a></h3>
 <p>Normalmente tiene origen en un diseño inapropiado.</p>
 <p>Fuente de numerosos problemas de integración.</p>
