@@ -18,7 +18,7 @@
     
     
       
-        <title>Presentación - Implementación e Implantación de Sistemas Software</title>
+        <title>Eventos - Implementación e Implantación de Sistemas Software</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#problematicas" class="md-skip">
+        <a href="#programacion-asincrona" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Presentación
+              Eventos
             
           </span>
         </div>
@@ -213,16 +213,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
       
       <label class="md-nav__link" for="nav-2">
         Asignatura
@@ -239,20 +237,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../iiss-pres/" class="md-nav__link">
         Presentación
       </a>
-      
     </li>
   
 
@@ -500,14 +489,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
       
       <label class="md-nav__link" for="nav-8">
         V. Eventos
@@ -548,11 +539,83 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../iiss-evp-3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Eventos
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    Eventos
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maquinas-de-estados" class="md-nav__link">
+    Máquinas de estados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patron-observer" class="md-nav__link">
+    Patrón Observer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pubsub" class="md-nav__link">
+    PubSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streams-y-rx" class="md-nav__link">
+    Streams y Rx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -581,6 +644,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    Eventos
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maquinas-de-estados" class="md-nav__link">
+    Máquinas de estados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patron-observer" class="md-nav__link">
+    Patrón Observer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pubsub" class="md-nav__link">
+    PubSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streams-y-rx" class="md-nav__link">
+    Streams y Rx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -591,100 +703,113 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dodero/gii-dss-iiss/edit/master/apuntes/construccion-sw/docs/iiss-pres.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dodero/gii-dss-iiss/edit/master/apuntes/construccion-sw/docs/iiss-evp-3.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h0>Construcción de Sistemas Software</h0>
-<hr />
-<h1 id="problematicas">Problemáticas<a class="headerlink" href="#problematicas" title="Permanent link">&para;</a></h1>
+                <h0>EVENTOS ASÍNCRONOS</h0>
+<h1 id="programacion-asincrona">Programación asíncrona<a class="headerlink" href="#programacion-asincrona" title="Permanent link">&para;</a></h1>
+<h2 id="eventos"><a id="eventos">Eventos</a><a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h2>
+<p>Las operaciones disparan eventos de diferentes tipos, que son escuchados por los manejadores (<em>listeners</em>) de eventos, que los clientes han registrado en un bus de eventos.</p>
+<p><img alt="Eventos" src="../figuras/eventos.png" /></p>
+<p><small>figura por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
+<p><strong>Ventajas</strong>:</p>
 <ul>
-<li>Variabilidad</li>
-<li>Acoplamiento</li>
-<li>Complejidad</li>
-<li>Robustez</li>
-<li>Reutilización</li>
-<li>Flexibilidad</li>
+<li>Aplicación más interactivas</li>
+<li>Mejor uso de los recursos</li>
 </ul>
-<hr />
-<h1 id="principios">Principios<a class="headerlink" href="#principios" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Ocultación</li>
-<li>Cohesión</li>
-<li>Ortogonalidad</li>
-<li>Delegación</li>
-</ul>
-<hr />
-<h1 id="tecnicas">Técnicas<a class="headerlink" href="#tecnicas" title="Permanent link">&para;</a></h1>
-<ul>
-<li>
-<p>Orientación a objetos</p>
-<ul>
-<li><a href="../iiss-oop-1/#herencia">Herencia</a></li>
-<li><a href="../iiss-oop-1/#polimorfismo">Polimorfismo</a></li>
-<li><a href="../iiss-oop-2/#composicion">Composición</a></li>
-<li><a href="../iiss-oop-3/#inyeccion">Inyección de dependencias</a></li>
-</ul>
-</li>
-<li>
-<p><a href="../iiss-oop-4/#refactoring">Refactoring</a></p>
-<ul>
-<li><a href="../iiss-oop-4/#duplcode">Código duplicado</a></li>
-<li><a href="../iiss-oop-4/#ortogonalidad">Ortogonalidad y dependencias</a></li>
-<li><a href="../iiss-aop/#aspectos">Aspectos</a></li>
-</ul>
-</li>
-<li>
-<p>Calidad y Robustez</p>
-<ul>
-<li><a href="../iiss-dbc/#assert">Aserciones</a></li>
-<li><a href="../iiss-dbc/#contracts">Contratos</a></li>
-<li><a href="../iiss-err/#errores">Errores y excepciones</a></li>
-<li><a href="../iiss-err/#null">Optionals y uso de null</a></li>
-</ul>
-</li>
-<li>
-<p>Programación Funcional</p>
-<ul>
-<li>Funciones <a href="../iiss-fp-1/#anonimas">Anónimas</a></li>
-<li><a href="../iiss-fp-2/#callbacks">Retrollamadas</a></li>
-<li>Cierres y <a href="../iiss-fp-2/#lambdas">Lambdas</a></li>
-<li><a href="../iiss-fp-3/#mixins">Mixins</a></li>
-</ul>
-</li>
-<li>
-<p>Programación Asíncrona</p>
-<ul>
-<li><a href="../iiss-evp-1/#listeners">Listeners</a></li>
-<li><a href="../iiss-evp-2/#continuaciones">Continuaciones</a></li>
-<li><a href="../iiss-evp-3/#eventos">Eventos</a></li>
-</ul>
-</li>
-</ul>
-<!--
-- Reflexión
-- Metaprogramación
--->
-
-<hr />
-<h1 id="paradigmas">Paradigmas<a class="headerlink" href="#paradigmas" title="Permanent link">&para;</a></h1>
+<p><strong>Estrategias</strong>:</p>
+<p>Estrategias para escribir aplicaciones basadas en eventos:</p>
 <ol>
-<li><a href="../iiss-oop-1/">Objetos</a></li>
-<li><a href="../iiss-aop/">Aspectos</a></li>
-<li><a href="../iiss-dbc/">Contratos</a></li>
-<li><a href="../iiss-fp-1/">Funciones</a></li>
-<li><a href="../iiss-evp-1/">Eventos</a></li>
+<li>Máquinas de estados finitos (FSM)</li>
+<li>Implementaciones del patrón <em>Observer</em></li>
+<li>Sistemas de Publicación/suscripción (PubSub)</li>
+<li>Streams y programación reactiva</li>
 </ol>
-<hr />
-<h1 id="casos-practicos">Casos prácticos<a class="headerlink" href="#casos-practicos" title="Permanent link">&para;</a></h1>
-<ol>
-<li>Ocultación de la implementación - <a href="../iiss-oop-1/#recorridolista">Recorrido de una lista</a></li>
-<li>Delegación - <a href="../iiss-oop-2/#orquesta">Implementación de una orquesta</a></li>
-<li>Inyección de dependencias - <a href="../iiss-oop-3/#knights">Caballeros de la mesa redonda</a></li>
-<li>Código duplicado - <a href="../iiss-oop-4/#nominas">Cálculo de nóminas</a></li>
-<li>Ortogonalidad con aspectos - <a href="../iiss-aop/#aspectos">Editor de figuras</a></li>
-</ol>
+<h3 id="maquinas-de-estados">Máquinas de estados<a class="headerlink" href="#maquinas-de-estados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Una FSM es una especificación de cómo manejar eventos.</li>
+<li>Lista de estados + estado actual</li>
+<li>Para cada estado, transiciones a otros estados significativos</li>
+<li>Las transiciones vienen definidas por <strong>eventos</strong></li>
+<li>Cada transición delimita una acción con la respuesta a cada evento</li>
+</ul>
+<h3 id="patron-observer">Patrón Observer<a class="headerlink" href="#patron-observer" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Observable</strong>: fuente de eventos</li>
+<li><strong>Observadores</strong>: lista de clientes interesados en los eventos</li>
+</ul>
+<p>Los observadores se registran ellos mismos en cada observable <span><span class="MathJax_Preview">\Rightarrow</span><script type="math/tex">\Rightarrow</script></span> produce acoplamiento.</p>
+<p>Las acciones de callback son gestionadas por los observables, que suele mantener una lista interna de observadores <span><span class="MathJax_Preview">\Rightarrow</span><script type="math/tex">\Rightarrow</script></span> produce cuellos de botella.</p>
+<h3 id="pubsub">PubSub<a class="headerlink" href="#pubsub" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Los sistemas de PubSub son Observers generalizados.</li>
+<li>Los publicadores y los suscriptores se conectan por <strong>canales</strong></li>
+<li>Suelen implementarse en bibliotecas aparte de mensajería o <em>Message Queues</em> (MQ)</li>
+<li>Cada canal tiene un nombre, empleado por publicadores y sucriptores para desacoplarse entre sí</li>
+<li>La comunicación puede hacerse asíncrona</li>
+</ul>
+<p>Ejemplos de bibliotecas de PubSub/MQ:</p>
+<ul>
+<li>RabbitMQ</li>
+<li>ZeroMQ</li>
+<li>NATS</li>
+<li>Apache ActiveMQ</li>
+<li>etc.</li>
+</ul>
+<p>Protocolos de MQ:</p>
+<ul>
+<li>AMQP</li>
+<li>MQTT</li>
+<li>STOMP</li>
+<li>etc.</li>
+</ul>
+<p>¿Cómo crear sistemas que respondan a combinaciones de eventos? Hay que añadir la dimensión del <em>tiempo</em> al procesamiento de los eventos</p>
+<p>Los eventos deben disparar reacciones en el código, pero no es fácil conectar las acciones con los eventos. Para facilitarlo, se usan <em>streams</em>...</p>
+<h3 id="streams-y-rx">Streams y Rx<a class="headerlink" href="#streams-y-rx" title="Permanent link">&para;</a></h3>
+<p>Los datos fluyen por pipelines y se consumen siguiendo modelos <em>push</em> o <em>pull</em></p>
+<p><img alt="Streams" src="../figuras/streams.png" /></p>
+<p><small>figura por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
+<p>Un stream trata a los eventos como colleciones de datos, de forma que pueden ser tratados como cualquier otra colección: manipularlos, combinarlos, filtrarlos, etc.</p>
+<p>Además, los streams pueden ser asíncronos.</p>
+<p><strong>Programación reactiva (Rx)</strong></p>
+<p>Es un paradigma, parte de la programación asíncrona: la disponibilidad de información nueva conduce la lógica del programa, en vez de dejar que el control de flujo sea dirigido por un hilo de ejecución.</p>
+<ul>
+<li>Modelo de <strong>Observables</strong>: tratar a los streams de eventos asíncronos con las mismas operaciones sencillas de composición que se usan para las colecciones de datos.</li>
+<li>Bibliotecas de programación Rx: <a href="http://reactivex.io/">reactivex.io</a></li>
+<li><a href="http://reactivex.io/intro.html">Principios</a></li>
+</ul>
+<p><strong>Observables</strong></p>
+<p>Los Observables se pueden:</p>
+<ul>
+<li>Crear: <code>Create</code>, <code>Defer</code>, <code>From</code>, <code>Interval</code>, <code>Just</code>, <code>Range</code>, <code>Repeat</code>, <code>Start</code>, <code>Timer</code></li>
+<li>Transformar: <code>Buffer</code>, <code>FlatMap</code>, <code>GroupBy</code>, <code>Map</code>, <code>Scan</code>, <code>Window</code></li>
+<li>Filtrar: <code>Debounce</code>, <code>Distinct</code>, <code>ElementAt</code>, <code>Filter</code>, <code>IgnoreElements</code>, <code>Last</code>, <code>Sample</code>, <code>Skip</code>, <code>SkipLast</code>, <code>Take</code>, <code>TakeLast</code></li>
+<li>Combinar: <code>And</code>/<code>Then</code>/<code>When</code>, <code>CombineLatest</code>, <code>Join</code>, <code>Merge</code>, <code>StartWith</code>, <code>Switch</code>, <code>Zip</code></li>
+<li>Etc... <a href="http://reactivex.io/documentation/operators.html">Operadores Rx</a></li>
+</ul>
+<blockquote>
+<p>LECTURA recomendada: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing (by @andrestaltz)</a></p>
+</blockquote>
+<p>¿Qué añade un Observable al patrón Observer? Añade a un Observer asíncrono la semántica de un <em>Iterable</em> síncrono:</p>
+<ul>
+<li><code>onCompleted()</code>: para que el publicador avise al suscriptor que no hay más datos disponibles en el stream (los Iterables simplemente acaban su iteración)</li>
+<li><code>onError()</code>: para que el productor avise al suscriptor que ha ocurrido un error (en su lugar, los Iterables elevan excepciones)</li>
+</ul>
+<p>Ejemplos de frameworks de streaming:</p>
+<ul>
+<li>Apache Kafka</li>
+<li>NATS Streaming</li>
+<li>Spark Streaming</li>
+<li>Amazon Kinesis</li>
+<li>Apache Pulsar</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Lectura recomendada</p>
+<p>Thomas &amp; Hunt. <a href="../bibliografia/#pragmatic2">The Pragmatic Programmer, 2<sup>nd</sup> edition</a>, 2022.
+Capítulo: <em>Transforming Programming</em></p>
+</div>
                 
               
               
@@ -703,7 +828,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../iiss-evp-2/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -712,25 +837,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Inicio
+                Asíncronas
               </div>
             </div>
           </a>
         
-        
-          <a href="../bibliografia/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Bibliografía
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

@@ -754,44 +754,22 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#modelos-de-eventos" class="md-nav__link">
-    Modelos de eventos
-  </a>
-  
-    <nav class="md-nav" aria-label="Modelos de eventos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#eventos" class="md-nav__link">
-    Eventos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#streams" class="md-nav__link">
-    Streams
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observables" class="md-nav__link">
-    Observables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iiss-evp-3/" class="md-nav__link">
+        Eventos
+      </a>
     </li>
   
 
@@ -1021,40 +999,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#modelos-de-eventos" class="md-nav__link">
-    Modelos de eventos
-  </a>
-  
-    <nav class="md-nav" aria-label="Modelos de eventos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#eventos" class="md-nav__link">
-    Eventos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#streams" class="md-nav__link">
-    Streams
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observables" class="md-nav__link">
-    Observables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1100,7 +1044,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="modelos-de-paso-de-continuaciones">Modelos de paso de continuaciones<a class="headerlink" href="#modelos-de-paso-de-continuaciones" title="Permanent link">&para;</a></h2>
+<h2 id="modelos-de-paso-de-continuaciones">Modelos de paso de <a id="continuaciones">continuaciones</a><a class="headerlink" href="#modelos-de-paso-de-continuaciones" title="Permanent link">&para;</a></h2>
 <p>Aumentar la aridad de la función no bloqueante en 1 argumento adicional, donde se indica la lógica de continuación.</p>
 <h3 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h3>
 <p>La lógica de continuación se indica mediante una función de <strong>retrollamada</strong> o <em>callback</em>.</p>
@@ -1159,7 +1103,7 @@ afterWait
 <li>Cualquier función en Ruby puede recibir un <strong>bloque</strong> <code>do</code>... <code>end</code> como argumento adicional (no explícito) a la llamada</li>
 <li>Un <em>thunk</em> es como un bloque con un <code>yield</code> al final</li>
 </ul>
-<h3 id="promesas">Promesas<a class="headerlink" href="#promesas" title="Permanent link">&para;</a></h3>
+<h3 id="promesas"><a id="promesas">Promesas</a><a class="headerlink" href="#promesas" title="Permanent link">&para;</a></h3>
 <p>Modelo de <a href="https://en.wikipedia.org/wiki/Futures_and_promises">futuros y promesas</a></p>
 <ul>
 <li><strong>Futuro</strong>: marcador de posición (<em>placeholder</em>), de solo lectura, para una variable que representa el resultado de un cómputo asíncrono</li>
@@ -1377,19 +1321,6 @@ after awaitDelayed
 <blockquote>
 <p>LECTURA recomendada: <a href="https://promisesaplus.com/">Promises/A+</a>: An open standard for sound, interoperable JavaScript promises.</p>
 </blockquote>
-<h2 id="modelos-de-eventos">Modelos de eventos<a class="headerlink" href="#modelos-de-eventos" title="Permanent link">&para;</a></h2>
-<p>Las operaciones disparan eventos de diferentes tipos, que son escuchados por los manejadores (<em>listeners</em>) de eventos, que los clientes han registrado en un bus de eventos</p>
-<h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
-<p><img alt="Eventos" src="../figuras/eventos.png" /></p>
-<p><small>figura por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
-<h3 id="streams">Streams<a class="headerlink" href="#streams" title="Permanent link">&para;</a></h3>
-<p>Los datos fluyen por pipelines y se consumen siguiendo modelos <em>push</em> o <em>pull</em></p>
-<p><img alt="Streams" src="../figuras/streams.png" /></p>
-<p><small>figura por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
-<h3 id="observables">Observables<a class="headerlink" href="#observables" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>LECTURA recomendada: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing (by @andrestaltz)</a></p>
-</blockquote>
                 
               
               
@@ -1422,6 +1353,20 @@ after awaitDelayed
             </div>
           </a>
         
+        
+          <a href="../iiss-evp-3/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Eventos
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
