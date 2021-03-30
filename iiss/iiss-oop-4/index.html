@@ -1681,10 +1681,12 @@ Capítulo <em>DRY—The Evils of Duplication</em></p>
 </code></pre></div>
 <h4 id="ley-de-demeter-para-funciones">Ley de Demeter para funciones<a class="headerlink" href="#ley-de-demeter-para-funciones" title="Permanent link">&para;</a></h4>
 <p>Los métodos de un objeto solo deben hacer llamadas a métodos...</p>
-<p>caso 1. <strong>propios</strong> 
-caso 2. de objetos pasados como <strong>parámetros</strong>
-caso 3. de objetos <strong>creados</strong> por ellos mismos
-caso 4. de objetos <strong>declarados</strong> en el mismo método</p>
+<ol>
+<li><strong>propios</strong> </li>
+<li>de objetos pasados como <strong>parámetros</strong></li>
+<li>de objetos <strong>creados</strong> por ellos mismos</li>
+<li>de objetos <strong>declarados</strong> en el mismo método</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Demeter</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
   <span class="kd">private</span> <span class="kt">int</span> <span class="nf">func</span><span class="p">();</span>
