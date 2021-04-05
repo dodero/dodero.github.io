@@ -949,10 +949,10 @@
     <span class="k">this</span><span class="p">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="hll">
-</span><span class="kd">class</span> <span class="nc">MoveTracking</span> <span class="p">{</span>
-  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
+<span class="kd">class</span> <span class="nc">MoveTracking</span> <span class="p">{</span>
+<span class="hll">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setFlag</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
   <span class="p">}</span>
@@ -994,12 +994,12 @@
 
   <span class="kt">void</span> <span class="nf">setX</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">setFlag</span><span class="p">();</span> <span class="c1">//añadido</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">setFlag</span><span class="p">();</span> <span class="c1">//añadido</span>
+</span>  <span class="p">}</span>
   <span class="kt">void</span> <span class="nf">setY</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">setFlag</span><span class="p">();</span> <span class="c1">//añadido</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">setFlag</span><span class="p">();</span> <span class="c1">//añadido</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MoveTracking</span> <span class="p">{</span>
@@ -1030,12 +1030,12 @@
 
   <span class="kt">void</span> <span class="nf">setP1</span><span class="p">(</span><span class="n">Point</span> <span class="n">p1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
+</span>  <span class="p">}</span>
   <span class="kt">void</span> <span class="nf">setP2</span><span class="p">(</span><span class="n">Point</span> <span class="n">p2</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">Point</span> <span class="p">{</span>
@@ -1046,23 +1046,23 @@
 
   <span class="kt">void</span> <span class="nf">setX</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
+</span>  <span class="p">}</span>
   <span class="kt">void</span> <span class="nf">setY</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="n">MoveTracking</span><span class="p">.</span><span class="na">collectOne</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// modificado</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MoveTracking</span> <span class="p">{</span>
-  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Set</span> <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
-
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">collectOne</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">movees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="hll">  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Set</span> <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
+</span>
+<span class="hll">  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">collectOne</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+</span>    <span class="n">movees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Set</span> <span class="nf">getmovees</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">movees</span><span class="p">;</span>
+<span class="hll">  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Set</span> <span class="nf">getmovees</span><span class="p">()</span> <span class="p">{</span>
+</span>    <span class="n">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">movees</span><span class="p">;</span>
     <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
   <span class="p">}</span>
@@ -1166,23 +1166,23 @@
 </ul>
 <p>Versión más ortogonal. Todos los cambios están concentrados en un solo aspecto.</p>
 <div class="highlight"><pre><span></span><code><span class="n">aspect</span> <span class="n">MoveTracking</span> <span class="p">{</span>
-  <span class="kd">private</span> <span class="n">Set</span> <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
-  <span class="kd">public</span> <span class="n">Set</span> <span class="nf">getmovees</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">movees</span><span class="p">;</span>
+<span class="hll">  <span class="kd">private</span> <span class="n">Set</span> <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
+</span><span class="hll">  <span class="kd">public</span> <span class="n">Set</span> <span class="nf">getmovees</span><span class="p">()</span> <span class="p">{</span>
+</span>    <span class="n">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">movees</span><span class="p">;</span>
     <span class="n">movees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="n">pointcut</span> <span class="nf">move</span><span class="p">(</span><span class="n">FigureElement</span> <span class="n">figElt</span><span class="p">):</span>
-    <span class="n">target</span><span class="p">(</span><span class="n">figElt</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-    <span class="p">(</span><span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Line</span><span class="p">.</span><span class="na">setP1</span><span class="p">(</span><span class="n">Point</span><span class="p">))</span> <span class="o">||</span>
+<span class="hll">  <span class="n">pointcut</span> <span class="nf">move</span><span class="p">(</span><span class="n">FigureElement</span> <span class="n">figElt</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">target</span><span class="p">(</span><span class="n">figElt</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+</span>    <span class="p">(</span><span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Line</span><span class="p">.</span><span class="na">setP1</span><span class="p">(</span><span class="n">Point</span><span class="p">))</span> <span class="o">||</span>
      <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Line</span><span class="p">.</span><span class="na">setP2</span><span class="p">(</span><span class="n">Point</span><span class="p">))</span> <span class="o">||</span>
      <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setX</span><span class="p">(</span><span class="kt">int</span><span class="p">))</span>   <span class="o">||</span>
      <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setY</span><span class="p">(</span><span class="kt">int</span><span class="p">)));</span>
 
-  <span class="n">after</span><span class="p">(</span><span class="n">FigureElement</span> <span class="n">fe</span><span class="p">):</span> <span class="n">move</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">movees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">fe</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="hll">  <span class="n">after</span><span class="p">(</span><span class="n">FigureElement</span> <span class="n">fe</span><span class="p">):</span> <span class="n">move</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">movees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">fe</span><span class="p">);</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="lecturas-recomendadas-de-aspectj">Lecturas recomendadas de AspectJ<a class="headerlink" href="#lecturas-recomendadas-de-aspectj" title="Permanent link">&para;</a></h2>
