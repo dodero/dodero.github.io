@@ -1146,9 +1146,9 @@
   <span class="n">pointcut</span> <span class="nf">move</span><span class="p">():</span>
     <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Line</span><span class="p">.</span><span class="na">setP1</span><span class="p">(</span><span class="n">Point</span><span class="p">))</span> <span class="o">||</span>
     <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Line</span><span class="p">.</span><span class="na">setP2</span><span class="p">(</span><span class="n">Point</span><span class="p">))</span> <span class="o">||</span>
-    <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setX</span><span class="p">(</span><span class="kt">int</span><span class="p">))</span>   <span class="o">||</span>
-    <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setY</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-
+<span class="hll">    <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setX</span><span class="p">(</span><span class="kt">int</span><span class="p">))</span>   <span class="o">||</span>
+</span><span class="hll">    <span class="n">call</span><span class="p">(</span><span class="kt">void</span> <span class="n">Point</span><span class="p">.</span><span class="na">setY</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span>
   <span class="n">after</span><span class="p">():</span> <span class="n">move</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
   <span class="p">}</span>
