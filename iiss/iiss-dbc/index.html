@@ -611,8 +611,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cuenta-bancaria-sin-contratos_1" class="md-nav__link">
-    Cuenta Bancaria sin contratos
+  <a href="#cuenta-bancaria-con-contratos" class="md-nav__link">
+    Cuenta Bancaria con contratos
   </a>
   
 </li>
@@ -1032,8 +1032,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cuenta-bancaria-sin-contratos_1" class="md-nav__link">
-    Cuenta Bancaria sin contratos
+  <a href="#cuenta-bancaria-con-contratos" class="md-nav__link">
+    Cuenta Bancaria con contratos
   </a>
   
 </li>
@@ -1246,7 +1246,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <div class="highlight"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
   <span class="k">assert</span> <span class="kc">false</span> <span class="p">:</span> <span class="n">suit</span><span class="p">;</span>
 </code></pre></div>
-<p>o también:</p>
+<p>o también (protección aunque se deshabiliten las aserciones, pero sin coste extra):</p>
 <div class="highlight"><pre><span></span><code><span class="k">default</span><span class="p">:</span>
   <span class="k">throw</span> <span class="k">new</span> <span class="n">AssertionError</span><span class="p">(</span><span class="n">suit</span><span class="p">);</span>
 </code></pre></div>
@@ -1388,7 +1388,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <li><code>feature { NONE }</code> son privados</li>
 <li><code>make</code> para definir el constructor</li>
 </ul>
-<h4 id="cuenta-bancaria-sin-contratos_1">Cuenta Bancaria sin contratos<a class="headerlink" href="#cuenta-bancaria-sin-contratos_1" title="Permanent link">&para;</a></h4>
+<h4 id="cuenta-bancaria-con-contratos">Cuenta Bancaria con contratos<a class="headerlink" href="#cuenta-bancaria-con-contratos" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
 <span class="kr">create</span>
     <span class="n">make</span>
