@@ -623,12 +623,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#contratos-en-los-lenguajes" class="md-nav__link">
+    Contratos en los lenguajes
+  </a>
+  
+    <nav class="md-nav" aria-label="Contratos en los lenguajes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-java-icontract" class="md-nav__link">
     Ejemplo: Java + iContract
   </a>
   
-    <nav class="md-nav" aria-label="Ejemplo: Java + iContract">
-      <ul class="md-nav__list">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#parametros-inmutables" class="md-nav__link">
@@ -654,11 +666,6 @@
   <a href="#codigo-perezoso" class="md-nav__link">
     Código perezoso
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1044,12 +1051,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#contratos-en-los-lenguajes" class="md-nav__link">
+    Contratos en los lenguajes
+  </a>
+  
+    <nav class="md-nav" aria-label="Contratos en los lenguajes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-java-icontract" class="md-nav__link">
     Ejemplo: Java + iContract
   </a>
   
-    <nav class="md-nav" aria-label="Ejemplo: Java + iContract">
-      <ul class="md-nav__list">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#parametros-inmutables" class="md-nav__link">
@@ -1075,11 +1094,6 @@
   <a href="#codigo-perezoso" class="md-nav__link">
     Código perezoso
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1452,7 +1466,30 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
     <span class="n">may_withdraw</span> <span class="p">(...):</span> <span class="nc">BOOLEAN</span> <span class="n">is</span> <span class="p">...</span>
 <span class="kr">end</span> <span class="c1">-- class ACCOUNT</span>
 </code></pre></div>
-<h3 id="ejemplo-java-icontract">Ejemplo: Java + iContract<a class="headerlink" href="#ejemplo-java-icontract" title="Permanent link">&para;</a></h3>
+<h3 id="contratos-en-los-lenguajes">Contratos en los lenguajes<a class="headerlink" href="#contratos-en-los-lenguajes" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Contratos en Scala</p>
+<ul class="task-list">
+<li>Scala permite especificar aserciones (<code>assert</code>), precondiciones (<code>require</code>), postcondiciones (<code>ensuring</code>) e invariantes (<code>assume</code>).</li>
+<li>Ejemplo:
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="n">divide</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">require</span><span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="o">,</span> <span class="s">s&quot;</span><span class="si">$x</span><span class="s"> &gt; </span><span class="si">$y</span><span class="s">&quot;</span><span class="o">)</span>
+  <span class="n">require</span><span class="o">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">,</span> <span class="s">s&quot;</span><span class="si">$y</span><span class="s"> &gt; 0&quot;</span><span class="o">)</span>
+
+  <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="o">}</span> <span class="n">ensuring</span> <span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span><span class="o">)</span>
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Seguir el tutorial <a href="https://madusudanan.com/blog/scala-tutorials-part-29-design-by-contract/">Design by Contract</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Actividad: ¿Hay contratos en C++?</p>
+<p>Aún no hay contratos en C++17 ni en C++20.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ver el video de J. D. García sobre <a href="https://www.youtube.com/watch?v=IBas3S2HtdU">Contracts programming after C++17</a>: Desde el minuto 4'10''</li>
+</ul>
+</div>
+<h4 id="ejemplo-java-icontract">Ejemplo: Java + iContract<a class="headerlink" href="#ejemplo-java-icontract" title="Permanent link">&para;</a></h4>
 <p>Java no permite especificar contratos (los <em>assert</em> no son lo mismo). Así que hay que utilizar extensiones como <em>iContract</em></p>
 <p><strong>Ejemplo</strong>: Inserción en una lista ordenada</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
@@ -1474,7 +1511,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 </code></pre></div>
 <p>Una postcondición puede necesitar expresarse con parámetros pasados a un método para verificar un comportamiento correcto.</p>
 <p>Si el método puede cambiar el valor del parámetro pasado (parámetro mutable), el contrato puede incumplirse.</p>
-<h4 id="parametros-inmutables">Parámetros inmutables<a class="headerlink" href="#parametros-inmutables" title="Permanent link">&para;</a></h4>
+<h3 id="parametros-inmutables">Parámetros inmutables<a class="headerlink" href="#parametros-inmutables" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Eiffel no permite que se pueda cambiar el valor de un parámetro (es inmutable)</li>
 <li>En C++ usar <code>const</code></li>
@@ -1485,12 +1522,12 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 </li>
 <li>Muchos lenguajes funcionales (Lisp, Haskell, Erlang, Clojure, etc.) definen inmutabilidad por defecto</li>
 </ul>
-<h5 id="por-que-la-inmutabilidad">¿Por qué la inmutabilidad?<a class="headerlink" href="#por-que-la-inmutabilidad" title="Permanent link">&para;</a></h5>
+<h4 id="por-que-la-inmutabilidad">¿Por qué la inmutabilidad?<a class="headerlink" href="#por-que-la-inmutabilidad" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Por rendimiento (v.g. <code>String</code> en Java): si es inmutable, para copiar un objeto basta con copiar la referencia (<em>interning</em>)</li>
 <li>Por <em>thread-safety</em> para código concurrente</li>
 </ul>
-<h4 id="codigo-perezoso">Código perezoso<a class="headerlink" href="#codigo-perezoso" title="Permanent link">&para;</a></h4>
+<h3 id="codigo-perezoso">Código perezoso<a class="headerlink" href="#codigo-perezoso" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Se recomienda escribir código "perezoso" para los contratos: ser estricto en lo que se acepta al empezar y prometer lo menos posible al terminar.</li>
 <li>Si un contrato indica que se acepta cualquier cosa y promete la luna a cambio, habrá que escribir un montón de código!</li>
@@ -1584,13 +1621,6 @@ Without a contract, all the compiler can do is ensure that a subclass conforms t
   // ...
 -->
 
-<div class="admonition note">
-<p class="admonition-title">Actividad: ¿Hay contratos en C++?</p>
-<p>Aún no hay contratos en C++17 ni en C++20.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ver el video de J. D. García sobre <a href="https://www.youtube.com/watch?v=IBas3S2HtdU">Contracts programming after C++17</a>: Desde el minuto 4'10''</li>
-</ul>
-</div>
 <h3 id="aserciones-versus-contratos-en-java">Aserciones versus contratos en Java<a class="headerlink" href="#aserciones-versus-contratos-en-java" title="Permanent link">&para;</a></h3>
 <ul>
 <li>No hay soporte para <strong>propagar</strong> aserciones por una jerarquía de herencia: si se redefine un método con contrato, las aserciones que implementan el contrato no serán llamadas correctamente (excepto si se duplican en el código)</li>

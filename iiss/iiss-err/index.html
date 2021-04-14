@@ -1119,11 +1119,11 @@
 <li>No basta con el <em>stack trace</em></li>
 <li>Escribir mensajes informativos: operación fallida y tipo de fallo</li>
 </ul>
-<p>Usar solamente excepciones <strong>unchecked</strong></p>
+<p>Los beneficios de las excepciones <em>checked</em> en Java son mínimos: <a href="https://testing.googleblog.com/2009/09/checked-exceptions-i-love-you-but-you.html">¿por qué</a>. Se recomienda usar solamente excepciones <strong>unchecked</strong>.</p>
 <ul>
 <li>C#, C++, Python o Ruby no ofrecen excepciones <em>checked</em>.</li>
-<li>Los beneficios de las checked en Java son mínimos</li>
-<li>Se paga el precio de violar el principio OCP (<em>Open-Closed Principle</em>): si lanzamos una excepción <em>checked</em> desde un método y el <code>catch</code> está tres niveles por encima, hay que declarar la excepción en la signatura de todos los métodos que van entre medias. Esto significa que un cambio en un nivel bajo del software puede forzar cambios en niveles altos</li>
+<li>Scala no usa excepciones <em>checked</em> como Java: <a href="https://madusudanan.com/blog/scala-tutorials-part-24-exception-handling/#Intro">Scala exception handling</a></li>
+<li>Se paga el precio de violar el principio OCP (<em>Open-Closed Principle</em>): si lanzamos una excepción <em>checked</em> desde un método y el <code>catch</code> está tres niveles por encima, hay que declarar la excepción en la signatura de todos los métodos que van entre medias. Esto significa que un cambio en un nivel bajo del software puede forzar cambios en niveles altos.</li>
 </ul>
 <h3 id="transformacion-de-excepciones">Transformación de excepciones<a class="headerlink" href="#transformacion-de-excepciones" title="Permanent link">&para;</a></h3>
 <h4 id="transformar-en-unchecked">Transformar en unchecked<a class="headerlink" href="#transformar-en-unchecked" title="Permanent link">&para;</a></h4>
