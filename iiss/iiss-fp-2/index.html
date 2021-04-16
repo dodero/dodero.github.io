@@ -1134,43 +1134,44 @@
 <p>En Java, una expresión lambda y una clase anónima interna (<em>inner class</em>) tienen un propósito similar, pero son diferentes en un aspecto: el <strong>ámbito</strong> (<em>scope</em>) de la definición de las variables locales.</p>
 <p>Cuando se usa una inner class, se crea un nuevo ámbito para dicha clase. Se pueden ocultar las variables locales para el ámbito contenedor instanciando nuevas variables con el mismo nombre. También se puede usar la palabra reservada <code>this</code> dentro de una clase anónima para hacer referencia a su instancia.</p>
 <p>Sin embargo, las expresiones lambda trabajan con el ámbito contenedor. No se pueden ocultar las variables del ámbito contenedor dentro del cuerpo de la expresión lambda. En tal caso, la palabra reservada <code>this</code> hace referencia a una instancia de la clase contenedora.</p>
-<!--
-En el ejemplo siguiente, ¿qué valor se obtiene en la salida?:
+<p>En el ejemplo siguiente, ¿qué valor devuelve <code>scopeExperiment()</code>?:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ClaseFuncional</span><span class="p">{</span>
+  <span class="n">String</span> <span class="nf">method</span><span class="p">(</span><span class="n">String</span> <span class="n">string</span><span class="p">);</span>
+<span class="p">}</span>
 
-<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">String</span> <span class="n">valor</span> <span class="o">=</span> <span class="s">&quot;Valor de la contenedora&quot;</span><span class="p">;</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">&quot;Valor de la contenedora&quot;</span><span class="p">;</span>
 
 <span class="c1">//...</span>
 
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">scopeExperiment</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">MiClase</span> <span class="n">unaInnerClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MiClase</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">valor</span> <span class="o">=</span> <span class="s">&quot;Valor de la inner class&quot;</span><span class="p">;</span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">method</span><span class="p">(</span><span class="n">String</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">valor</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">};</span>
-    <span class="n">String</span> <span class="n">resultadoInnerClass</span> <span class="o">=</span> <span class="n">unaInnerClass</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+  <span class="n">ClaseFuncional</span> <span class="n">unaInnerClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClaseFuncional</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">String</span> <span class="n">variable</span> <span class="o">=</span> <span class="s">&quot;Valor de la inner class&quot;</span><span class="p">;</span>
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="n">String</span> <span class="nf">method</span><span class="p">(</span><span class="n">String</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">variable</span><span class="p">;</span>
+            <span class="cm">/*  Con o sin this, no hay lambdas ni variables libres */</span>
+      <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="n">String</span> <span class="n">resultadoInnerClass</span> <span class="o">=</span> <span class="n">unaInnerClass</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
 
-    <span class="n">MiClase</span> <span class="n">unaLambda</span> <span class="o">=</span> <span class="n">parametro</span> <span class="o">-&gt;</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">valor</span><span class="o">=</span> <span class="s">&quot;Valor de la lambda&quot;</span><span class="p">;</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">valor</span><span class="p">;</span>
-    <span class="p">};</span>
-    <span class="n">String</span> <span class="n">resultadoLambda</span> <span class="o">=</span> <span class="n">unaLambda</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+  <span class="n">ClaseFuncional</span> <span class="n">unaLambda</span> <span class="o">=</span> <span class="n">parametro</span> <span class="o">-&gt;</span> <span class="p">{</span>
+      <span class="n">String</span> <span class="n">variable</span><span class="o">=</span> <span class="s">&quot;Valor de la lambda&quot;</span><span class="p">;</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">variable</span><span class="p">;</span> 
+        <span class="cm">/* Con this, el cierre de la variable libre se produce</span>
+<span class="cm">           con el valor de ClaseFuncional::variable */</span>
+  <span class="p">};</span>
+  <span class="n">String</span> <span class="n">resultadoLambda</span> <span class="o">=</span> <span class="n">unaLambda</span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="s">&quot;resultadoInnerClass = &quot;</span> <span class="o">+</span> <span class="n">resultadoInnerClass</span> <span class="o">+</span>
-      <span class="s">&quot;,\nresultadoLambda = &quot;</span> <span class="o">+</span> <span class="n">resultadoLambda</span><span class="p">;</span>
+  <span class="k">return</span> <span class="s">&quot;resultadoInnerClass = &quot;</span> <span class="o">+</span> <span class="n">resultadoInnerClass</span> <span class="o">+</span>
+    <span class="s">&quot;,\nresultadoLambda = &quot;</span> <span class="o">+</span> <span class="n">resultadoLambda</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
-La salida será:
-(No se accede al `valor` de la variable definida en el cuerpo de la expresión lambda)
-
+<p>El valor será:</p>
 <div class="highlight"><pre><span></span><code>resultadoInnerClass  = Valor de la inner class,
 resultadoLambda = Valor de la contenedora
 </code></pre></div>
--->
-
 <h3 id="funciones-anonimas-en-ruby">Funciones anónimas en Ruby<a class="headerlink" href="#funciones-anonimas-en-ruby" title="Permanent link">&para;</a></h3>
 <h4 id="bloques-blocks"><a id="blocks">Bloques (<em>blocks</em>)</a><a class="headerlink" href="#bloques-blocks" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">Sintaxis <code>do</code> ... <code>end</code></label><div class="tabbed-content"></div>
