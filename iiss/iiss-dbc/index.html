@@ -1459,7 +1459,7 @@ __Forma corta__ del contrato:
       <span class="kr">ensure</span>
         <span class="n">balance</span> <span class="o">=</span> <span class="kr">old</span> <span class="n">balance</span> <span class="o">+</span> <span class="n">sum</span>
     <span class="n">withdraw</span> <span class="p">(</span><span class="n">sum</span><span class="p">:</span> <span class="nc">INTEGER</span><span class="p">)</span> <span class="n">is</span>
-    <span class="c1">-- Withdraw sum from the account.</span>
+    <span class="c1">-- Withdraw sum from the account.  </span>
       <span class="kr">require</span>
         <span class="n">sum</span> <span class="o">&gt;=</span> <span class="mi">0</span>
         <span class="n">sum</span> <span class="o">&lt;=</span> <span class="n">balance</span> <span class="o">-</span> <span class="n">minimum_balance</span>
@@ -1491,6 +1491,14 @@ __Forma corta__ del contrato:
 <p>Aún no hay contratos en C++17 ni en C++20.</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ver el video de J. D. García sobre <a href="https://www.youtube.com/watch?v=IBas3S2HtdU">Contracts programming after C++17</a>: Desde el minuto 4'10''</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Contratos en Java</p>
+<ul>
+<li><em>iContract</em>, inactiva, recuperada en Java Contract Suite o <a href="http://jcontracts.sourceforge.net/">JContractS</a></li>
+<li><em>Contracts for Java</em> o <a href="https://github.com/nhatminhle/cofoja">Cofoja</a></li>
+<li>Etc.</li>
 </ul>
 </div>
 <h4 id="ejemplo-java-icontract">Ejemplo: Java + iContract<a class="headerlink" href="#ejemplo-java-icontract" title="Permanent link">&para;</a></h4>
@@ -1637,10 +1645,11 @@ Without a contract, all the compiler can do is ensure that a subclass conforms t
 <p>A routine redeclaration [in a derivative] may only replace the original precondition by one equal or weaker, and the original post-condition by one equal or stronger</p>
 <p><cite>Bertrand Meyer</cite></p>
 </div>
-<p>Métodos de clase declaran <em>precondiciones</em> y <em>postcondiciones</em> al redefinir una operación en una subclase derivada</p>
+<p>Los métodos de clase declaran <em>precondiciones</em> y <em>postcondiciones</em> al redefinir una operación en una subclase derivada.</p>
 <ul>
-<li>las <strong>precondiciones</strong> sólo pueden sustituirse por otras más débiles/laxas</li>
-<li>las <strong>postcondiciones</strong> sólo pueden sustituirse por otras más fuertes/estrictas</li>
+<li>Las <strong>precondiciones</strong> sólo pueden sustituirse por otras más débiles/laxas. Los métodos pueden redefinirse con implementaciones que <em>aceptan</em> un rango <em>más amplio</em> de entradas.</li>
+<li>Las <strong>postcondiciones</strong> sólo pueden sustituirse por otras más fuertes/estrictas. Los métodos pueden redefinirse con implementaciones que <em>generan</em> un rango <em>más estrecho</em> de entradas.</li>
+<li>Las <strong>invariantes</strong> sólo pueden sustituirse por otras más fuertes/estrictas. Las clases e interfaces pueden <em>derivarse</em> para <em>restringir</em> el conjunto de estados válidos. Un objeto debe tener un estado <em>consistente</em> con cualquiera de sus superclases o interfaces.</li>
 </ul>
                 
               
