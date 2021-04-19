@@ -1361,7 +1361,7 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 <li>Emitir una advertencia y leer otro número</li>
 <li>Pasar el número a complejo (ponerlo  en positivo y añadir una <em>i</em>)</li>
 </ul>
-<p>Si se llega a pasar un número negativo, Eiffel imprime el error <code>sqrt_arg_must_be_positive</code> en tiempo de ejecición y una traza de la pila (En otros lenguajes, como Java, se devolvería un <code>Nan</code>).</p>
+<p>Si se llega a pasar un número negativo, Eiffel imprime el error <code>sqrt_arg_must_be_positive</code> en tiempo de ejecución y una traza de la pila (En otros lenguajes, como Java, se devolvería un <code>Nan</code>).</p>
 <h3 id="ejemplo-cuenta-bancaria">Ejemplo: Cuenta Bancaria<a class="headerlink" href="#ejemplo-cuenta-bancaria" title="Permanent link">&para;</a></h3>
 <h4 id="cuenta-bancaria-sin-contratos">Cuenta Bancaria sin contratos<a class="headerlink" href="#cuenta-bancaria-sin-contratos" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nc">ACCOUNT</span>
@@ -1443,7 +1443,9 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
 
 <span class="kr">end</span> <span class="c1">-- class ACCOUNT</span>
 </code></pre></div>
-<p><strong>Forma corta</strong> del contrato:</p>
+<!--
+__Forma corta__ del contrato:
+
 <div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="n">interface</span> <span class="nc">ACCOUNT</span>
 <span class="kr">create</span>
     <span class="n">make</span>
@@ -1466,6 +1468,8 @@ java <span class="o">[</span> -disableassertions <span class="p">|</span> -da <s
     <span class="n">may_withdraw</span> <span class="p">(...):</span> <span class="nc">BOOLEAN</span> <span class="n">is</span> <span class="p">...</span>
 <span class="kr">end</span> <span class="c1">-- class ACCOUNT</span>
 </code></pre></div>
+-->
+
 <h3 id="contratos-en-los-lenguajes">Contratos en los lenguajes<a class="headerlink" href="#contratos-en-los-lenguajes" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Contratos en Scala</p>
