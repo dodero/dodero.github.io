@@ -575,8 +575,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#carencias-de-optional" class="md-nav__link">
+    Carencias de Optional
+  </a>
   
 </li>
         
@@ -584,11 +586,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#fronteras" class="md-nav__link">
-    Fronteras
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -970,8 +970,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#carencias-de-optional" class="md-nav__link">
+    Carencias de Optional
+  </a>
   
 </li>
         
@@ -979,11 +981,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#fronteras" class="md-nav__link">
-    Fronteras
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1363,6 +1363,51 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Leer <a href="https://www.adictosaltrabajo.com/2015/03/02/optional-java-8/">Jugando con Optional en Java 8</a>.</li>
 </ul>
 </div>
+<p><strong>Ejemplo en Java 8 con sintaxis imperativa</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kd">static</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">getDurationOfAlbumWithName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Album</span> <span class="n">album</span><span class="p">;</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Album</span><span class="o">&gt;</span> <span class="n">albumOptional</span> <span class="o">=</span> <span class="n">getAlbum</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">albumOptional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// equivalente a albumOptional == null</span>
+        <span class="n">album</span> <span class="o">=</span> <span class="n">albumOptional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Track</span><span class="o">&gt;&gt;</span> <span class="n">tracksOptional</span> <span class="o">=</span> <span class="n">getAlbumTracks</span><span class="p">(</span><span class="n">album</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+        <span class="kt">double</span> <span class="n">duration</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">tracksOptional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// equivalente a tracksOptional == null</span>
+            <span class="n">List</span><span class="o">&lt;</span><span class="n">Track</span><span class="o">&gt;</span> <span class="n">tracks</span> <span class="o">=</span> <span class="n">tracksOptional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Track</span> <span class="n">track</span> <span class="p">:</span> <span class="n">tracks</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">duration</span> <span class="o">+=</span> <span class="n">track</span><span class="p">.</span><span class="na">getDuration</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">duration</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Al ejecutar varias operaciones seguidas que pueden devolver null, el nivel de anidamiento del código aumenta y queda menos claro (se mezcla código funcional con código de gestión de errores). Solución...</p>
+<p><strong>Ejemplo en Java 8 con sintaxis <em>fluent</em></strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">getDurationOfAlbumWithName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">getAlbum</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">flatMap</span><span class="p">((</span><span class="n">album</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">getAlbumTracks</span><span class="p">(</span><span class="n">album</span><span class="p">.</span><span class="na">getName</span><span class="p">()))</span>
+            <span class="p">.</span><span class="na">map</span><span class="p">((</span><span class="n">tracks</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">getTracksDuration</span><span class="p">(</span><span class="n">tracks</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">duration</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>La función <code>map</code> comprueba si el <code>Optional</code> que recibe está vacío. Si lo está devuelve un <code>Optional</code> vacío y, si no, aplica la función que le hemos pasado por parámetro, pasándole el valor del <code>Optional</code>. Es decir, si el <code>Optional</code> está vacío, el método <code>map</code> no hace nada. Esto sirve para concatenar operaciones sin necesidad de comprobar en cada momento si el <code>Optional</code> está vacío.</li>
+<li>Cuando queremos encadenar distintas operaciones que devuelvan <code>Optional</code>, es necesario usar <code>flatMap</code>, ya que si no acabaríamos teniendo un <code>Optional&lt;Optional&lt;Double&gt;&gt;</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="n">static</span> <span class="n">double</span> <span class="n">getDurationOfAlbumWithName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">getAlbum</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+            <span class="o">.</span><span class="n">flatMap</span><span class="o">((</span><span class="n">album</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">getAlbumTracks</span><span class="o">(</span><span class="n">album</span><span class="o">.</span><span class="n">getName</span><span class="o">()))</span>
+            <span class="o">.</span><span class="n">map</span><span class="o">((</span><span class="n">tracks</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">getTracksDuration</span><span class="o">(</span><span class="n">tracks</span><span class="o">))</span>
+            <span class="o">.</span><span class="n">orElse</span><span class="o">(</span><span class="mf">0.0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Podríamos seguir devolviendo <code>Optional</code> por toda la aplicación, pero en algún momento tenemos que decidir qué hacer en caso de que el valor que queremos no estuviera presente. Para ello se usa <code>orElse()</code> para proporcionar un valor alternativo en caso de que el valor no estuviera presente.</li>
+</ul>
 <p><strong>Ejemplo sin <code>Optional</code></strong></p>
 <p>Programa de prueba:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileTesterWithoutOptional</span> <span class="p">{</span>
@@ -1535,73 +1580,34 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="fronteras">Fronteras<a class="headerlink" href="#fronteras" title="Permanent link">&para;</a></h2>
-<p>Tensión proveedor-cliente</p>
+<h4 id="carencias-de-optional">Carencias de Optional<a class="headerlink" href="#carencias-de-optional" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Los proveedores de packages y frameworks quieren amplia aplicabilidad</li>
-<li>Los clientes quieren una interfaz centrada en sus necesidades particulares</li>
+<li>El tratamiento de errores clásico del lenguaje C (con el que empezábamos este capítulo) se basa en devolver un valor especial que contiene un <em>código de error</em> (normalmente negativo) que indica qué ha salido mal. Se podrían representar tantos motivos de error como posibles valores devueltos.</li>
+<li>Los <code>Optional</code> no ofrecen la posibilidad de que decir qué es lo que ha salido mal (en caso de que no haya valor a devolver).</li>
+<li>Por tanto, no son apropiados para métodos en los que pueden salir varias cosas mal y no solo una (que no exista un valor a devolver)</li>
+<li>Lenguajes como Scala proponen alternativas como <code>Either</code> y <code>Validation</code>.</li>
 </ul>
-<p><strong>Ejemplo</strong>: La interfaz <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html"><code>java.util.Map</code></a></p>
-<div class="highlight"><pre><span></span><code><span class="n">clear</span><span class="p">()</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">containsKey</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">)</span> <span class="kt">boolean</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">containsValue</span><span class="p">(</span><span class="n">Object</span> <span class="n">value</span><span class="p">)</span> <span class="kt">boolean</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">entrySet</span><span class="p">()</span> <span class="n">Set</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="kt">boolean</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">get</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">)</span> <span class="n">Object</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">getClass</span><span class="p">()</span> <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">hashCode</span><span class="p">()</span> <span class="kt">int</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">isEmpty</span><span class="p">()</span> <span class="kt">boolean</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">keySet</span><span class="p">()</span> <span class="n">Set</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">notify</span><span class="p">()</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">notifyAll</span><span class="p">()</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">put</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">,</span> <span class="n">Object</span> <span class="n">value</span><span class="p">)</span> <span class="n">Object</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">putAll</span><span class="p">(</span><span class="n">Map</span> <span class="n">t</span><span class="p">)</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">remove</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">)</span> <span class="n">Object</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">size</span><span class="p">()</span> <span class="kt">int</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">toString</span><span class="p">()</span> <span class="n">String</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">values</span><span class="p">()</span> <span class="n">Collection</span> <span class="err">–</span> <span class="n">Map</span>
-<span class="nf">wait</span><span class="p">()</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">wait</span><span class="p">(</span><span class="kt">long</span> <span class="n">timeout</span><span class="p">)</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Object</span>
-<span class="nf">wait</span><span class="p">(</span><span class="kt">long</span> <span class="n">timeout</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nanos</span><span class="p">)</span> <span class="kt">void</span> <span class="err">–</span> <span class="n">Object</span>
+<div class="highlight"><pre><span></span><code><span class="k">object</span> <span class="nc">EitherLeftRightExample</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * A method to demonstrate how to declare that a method returns an Either,</span>
+<span class="cm">   * and code that returns a Left or Right.</span>
+<span class="cm">   */</span>
+  <span class="k">def</span> <span class="n">divideXByY</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="nc">Left</span><span class="o">(</span><span class="s">&quot;Dude, can&#39;t divide by 0&quot;</span><span class="o">)</span>
+      <span class="k">else</span> <span class="nc">Right</span><span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="c1">// a few different ways to use Either, Left, and Right</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">divideXByY</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">))</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">divideXByY</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">))</span>
+  <span class="n">divideXByY</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="nc">Left</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="n">s</span><span class="o">)</span>
+      <span class="k">case</span> <span class="nc">Right</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="n">i</span><span class="o">)</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
 </code></pre></div>
-<p>Construimos un <code>Map</code> y lo pasamos.</p>
-<ul>
-<li>Diseño A: Ninguno de los receptores deberá poder borrar algo del map. ¡Pero hay un <code>clear()</code>!</li>
-<li>Diseño B: solo algunos tipos de objetos deben poderse guardar. ¡Los tipos no están restringidos!</li>
-</ul>
-<p>¿La interfaz <code>Map</code> es siempre satisfactoria? ¿seguro que no va a cambiar?</p>
-<ul>
-<li>JDK &lt; 5.0:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">Map</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
-<span class="p">...</span>
-<span class="n">Sensor</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sensor</span><span class="p">)</span><span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">sensorId</span><span class="p">);</span>
-</code></pre></div>
-<ul>
-<li>JDK <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 5.0:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="p">...</span>
-<span class="n">Sensor</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">sensorId</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Conclusión</strong>: Map<Sensor> ofrece más de lo que necesitamos</p>
-<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sensors</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">Map</span> <span class="n">sensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
-    <span class="kd">public</span> <span class="n">Sensor</span> <span class="nf">getById</span><span class="p">(</span><span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">(</span><span class="n">Sensor</span><span class="p">)</span> <span class="n">sensors</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="c1">//...</span>
-  <span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>La interfaz <code>Map</code> queda oculta</li>
-<li>Filtramos los métodos que no nos sirven</li>
-<li>Más fácil de hacer evolucionar sin impacto en el resto de la aplicación</li>
-<li>El casting queda confinado en la clase Sensors, que es más seguro</li>
-</ul>
-<p><strong>Interfaces de frontera</strong>: No todo uso de <code>Map</code> o interfaz de
-frontera debe quedar encapsulado. Sólo es un consejo para no ’pasarla’
-con métodos que no vamos a necesitar.</p>
                 
               
               
