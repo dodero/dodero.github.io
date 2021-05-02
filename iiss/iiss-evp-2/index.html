@@ -617,11 +617,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#asyncawait" class="md-nav__link">
-    Async/await
+  <a href="#sintaxis-asyncawait" class="md-nav__link">
+    Sintaxis async/await
   </a>
   
-    <nav class="md-nav" aria-label="Async/await">
+    <nav class="md-nav" aria-label="Sintaxis async/await">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -788,11 +788,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#asyncawait" class="md-nav__link">
-    Async/await
+  <a href="#sintaxis-asyncawait" class="md-nav__link">
+    Sintaxis async/await
   </a>
   
-    <nav class="md-nav" aria-label="Async/await">
+    <nav class="md-nav" aria-label="Sintaxis async/await">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -957,7 +957,8 @@ afterWait
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Ejemplo con <em>callbacks</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Versión asíncrona. Se supone que asinc1() y asinc2() son funciones que admiten </span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Versión asíncrona.</span>
+<span class="c1">// Se supone que asinc1() y asinc2() son funciones que admiten </span>
 <span class="c1">// un callback como parámetro, al cual llamarán pasándole el resultado</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r1</span><span class="p">){</span>
@@ -1007,11 +1008,16 @@ afterWait
 <p><img alt="Promesas" src="../figuras/promesas.png" /></p>
 <p><small>figura por <cite>Javier Vélez Reyes, <a href="https://github.com/javiervelezreyes/Talleres.uca.programacion-asincrona">Programación asíncrona en JavaScript</a></cite></small></p>
 <p>El cliente recibe como respuesta inmediata una abstracción de datos (la <code>Promise</code>) que representa un compromiso de valor futuro, con inyectores (<code>then</code>, <code>catch</code>) para incluir la lógica de continuación.</p>
+<p>Las promesas se pueden resolver (<em>resolve</em>) o rechazar (<em>reject</em>):</p>
 <p>Se pueden encadenar cálculos usando futuros <em>computables</em> o <em>escuchables</em>, que sirven para indicar a un thread que ejecute una determinada tarea y, cuando termine, se dirija a hacer otra tarea usando el resultado de la tarea anterior.</p>
 <h4 id="promesas-en-javascript">Promesas en Javascript<a class="headerlink" href="#promesas-en-javascript" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// las funciones resolve/reject controlan el destino de la promesa</span>
+<span class="p">});</span>
+</code></pre></div>
 <p><strong>Ejemplo con promesas</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Versión con promesas</span>
-<span class="c1">// Ahora asinc1 y asinc2 se supone que retornan una promesa</span>
+<span class="c1">// Ahora asinc1 y asinc2 se supone que devuelven una promesa</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r1</span><span class="p">){</span> <span class="k">return</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span> <span class="p">})</span>
@@ -1020,7 +1026,7 @@ afterWait
     <span class="p">})</span>
 <span class="p">}</span>
 
-<span class="c1">// Lo anterior puede escribirse aún más concisamente así:</span>
+<span class="c1">// Lo anterior puede escribirse más conciso:</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">asinc2</span><span class="p">)</span>
@@ -1032,10 +1038,21 @@ afterWait
 <p><strong>Solución al <em>Callback Hell</em></strong>: </p>
 <ul>
 <li>Las promesas evitan la anidación y hacen más simple el manejo de errores.</li>
-<li>Una promesa tiene un método <code>then()</code>:<ul>
+<li>La ventaja de las promesas es que se pueden <a href="https://basarat.gitbook.io/typescript/future-javascript/promise#chain-ability-of-promises">encadenar</a>.</li>
+<li>
+<p>Una promesa tiene un método <code>then()</code>:</p>
+<ul>
 <li><code>.then()</code> recibe una función, que será ejecutada automáticamente cuando la promesa se resuelva. Esta función recibirá como parámetro el valor de la promesa (el resultado esperado).</li>
 <li><code>.then()</code> devuelve una nueva promesa, que se resolverá cuando se ejecute la función que le habíamos asociado.</li>
 <li>Se pueden encadenar varios <code>.then()</code> para simular un código secuencial, conforme se van resolviendo promesas.</li>
+</ul>
+</li>
+<li>
+<p>Una promesa tiene un método <code>catch()</code>:</p>
+<ul>
+<li>Se puede agregar la gestión de errores de cualquier parte de la cadena de llamadas asíncronas con un solo <code>.catch()</code></li>
+<li><code>.catch()</code> devuelve una promesa nueva, creando una cadena de promesas</li>
+<li>Cualquier error síncrono generado en un <code>then</code> o un <code>catch</code> hace que la promesa se rechace, y se llame al <code>catch</code> más apropiado</li>
 </ul>
 </li>
 </ul>
@@ -1148,12 +1165,12 @@ Salida:
 
 -->
 
-<h4 id="asyncawait">Async/await<a class="headerlink" href="#asyncawait" title="Permanent link">&para;</a></h4>
+<h4 id="sintaxis-asyncawait">Sintaxis <code>async</code>/<code>await</code><a class="headerlink" href="#sintaxis-asyncawait" title="Permanent link">&para;</a></h4>
 <ul>
 <li>El prefijo <code>await</code> hace que se espere a que se llame a la función asíncrona antes de continuar con la ejecución del programa.</li>
 <li>Esto genera un flujo de ejecución de la lógica del programa más fácil de leer y de seguir, pausando la ejecución hasta que se cumpla la promesa.</li>
 </ul>
-<p>Async/await son azúcar sintáctico para usar promesas con una nueva sintaxis que las oculta y las hace parecer código síncrono:</p>
+<p><code>async</code>/<code>await</code> es azúcar sintáctico para usar promesas con una nueva sintaxis que las oculta y las hace parecer código síncrono:</p>
 <ul>
 <li><code>await</code> delante de una llamada a una función entiende que esa función retorna una promesa.</li>
 <li>La ejecución se pausa y sólo se reanuda cuando la promesa haya sido resuelta.</li>
@@ -1168,7 +1185,7 @@ Salida:
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Comparar con la versión síncrona inicial.</p>
+<p>Comparar esta versión asíncrona con la versión síncrona inicial.</p>
 <h5 id="lenguajes-typescript">Lenguajes: TypeScript<a class="headerlink" href="#lenguajes-typescript" title="Permanent link">&para;</a></h5>
 <!--
 
