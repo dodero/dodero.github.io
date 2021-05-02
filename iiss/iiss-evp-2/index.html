@@ -648,26 +648,6 @@
     Lenguajes: Java
   </a>
   
-    <nav class="md-nav" aria-label="Lenguajes: Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-future-en-java" class="md-nav__link">
-    Ejemplo: Future en Java
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-completablefuture-en-java" class="md-nav__link">
-    Ejemplo: CompletableFuture en Java
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -818,26 +798,6 @@
   <a href="#lenguajes-java" class="md-nav__link">
     Lenguajes: Java
   </a>
-  
-    <nav class="md-nav" aria-label="Lenguajes: Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-future-en-java" class="md-nav__link">
-    Ejemplo: Future en Java
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-completablefuture-en-java" class="md-nav__link">
-    Ejemplo: CompletableFuture en Java
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1261,7 +1221,7 @@ Sintaxis async/await, más legible y menos propensa a errores:
 <li>Desde Java 5: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Future.html"><code>java.util.concurrent.Future</code></a> </li>
 <li>Desde Java 8, inspirado por los <a href="https://github.com/google/guava/wiki/ListenableFutureExplained"><code>ListenableFuture</code></a> de Guava: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/CompletableFuture.html"><code>java.util.concurrent.CompletableFuture</code></a></li>
 </ul>
-<h5 id="ejemplo-future-en-java">Ejemplo: <code>Future</code> en Java<a class="headerlink" href="#ejemplo-future-en-java" title="Permanent link">&para;</a></h5>
+<p><strong>Ejemplo: <code>Future</code> en Java</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Callable&lt;V&gt; = Interfaz funcional que representa a una operación sin args</span>
 <span class="c1">// y que devuelve un resultado de tipo V (permite checked exceptions)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyCallable</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -1279,7 +1239,7 @@ Sintaxis async/await, más legible y menos propensa a errores:
     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">());</span> <span class="c1">//Waits until the task is done, then prints 1</span>
 <span class="p">}</span>
 </code></pre></div>
-<h5 id="ejemplo-completablefuture-en-java">Ejemplo: <code>CompletableFuture</code> en Java<a class="headerlink" href="#ejemplo-completablefuture-en-java" title="Permanent link">&para;</a></h5>
+<p><strong>Ejemplo: <code>CompletableFuture</code> en Java</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Supplier&lt;T&gt; = Interfaz funcional que representa a una operación sin args</span>
 <span class="c1">// y que devuelve un resultado de tipo T (no permite checked exceptions)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MySupplier</span> <span class="kd">implements</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
