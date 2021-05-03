@@ -562,6 +562,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#captura-de-variables-en-lambdas" class="md-nav__link">
+    Captura de variables en lambdas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lambdas-y-clases-anonimas-internas" class="md-nav__link">
     Lambdas y clases anónimas internas
   </a>
@@ -828,6 +835,13 @@
   
     <nav class="md-nav" aria-label="Funciones anónimas en Java">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#captura-de-variables-en-lambdas" class="md-nav__link">
+    Captura de variables en lambdas
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#lambdas-y-clases-anonimas-internas" class="md-nav__link">
@@ -1130,6 +1144,46 @@
 <p class="admonition-title">Ejercicio</p>
 <p><a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#section3">Mejorando código con expresiones lambda</a></p>
 </div>
+<h4 id="captura-de-variables-en-lambdas">Captura de variables en lambdas<a class="headerlink" href="#captura-de-variables-en-lambdas" title="Permanent link">&para;</a></h4>
+<p>Una expresión lambda en Java puede <strong>capturar</strong> (o no) variables de instancia no locales (atributos de la clase contenedora) y variables locales (declaradas o no <code>final</code>, pero cuyo valor no es modificado) del ámbito contenedor.</p>
+<ul>
+<li>
+<p>Ejemplo: Lambda que captura variables locales <code>final</code>:
+<div class="highlight"><pre><span></span><code><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">bd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="p">,</span> <span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">func</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bd</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">999999999</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">func</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="n">j</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Ejemplo: Lambda que captura variables locales no declaradas <code>final</code> pero cuyo valor no es modificado:
+<div class="highlight"><pre><span></span><code><span class="n">BigDecimal</span> <span class="n">bd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="p">,</span> <span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">func</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bd</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">999999999</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">func</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="n">j</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Ejemplo: Lambda que captura variables de instancia de la clase contenedora:
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaInstanceCapturing</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">BigDecimal</span> <span class="n">bd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Function</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="p">,</span> <span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">func</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bd</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">999999999</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">func</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="k">new</span> <span class="n">BigDecimal</span><span class="p">(</span><span class="n">j</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ul>
 <h4 id="lambdas-y-clases-anonimas-internas">Lambdas y clases anónimas internas<a class="headerlink" href="#lambdas-y-clases-anonimas-internas" title="Permanent link">&para;</a></h4>
 <p>En Java, una expresión lambda y una clase anónima interna (<em>inner class</em>) tienen un propósito similar, pero son diferentes en un aspecto: el <strong>ámbito</strong> (<em>scope</em>) de la definición de las variables locales.</p>
 <p>Cuando se usa una inner class, se crea un nuevo ámbito para dicha clase. Se pueden ocultar las variables locales para el ámbito contenedor instanciando nuevas variables con el mismo nombre. También se puede usar la palabra reservada <code>this</code> dentro de una clase anónima para hacer referencia a su instancia.</p>
