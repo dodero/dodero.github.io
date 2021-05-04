@@ -876,8 +876,9 @@
 <p>En POO, un <strong>mixin</strong> es una clase con métodos disponibles para otras clases sin tener que ser madre de estas otras (es decir, sin usar la herencia)</p>
 <ul>
 <li>Es una alternativa a la herencia múltiple</li>
-<li>Es una interfaz con métodos ya implementados</li>
+<li>Incluye una <strong>interfaz</strong> con métodos ya implementados</li>
 <li>No se <em>heredan</em> sino que se <strong>incluyen</strong></li>
+<li>Un mixin es una (sub)clase, luego define un comportamiento y un <strong>estado</strong></li>
 <li>Es una forma de implementar el principio de inversión de dependencias (DIP)</li>
 </ul>
 <h3 id="ruby-modules"><a id="modules">Ruby modules</a><a class="headerlink" href="#ruby-modules" title="Permanent link">&para;</a></h3>
@@ -1059,10 +1060,22 @@
 </ul>
 </div>
 <h2 id="scala-traits"><a id="traits">Scala Traits</a><a class="headerlink" href="#scala-traits" title="Permanent link">&para;</a></h2>
-<p>Los <code class="highlight"><span class="k">trait</span></code>de Scala son similares a las interfaces de Java.</p>
+<p>Un <strong>trait</strong> es una forma de separar las dos principales responsabilidades de una clase: definir el <strong>estado</strong> de sus instancias y definir su <strong>comportamiento</strong>.</p>
 <ul>
-<li>Las clases y los objetos pueden extender un <code class="highlight"><span class="k">trait</span></code></li>
+<li>Las clases y los objetos en Scala pueden extender un <code class="highlight"><span class="k">trait</span></code></li>
+<li>Los <code class="highlight"><span class="k">trait</span></code>de Scala son similares a las <code class="highlight"><span class="kd">interface</span></code> de Java.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Java default methods</p>
+<ul>
+<li>Desde Java 8, las interfaces pueden incorporar <a href="https://www.baeldung.com/java-static-default-methods">métodos por defecto</a> que hacen que las interfaces de Java se comporten más como un trait.</li>
+<li>Sirven para implementar herencia múltiple</li>
+</ul>
+</div>
+<ul>
 <li>Los <code class="highlight"><span class="k">trait</span></code> no pueden instanciarse</li>
+<li>Los métodos definidos en una clase tienen precedencia sobre los de un <code class="highlight"><span class="k">trait</span></code></li>
+<li>Los <code class="highlight"><span class="k">trait</span></code> no tienen estado propio, sino el del objeto o la instancia de la clase a la que se aplica</li>
 </ul>
 <h3 id="ejemplo-iterador-como-un-trait">Ejemplo: Iterador como un <code class="highlight"><span class="k">trait</span></code><a class="headerlink" href="#ejemplo-iterador-como-un-trait" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
