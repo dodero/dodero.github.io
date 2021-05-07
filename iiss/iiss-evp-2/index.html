@@ -617,15 +617,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sintaxis-asyncawait-en-javascript" class="md-nav__link">
-    Sintaxis async/await en Javascript
+  <a href="#sintaxis-asyncawait" class="md-nav__link">
+    Sintaxis async/await
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#lenguajes-java" class="md-nav__link">
-    Lenguajes: Java
+  <a href="#futuros" class="md-nav__link">
+    Futuros
+  </a>
+  
+    <nav class="md-nav" aria-label="Futuros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#futuros-en-java" class="md-nav__link">
+    Futuros en Java
   </a>
   
 </li>
@@ -748,15 +761,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sintaxis-asyncawait-en-javascript" class="md-nav__link">
-    Sintaxis async/await en Javascript
+  <a href="#sintaxis-asyncawait" class="md-nav__link">
+    Sintaxis async/await
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#lenguajes-java" class="md-nav__link">
-    Lenguajes: Java
+  <a href="#futuros" class="md-nav__link">
+    Futuros
+  </a>
+  
+    <nav class="md-nav" aria-label="Futuros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#futuros-en-java" class="md-nav__link">
+    Futuros en Java
   </a>
   
 </li>
@@ -1135,7 +1161,7 @@ Salida:
 
 -->
 
-<h4 id="sintaxis-asyncawait-en-javascript">Sintaxis <code>async</code>/<code>await</code> en Javascript<a class="headerlink" href="#sintaxis-asyncawait-en-javascript" title="Permanent link">&para;</a></h4>
+<h4 id="sintaxis-asyncawait">Sintaxis <code>async</code>/<code>await</code><a class="headerlink" href="#sintaxis-asyncawait" title="Permanent link">&para;</a></h4>
 <ul>
 <li>El prefijo <code>await</code> hace que se espere a que se llame a la función asíncrona antes de continuar con la ejecución del programa.</li>
 <li>Esto genera un flujo de ejecución de la lógica del programa más fácil de leer y de seguir, pausando la ejecución hasta que se cumpla la promesa.</li>
@@ -1146,20 +1172,11 @@ Salida:
 <li>La ejecución se pausa y sólo se reanuda cuando la promesa haya sido resuelta.</li>
 <li>Entonces <code>await</code> devuelve como resultado el valor de la promesa.</li>
 </ul>
-<p><strong>Ejemplo con async/await</strong>:</p>
+<p><strong>Ejemplo con async/await en Javascript</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">r1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">asinc1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">);</span>
     <span class="nx">r2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span>
-
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: { &quot;</span> <span class="o">+</span> <span class="nx">r2</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Comparar esta versión asíncrona con la versión síncrona inicial.</p>
@@ -1234,7 +1251,8 @@ Sintaxis async/await, más legible y menos propensa a errores:
 
 -->
 
-<h4 id="lenguajes-java">Lenguajes: Java<a class="headerlink" href="#lenguajes-java" title="Permanent link">&para;</a></h4>
+<h3 id="futuros">Futuros<a class="headerlink" href="#futuros" title="Permanent link">&para;</a></h3>
+<h4 id="futuros-en-java">Futuros en Java<a class="headerlink" href="#futuros-en-java" title="Permanent link">&para;</a></h4>
 <p>En Java hay definida una interfaz explícita para los futuros:</p>
 <ul>
 <li>Desde Java 5: <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Future.html"><code>java.util.concurrent.Future</code></a> </li>
