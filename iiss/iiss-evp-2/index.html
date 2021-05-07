@@ -910,23 +910,41 @@ afterWait
 <p><strong>Versión síncrona</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Versión síncrona</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">r1</span> <span class="o">=</span> <span class="nx">serv1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">);</span>
+    <span class="nx">r1</span> <span class="o">=</span> <span class="nx">serv1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">);</span>
     <span class="nx">r2</span> <span class="o">=</span> <span class="nx">serv2</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span>
-    <span class="c1">// También se podría haber escrito r2 = serv2(serv1(parametros))</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
+    <span class="c1">// También se podría haber escrito r2 = serv2(serv1(&quot;datos iniciales&quot;))</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: { &quot;</span> <span class="o">+</span> <span class="nx">r2</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">serv1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">serv2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Ejemplo con <em>callbacks</em></strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Versión asíncrona.</span>
-<span class="c1">// Se supone que asinc1() y asinc2() son funciones que admiten </span>
-<span class="c1">// un callback como parámetro, al cual llamarán pasándole el resultado</span>
+<span class="c1">// Las funciones asinc1() y asinc2() admiten un callback</span>
+<span class="c1">// como segundo parámetro, al cual llamarán pasándole el resultado del cómputo</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r1</span><span class="p">){</span>
+    <span class="nx">asinc1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r1</span><span class="p">){</span>
         <span class="c1">// Tenemos el resultado de asinc1</span>
         <span class="nx">asinc2</span><span class="p">(</span><span class="nx">r1</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: { &quot;</span> <span class="o">+</span> <span class="nx">r2</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
         <span class="p">});</span>
     <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">r1</span> <span class="o">=</span> <span class="s2">&quot;Tardo en calcular r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">r2</span> <span class="o">=</span> <span class="s2">&quot;Tardo en calcular r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">r2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="callback-hell"><em>Callback Hell</em>:<a class="headerlink" href="#callback-hell" title="Permanent link">&para;</a></h4>
@@ -977,23 +995,55 @@ afterWait
 </code></pre></div>
 <p><strong>Ejemplo con promesas</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Versión con promesas</span>
-<span class="c1">// Ahora asinc1 y asinc2 se supone que devuelven una promesa</span>
+<span class="c1">// Ahora asinc1 y asinc2 se supone que devuelven una promesa (que solo resuelve)</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span>
+    <span class="nx">asinc1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r1</span><span class="p">){</span> <span class="k">return</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span> <span class="p">})</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r2</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span> 
-    <span class="p">})</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span> 
+    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Error: &quot;</span><span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+    <span class="p">});</span>
 <span class="p">}</span>
 
 <span class="c1">// Lo anterior puede escribirse más conciso:</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span>
+    <span class="nx">asinc1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">asinc2</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r2</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span> 
-    <span class="p">})</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span> 
+    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Error: &quot;</span><span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+    <span class="p">});</span>
 <span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;Tardo en calcular r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;Tardo en calcular r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Si asinc2 devolviera un error</span>
+<span class="kd">function</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">reject</span><span class="p">(</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Ha habido un error en el cálculo de r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+<span class="c1">// Salida =&gt; &quot;Error: Ha habido un error en el cálculo de r2 a partir de { Tardo en calcular r1 a partir de { datos iniciales } }&quot;</span>
+
+<span class="c1">// Si asinc1 devolviera un error</span>
+<span class="kd">function</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">reject</span><span class="p">(</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Ha habido un error en el cálculo de r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+<span class="c1">// Salida =&gt; &quot;Error: Ha habido un error en el cálculo de r1 a partir de { datos iniciales }&quot;</span>
 </code></pre></div>
 <p><strong>Solución al <em>Callback Hell</em></strong>: </p>
 <ul>
