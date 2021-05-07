@@ -617,29 +617,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sintaxis-asyncawait" class="md-nav__link">
-    Sintaxis async/await
+  <a href="#sintaxis-asyncawait-en-javascript" class="md-nav__link">
+    Sintaxis async/await en Javascript
   </a>
-  
-    <nav class="md-nav" aria-label="Sintaxis async/await">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lenguajes-javascript" class="md-nav__link">
-    Lenguajes: Javascript
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lenguajes-typescript" class="md-nav__link">
-    Lenguajes: TypeScript
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -768,29 +748,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sintaxis-asyncawait" class="md-nav__link">
-    Sintaxis async/await
+  <a href="#sintaxis-asyncawait-en-javascript" class="md-nav__link">
+    Sintaxis async/await en Javascript
   </a>
-  
-    <nav class="md-nav" aria-label="Sintaxis async/await">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lenguajes-javascript" class="md-nav__link">
-    Lenguajes: Javascript
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lenguajes-typescript" class="md-nav__link">
-    Lenguajes: TypeScript
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1175,7 +1135,7 @@ Salida:
 
 -->
 
-<h4 id="sintaxis-asyncawait">Sintaxis <code>async</code>/<code>await</code><a class="headerlink" href="#sintaxis-asyncawait" title="Permanent link">&para;</a></h4>
+<h4 id="sintaxis-asyncawait-en-javascript">Sintaxis <code>async</code>/<code>await</code> en Javascript<a class="headerlink" href="#sintaxis-asyncawait-en-javascript" title="Permanent link">&para;</a></h4>
 <ul>
 <li>El prefijo <code>await</code> hace que se espere a que se llame a la función asíncrona antes de continuar con la ejecución del programa.</li>
 <li>Esto genera un flujo de ejecución de la lógica del programa más fácil de leer y de seguir, pausando la ejecución hasta que se cumpla la promesa.</li>
@@ -1186,18 +1146,27 @@ Salida:
 <li>La ejecución se pausa y sólo se reanuda cuando la promesa haya sido resuelta.</li>
 <li>Entonces <code>await</code> devuelve como resultado el valor de la promesa.</li>
 </ul>
-<h5 id="lenguajes-javascript">Lenguajes: Javascript<a class="headerlink" href="#lenguajes-javascript" title="Permanent link">&para;</a></h5>
 <p><strong>Ejemplo con async/await</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">r1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">);</span>
+    <span class="nx">r1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">asinc1</span><span class="p">(</span><span class="s2">&quot;datos iniciales&quot;</span><span class="p">);</span>
     <span class="nx">r2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">r1</span><span class="p">);</span>
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: &quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Resultado final: { &quot;</span> <span class="o">+</span> <span class="nx">r2</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc1</span><span class="p">(</span><span class="nx">parametros</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r1 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">parametros</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">asinc2</span><span class="p">(</span><span class="nx">resultado1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Tardo en calcular r2 a partir de { &quot;</span> <span class="o">+</span> <span class="nx">resultado1</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Comparar esta versión asíncrona con la versión síncrona inicial.</p>
-<h5 id="lenguajes-typescript">Lenguajes: TypeScript<a class="headerlink" href="#lenguajes-typescript" title="Permanent link">&para;</a></h5>
 <!--
+
+###### Lenguajes: TypeScript
+
 
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">awaitDelayed</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">(</span>
