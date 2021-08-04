@@ -530,6 +530,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ejemplo-comparable-en-scala" class="md-nav__link">
+    Ejemplo: Comparable en scala
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-comparable-en-ruby" class="md-nav__link">
     Ejemplo: Comparable en ruby
   </a>
@@ -759,6 +766,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ejemplo-comparable-en-scala" class="md-nav__link">
+    Ejemplo: Comparable en scala
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-comparable-en-ruby" class="md-nav__link">
     Ejemplo: Comparable en ruby
   </a>
@@ -915,6 +929,43 @@
 <span class="n">et</span> <span class="o">=</span> <span class="no">EightTrack</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Surrealistic Pillow&quot;</span><span class="p">)</span>
 <span class="n">ph</span><span class="o">.</span><span class="n">whoAmI?</span>  <span class="c1"># =&gt; &quot;Phonograph (#70315984363660): West End Blues&quot;</span>
 <span class="n">et</span><span class="o">.</span><span class="n">whoAmI?</span>  <span class="c1"># =&gt; &quot;EightTrack (#70315996611260): Surrealistic Pillow&quot;</span>
+</code></pre></div>
+<h4 id="ejemplo-comparable-en-scala">Ejemplo: Comparable en scala<a class="headerlink" href="#ejemplo-comparable-en-scala" title="Permanent link">&para;</a></h4>
+<p>En Scala se puede implementar el equivalente a la interfaz <code>Comparable</code> de Java mediante traits:</p>
+<div class="highlight"><pre><span></span><code><span class="k">trait</span> <span class="nc">Ord</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="o">&lt;</span> <span class="o">(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> 
+  <span class="k">def</span> <span class="o">&lt;=(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span>  <span class="o">(</span><span class="k">this</span> <span class="o">&lt;</span> <span class="n">that</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">that</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">&gt;</span> <span class="o">(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!(</span><span class="k">this</span> <span class="o">&lt;=</span> <span class="n">that</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">&gt;=(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!(</span><span class="k">this</span> <span class="o">&lt;</span> <span class="n">that</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">class</span> <span class="nc">Fecha</span><span class="o">(</span><span class="n">d</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">m</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Ord</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">anno</span> <span class="o">=</span> <span class="n">a</span>
+  <span class="k">def</span> <span class="n">mes</span> <span class="o">=</span> <span class="n">m</span>
+  <span class="k">def</span> <span class="n">dia</span> <span class="o">=</span> <span class="n">d</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">toString</span><span class="o">()</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">s&quot;</span><span class="si">$dia</span><span class="s">-</span><span class="si">$mes</span><span class="s">-</span><span class="si">$anno</span><span class="s">&quot;</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">equals</span><span class="o">(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span>
+    <span class="n">that</span><span class="o">.</span><span class="n">isInstanceOf</span><span class="o">[</span><span class="kt">Fecha</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span>
+      <span class="k">val</span> <span class="n">o</span> <span class="o">=</span> <span class="n">that</span><span class="o">.</span><span class="n">asInstanceOf</span><span class="o">[</span><span class="kt">Fecha</span><span class="o">]</span>
+      <span class="n">o</span><span class="o">.</span><span class="n">dia</span><span class="o">==</span> <span class="n">dia</span> <span class="o">&amp;&amp;</span> <span class="n">o</span><span class="o">.</span><span class="n">mes</span> <span class="o">==</span> <span class="n">mes</span> <span class="o">&amp;&amp;</span> <span class="n">o</span><span class="o">.</span><span class="n">anno</span><span class="o">==</span> <span class="n">anno</span>
+    <span class="o">}</span>
+  <span class="k">def</span> <span class="o">&lt;(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">that</span><span class="o">.</span><span class="n">isInstanceOf</span><span class="o">[</span><span class="kt">Fecha</span><span class="o">])</span>
+      <span class="n">sys</span><span class="o">.</span><span class="n">error</span><span class="o">(</span><span class="s">&quot;no se puede comparar&quot;</span> <span class="o">+</span> <span class="n">that</span> <span class="o">+</span> <span class="s">&quot; y una fecha&quot;</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">o</span> <span class="o">=</span> <span class="n">that</span><span class="o">.</span><span class="n">asInstanceOf</span><span class="o">[</span><span class="kt">Fecha</span><span class="o">]</span>
+    <span class="o">(</span><span class="n">anno</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="n">anno</span><span class="o">)</span> <span class="o">||</span>
+    <span class="o">(</span><span class="n">anno</span><span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">anno</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">mes</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="n">mes</span> <span class="o">||</span>
+                       <span class="o">(</span><span class="n">mes</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">mes</span> <span class="o">&amp;&amp;</span> <span class="n">dia</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="n">dia</span><span class="o">)))</span>
+  <span class="o">}</span>  
+<span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">MiApp</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">f1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Fecha</span><span class="o">(</span><span class="mi">12</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2009</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">f2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Fecha</span><span class="o">(</span><span class="mi">12</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2019</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">s&quot;</span><span class="si">$f1</span><span class="s"> es posterior a </span><span class="si">$f2</span><span class="s">? </span><span class="si">${</span><span class="n">f1</span><span class="o">&gt;=</span><span class="n">f2</span><span class="si">}</span><span class="s">&quot;</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <h4 id="ejemplo-comparable-en-ruby">Ejemplo: Comparable en ruby<a class="headerlink" href="#ejemplo-comparable-en-ruby" title="Permanent link">&para;</a></h4>
 <p>Una manera de implementar un <code>Comparable</code> en ruby mediante el módulo <a href="https://ruby-doc.org/core-2.2.3/Comparable.html">Comparable</a>:</p>
