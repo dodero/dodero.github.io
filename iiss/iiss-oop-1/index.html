@@ -524,6 +524,46 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#overriding" class="md-nav__link">
+    Overriding
+  </a>
+  
+    <nav class="md-nav" aria-label="Overriding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-en-scala" class="md-nav__link">
+    Ejemplo en Scala
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-en-java" class="md-nav__link">
+    Ejemplo en Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casting" class="md-nav__link">
+    Casting
+  </a>
+  
+    <nav class="md-nav" aria-label="Casting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-aventura-v01" class="md-nav__link">
     Ejemplo: Aventura v0.1
   </a>
@@ -992,6 +1032,46 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#overriding" class="md-nav__link">
+    Overriding
+  </a>
+  
+    <nav class="md-nav" aria-label="Overriding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-en-scala" class="md-nav__link">
+    Ejemplo en Scala
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-en-java" class="md-nav__link">
+    Ejemplo en Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casting" class="md-nav__link">
+    Casting
+  </a>
+  
+    <nav class="md-nav" aria-label="Casting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ejemplo-aventura-v01" class="md-nav__link">
     Ejemplo: Aventura v0.1
   </a>
@@ -1232,6 +1312,76 @@
 <p>When you inherit, you take an existing class and make a special version of it. In general, this means that you’re taking a general-purpose class and specializing it for a particular need. [...] it would make no sense to compose a car using a vehicle object —a car doesn’t contain a vehicle, it is a vehicle. The <em>is-a</em> relationship is expressed with inheritance, and the <em>has-a</em> relationship is expressed with composition.</p>
 <p>-- <cite><a href="../bibliografia/#eckel">Bruce Eckel</a></cite></p>
 </blockquote>
+<h3 id="overriding">Overriding<a class="headerlink" href="#overriding" title="Permanent link">&para;</a></h3>
+<p>En general, en un lenguaje OO es posible sobreescribir o redefinir (<em>override</em>) los métodos heredados de una superclase. En algunos lenguajes es obligatorio (en otros es recomendado) especificar explícitamente cuándo un método es redefinido.</p>
+<h4 id="ejemplo-en-scala">Ejemplo en Scala<a class="headerlink" href="#ejemplo-en-scala" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Complejo</span><span class="o">(</span><span class="n">real</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">imaginaria</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">re</span> <span class="o">=</span> <span class="n">real</span>
+  <span class="k">def</span> <span class="n">im</span> <span class="o">=</span> <span class="n">imaginaria</span>
+<span class="hll">  <span class="k">override</span> <span class="k">def</span> <span class="n">toString</span><span class="o">()</span> <span class="o">=</span>
+</span>    <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">re</span> <span class="o">+</span> <span class="o">(</span><span class="k">if</span> <span class="o">(</span><span class="n">im</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="s">&quot;&quot;</span> <span class="k">else</span> <span class="s">&quot;+&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="n">im</span> <span class="o">+</span> <span class="s">&quot;i&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4 id="ejemplo-en-java">Ejemplo en Java<a class="headerlink" href="#ejemplo-en-java" title="Permanent link">&para;</a></h4>
+<p>¿Qué sucede si no ponemos <code>@Override</code> a los métodos redefinidos?</p>
+<div class="admonition warning">
+<p class="admonition-title">Disclaimer</p>
+<p>Este ejemplo en Java es realmente la implementación de un diseño incorrecto, pues hay una doble dependencia entre las clases <code>Real</code> y <code>Complejo</code>. La frontera entre Diseño e Implementación queda aquí un poco difusa.</p>
+</div>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Real</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">re</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">Real</span><span class="p">(</span><span class="kt">double</span> <span class="n">real</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">re</span> <span class="o">=</span> <span class="n">real</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getRe</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">re</span><span class="p">;</span> <span class="p">}</span>
+  <span class="cm">/* Probar a comentar el siguiente método y mantener el</span>
+<span class="cm">     Override de Complejo::sum(Real other) */</span>
+  <span class="kd">public</span> <span class="n">Real</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Real</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Real</span><span class="p">(</span><span class="n">re</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="na">getRe</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="cm">/* Probar a comentar el siguiente método y mantener el</span>
+<span class="cm">     Override de Complejo::sum(Complejo other) */</span>
+  <span class="kd">public</span> <span class="n">Complejo</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Complejo</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Complejo</span><span class="p">(</span> <span class="n">re</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="na">getRe</span><span class="p">(),</span> <span class="n">other</span><span class="p">.</span><span class="na">getIm</span><span class="p">()</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.1f&quot;</span><span class="p">,</span> <span class="n">re</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Complejo</span> <span class="kd">extends</span> <span class="n">Real</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">im</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">Complejo</span><span class="p">(</span><span class="kt">double</span> <span class="n">real</span><span class="p">,</span> <span class="kt">double</span> <span class="n">imaginaria</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">real</span><span class="p">);</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">imaginaria</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="hll">  <span class="nd">@Override</span>
+</span>  <span class="kd">public</span> <span class="n">Complejo</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Real</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Complejo</span><span class="p">(</span> <span class="n">re</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="na">getRe</span><span class="p">(),</span> <span class="n">im</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="hll">  <span class="nd">@Override</span>
+</span>  <span class="kd">public</span> <span class="n">Complejo</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Complejo</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Complejo</span><span class="p">(</span> <span class="n">re</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="na">getRe</span><span class="p">(),</span> <span class="n">im</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="na">getIm</span><span class="p">()</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">Double</span> <span class="nf">getIm</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">im</span><span class="p">;</span> <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.1f&quot;</span><span class="p">,</span> <span class="n">re</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">im</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">?</span> <span class="s">&quot;&quot;</span> <span class="p">:</span> <span class="s">&quot;+&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.1f&quot;</span><span class="p">,</span> <span class="n">im</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;i&quot;</span><span class="p">;</span>
+  <span class="p">}</span>    
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Real</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Real</span><span class="p">(</span><span class="mf">7.6</span><span class="p">);</span>
+      <span class="n">Complejo</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complejo</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Número real: &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Número complejo: &quot;</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Número complejo: &quot;</span> <span class="o">+</span> <span class="n">c</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Número complejo: &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">);</span>
+  <span class="p">}</span>    
+<span class="p">}</span>
+</code></pre></div>
+Si no se añade <code>@Override</code>, podemos llegar a confundirnos y hacer sobrecarga cuando queríamos haber hecho sobreescritura.</p>
+<h2 id="casting">Casting<a class="headerlink" href="#casting" title="Permanent link">&para;</a></h2>
 <h3 id="ejemplo-aventura-v01">Ejemplo: Aventura v0.1<a class="headerlink" href="#ejemplo-aventura-v01" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonajeDeAccion</span> <span class="p">{</span>
      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">luchar</span><span class="p">()</span> <span class="p">{}</span>
