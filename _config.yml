@@ -1,0 +1,11 @@
+title: Materiales docentes · Juanma Dodero
+description: Materiales docentes y recursos educativos de Juanma Dodero.
+markdown: kramdown
+permalink: pretty
+exclude:
+  - config/
+  - scripts/
+  - .sources/
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock

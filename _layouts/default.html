@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description | escape }}">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ '/site.css' | relative_url }}">
+  </head>
+  <body>
+    <main class="shell">{{ content }}</main>
+    <footer class="shell">Contenido generado automáticamente desde los repositorios configurados.</footer>
+    <script src="{{ '/site.js' | relative_url }}" defer></script>
+  </body>
+</html>

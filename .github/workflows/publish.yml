@@ -1,0 +1,111 @@
+name: Publish selected materials
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: "Configured id or owner/repository; empty means all"
+        required: false
+        type: string
+      ref:
+        description: "Branch, tag, or commit; empty means configured ref"
+        required: false
+        type: string
+  repository_dispatch:
+    types: [publish-material]
+  push:
+    branches: [master]
+    paths:
+      - "config/**"
+      - "scripts/**"
+      - ".github/workflows/publish.yml"
+      - "index.html"
+      - "index.md"
+      - "_config.yml"
+      - "_layouts/**"
+      - "_data/**"
+      - "Gemfile"
+      - "Gemfile.lock"
+      - "site.css"
+      - "site.js"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Set up Ruby and Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Install Chrome for PDF generation
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Checkout selected source repositories
+        env:
+          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
+          PUBLISH_REF: ${{ inputs.ref || github.event.client_payload.ref }}
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: python3 scripts/checkout_sources.py
+
+      - name: Build and sanitize materials
+        env:
+          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
+          PUBLISH_REF: ${{ inputs.ref || github.event.client_payload.ref }}
+        run: >-
+          python3 scripts/publish.py
+          --repository "${PUBLISH_REPOSITORY}"
+          --ref "${PUBLISH_REF}"
+          --browser-path "${{ steps.chrome.outputs.chrome-path }}"
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --source dist --destination _site --trace
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

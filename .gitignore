@@ -1,1 +1,8 @@
 .DS_Store
+
+# Secrets used only by local publication runs
+.secrets/
+config/local-secrets.json
+.env
+.env.*
+!.env.example
