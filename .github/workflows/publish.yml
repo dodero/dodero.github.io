@@ -115,6 +115,7 @@ jobs:
         env:
           PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
           PUBLISH_REF: ${{ inputs.ref || github.event.client_payload.ref }}
+          CHROME_REAL_PATH: ${{ steps.chrome.outputs.chrome-path }}
         run: >-
           python3 scripts/publish.py
           --repository "${PUBLISH_REPOSITORY}"
