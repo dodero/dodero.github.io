@@ -82,6 +82,13 @@ jobs:
           "$CHROME_PATH" --version
           "$CHROME_PATH" --headless=new --no-sandbox --disable-gpu --dump-dom about:blank >/tmp/chrome-smoke-test.html
 
+      - name: Prepare Chrome launcher for Marp
+        env:
+          CHROME_REAL_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: |
+          chmod +x scripts/chrome-wrapper.sh
+          scripts/chrome-wrapper.sh --version
+
       - name: Check source repository token
         env:
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
@@ -112,7 +119,7 @@ jobs:
           python3 scripts/publish.py
           --repository "${PUBLISH_REPOSITORY}"
           --ref "${PUBLISH_REF}"
-          --browser-path "${{ steps.chrome.outputs.chrome-path }}"
+          --browser-path "${{ github.workspace }}/scripts/chrome-wrapper.sh"
 
       - name: Build Jekyll site
         run: bundle exec jekyll build --source dist --destination _site --trace
