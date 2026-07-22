@@ -80,6 +80,12 @@ jobs:
             exit 1
           fi
 
+      - name: Validate source repository access
+        env:
+          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: python3 scripts/check_source_access.py --repository "${PUBLISH_REPOSITORY}"
+
       - name: Checkout selected source repositories
         env:
           PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}

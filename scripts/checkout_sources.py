@@ -50,7 +50,7 @@ def main() -> int:
     args.output.mkdir(parents=True, exist_ok=True)
 
     local_secrets = load_secrets(args.secrets_file)
-    token = os.environ.get("PUBLISH_TOKEN") or local_secrets.get("PUBLISH_TOKEN", "")
+    token = (os.environ.get("PUBLISH_TOKEN") or local_secrets.get("PUBLISH_TOKEN", "")).strip()
     if any(repository.get("private", True) for repository in repositories) and not token:
         raise SystemExit(
             "PUBLISH_TOKEN no está disponible. Créalo como Repository secret en "
@@ -60,8 +60,9 @@ def main() -> int:
     if token:
         # Keep the credential out of the clone command line and logs.
         git_env["GIT_CONFIG_COUNT"] = "1"
-        git_env["GIT_CONFIG_KEY_0"] = "http.https://github.com/.extraheader"
+        git_env["GIT_CONFIG_KEY_0"] = "http.extraheader"
         git_env["GIT_CONFIG_VALUE_0"] = f"AUTHORIZATION: bearer {token}"
+        git_env["GIT_TERMINAL_PROMPT"] = "0"
 
     for repository in repositories:
         ref = args.ref if args.ref and (args.repository or len(repositories) == 1) else repository.get("ref")
