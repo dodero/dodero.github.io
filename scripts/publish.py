@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import os
 import re
@@ -100,6 +101,8 @@ def sanitize_html(path: Path) -> None:
 def copy_local_assets(html_path: Path, source_file: Path, repo_dir: Path) -> None:
     """Copy local files under a material-local assets directory and rewrite URLs."""
     content = html_path.read_text(encoding="utf-8", errors="replace")
+    raw_content = content
+    content = html_lib.unescape(content)
     references = re.findall(r"(?:src|href)=[\"']([^\"']+)[\"']|url\(\s*[\"']?([^)'\"]+)", content)
     source_dir = source_file.parent
     repo_root = repo_dir.resolve()
@@ -129,8 +132,11 @@ def copy_local_assets(html_path: Path, source_file: Path, repo_dir: Path) -> Non
             replacement += f"#{parsed.fragment}"
         replacements[reference] = replacement
 
+    content = raw_content
     for original, replacement in replacements.items():
         content = content.replace(original, replacement)
+        for quote in ("&quot;", "&#34;", "&apos;", "&#39;"):
+            content = content.replace(f"{quote}{original}{quote}", f'"{replacement}"')
     html_path.write_text(content, encoding="utf-8")
 
 
