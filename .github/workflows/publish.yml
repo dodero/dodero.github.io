@@ -70,6 +70,17 @@ jobs:
       - name: Install Chrome for PDF generation
         id: chrome
         uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: stable
+          install-dependencies: true
+
+      - name: Verify Chrome for PDF generation
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: |
+          test -x "$CHROME_PATH"
+          "$CHROME_PATH" --version
+          "$CHROME_PATH" --headless=new --no-sandbox --disable-gpu --dump-dom about:blank >/tmp/chrome-smoke-test.html
 
       - name: Check source repository token
         env:
