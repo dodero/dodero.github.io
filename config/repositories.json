@@ -2,13 +2,13 @@
   "version": 1,
   "repositories": [
     {
-      "id": "gii-dss",
+      "id": "gii-dss-arquitectura",
       "owner": "uca-gii",
       "repo": "gii-dss",
       "private": true,
       "ref": "changes-2026",
-      "title": "Diseño de Sistemas Software",
-      "description": "Materiales de Diseño de Sistemas Software.",
+      "title": "Arquitectura Software",
+      "description": "Materiales de Arquitectura Software",
       "icon": "🧩",
       "subject": "Diseño de Sistemas Software",
       "degree": "Grado en Ingeniería Informática",
@@ -30,15 +30,43 @@
       ]
     },
     {
-      "id": "construccion",
+      "id": "gii-dss-diseno",
+      "owner": "uca-gii",
+      "repo": "gii-dss",
+      "private": true,
+      "ref": "changes-2026",
+      "title": "Diseño Software",
+      "description": "Materiales de Diseño Software",
+      "icon": "🧩",
+      "subject": "Diseño de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["dss", "gii", "2025-26", "software", "diseño"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/diseno/diseno.md",
+          "name": "diseno"
+        }
+      ]
+    },
+    {
+      "id": "construccion-implementacion",
       "owner": "uca-gii",
       "repo": "construccion",
       "private": true,
       "ref": "changes-2026",
-      "title": "Construcción de Software",
-      "description": "Materiales de Construcción de Software.",
+      "title": "Implementación de Software",
+      "description": "Materiales de Implementación de Software.",
       "icon": "🔧",
-      "subject": "Construcción de Software",
+      "subject": "Implementación e Implantación de Sistemas Software",
       "degree": "Grado en Ingeniería Informática",
       "year": "2025-26",
       "tags": ["construccion", "gii", "2025-26", "software"],
@@ -54,6 +82,34 @@
         {
           "path": "slides/implementacion/implementacion.md",
           "name": "implementacion"
+        }
+      ]
+    },
+    {
+      "id": "construccion-devops",
+      "owner": "uca-gii",
+      "repo": "construccion",
+      "private": true,
+      "ref": "changes-2026",
+      "title": "DevOps",
+      "description": "Materiales de DevOps",
+      "icon": "🔧",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["construccion", "gii", "2025-26", "software"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/devops/devops.md",
+          "name": "devops"
         }
       ]
     }
