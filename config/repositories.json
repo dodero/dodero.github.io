@@ -30,13 +30,13 @@
       ]
     },
     {
-      "id": "gii-dss-diseno",
+      "id": "gii-dss-diseno-fundamentos",
       "owner": "uca-gii",
       "repo": "gii-dss",
       "private": true,
       "ref": "changes-2026",
       "title": "Diseño Software",
-      "description": "Materiales de Diseño Software",
+      "description": "Materiales de Fundamentos deDiseño Software",
       "icon": "🧩",
       "subject": "Diseño de Sistemas Software",
       "degree": "Grado en Ingeniería Informática",
@@ -52,8 +52,64 @@
       ],
       "sources": [
         {
-          "path": "slides/diseno/diseno.md",
-          "name": "diseno"
+          "path": "slides/diseno/fundamentos.md",
+          "name": "fundamentos"
+        }
+      ]
+    },
+    {
+      "id": "gii-dss-diseno-patrones",
+      "owner": "uca-gii",
+      "repo": "gii-dss",
+      "private": true,
+      "ref": "changes-2026",
+      "title": "Diseño Software",
+      "description": "Materiales de Patrones deDiseño Software",
+      "icon": "🧩",
+      "subject": "Diseño de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["dss", "gii", "2025-26", "software", "diseño"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/diseno/patrones.md",
+          "name": "patrones"
+        }
+      ]
+    },
+    {
+      "id": "gii-dss-diseno-principios",
+      "owner": "uca-gii",
+      "repo": "gii-dss",
+      "private": true,
+      "ref": "changes-2026",
+      "title": "Diseño Software",
+      "description": "Materiales de Principios de Diseño Software",
+      "icon": "🧩",
+      "subject": "Diseño de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["dss", "gii", "2025-26", "software", "diseño"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/diseno/principios.md",
+          "name": "principios"
         }
       ]
     },
