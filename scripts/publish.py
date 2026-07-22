@@ -12,7 +12,7 @@ import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 from publish_secrets import load_secrets
 
@@ -98,27 +98,40 @@ def sanitize_html(path: Path) -> None:
 
 
 def copy_local_assets(html_path: Path, source_file: Path, repo_dir: Path) -> None:
-    """Copy local files referenced by generated HTML without copying Markdown source."""
+    """Copy local files under a material-local assets directory and rewrite URLs."""
     content = html_path.read_text(encoding="utf-8", errors="replace")
     references = re.findall(r"(?:src|href)=[\"']([^\"']+)[\"']|url\(\s*[\"']?([^)'\"]+)", content)
     source_dir = source_file.parent
     repo_root = repo_dir.resolve()
+    replacements: dict[str, str] = {}
     for first, second in references:
         reference = (first or second).strip()
         parsed = urlsplit(reference)
-        if parsed.scheme or reference.startswith(("#", "/", "data:", "javascript:", "mailto:")):
+        if parsed.scheme in {"http", "https", "data", "javascript", "mailto"} or reference.startswith(("#", "/")):
             continue
-        relative = Path(parsed.path)
-        candidate = (source_dir / relative).resolve()
+        if parsed.scheme == "file":
+            candidate = Path(unquote(parsed.path)).resolve()
+        else:
+            relative = Path(unquote(parsed.path))
+            candidate = (source_dir / relative).resolve()
         if not candidate.is_file() or repo_root not in candidate.parents:
             continue
         if candidate.suffix.lower() in PRIVATE_SOURCE_SUFFIXES:
             continue
-        target = (html_path.parent / relative).resolve()
-        if html_path.parent not in target.parents:
-            continue
+        repository_relative = candidate.relative_to(repo_root)
+        target = html_path.parent / "assets" / repository_relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(candidate, target)
+        replacement = f"assets/{repository_relative.as_posix()}"
+        if parsed.query:
+            replacement += f"?{parsed.query}"
+        if parsed.fragment:
+            replacement += f"#{parsed.fragment}"
+        replacements[reference] = replacement
+
+    for original, replacement in replacements.items():
+        content = content.replace(original, replacement)
+    html_path.write_text(content, encoding="utf-8")
 
 
 def source_specs(repository: dict) -> list[dict]:
