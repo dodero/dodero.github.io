@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
 import shutil
@@ -59,9 +60,10 @@ def main() -> int:
     git_env = os.environ.copy()
     if token:
         # Keep the credential out of the clone command line and logs.
+        basic_credentials = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
         git_env["GIT_CONFIG_COUNT"] = "1"
         git_env["GIT_CONFIG_KEY_0"] = "http.extraheader"
-        git_env["GIT_CONFIG_VALUE_0"] = f"AUTHORIZATION: bearer {token}"
+        git_env["GIT_CONFIG_VALUE_0"] = f"AUTHORIZATION: basic {basic_credentials}"
         git_env["GIT_TERMINAL_PROMPT"] = "0"
 
     for repository in repositories:
