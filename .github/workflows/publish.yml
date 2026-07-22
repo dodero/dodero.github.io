@@ -71,6 +71,15 @@ jobs:
         id: chrome
         uses: browser-actions/setup-chrome@v2
 
+      - name: Check source repository token
+        env:
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: |
+          if [ -z "$PUBLISH_TOKEN" ]; then
+            echo "::error title=Missing PUBLISH_TOKEN::Create PUBLISH_TOKEN under Repository secrets for dodero/dodero.github.io."
+            exit 1
+          fi
+
       - name: Checkout selected source repositories
         env:
           PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}

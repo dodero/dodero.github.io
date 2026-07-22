@@ -51,6 +51,11 @@ def main() -> int:
 
     local_secrets = load_secrets(args.secrets_file)
     token = os.environ.get("PUBLISH_TOKEN") or local_secrets.get("PUBLISH_TOKEN", "")
+    if any(repository.get("private", True) for repository in repositories) and not token:
+        raise SystemExit(
+            "PUBLISH_TOKEN no está disponible. Créalo como Repository secret en "
+            "dodero/dodero.github.io, con el nombre exacto PUBLISH_TOKEN."
+        )
     git_env = os.environ.copy()
     if token:
         # Keep the credential out of the clone command line and logs.
