@@ -181,7 +181,7 @@
       "subject": "Implementación e Implantación de Sistemas Software",
       "degree": "Grado en Ingeniería Informática",
       "year": "2025-26",
-      "tags": ["tutorial", "construccion", "maven", "iiss", "dss", "gii"],
+      "tags": ["tutorial", "construccion", "maven", "iiss", "dss", "gii", "2025-26"],
       "builder": "github-markdown",
       "formats": ["html", "pdf"],
       "dependencies": ["marked"],
