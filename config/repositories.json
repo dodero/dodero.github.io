@@ -193,6 +193,29 @@
       ]
     },
     {
+      "id": "construccion-sonarqube-01",
+      "owner": "uca-gii",
+      "repo": "construccion",
+      "private": true,
+      "ref": "master",
+      "title": "Static Code Analysis y Code Review con SonarQube",
+      "description": "Análisis estático y code review con SonarQube, Docker y GitHub Actions para mejorar la calidad del código.",
+      "icon": "🔍",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["tutorial", "construccion", "sonarqube", "iiss", "gii", "2025-26"],
+      "builder": "github-markdown",
+      "formats": ["html", "pdf"],
+      "dependencies": ["marked"],
+      "sources": [
+        {
+          "path": "sonarqube/sonarqube-01.md",
+          "name": "sonarqube-01"
+        }
+      ]
+    },
+    {
       "id": "construccion-implementacion-asertiva",
       "owner": "uca-gii",
       "repo": "construccion",
@@ -553,6 +576,62 @@
         {
           "path": "slides/devops/branching.md",
           "name": "branching"
+        }
+      ]
+    },
+    {
+      "id": "devsecops-introduccion",
+      "owner": "uca-gii",
+      "repo": "devsecops",
+      "private": true,
+      "ref": "main",
+      "title": "Desarrollo de Aplicaciones Seguras",
+      "description": "Introducción a la seguridad de aplicaciones mediante principios, ejemplos y prácticas de desarrollo seguro.",
+      "icon": "🛡️",
+      "subject": "Desarrollo de Aplicaciones Seguras",
+      "degree": "Máster en Seguridad Informática",
+      "year": "2025-26",
+      "tags": ["devsecops", "das", "msi", "2025-26", "slides"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "introduccion.md",
+          "name": "introduccion"
+        }
+      ]
+    },
+    {
+      "id": "devsecops-devsecops",
+      "owner": "uca-gii",
+      "repo": "devsecops",
+      "private": true,
+      "ref": "main",
+      "title": "DevSecOps",
+      "description": "Seguridad integrada en el ciclo de vida del software mediante principios y prácticas DevSecOps.",
+      "icon": "🔐",
+      "subject": "Desarrollo de Aplicaciones Seguras",
+      "degree": "Máster en Seguridad Informática",
+      "year": "2025-26",
+      "tags": ["devsecops", "das", "msi", "2025-26", "slides"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "devsecops.md",
+          "name": "devsecops"
         }
       ]
     }
