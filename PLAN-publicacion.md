@@ -8,7 +8,8 @@ Publicar en `dodero.github.io` materiales HTML y PDF generados desde repositorio
 
 - La selección de repositorios se mantiene en `config/repositories.json`.
 - Cada repositorio declara su `ref`, `builder`, `formats` y lista de `sources`.
-- Se admiten los builders `marp`, `mkdocs`, `asciidoctor` y `custom`.
+- Se admiten los builders `marp`, `github-markdown`, `mkdocs`, `asciidoctor` y `custom`.
+- El builder `github-markdown` convierte Markdown con sintaxis GitHub a HTML y PDF mediante `marked` instalado con `pnpm` y Chrome.
 - Los builders JavaScript utilizan `pnpm`.
 - Los HTML se sanitizan eliminando todos los comentarios HTML antes de publicarse.
 - Los Markdown fuente no se publican salvo que `publish_source` se active explícitamente.

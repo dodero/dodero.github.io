@@ -170,6 +170,29 @@
       ]
     },
     {
+      "id": "construccion-mvn-01",
+      "owner": "uca-gii",
+      "repo": "construccion",
+      "private": true,
+      "ref": "master",
+      "title": "Introducción a Apache Maven",
+      "description": "Guía práctica de Apache Maven: proyectos Java, dependencias, pruebas, empaquetado y construcción automatizada.",
+      "icon": "🧰",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["tutorial", "construccion", "maven", "iiss", "dss", "gii"],
+      "builder": "github-markdown",
+      "formats": ["html", "pdf"],
+      "dependencies": ["marked"],
+      "sources": [
+        {
+          "path": "mvn/mvn-01.md",
+          "name": "mvn-01"
+        }
+      ]
+    },
+    {
       "id": "construccion-implementacion-asertiva",
       "owner": "uca-gii",
       "repo": "construccion",

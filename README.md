@@ -5,7 +5,7 @@ Este repositorio publica en `dodero.github.io` HTML y PDF generados desde los re
 Cada entrada permite seleccionar:
 
 * `ref`: rama, tag o commit que se publica;
-* `builder`: `marp`, `mkdocs`, `asciidoctor` o `custom`;
+* `builder`: `marp`, `github-markdown`, `mkdocs`, `asciidoctor` o `custom`;
 * `formats`: `html`, `pdf` o ambos;
 * `sources`: materiales concretos que deben generarse;
 * `publish_source`: publicación opcional del Markdown fuente, desactivada por defecto.
@@ -53,6 +53,8 @@ Los secretos locales se cargan con `--secrets-file` o, por defecto, desde `confi
 El HTML se sanitiza antes de publicarse: se eliminan todos los comentarios HTML y la ejecución falla si queda alguno.
 
 Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
+
+`github-markdown` convierte Markdown con sintaxis GitHub mediante `marked`, genera el HTML con un estilo documental sencillo y utiliza Chrome para imprimir el PDF.
 
 El workflow ejecuta `bundle exec jekyll build` después de generar el catálogo y los materiales, y publica el directorio `_site` en GitHub Pages.
 

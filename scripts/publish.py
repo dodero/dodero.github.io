@@ -19,7 +19,7 @@ from publish_secrets import load_secrets
 
 
 FORMATS = {"html", "pdf"}
-BUILDERS = {"marp", "mkdocs", "asciidoctor", "custom"}
+BUILDERS = {"marp", "mkdocs", "asciidoctor", "github-markdown", "custom"}
 SKIP_SITE_ENTRIES = {".git", ".github", ".secrets", ".sources", "config", "scripts", "dist", "node_modules"}
 PRIVATE_SOURCE_SUFFIXES = {".md", ".markdown", ".mdown", ".mkd", ".adoc", ".ad", ".yml", ".yaml"}
 
@@ -82,8 +82,10 @@ def run(command: list[str] | str, cwd: Path, *, shell: bool = False) -> None:
     subprocess.run(command, cwd=cwd, check=True, shell=shell)
 
 
-def install_pnpm_dependencies(repository: dict, repo_dir: Path) -> None:
-    dependencies = ["@marp-team/marp-cli", *repository.get("dependencies", [])]
+def install_pnpm_dependencies(repo_dir: Path, dependencies: list[str]) -> None:
+    dependencies = list(dict.fromkeys(dependencies))
+    if not dependencies:
+        return
     run(
         ["pnpm", "add", "--save-dev", *dependencies],
         repo_dir,
@@ -164,7 +166,7 @@ def material_output(dist: Path, repository: dict, source: dict) -> tuple[Path, P
 
 
 def run_marp(repository: dict, source_file: Path, html_path: Path, pdf_path: Path, repo_dir: Path, formats: set[str], browser_path: str | None) -> None:
-    install_pnpm_dependencies(repository, repo_dir)
+    install_pnpm_dependencies(repo_dir, ["@marp-team/marp-cli", *repository.get("dependencies", [])])
     command_base = ["pnpm", "exec", "marp", "--allow-local-files"]
     engine = repository.get("engine")
     if engine:
@@ -182,6 +184,98 @@ def run_marp(repository: dict, source_file: Path, html_path: Path, pdf_path: Pat
             command += ["--browser", "chrome", "--browser-path", browser_path]
         command += ["-o", str(pdf_path), "--pdf-outlines", "--pdf-outlines.pages=false", "--pdf-outlines.headings=true"]
         run(command, repo_dir)
+
+
+def run_github_markdown(
+    repository: dict,
+    source: dict,
+    source_file: Path,
+    html_path: Path,
+    pdf_path: Path,
+    repo_dir: Path,
+    formats: set[str],
+    browser_path: str | None,
+) -> None:
+    """Render GitHub-Flavored Markdown with marked and print it through Chrome."""
+    dependencies = repository.get("dependencies", ["marked"])
+    install_pnpm_dependencies(repo_dir, dependencies)
+    body_path = html_path.with_name(".github-markdown-body.html")
+    run(
+        [
+            "pnpm",
+            "exec",
+            "marked",
+            "--gfm",
+            "--input",
+            str(source_file),
+            "--output",
+            str(body_path),
+        ],
+        repo_dir,
+    )
+    body = body_path.read_text(encoding="utf-8", errors="replace")
+    body_path.unlink(missing_ok=True)
+    title = html_lib.escape(source.get("title", repository.get("title", source_file.stem)))
+    html_path.write_text(
+        """<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>"""
+        + title
+        + """</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; color: #24292f; background: #fff; }
+    main { max-width: 960px; margin: 0 auto; padding: 3rem 4rem; line-height: 1.6; }
+    h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.5em; }
+    h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+    h2 { border-bottom: 1px solid #d8dee4; padding-bottom: .25em; }
+    a { color: #0969da; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    code { padding: .15em .3em; background: #eff1f3; border-radius: 4px; }
+    pre { overflow-x: auto; padding: 1rem; background: #f6f8fa; border-radius: 6px; }
+    pre code { padding: 0; background: transparent; }
+    blockquote { margin: 1rem 0; padding: 0 1rem; color: #57606a; border-left: .25rem solid #d0d7de; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: .5rem .75rem; border: 1px solid #d0d7de; }
+    th { background: #f6f8fa; }
+    img { max-width: 100%; height: auto; }
+    @media print {
+      main { max-width: none; padding: 0; }
+      pre, blockquote, table, img { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body><main>"""
+        + body
+        + """</main></body>
+</html>
+""",
+        encoding="utf-8",
+    )
+    sanitize_html(html_path)
+    copy_local_assets(html_path, source_file, repo_dir)
+    if "pdf" in formats:
+        if not browser_path:
+            raise SystemExit("GitHub Markdown PDF output needs --browser-path")
+        run(
+            [
+                browser_path,
+                "--headless=new",
+                "--disable-gpu",
+                "--no-sandbox",
+                "--no-pdf-header-footer",
+                f"--print-to-pdf={pdf_path}",
+                html_path.resolve().as_uri(),
+            ],
+            repo_dir,
+        )
+        if not pdf_path.is_file():
+            raise SystemExit(f"Chrome did not produce {pdf_path}")
+    if "html" not in formats:
+        html_path.unlink(missing_ok=True)
 
 
 def run_template(command: str, values: dict[str, str], repo_dir: Path) -> None:
@@ -331,6 +425,8 @@ def main() -> int:
             builder = repository["builder"]
             if builder == "marp":
                 run_marp(repository, source_file, html_path, pdf_path, repo_dir, formats, args.browser_path)
+            elif builder == "github-markdown":
+                run_github_markdown(repository, source, source_file, html_path, pdf_path, repo_dir, formats, args.browser_path)
             elif builder == "mkdocs":
                 run_mkdocs(repository, repo_dir, html_path.parent, html_path, pdf_path, formats)
             elif builder == "asciidoctor":
