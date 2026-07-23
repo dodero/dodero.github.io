@@ -22,6 +22,7 @@ Publicar en `dodero.github.io` materiales HTML y PDF generados desde repositorio
 - Generación Marp/Marpit de HTML y PDF.
 - Catálogo de materiales y búsqueda en la portada Jekyll.
 - Workflow de GitHub Actions con deploy bajo demanda.
+- Publicación incremental por `repository_dispatch` o selección manual: se reconstruye solo el repositorio indicado y se conserva el resto del artefacto de Pages.
 - Soporte para secretos locales ignorados por Git.
 - Pruebas locales con:
   - `uca-gii/gii-dss@changes-2026`

@@ -248,6 +248,19 @@ def prepare_dist(site_root: Path, dist: Path) -> None:
             shutil.copy2(entry, target)
 
 
+def restore_previous_materials(dist: Path, previous_site: Path) -> bool:
+    """Restore generated materials/catalog from the previous Pages artifact."""
+    previous_site = previous_site.resolve()
+    previous_materials = previous_site / "materials"
+    if not previous_materials.is_dir():
+        return False
+    shutil.copytree(previous_materials, dist / "materials", dirs_exist_ok=True)
+    previous_catalog = previous_site / "catalog.json"
+    if previous_catalog.is_file():
+        shutil.copy2(previous_catalog, dist / "catalog.json")
+    return True
+
+
 def read_existing_catalog(dist: Path) -> list[dict]:
     catalog = dist / "catalog.json"
     if not catalog.exists():
@@ -267,6 +280,7 @@ def main() -> int:
     parser.add_argument("--repository", default=None, help="Build only this configured repository")
     parser.add_argument("--ref", default=None, help="Override the selected repository ref")
     parser.add_argument("--browser-path")
+    parser.add_argument("--previous-site", type=Path, help="Previous Pages site to preserve during a selective build")
     parser.add_argument("--secrets-file", type=Path, help="Optional ignored JSON file with local secrets")
     args = parser.parse_args()
 
@@ -276,9 +290,30 @@ def main() -> int:
     config = load_config(args.config)
     repositories = select_repositories(config, args.repository)
     prepare_dist(args.site_root.resolve(), args.dist.resolve())
+    if args.previous_site and not restore_previous_materials(args.dist.resolve(), args.previous_site):
+        print(f"Previous Pages site has no materials directory: {args.previous_site}")
     existing = read_existing_catalog(args.dist.resolve())
     selected_ids = {repository["id"] for repository in repositories}
-    materials = [material for material in existing if material.get("repository_id") not in selected_ids]
+    if args.previous_site:
+        for repository_id in selected_ids:
+            shutil.rmtree(args.dist.resolve() / "materials" / repository_id, ignore_errors=True)
+    selected_source_repositories = {(repository["owner"], repository["repo"]) for repository in repositories}
+    selector_is_source_repository = bool(
+        args.repository
+        and any(
+            args.repository in {repository["repo"], f"{repository['owner']}/{repository['repo']}"}
+            for repository in config["repositories"]
+        )
+    )
+    materials = [
+        material
+        for material in existing
+        if material.get("repository_id") not in selected_ids
+        and not (
+            selector_is_source_repository
+            and (material.get("owner"), material.get("repo")) in selected_source_repositories
+        )
+    ]
 
     for repository in repositories:
         repo_dir = (args.sources / repository["id"]).resolve()

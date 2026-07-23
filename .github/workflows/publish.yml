@@ -30,6 +30,7 @@ on:
       - "site.js"
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -44,6 +45,69 @@ jobs:
     steps:
       - name: Checkout site
         uses: actions/checkout@v6
+
+      - name: Resolve publication scope
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_REPOSITORY: ${{ inputs.repository }}
+          INPUT_REF: ${{ inputs.ref }}
+          EVENT_REPOSITORY: ${{ github.event.client_payload.repository }}
+          EVENT_REF: ${{ github.event.client_payload.ref }}
+        run: |
+          if [[ "$EVENT_NAME" == "repository_dispatch" ]]; then
+            if [[ -z "$EVENT_REPOSITORY" ]]; then
+              echo "::error title=Missing repository selector::repository_dispatch must include client_payload.repository"
+              exit 1
+            fi
+            repository="$EVENT_REPOSITORY"
+            ref="$EVENT_REF"
+            incremental=true
+          elif [[ -n "$INPUT_REPOSITORY" ]]; then
+            repository="$INPUT_REPOSITORY"
+            ref="$INPUT_REF"
+            incremental=true
+          else
+            repository=""
+            ref=""
+            incremental=false
+          fi
+          echo "repository=$repository" >> "$GITHUB_OUTPUT"
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+          echo "incremental=$incremental" >> "$GITHUB_OUTPUT"
+          echo "Publication scope: ${repository:-all configured repositories}"
+
+      - name: Find previous Pages artifact
+        id: previous
+        if: steps.scope.outputs.incremental == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?status=success&per_page=1" --jq '.workflow_runs[0].id // empty')
+          if [[ -n "$run_id" ]]; then
+            echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
+            echo "Using previous successful workflow run: $run_id"
+          else
+            echo "No previous successful Pages run found; this will be a full build."
+          fi
+
+      - name: Download previous Pages artifact
+        id: previous_download
+        continue-on-error: true
+        if: steps.previous.outputs.run-id != ''
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          run-id: ${{ steps.previous.outputs.run-id }}
+          github-token: ${{ github.token }}
+          path: previous-pages-artifact
+
+      - name: Unpack previous Pages artifact
+        if: steps.previous_download.outcome == 'success'
+        run: |
+          mkdir -p previous-site
+          tar -xf previous-pages-artifact/artifact.tar -C previous-site
+          echo "PUBLISH_PREVIOUS_SITE=$GITHUB_WORKSPACE/previous-site" >> "$GITHUB_ENV"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -100,27 +164,31 @@ jobs:
 
       - name: Validate source repository access
         env:
-          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
+          PUBLISH_REPOSITORY: ${{ steps.scope.outputs.repository }}
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
         run: python3 scripts/check_source_access.py --repository "${PUBLISH_REPOSITORY}"
 
       - name: Checkout selected source repositories
         env:
-          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
-          PUBLISH_REF: ${{ inputs.ref || github.event.client_payload.ref }}
+          PUBLISH_REPOSITORY: ${{ steps.scope.outputs.repository }}
+          PUBLISH_REF: ${{ steps.scope.outputs.ref }}
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
         run: python3 scripts/checkout_sources.py
 
       - name: Build and sanitize materials
         env:
-          PUBLISH_REPOSITORY: ${{ inputs.repository || github.event.client_payload.repository }}
-          PUBLISH_REF: ${{ inputs.ref || github.event.client_payload.ref }}
+          PUBLISH_REPOSITORY: ${{ steps.scope.outputs.repository }}
+          PUBLISH_REF: ${{ steps.scope.outputs.ref }}
           CHROME_REAL_PATH: ${{ steps.chrome.outputs.chrome-path }}
-        run: >-
-          python3 scripts/publish.py
-          --repository "${PUBLISH_REPOSITORY}"
-          --ref "${PUBLISH_REF}"
-          --browser-path "${{ github.workspace }}/scripts/chrome-wrapper.sh"
+        run: |
+          command=(python3 scripts/publish.py
+            --repository "$PUBLISH_REPOSITORY"
+            --ref "$PUBLISH_REF"
+            --browser-path "${{ github.workspace }}/scripts/chrome-wrapper.sh")
+          if [[ -n "${PUBLISH_PREVIOUS_SITE:-}" ]]; then
+            command+=(--previous-site "$PUBLISH_PREVIOUS_SITE")
+          fi
+          "${command[@]}"
 
       - name: Build Jekyll site
         run: bundle exec jekyll build --source dist --destination _site --trace
@@ -132,6 +200,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+          retention-days: 90
 
   deploy:
     needs: build
