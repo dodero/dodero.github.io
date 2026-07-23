@@ -422,18 +422,18 @@
       ]
     },
     {
-      "id": "construccion-devops",
+      "id": "construccion-devops-cultura",
       "owner": "uca-gii",
       "repo": "construccion",
       "private": true,
       "ref": "master",
-      "title": "DevOps",
-      "description": "Cultura DevOps, CI/CD, Git, branching patterns, Terraform, Jenkins y automatización.",
-      "icon": "🚀",
+      "title": "Cultura DevOps",
+      "description": "Cultura DevOps, colaboración entre desarrollo y operaciones, agilidad y entrega continua.",
+      "icon": "🤝",
       "subject": "Implementación e Implantación de Sistemas Software",
       "degree": "Grado en Ingeniería Informática",
       "year": "2025-26",
-      "tags": ["construccion", "gii", "2025-26", "software"],
+      "tags": ["construccion", "devops", "gii", "2025-26", "software", "iiss"],
       "builder": "marp",
       "formats": ["html", "pdf"],
       "engine": "marp/marp-engine.js",
@@ -444,8 +444,64 @@
       ],
       "sources": [
         {
-          "path": "slides/devops/devops.md",
-          "name": "devops"
+          "path": "slides/devops/cultura.md",
+          "name": "cultura"
+        }
+      ]
+    },
+    {
+      "id": "construccion-devops-cicd",
+      "owner": "uca-gii",
+      "repo": "construccion",
+      "private": true,
+      "ref": "master",
+      "title": "Integración y entrega continuas",
+      "description": "Integración y entrega continuas: automatización, feedback rápido y calidad del software.",
+      "icon": "🔄",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["construccion", "devops", "cicd", "gii", "2025-26", "software", "iiss"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/devops/cicd.md",
+          "name": "cicd"
+        }
+      ]
+    },
+    {
+      "id": "construccion-devops-branching",
+      "owner": "uca-gii",
+      "repo": "construccion",
+      "private": true,
+      "ref": "master",
+      "title": "Branching patterns",
+      "description": "Patrones de branching, control de versiones y estrategias para coordinar el desarrollo.",
+      "icon": "🌿",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["construccion", "devops", "branching", "git", "gii", "2025-26", "software", "iiss"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "engine": "marp/marp-engine.js",
+      "dependencies": [
+        "@marp-team/marp-core",
+        "markdown-it-plantuml",
+        "markdown-it-table-of-contents"
+      ],
+      "sources": [
+        {
+          "path": "slides/devops/branching.md",
+          "name": "branching"
         }
       ]
     }
