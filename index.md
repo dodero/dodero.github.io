@@ -5,7 +5,7 @@ title: Materiales docentes
 
 <header>
   <h1>Materiales docentes</h1>
-  <p class="intro">Slides, apuntes y recursos publicados desde repositorios seleccionados.</p>
+  <p class="intro">Apuntes, slides y materiales de apoyo docente sobre Informática y Software</p>
   <div class="toolbar" role="search">
     <label>
       <span class="sr-only">Buscar materiales</span>
