@@ -12,6 +12,8 @@ Cada entrada permite seleccionar:
 
 También puede declarar `icon`, `subject`, `degree`, `event`, `year` y `tags`. Los tags se normalizan sin el prefijo `#` en el catálogo y se muestran como `#tag` en las tarjetas; la búsqueda los incluye.
 
+Los materiales Marp pueden declarar `theme` con la ruta, dentro del repositorio fuente, de un tema CSS propio.
+
 Para un material asociado a un evento en lugar de una asignatura se puede usar, por ejemplo, `event: "Cursos de verano de la UCA"`, `year: "2026"` y omitir `subject` y `degree`.
 
 El workflow `.github/workflows/publish.yml` permite publicar todos los repositorios o seleccionar uno y sobrescribir su rama mediante `workflow_dispatch`. También acepta `repository_dispatch` con `repository` y `ref` en el payload.

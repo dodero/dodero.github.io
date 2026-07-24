@@ -174,6 +174,12 @@ def run_marp(repository: dict, source_file: Path, html_path: Path, pdf_path: Pat
         if repo_dir.resolve() not in engine_path.parents or not engine_path.is_file():
             raise SystemExit(f"Marp engine not found inside source repository: {engine}")
         command_base += ["--config-file", str(engine_path)]
+    theme = repository.get("theme")
+    if theme:
+        theme_path = (repo_dir / theme).resolve()
+        if repo_dir.resolve() not in theme_path.parents or not theme_path.is_file():
+            raise SystemExit(f"Marp theme not found inside source repository: {theme}")
+        command_base += ["--theme", str(theme_path)]
     if "html" in formats:
         run([*command_base, "--html", str(source_file), "-o", str(html_path)], repo_dir)
         sanitize_html(html_path)

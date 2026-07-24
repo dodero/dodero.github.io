@@ -634,6 +634,31 @@
           "name": "devsecops"
         }
       ]
+    },
+    {
+      "id": "eventos-uca-curso-verano-a09-2026-informatica-software-ingenieria",
+      "owner": "dodero",
+      "repo": "eventos",
+      "private": false,
+      "ref": "main",
+      "title": "El futuro de la Informática, el Software y la Ingeniería en los tiempos de la Inteligencia Artificial",
+      "description": "Ponencia de clausura sobre el futuro de la informática, el software y la ingeniería en los tiempos de la inteligencia artificial.",
+      "icon": "☀️",
+      "event": "76ª edición de los Cursos de Verano de la UCA",
+      "year": "2026",
+      "tags": ["curso-verano", "ingenieria", "informatica", "software", "slides", "ia"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "theme": "events/uca/Curso_Verano_A09_2026/slides/theme-uca.css",
+      "dependencies": [
+        "@marp-team/marp-core"
+      ],
+      "sources": [
+        {
+          "path": "events/uca/Curso_Verano_A09_2026/slides/informatica-software-ingenieria.md",
+          "name": "informatica-software-ingenieria"
+        }
+      ]
     }
   ]
 }
