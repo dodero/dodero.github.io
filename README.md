@@ -52,7 +52,7 @@ Para ejecuciones locales, copia [`config/local-secrets.example.json`](config/loc
 
 Los secretos locales se cargan con `--secrets-file` o, por defecto, desde `config/local-secrets.json` y `.secrets/publish.json`. No se copian a `dist` ni a `_site`.
 
-El HTML se sanitiza antes de publicarse: se eliminan todos los comentarios HTML y la ejecución falla si queda alguno.
+El HTML se sanitiza antes de publicarse: se eliminan todos los comentarios HTML y, en las presentaciones Marp, las notas del presentador generadas a partir de comentarios Markdown. La ejecución falla si queda alguno.
 
 Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
 

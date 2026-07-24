@@ -95,9 +95,40 @@ def install_pnpm_dependencies(repo_dir: Path, dependencies: list[str]) -> None:
 def sanitize_html(path: Path) -> None:
     content = path.read_text(encoding="utf-8", errors="replace")
     sanitized = re.sub(r"<!--[\s\S]*?-->", "", content)
+    sanitized = remove_html_elements_by_class(sanitized, "bespoke-marp-note")
     path.write_text(sanitized, encoding="utf-8")
     if "<!--" in sanitized:
         raise SystemExit(f"HTML comment remains after sanitization: {path}")
+    if html_div_with_class_pattern("bespoke-marp-note").search(sanitized):
+        raise SystemExit(f"Marp presenter note remains after sanitization: {path}")
+
+
+def html_div_with_class_pattern(class_name: str) -> re.Pattern[str]:
+    return re.compile(
+        rf'<div\b(?=[^>]*\bclass=["\'](?:[^"\']*\s)?{re.escape(class_name)}(?:\s[^"\']*)?["\'])[^>]*>',
+        flags=re.IGNORECASE,
+    )
+
+
+def remove_html_elements_by_class(content: str, class_name: str) -> str:
+    """Remove complete div elements with a class, including nested divs."""
+    opening = html_div_with_class_pattern(class_name)
+    div_tag = re.compile(r"</?div\b[^>]*>", flags=re.IGNORECASE)
+    while match := opening.search(content):
+        depth = 1
+        end = None
+        for tag in div_tag.finditer(content, match.end()):
+            if tag.group(0).lower().startswith("</div"):
+                depth -= 1
+                if depth == 0:
+                    end = tag.end()
+                    break
+            else:
+                depth += 1
+        if end is None:
+            raise SystemExit(f"Unclosed {class_name} element found during HTML sanitization")
+        content = content[: match.start()] + content[end:]
+    return content
 
 
 def copy_local_assets(html_path: Path, source_file: Path, repo_dir: Path) -> None:
