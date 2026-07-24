@@ -662,7 +662,7 @@
       "id": "eventos-uca-curso-verano-a09-2026-informatica-software-ingenieria",
       "owner": "dodero",
       "repo": "eventos",
-      "private": false,
+      "private": true,
       "token_env": "DODERO_PUBLISH_TOKEN",
       "ref": "main",
       "title": "El futuro de la Informática, el Software y la Ingeniería en los tiempos de la Inteligencia Artificial",
