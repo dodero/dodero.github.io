@@ -29,6 +29,10 @@ def matches(repository: dict, selector: str | None) -> bool:
     return selector in {repository["id"], repository["repo"], full_name}
 
 
+def token_name(repository: dict) -> str:
+    return repository.get("token_env", "PUBLISH_TOKEN")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=Path("config/repositories.json"))
@@ -42,12 +46,13 @@ def main() -> int:
         raise SystemExit(f"Repository is not configured: {args.repository}")
 
     local_secrets = load_secrets(args.secrets_file)
-    token = (os.environ.get("PUBLISH_TOKEN") or local_secrets.get("PUBLISH_TOKEN", "")).strip()
-    if not token and any(repo.get("private", True) for repo in repositories):
-        raise SystemExit("PUBLISH_TOKEN is required to validate private source repositories")
-
     for repository in repositories:
-        if not repository.get("private", True):
+        name = token_name(repository)
+        requires_token = repository.get("private", True) or "token_env" in repository
+        token = (os.environ.get(name) or local_secrets.get(name, "")).strip() if requires_token else ""
+        if requires_token and not token:
+            raise SystemExit(f"{name} is required to validate {repository['owner']}/{repository['repo']}")
+        if not token:
             continue
         full_name = f"{repository['owner']}/{repository['repo']}"
         request = urllib.request.Request(
@@ -71,10 +76,10 @@ def main() -> int:
                 reason = "not authorized for this repository, or repository not found"
             else:
                 reason = f"HTTP {error.code}"
-            raise SystemExit(f"PUBLISH_TOKEN cannot read {full_name}: {reason}") from error
+            raise SystemExit(f"{name} cannot read {full_name}: {reason}") from error
         except urllib.error.URLError as error:
             raise SystemExit(f"Could not contact GitHub API for {full_name}: {error.reason}") from error
-        print(f"PUBLISH_TOKEN can read {full_name}")
+        print(f"{name} can read {full_name}")
 
     return 0
 

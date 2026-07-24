@@ -51,25 +51,28 @@ def main() -> int:
     args.output.mkdir(parents=True, exist_ok=True)
 
     local_secrets = load_secrets(args.secrets_file)
-    token = (os.environ.get("PUBLISH_TOKEN") or local_secrets.get("PUBLISH_TOKEN", "")).strip()
-    if any(repository.get("private", True) for repository in repositories) and not token:
-        raise SystemExit(
-            "PUBLISH_TOKEN no está disponible. Créalo como Repository secret en "
-            "dodero/dodero.github.io, con el nombre exacto PUBLISH_TOKEN."
-        )
-    git_env = os.environ.copy()
-    if token:
-        # Keep the credential out of the clone command line and logs.
-        basic_credentials = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
-        git_env["GIT_CONFIG_COUNT"] = "1"
-        git_env["GIT_CONFIG_KEY_0"] = "http.extraheader"
-        git_env["GIT_CONFIG_VALUE_0"] = f"AUTHORIZATION: basic {basic_credentials}"
-        git_env["GIT_TERMINAL_PROMPT"] = "0"
-
     for repository in repositories:
         ref = args.ref if args.ref and (args.repository or len(repositories) == 1) else repository.get("ref")
         if not ref:
             raise SystemExit(f"No ref configured for {repository['owner']}/{repository['repo']}")
+
+        token_name = repository.get("token_env", "PUBLISH_TOKEN")
+        requires_token = repository.get("private", True) or "token_env" in repository
+        token = (os.environ.get(token_name) or local_secrets.get(token_name, "")).strip() if requires_token else ""
+        if requires_token and not token:
+            raise SystemExit(
+                f"{token_name} no está disponible. Créalo como Repository secret en "
+                f"dodero/dodero.github.io, con permiso de lectura sobre "
+                f"{repository['owner']}/{repository['repo']}."
+            )
+        git_env = os.environ.copy()
+        if token:
+            # Keep the credential out of the clone command line and logs.
+            basic_credentials = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
+            git_env["GIT_CONFIG_COUNT"] = "1"
+            git_env["GIT_CONFIG_KEY_0"] = "http.extraheader"
+            git_env["GIT_CONFIG_VALUE_0"] = f"AUTHORIZATION: basic {basic_credentials}"
+            git_env["GIT_TERMINAL_PROMPT"] = "0"
 
         destination = (args.output / repository["id"]).resolve()
         output_root = args.output.resolve()

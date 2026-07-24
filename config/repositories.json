@@ -4,6 +4,7 @@
     {
       "id": "gii-dss-arquitectura-arch-intro-communicating",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -32,6 +33,7 @@
     {
       "id": "gii-dss-arquitectura-arch-principles-patterns",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -60,6 +62,7 @@
     {
       "id": "gii-dss-diseno-fundamentos",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -88,6 +91,7 @@
     {
       "id": "gii-dss-diseno-patrones",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -116,6 +120,7 @@
     {
       "id": "gii-dss-diseno-principios",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -144,6 +149,7 @@
     {
       "id": "gii-dss-atdd-gherkin-01",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "gii-dss",
       "private": true,
       "ref": "master",
@@ -172,6 +178,7 @@
     {
       "id": "construccion-mvn-01",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -195,6 +202,7 @@
     {
       "id": "construccion-sonarqube-01",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -218,6 +226,7 @@
     {
       "id": "construccion-implementacion-asertiva",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -246,6 +255,7 @@
     {
       "id": "construccion-implementacion-aspectos",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -274,6 +284,7 @@
     {
       "id": "construccion-implementacion-delegacion",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -302,6 +313,7 @@
     {
       "id": "construccion-implementacion-errores",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -330,6 +342,7 @@
     {
       "id": "construccion-implementacion-eventos",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -358,6 +371,7 @@
     {
       "id": "construccion-implementacion-funcional",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -386,6 +400,7 @@
     {
       "id": "construccion-implementacion-inyeccion",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -414,6 +429,7 @@
     {
       "id": "construccion-implementacion-oop",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -442,6 +458,7 @@
     {
       "id": "construccion-implementacion-ortogonalidad",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -470,6 +487,7 @@
     {
       "id": "construccion-implementacion-refactoring",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -498,6 +516,7 @@
     {
       "id": "construccion-devops-cultura",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -526,6 +545,7 @@
     {
       "id": "construccion-devops-cicd",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -554,6 +574,7 @@
     {
       "id": "construccion-devops-branching",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "construccion",
       "private": true,
       "ref": "master",
@@ -582,6 +603,7 @@
     {
       "id": "devsecops-introduccion",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "devsecops",
       "private": true,
       "ref": "main",
@@ -610,6 +632,7 @@
     {
       "id": "devsecops-devsecops",
       "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
       "repo": "devsecops",
       "private": true,
       "ref": "main",
@@ -640,6 +663,7 @@
       "owner": "dodero",
       "repo": "eventos",
       "private": false,
+      "token_env": "DODERO_PUBLISH_TOKEN",
       "ref": "main",
       "title": "El futuro de la Informática, el Software y la Ingeniería en los tiempos de la Inteligencia Artificial",
       "description": "Ponencia de clausura sobre el futuro de la informática, el software y la ingeniería en los tiempos de la inteligencia artificial.",

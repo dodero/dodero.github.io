@@ -46,7 +46,7 @@ jobs:
 
 El payload debe incluir siempre `client_payload.repository` con el formato `owner/repositorio`; `client_payload.ref` es opcional y, si se omite, se usa la rama definida en `config/repositories.json`.
 
-Los repositorios privados necesitan un secreto `PUBLISH_TOKEN` con permiso de lectura únicamente sobre los repositorios fuente seleccionados. Todo material copiado a GitHub Pages es público.
+Los repositorios privados necesitan un secreto `PUBLISH_TOKEN` con permiso de lectura únicamente sobre los repositorios fuente seleccionados. Una entrada puede declarar `token_env` para usar otro secreto, por ejemplo `DODERO_PUBLISH_TOKEN` para repositorios del usuario `dodero`. Todo material copiado a GitHub Pages es público.
 
 Para ejecuciones locales, copia [`config/local-secrets.example.json`](config/local-secrets.example.json) a `config/local-secrets.json` y sustituye los valores. `config/local-secrets.json`, `.secrets/` y los ficheros `.env` están ignorados por Git. En GitHub Actions los secretos deben seguir configurándose en `Settings → Secrets and variables → Actions`; un fichero local no existe en el runner remoto.
 
