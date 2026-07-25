@@ -66,6 +66,10 @@ def main() -> int:
                 f"{repository['owner']}/{repository['repo']}."
             )
         git_env = os.environ.copy()
+        if repository.get("lfs", True) is False:
+            # Keep LFS pointer files without downloading large objects that are
+            # not needed by this repository's publication build.
+            git_env["GIT_LFS_SKIP_SMUDGE"] = "1"
         if token:
             # Keep the credential out of the clone command line and logs.
             basic_credentials = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")

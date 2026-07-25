@@ -664,6 +664,7 @@
       "repo": "hipw",
       "private": true,
       "token_env": "DODERO_PUBLISH_TOKEN",
+      "lfs": false,
       "ref": "main",
       "title": "Herramientas Informáticas de Publicación Web",
       "description": "Apuntes de Herramientas Informáticas de Publicación Web.",
