@@ -131,6 +131,9 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
+      - name: Install Asciidoctor builders
+        run: gem install asciidoctor asciidoctor-pdf --no-document
+
       - name: Install Chrome for PDF generation
         id: chrome
         uses: browser-actions/setup-chrome@v2

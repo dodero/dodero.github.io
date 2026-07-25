@@ -659,6 +659,29 @@
       ]
     },
     {
+      "id": "ieu",
+      "owner": "dodero",
+      "repo": "ieu",
+      "private": true,
+      "token_env": "DODERO_PUBLISH_TOKEN",
+      "ref": "main",
+      "title": "Estilos de Interacción y End-User Development",
+      "description": "Introducción a la Interacción y UX: estilos de interacción persona-ordenador y desarrollo orientado al usuario final",
+      "icon": "🧑‍💻",
+      "subject": "Interacción y Experiencia de Usuario",
+      "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
+      "year": "2024-25",
+      "tags": ["ieu", "muiisc", "2024-25", "ux"],
+      "builder": "asciidoctor",
+      "formats": ["html", "pdf"],
+      "sources": [
+        {
+          "path": "ieu-00-intro.adoc",
+          "name": "ieu-00-intro"
+        }
+      ]
+    },
+    {
       "id": "hipw",
       "owner": "dodero",
       "repo": "hipw",

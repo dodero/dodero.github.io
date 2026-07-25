@@ -431,6 +431,7 @@ def run_asciidoctor(repository: dict, source_file: Path, html_path: Path, pdf_pa
     if "html" in formats:
         run([repository.get("html_command", "asciidoctor"), "-o", str(html_path), str(source_file)], repo_dir)
         sanitize_html(html_path)
+        copy_local_assets(html_path, source_file, repo_dir)
     if "pdf" in formats:
         run([repository.get("pdf_command", "asciidoctor-pdf"), "-o", str(pdf_path), str(source_file)], repo_dir)
 

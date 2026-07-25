@@ -62,6 +62,8 @@ Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
 
 El builder `mkdocs` genera el sitio HTML completo. Cuando se solicita PDF, imprime todas las páginas de contenido generadas por MkDocs y las combina en un único PDF plano, con marcadores por página. Sus dependencias Python se declaran en `dependencies`; `exclude_docs` permite omitir documentos concretos del HTML, el buscador y el PDF.
 
+El builder `asciidoctor` genera HTML con `asciidoctor` y PDF con `asciidoctor-pdf`. Solo procesa los documentos enumerados en `sources`; los recursos locales referenciados por el HTML se copian junto al material publicado.
+
 El workflow ejecuta `bundle exec jekyll build` después de generar el catálogo y los materiales, y publica el directorio `_site` en GitHub Pages.
 
 ## Prueba local
