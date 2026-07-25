@@ -659,6 +659,37 @@
       ]
     },
     {
+      "id": "hipw",
+      "owner": "dodero",
+      "repo": "hipw",
+      "private": true,
+      "token_env": "DODERO_PUBLISH_TOKEN",
+      "ref": "main",
+      "title": "Herramientas Informáticas de Publicación Web",
+      "description": "Apuntes de Herramientas Informáticas de Publicación Web.",
+      "icon": "🌐",
+      "subject": "Herramientas Informáticas de Publicación Web",
+      "degree": "Grado en Marketing e Investigación de Mercados",
+      "year": "2020-21",
+      "tags": ["hipw", "gmim", "2020-21", "web"],
+      "builder": "mkdocs",
+      "formats": ["html", "pdf"],
+      "dependencies": [
+        "mkdocs-material",
+        "pypdf"
+      ],
+      "exclude_docs": [
+        "cms.md",
+        "lic.md"
+      ],
+      "sources": [
+        {
+          "path": "docs/index.md",
+          "name": "hipw"
+        }
+      ]
+    },
+    {
       "id": "eventos-uca-curso-verano-a09-2026-informatica-software-ingenieria",
       "owner": "dodero",
       "repo": "eventos",

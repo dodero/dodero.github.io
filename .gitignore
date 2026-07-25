@@ -1,6 +1,10 @@
 .DS_Store
 __pycache__/
 
+# Locally generated publication previews
+/output/hipw-preview/
+/tmp/pdfs/hipw-render/
+
 # Secrets used only by local publication runs
 .secrets/
 config/local-secrets.json

@@ -11,6 +11,7 @@ import re
 import shlex
 import shutil
 import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -90,6 +91,13 @@ def install_pnpm_dependencies(repo_dir: Path, dependencies: list[str]) -> None:
         ["pnpm", "add", "--save-dev", *dependencies],
         repo_dir,
     )
+
+
+def install_python_dependencies(repo_dir: Path, dependencies: list[str]) -> None:
+    dependencies = list(dict.fromkeys(dependencies))
+    if not dependencies:
+        return
+    run([sys.executable, "-m", "pip", "install", *dependencies], repo_dir)
 
 
 def sanitize_html(path: Path) -> None:
@@ -322,12 +330,90 @@ def run_template(command: str, values: dict[str, str], repo_dir: Path) -> None:
     run(rendered, repo_dir, shell=True)
 
 
-def run_mkdocs(repository: dict, repo_dir: Path, output_dir: Path, html_path: Path, pdf_path: Path, formats: set[str]) -> None:
+def exclude_mkdocs_pages(site_dir: Path, excluded_docs: list[str]) -> None:
+    excluded_stems = {Path(path).with_suffix("").as_posix().strip("/") for path in excluded_docs}
+    for stem in excluded_stems:
+        shutil.rmtree(site_dir / stem, ignore_errors=True)
+        (site_dir / f"{stem}.html").unlink(missing_ok=True)
+
+    search_index = site_dir / "search" / "search_index.json"
+    if search_index.is_file():
+        data = json.loads(search_index.read_text(encoding="utf-8"))
+        data["docs"] = [
+            entry
+            for entry in data.get("docs", [])
+            if not any(
+                entry.get("location", "").lstrip("/").startswith(f"{stem}/")
+                or entry.get("location", "").lstrip("/") == stem
+                for stem in excluded_stems
+            )
+        ]
+        search_index.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+
+def make_mkdocs_links_file_safe(site_dir: Path) -> None:
+    """Make directory-style MkDocs links work when HTML is opened via file://."""
+
+    pattern = re.compile(r'(?P<prefix>\bhref=["\'])(?P<url>[^"\']+)(?P<suffix>["\'])')
+
+    def explicit_index(match: re.Match[str]) -> str:
+        url = match.group("url")
+        if url == "." or url == "./":
+            url = "index.html"
+        elif url == "..":
+            url = "../index.html"
+        elif url.endswith("/") and not url.startswith(("/", "//")) and "://" not in url:
+            url = f"{url}index.html"
+        return f"{match.group('prefix')}{url}{match.group('suffix')}"
+
+    for html_file in site_dir.rglob("*.html"):
+        content = html_file.read_text(encoding="utf-8", errors="replace")
+        html_file.write_text(pattern.sub(explicit_index, content), encoding="utf-8")
+
+    search_index = site_dir / "search" / "search_index.json"
+    if search_index.is_file():
+        data = json.loads(search_index.read_text(encoding="utf-8"))
+        for entry in data.get("docs", []):
+            location = entry.get("location", "")
+            entry["location"] = re.sub(r"/(?=#|$)", "/index.html", location, count=1)
+        search_index.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+
+def run_mkdocs(
+    repository: dict,
+    repo_dir: Path,
+    output_dir: Path,
+    html_path: Path,
+    pdf_path: Path,
+    formats: set[str],
+    browser_path: str | None,
+) -> None:
+    install_python_dependencies(repo_dir, repository.get("dependencies", []))
     site_dir = output_dir / "_mkdocs-site"
-    command = ["mkdocs", "build", "--clean", "--site-dir", str(site_dir)]
+    command = [sys.executable, "-m", "mkdocs", "build", "--clean", "--site-dir", str(site_dir)]
     if repository.get("config"):
         command += ["--config-file", str((repo_dir / repository["config"]).resolve())]
     run(command, repo_dir)
+    exclude_mkdocs_pages(site_dir, repository.get("exclude_docs", []))
+    make_mkdocs_links_file_safe(site_dir)
+    if "pdf" in formats:
+        if not browser_path:
+            raise SystemExit("MKDocs PDF output needs --browser-path")
+        run(
+            [
+                sys.executable,
+                str((Path(__file__).parent / "mkdocs_flat_pdf.py").resolve()),
+                "--site-dir",
+                str(site_dir),
+                "--output",
+                str(pdf_path),
+                "--browser-path",
+                browser_path,
+            ],
+            repo_dir,
+        )
+        if not pdf_path.is_file():
+            raise SystemExit(f"MKDocs PDF builder did not produce {pdf_path}")
     if "html" in formats:
         for child in site_dir.iterdir():
             target = output_dir / child.name
@@ -338,12 +424,7 @@ def run_mkdocs(repository: dict, repo_dir: Path, output_dir: Path, html_path: Pa
         if not html_path.exists():
             raise SystemExit(f"MKDocs did not produce {html_path}")
         sanitize_html(html_path)
-        shutil.rmtree(site_dir)
-    if "pdf" in formats:
-        pdf_command = repository.get("pdf_command")
-        if not pdf_command:
-            raise SystemExit(f"MKDocs repository {repository['id']} needs pdf_command for PDF output")
-        run_template(pdf_command, {"repo": str(repo_dir), "out_dir": str(output_dir), "pdf": str(pdf_path)}, repo_dir)
+    shutil.rmtree(site_dir)
 
 
 def run_asciidoctor(repository: dict, source_file: Path, html_path: Path, pdf_path: Path, repo_dir: Path, formats: set[str]) -> None:
@@ -465,7 +546,7 @@ def main() -> int:
             elif builder == "github-markdown":
                 run_github_markdown(repository, source, source_file, html_path, pdf_path, repo_dir, formats, args.browser_path)
             elif builder == "mkdocs":
-                run_mkdocs(repository, repo_dir, html_path.parent, html_path, pdf_path, formats)
+                run_mkdocs(repository, repo_dir, html_path.parent, html_path, pdf_path, formats, args.browser_path)
             elif builder == "asciidoctor":
                 run_asciidoctor(repository, source_file, html_path, pdf_path, repo_dir, formats)
             else:

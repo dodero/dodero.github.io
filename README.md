@@ -58,6 +58,8 @@ Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
 
 `github-markdown` convierte Markdown con sintaxis GitHub mediante `marked`, genera el HTML con un estilo documental sencillo y utiliza Chrome para imprimir el PDF.
 
+El builder `mkdocs` genera el sitio HTML completo. Cuando se solicita PDF, imprime todas las páginas de contenido generadas por MkDocs y las combina en un único PDF plano, con marcadores por página. Sus dependencias Python se declaran en `dependencies`; `exclude_docs` permite omitir documentos concretos del HTML, el buscador y el PDF.
+
 El workflow ejecuta `bundle exec jekyll build` después de generar el catálogo y los materiales, y publica el directorio `_site` en GitHub Pages.
 
 ## Prueba local
