@@ -754,8 +754,7 @@
       "id": "eventos-uca-curso-verano-a09-2026-informatica-software-ingenieria",
       "owner": "dodero",
       "repo": "eventos",
-      "private": true,
-      "token_env": "DODERO_PUBLISH_TOKEN",
+      "private": false,
       "ref": "main",
       "title": "El futuro de la Informática, el Software y la Ingeniería en los tiempos de la Inteligencia Artificial",
       "description": "Ponencia de clausura sobre el futuro de la informática, el software y la ingeniería en los tiempos de la inteligencia artificial.",
@@ -765,14 +764,39 @@
       "tags": ["curso-verano", "ingenieria", "informatica", "software", "slides", "ia"],
       "builder": "marp",
       "formats": ["html", "pdf"],
-      "theme": "events/uca/Curso_Verano_A09_2026/slides/theme-uca.css",
+      "theme": "events/curso-verano-a09-2026/assets/styles/theme-uca.css",
       "dependencies": [
         "@marp-team/marp-core"
       ],
       "sources": [
         {
-          "path": "events/uca/Curso_Verano_A09_2026/slides/informatica-software-ingenieria.md",
+          "path": "events/curso-verano-a09-2026/slides/src/informatica-software-ingenieria.md",
           "name": "informatica-software-ingenieria"
+        }
+      ]
+    },
+    {
+      "id": "eventos-innovacion-docente-uex-2026",
+      "owner": "dodero",
+      "repo": "eventos",
+      "private": false,
+      "ref": "main",
+      "title": "IA en la docencia: innovación o disrupción",
+      "description": "Ponencia sobre el impacto de la inteligencia artificial en la docencia universitaria y la formación del juicio crítico.",
+      "icon": "🎓",
+      "event": "III Jornadas de Innovación Docente de la Universidad de Extremadura",
+      "year": "2026",
+      "tags": ["innovacion-docente", "uex", "universidad", "docencia", "slides", "ia"],
+      "builder": "marp",
+      "formats": ["html", "pdf"],
+      "theme": "events/innovacion-docente-uex-2026/assets/styles/theme-uca.css",
+      "dependencies": [
+        "@marp-team/marp-core"
+      ],
+      "sources": [
+        {
+          "path": "events/innovacion-docente-uex-2026/slides/src/ponencia-caceres.md",
+          "name": "ia-docencia-innovacion-disrupcion"
         }
       ]
     }

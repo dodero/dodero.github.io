@@ -11,3 +11,9 @@ config/local-secrets.json
 .env
 .env.*
 !.env.example
+
+# Generated source checkouts, dependency cache, and publication output
+/.sources/
+/.pnpm-store/
+/dist/
+/_site/
