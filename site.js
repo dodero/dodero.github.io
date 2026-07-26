@@ -46,10 +46,15 @@
       || variants.find((variant) => variant.dataset.language === "es")
       || variants[0];
     const title = card.querySelector(".card-title");
+    const description = card.querySelector(".card-description");
     if (selected && title) {
       title.href = selected.dataset.html;
-      title.childNodes[0].nodeValue = `${selected.dataset.title} `;
+      title.childNodes[0].nodeValue = selected.dataset.title;
       title.lang = selected.dataset.language || "";
+      if (description) {
+        description.textContent = selected.dataset.description;
+        description.lang = selected.dataset.language || "";
+      }
     }
   }
 

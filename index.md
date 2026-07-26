@@ -4,7 +4,6 @@ title: Materiales docentes
 ---
 
 <header>
-  <p class="eyebrow">Juanma Dodero · Universidad de Cádiz</p>
   <h1>Materiales docentes</h1>
   <p class="intro">Apuntes, presentaciones y recursos educativos sobre Informática y Software.</p>
 
@@ -42,7 +41,7 @@ title: Materiales docentes
           <div class="card-icon" aria-hidden="true">{{ primary.icon | default: '📄' | escape }}</div>
           <div>
             {% if primary.subject %}<p class="card-kicker">{{ primary.subject | escape }}</p>{% elsif primary.event %}<p class="card-kicker">{{ primary.event | escape }}</p>{% endif %}
-            <h2><a class="card-title" href="{{ primary.html | relative_url }}">{{ primary.title | escape }} <span aria-hidden="true">↗</span><span class="sr-only"> — abrir versión HTML</span></a></h2>
+            <h2><a class="card-title" href="{{ primary.html | relative_url }}">{{ primary.title | escape }}<span class="sr-only"> — abrir versión HTML</span></a></h2>
           </div>
         </div>
         <p class="card-description">{{ primary.description | escape }}</p>
@@ -55,10 +54,10 @@ title: Materiales docentes
         </div>
         <div class="variants" aria-label="Versiones disponibles">
           {% for material in material_group.items %}
-            <div class="variant" data-language="{{ material.language | escape }}" data-title="{{ material.title | escape }}" data-html="{{ material.html | relative_url }}">
-              <span class="variant-language">{% if material.language == "es" %}Español{% elsif material.language == "en" %}English{% else %}{{ material.language | upcase }}{% endif %}</span>
+            <div class="variant" data-language="{{ material.language | escape }}" data-title="{{ material.title | escape }}" data-description="{{ material.description | escape }}" data-html="{{ material.html | relative_url }}">
+              <span class="variant-language">{% if material.language == "en" %}Download{% else %}Descargar{% endif %}</span>
               <div class="links">
-                {% if material.html_zip %}<a class="download-link" href="{{ material.html_zip | relative_url }}" download>{% if material.language == "en" %}Download HTML (.zip){% else %}Descargar HTML (.zip){% endif %}</a>{% endif %}
+                {% if material.html_zip %}<a class="download-link" href="{{ material.html_zip | relative_url }}" download>HTML (ZIP)</a>{% endif %}
                 {% if material.pdf %}<a href="{{ material.pdf | relative_url }}">PDF</a>{% endif %}
                 {% if material.source %}<a href="{{ material.source | relative_url }}">Source</a>{% endif %}
               </div>
