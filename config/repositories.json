@@ -9,6 +9,7 @@
       "private": true,
       "ref": "master",
       "title": "Communicating Architectures",
+      "language": "en",
       "description": "Arquitectura de software: diseño, comunicación, ADR, UML y modelo C4.",
       "icon": "🗺️",
       "subject": "Diseño de Sistemas Software",
@@ -38,6 +39,7 @@
       "private": true,
       "ref": "master",
       "title": "Architecture Principles and Patterns",
+      "language": "en",
       "description": "Principios de cohesión y acoplamiento, componentes y patrones arquitectónicos de software.",
       "icon": "🏛️",
       "subject": "Diseño de Sistemas Software",
@@ -579,6 +581,7 @@
       "private": true,
       "ref": "master",
       "title": "Branching patterns",
+      "language": "en",
       "description": "Patrones de branching, control de versiones y estrategias para coordinar el desarrollo.",
       "icon": "🌿",
       "subject": "Implementación e Implantación de Sistemas Software",
@@ -710,6 +713,39 @@
         {
           "path": "docs/index.md",
           "name": "hipw"
+        }
+      ]
+    },
+    {
+      "id": "ssa",
+      "owner": "dodero",
+      "repo": "ssa",
+      "private": false,
+      "ref": "master",
+      "title": "Seguridad en Sistemas Abiertos",
+      "description": "Seguridad en sistemas abiertos: control de acceso, privacidad, datos abiertos y APIs abiertas.",
+      "icon": "🛡️",
+      "subject": "Seguridad en Sistemas Distribuidos",
+      "degree": "Máster Universitario en Seguridad Informática",
+      "year": "2018-19",
+      "tags": ["ssa", "ssd", "musi", "2018-19", "seguridad", "sistemas-abiertos", "control-de-acceso", "privacidad", "open-data", "open-apis"],
+      "builder": "asciidoctor",
+      "formats": ["html", "pdf"],
+      "sources": [
+        {
+          "path": "src/es/seguridad-sistemas-abiertos.adoc",
+          "name": "seguridad-sistemas-abiertos",
+          "title": "Seguridad en Sistemas Abiertos",
+          "language": "es",
+          "group": "ssa-open-systems-security"
+        },
+        {
+          "path": "src/en/open-systems-security.adoc",
+          "name": "open-systems-security",
+          "title": "Open Systems Security",
+          "description": "Open systems security: access control, data privacy, open data and open APIs.",
+          "language": "en",
+          "group": "ssa-open-systems-security"
         }
       ]
     },

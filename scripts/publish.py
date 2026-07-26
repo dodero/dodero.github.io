@@ -12,6 +12,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -202,6 +203,18 @@ def material_output(dist: Path, repository: dict, source: dict) -> tuple[Path, P
     pdf_path = output_dir / f"{source['slug']}.pdf"
     url_base = f"materials/{repository['id']}/{source['slug']}"
     return html_path, pdf_path, url_base
+
+
+def create_html_archive(output_dir: Path, slug: str) -> Path:
+    """Package generated HTML and its local dependencies for offline use."""
+    archive_path = output_dir / f"{slug}-html.zip"
+    generated_pdf = output_dir / f"{slug}.pdf"
+    with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for path in sorted(output_dir.rglob("*")):
+            if not path.is_file() or path in {archive_path, generated_pdf}:
+                continue
+            archive.write(path, path.relative_to(output_dir))
+    return archive_path
 
 
 def run_marp(repository: dict, source_file: Path, html_path: Path, pdf_path: Path, repo_dir: Path, formats: set[str], browser_path: str | None) -> None:
@@ -553,12 +566,15 @@ def main() -> int:
             else:
                 run_custom(repository, source_file, html_path, pdf_path, html_path.parent, repo_dir, formats)
 
+            html_archive = create_html_archive(html_path.parent, source["slug"]) if "html" in formats else None
             material = {
                 "repository_id": repository["id"],
                 "owner": repository["owner"],
                 "repo": repository["repo"],
                 "ref": ref,
                 "title": source.get("title", repository["title"]),
+                "group": source.get("group", f"{repository['id']}-{source['slug']}"),
+                "language": source.get("language", repository.get("language", "es")),
                 "description": source.get("description", repository.get("description", "")),
                 "icon": source.get("icon", repository.get("icon", "📄")),
                 "subject": source.get("subject", repository.get("subject")),
@@ -570,6 +586,7 @@ def main() -> int:
                 "formats": sorted(formats),
                 "source_path": source["path"],
                 "html": f"{url_base}/index.html" if "html" in formats else None,
+                "html_zip": f"{url_base}/{html_archive.name}" if html_archive else None,
                 "pdf": f"{url_base}/{source['slug']}.pdf" if "pdf" in formats else None,
                 "publish_source": bool(repository.get("publish_source", False)),
             }

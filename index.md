@@ -4,49 +4,71 @@ title: Materiales docentes
 ---
 
 <header>
+  <p class="eyebrow">Juanma Dodero · Universidad de Cádiz</p>
   <h1>Materiales docentes</h1>
-  <p class="intro">Apuntes, slides y materiales de apoyo docente sobre Informática y Software</p>
-  <div class="toolbar" role="search">
-    <label>
+  <p class="intro">Apuntes, presentaciones y recursos educativos sobre Informática y Software.</p>
+
+  <div class="search-panel" role="search" aria-label="Buscar y filtrar materiales">
+    <label class="search-field">
       <span class="sr-only">Buscar materiales</span>
-      <input id="query" type="search" placeholder="Buscar por título, etiqueta o repositorio" autocomplete="off">
+      <input id="query" type="search" placeholder="Buscar por título, asignatura, tema o curso…" autocomplete="off">
     </label>
-    <label>
-      <span class="sr-only">Filtrar por etiqueta</span>
+    <fieldset class="language-filter">
+      <legend>Idioma</legend>
+      <button type="button" class="language-option is-active" data-language="" aria-pressed="true">Todos</button>
+      <button type="button" class="language-option" data-language="es" aria-pressed="false">Español</button>
+      <button type="button" class="language-option" data-language="en" aria-pressed="false">English</button>
+    </fieldset>
+    <label class="tag-field">
+      <span>Etiqueta</span>
       <select id="tag-filter">
         <option value="">Todas las etiquetas</option>
       </select>
     </label>
   </div>
-  <p id="summary" class="summary">{{ site.data.catalog.materials.size }} materiales</p>
+  <p id="summary" class="summary">{{ site.data.catalog.materials | group_by: "group" | size }} materiales</p>
 </header>
 
 <section id="materials" class="grid" aria-live="polite">
   {% if site.data.catalog.materials and site.data.catalog.materials.size > 0 %}
-    {% for material in site.data.catalog.materials %}
-      <article class="card" data-search="{{ material.title | escape }} {{ material.description | escape }} {{ material.repo | escape }} {{ material.subject | escape }} {{ material.degree | escape }} {{ material.event | escape }} {{ material.year | escape }} {{ material.tags | join: ' ' | escape }}" data-tags="{{ material.tags | join: ',' | escape }}">
+    {% assign material_groups = site.data.catalog.materials | group_by: "group" %}
+    {% for material_group in material_groups %}
+      {% assign primary = material_group.items | first %}
+      <article class="card"
+        data-search="{% for material in material_group.items %}{{ material.title | escape }} {{ material.description | escape }} {{ material.repo | escape }} {{ material.subject | escape }} {{ material.degree | escape }} {{ material.event | escape }} {{ material.year | escape }} {{ material.tags | join: ' ' | escape }} {% endfor %}"
+        data-tags="{{ primary.tags | join: ',' | escape }}"
+        data-languages="{% for material in material_group.items %}{{ material.language | escape }},{% endfor %}">
         <div class="card-heading">
-          <div class="card-icon" aria-hidden="true">{{ material.icon | default: '📄' | escape }}</div>
-          <h2>{{ material.title | escape }}</h2>
+          <div class="card-icon" aria-hidden="true">{{ primary.icon | default: '📄' | escape }}</div>
+          <div>
+            {% if primary.subject %}<p class="card-kicker">{{ primary.subject | escape }}</p>{% elsif primary.event %}<p class="card-kicker">{{ primary.event | escape }}</p>{% endif %}
+            <h2><a class="card-title" href="{{ primary.html | relative_url }}">{{ primary.title | escape }} <span aria-hidden="true">↗</span><span class="sr-only"> — abrir versión HTML</span></a></h2>
+          </div>
         </div>
-        <p>{{ material.description | escape }}</p>
+        <p class="card-description">{{ primary.description | escape }}</p>
         <div class="meta">
-          {% if material.subject %}<div><strong>Asignatura:</strong> {{ material.subject | escape }}</div>{% endif %}
-          {% if material.degree %}<div><strong>Titulación:</strong> {{ material.degree | escape }}</div>{% endif %}
-          {% if material.event %}<div><strong>Evento:</strong> {{ material.event | escape }}</div>{% endif %}
-          {% if material.year %}<div><strong>Año:</strong> {{ material.year | escape }}</div>{% endif %}
+          {% if primary.degree %}<div>{{ primary.degree | escape }}</div>{% endif %}
+          {% if primary.year %}<div>Curso {{ primary.year | escape }}</div>{% endif %}
         </div>
         <div class="tags">
-          {% for tag in material.tags %}<span class="tag">#{{ tag | escape }}</span>{% endfor %}
+          {% for tag in primary.tags %}<span class="tag">#{{ tag | escape }}</span>{% endfor %}
         </div>
-        <div class="links">
-          {% if material.html %}<a href="{{ material.html | relative_url }}">HTML</a>{% endif %}
-          {% if material.pdf %}<a href="{{ material.pdf | relative_url }}">PDF</a>{% endif %}
-          {% if material.source %}<a href="{{ material.source | relative_url }}">Source</a>{% endif %}
+        <div class="variants" aria-label="Versiones disponibles">
+          {% for material in material_group.items %}
+            <div class="variant" data-language="{{ material.language | escape }}" data-title="{{ material.title | escape }}" data-html="{{ material.html | relative_url }}">
+              <span class="variant-language">{% if material.language == "es" %}Español{% elsif material.language == "en" %}English{% else %}{{ material.language | upcase }}{% endif %}</span>
+              <div class="links">
+                {% if material.html_zip %}<a class="download-link" href="{{ material.html_zip | relative_url }}" download>{% if material.language == "en" %}Download HTML (.zip){% else %}Descargar HTML (.zip){% endif %}</a>{% endif %}
+                {% if material.pdf %}<a href="{{ material.pdf | relative_url }}">PDF</a>{% endif %}
+                {% if material.source %}<a href="{{ material.source | relative_url }}">Source</a>{% endif %}
+              </div>
+            </div>
+          {% endfor %}
         </div>
       </article>
     {% endfor %}
   {% else %}
     <p class="empty">Todavía no hay materiales publicados.</p>
   {% endif %}
+  <p id="no-results" class="empty" hidden>No hay materiales que coincidan con estos filtros. <button type="button" id="clear-filters">Restablecer filtros</button></p>
 </section>

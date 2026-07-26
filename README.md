@@ -12,6 +12,11 @@ Cada entrada permite seleccionar:
 
 También puede declarar `icon`, `subject`, `degree`, `event`, `year` y `tags`. Los tags se normalizan sin el prefijo `#` en el catálogo y se muestran como `#tag` en las tarjetas; la búsqueda los incluye.
 
+Cada fuente puede declarar `language` (`es`, `en`, etc.) y `group`. Las fuentes
+con el mismo `group` se presentan como versiones idiomáticas de una única
+tarjeta. El proceso genera además un paquete `*-html.zip` con el HTML y todas
+sus dependencias locales; el PDF no se incluye en ese paquete.
+
 Los materiales Marp pueden declarar `theme` con la ruta, dentro del repositorio fuente, de un tema CSS propio.
 
 Para un material asociado a un evento en lugar de una asignatura se puede usar, por ejemplo, `event: "Cursos de verano de la UCA"`, `year: "2026"` y omitir `subject` y `degree`.
