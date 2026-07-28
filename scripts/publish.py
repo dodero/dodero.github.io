@@ -21,7 +21,7 @@ from publish_secrets import load_secrets
 
 
 FORMATS = {"html", "pdf"}
-BUILDERS = {"marp", "mkdocs", "asciidoctor", "github-markdown", "custom"}
+BUILDERS = {"marp", "mkdocs", "asciidoctor", "docusaurus", "github-markdown", "custom"}
 SKIP_SITE_ENTRIES = {".git", ".github", ".secrets", ".sources", "config", "scripts", "dist", "node_modules"}
 PRIVATE_SOURCE_SUFFIXES = {".md", ".markdown", ".mdown", ".mkd", ".adoc", ".ad", ".yml", ".yaml"}
 
@@ -449,6 +449,22 @@ def run_asciidoctor(repository: dict, source_file: Path, html_path: Path, pdf_pa
         run([repository.get("pdf_command", "asciidoctor-pdf"), "-o", str(pdf_path), str(source_file)], repo_dir)
 
 
+def run_docusaurus(repository: dict, html_path: Path, output_dir: Path, repo_dir: Path, formats: set[str]) -> None:
+    site_subdir = repository.get("site_dir", ".")
+    docusaurus_dir = (repo_dir / site_subdir).resolve()
+    run(["pnpm", "install", "--frozen-lockfile"], docusaurus_dir)
+    run(["pnpm", "run", "build"], docusaurus_dir)
+    build_dir = docusaurus_dir / "build"
+    if "html" in formats:
+        if output_dir.exists():
+            shutil.rmtree(output_dir)
+        shutil.copytree(build_dir, output_dir)
+        if not html_path.is_file():
+            raise SystemExit(f"Docusaurus builder did not produce {html_path}")
+        for html_file in output_dir.rglob("*.html"):
+            sanitize_html(html_file)
+
+
 def run_custom(repository: dict, source_file: Path, html_path: Path, pdf_path: Path, output_dir: Path, repo_dir: Path, formats: set[str]) -> None:
     values = {"source": str(source_file), "html": str(html_path), "pdf": str(pdf_path), "out_dir": str(output_dir), "repo": str(repo_dir)}
     commands = repository.get("commands", {})
@@ -570,6 +586,8 @@ def main() -> int:
                 run_mkdocs(repository, repo_dir, html_path.parent, html_path, pdf_path, formats, args.browser_path)
             elif builder == "asciidoctor":
                 run_asciidoctor(repository, source_file, html_path, pdf_path, repo_dir, formats)
+            elif builder == "docusaurus":
+                run_docusaurus(repository, html_path, html_path.parent, repo_dir, formats)
             else:
                 run_custom(repository, source_file, html_path, pdf_path, html_path.parent, repo_dir, formats)
 

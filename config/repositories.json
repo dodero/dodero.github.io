@@ -529,11 +529,9 @@
       "degree": "Grado en Ingeniería Informática",
       "year": "2025-26",
       "tags": ["construccion", "gii", "2025-26", "iiss", "implementacion", "apuntes"],
-      "builder": "custom",
+      "builder": "docusaurus",
+      "site_dir": "site",
       "formats": ["html"],
-      "commands": {
-        "html": "cd {repo}/site && pnpm install --frozen-lockfile && pnpm run build && rm -rf {out_dir} && mkdir -p {out_dir} && cp -r build/. {out_dir}/"
-      },
       "sources": [
         {
           "path": "docs/implementacion/oop.md",
