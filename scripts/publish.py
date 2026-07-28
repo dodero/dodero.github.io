@@ -457,7 +457,14 @@ def run_custom(repository: dict, source_file: Path, html_path: Path, pdf_path: P
             raise SystemExit(f"Custom builder {repository['id']} has no command for {output_format}")
         run_template(commands[output_format], values, repo_dir)
         if output_format == "html":
-            sanitize_html(html_path)
+            if not html_path.is_file():
+                raise SystemExit(f"Custom builder {repository['id']} did not produce {html_path}")
+            # Unlike the other builders, a custom command may produce a whole
+            # multi-page static site (e.g. a Docusaurus build) rather than a
+            # single exported page, so every HTML file under the output needs
+            # sanitizing, not just the top-level index.html.
+            for html_file in output_dir.rglob("*.html"):
+                sanitize_html(html_file)
 
 
 def prepare_dist(site_root: Path, dist: Path) -> None:

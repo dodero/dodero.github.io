@@ -516,6 +516,32 @@
       ]
     },
     {
+      "id": "construccion-implementacion-notas",
+      "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
+      "repo": "construccion",
+      "private": true,
+      "ref": "master",
+      "title": "Apuntes de Implementación de Sistemas Software",
+      "description": "Apuntes interactivos con ejemplos de código en varios lenguajes, editables y ejecutables en el navegador (Java, JavaScript, Python y Ruby).",
+      "icon": "📘",
+      "subject": "Implementación e Implantación de Sistemas Software",
+      "degree": "Grado en Ingeniería Informática",
+      "year": "2025-26",
+      "tags": ["construccion", "gii", "2025-26", "iiss", "implementacion", "apuntes"],
+      "builder": "custom",
+      "formats": ["html"],
+      "commands": {
+        "html": "cd {repo}/site && pnpm install --frozen-lockfile && pnpm run build && rm -rf {out_dir} && mkdir -p {out_dir} && cp -r build/. {out_dir}/"
+      },
+      "sources": [
+        {
+          "path": "docs/implementacion/oop.md",
+          "name": "notas"
+        }
+      ]
+    },
+    {
       "id": "construccion-devops-cultura",
       "owner": "uca-gii",
       "token_env": "PUBLISH_TOKEN",
