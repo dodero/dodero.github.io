@@ -1,4 +1,5 @@
 name: Publish selected materials
+run-name: Publish ${{ github.event.client_payload.repository || inputs.repository || 'all configured repositories' }}
 
 on:
   workflow_dispatch:
