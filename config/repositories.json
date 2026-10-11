@@ -639,8 +639,8 @@
       "icon": "🛡️",
       "subject": "Desarrollo de Aplicaciones Seguras",
       "degree": "Máster en Seguridad Informática",
-      "year": "2025-26",
-      "tags": ["devsecops", "das", "msi", "2025-26", "slides"],
+      "year": "2026-27",
+      "tags": ["devsecops", "das", "msi", "2026-27", "slides"],
       "builder": "marp",
       "formats": ["html", "pdf"],
       "engine": "marp/marp-engine.js",
@@ -651,7 +651,7 @@
       ],
       "sources": [
         {
-          "path": "introduccion.md",
+          "path": "slides/introduccion.md",
           "name": "introduccion"
         }
       ]
@@ -668,8 +668,8 @@
       "icon": "🔐",
       "subject": "Desarrollo de Aplicaciones Seguras",
       "degree": "Máster en Seguridad Informática",
-      "year": "2025-26",
-      "tags": ["devsecops", "das", "msi", "2025-26", "slides"],
+      "year": "2026-27",
+      "tags": ["devsecops", "das", "msi", "2026-27", "slides"],
       "builder": "marp",
       "formats": ["html", "pdf"],
       "engine": "marp/marp-engine.js",
@@ -680,7 +680,7 @@
       ],
       "sources": [
         {
-          "path": "devsecops.md",
+          "path": "slides/devsecops.md",
           "name": "devsecops"
         }
       ]
