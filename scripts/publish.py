@@ -22,7 +22,14 @@ from publish_secrets import load_secrets
 
 FORMATS = {"html", "pdf"}
 BUILDERS = {"marp", "mkdocs", "asciidoctor", "docusaurus", "github-markdown", "custom"}
-SKIP_SITE_ENTRIES = {".git", ".github", ".secrets", ".sources", "config", "scripts", "dist", "node_modules"}
+# Además del código del repositorio, el workspace de Actions contiene el artefacto
+# de Pages anterior y su contenido desempaquetado (previous-*), las gemas de Bundler
+# (vendor, .bundle) y la salida de Jekyll (_site). Copiarlos a dist anidaba el sitio
+# anterior dentro del nuevo en cada ejecución y el artefacto doblaba su tamaño.
+SKIP_SITE_ENTRIES = {
+    ".git", ".github", ".secrets", ".sources", "config", "scripts", "dist", "node_modules",
+    "previous-site", "previous-pages-artifact", "vendor", ".bundle", "_site",
+}
 PRIVATE_SOURCE_SUFFIXES = {".md", ".markdown", ".mdown", ".mkd", ".adoc", ".ad", ".yml", ".yaml"}
 
 
