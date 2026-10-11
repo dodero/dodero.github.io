@@ -30,6 +30,10 @@ def load_config(path: Path) -> dict:
     with path.open(encoding="utf-8") as handle:
         config = json.load(handle)
     repositories = config.get("repositories")
+    if isinstance(repositories, list):
+        # "enabled": false deja una entrada preparada en el catálogo sin publicarla.
+        repositories = [repository for repository in repositories if repository.get("enabled", True) is not False]
+        config["repositories"] = repositories
     if not isinstance(repositories, list) or not repositories:
         raise SystemExit("Configuration must contain a non-empty repositories list")
     seen: set[str] = set()

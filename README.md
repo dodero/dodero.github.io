@@ -9,6 +9,7 @@ Cada entrada permite seleccionar:
 * `formats`: `html`, `pdf` o ambos;
 * `sources`: materiales concretos que deben generarse;
 * `publish_source`: publicación opcional del Markdown fuente, desactivada por defecto.
+* `enabled`: con `false`, la entrada queda preparada en el catálogo pero los scripts la ignoran y no se publica; por defecto es `true`.
 
 También puede declarar `icon`, `subject`, `degree`, `event`, `year` y `tags`. Los tags se normalizan sin el prefijo `#` en el catálogo y se muestran como `#tag` en las tarjetas; la búsqueda los incluye.
 

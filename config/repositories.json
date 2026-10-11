@@ -686,6 +686,31 @@
       ]
     },
     {
+      "id": "devsecops-notas",
+      "enabled": false,
+      "owner": "uca-gii",
+      "token_env": "PUBLISH_TOKEN",
+      "repo": "devsecops",
+      "private": true,
+      "ref": "main",
+      "title": "Apuntes de Desarrollo de Aplicaciones Seguras",
+      "description": "Apuntes extendidos de Desarrollo de Aplicaciones Seguras: desarrollo seguro, arquitectura, programación defensiva y DevSecOps.",
+      "icon": "📘",
+      "subject": "Desarrollo de Aplicaciones Seguras",
+      "degree": "Máster en Seguridad Informática",
+      "year": "2026-27",
+      "tags": ["devsecops", "das", "msi", "2026-27", "apuntes"],
+      "builder": "docusaurus",
+      "site_dir": "site",
+      "formats": ["html"],
+      "sources": [
+        {
+          "path": "docs/das/introduccion.md",
+          "name": "notas"
+        }
+      ]
+    },
+    {
       "id": "ieu",
       "owner": "dodero",
       "repo": "ieu",
