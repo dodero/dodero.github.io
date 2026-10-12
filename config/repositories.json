@@ -687,7 +687,6 @@
     },
     {
       "id": "devsecops-notas",
-      "enabled": false,
       "owner": "uca-gii",
       "token_env": "PUBLISH_TOKEN",
       "repo": "devsecops",
