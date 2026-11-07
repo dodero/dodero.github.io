@@ -715,22 +715,32 @@
       "repo": "ieu",
       "private": true,
       "token_env": "DODERO_PUBLISH_TOKEN",
-      "ref": "main",
-      "title": "Estilos de Interacción y End-User Development",
+      "ref": "changes-2026",
+      "title": "Interacción y Experiencia de Usuario",
       "description": "Introducción a la Interacción y UX: estilos de interacción persona-ordenador y desarrollo orientado al usuario final",
       "icon": "🧑‍💻",
       "subject": "Interacción y Experiencia de Usuario",
       "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
       "year": "2024-25",
-      "tags": ["ieu", "muiisc", "2024-25", "ux"],
-      "builder": "asciidoctor",
-      "formats": ["html", "pdf"],
+      "tags": [
+        "ieu",
+        "muiisc",
+        "2024-25",
+        "ux"
+      ],
+      "builder": "custom",
+      "formats": [
+        "html"
+      ],
       "sources": [
         {
           "path": "ieu-00-intro.adoc",
           "name": "ieu-00-intro"
         }
-      ]
+      ],
+      "commands": {
+        "html": "pnpm install --frozen-lockfile && CHROME_PATH=\"$CHROME_REAL_PATH\" CHROME_NO_SANDBOX=1 pnpm build && cp -R dist/. \"{out_dir}/\""
+      }
     },
     {
       "id": "hipw",
