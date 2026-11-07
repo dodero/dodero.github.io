@@ -477,8 +477,10 @@ def run_docusaurus(repository: dict, html_path: Path, output_dir: Path, repo_dir
 
 
 def run_custom(repository: dict, source_file: Path, html_path: Path, pdf_path: Path, output_dir: Path, repo_dir: Path, formats: set[str]) -> None:
-    values = {"source": str(source_file), "html": str(html_path), "pdf": str(pdf_path), "out_dir": str(output_dir), "repo": str(repo_dir)}
+    values = {"source": str(source_file), "html": str(html_path), "pdf": str(pdf_path), "out_dir": str(output_dir), "repo": str(repo_dir), "site": str(Path(__file__).resolve().parent.parent)}
     commands = repository.get("commands", {})
+    if commands.get("prepare"):
+        run_template(commands["prepare"], values, repo_dir)
     for output_format in formats:
         if output_format not in commands:
             raise SystemExit(f"Custom builder {repository['id']} has no command for {output_format}")

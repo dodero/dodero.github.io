@@ -64,6 +64,20 @@ El HTML se sanitiza antes de publicarse: se eliminan todos los comentarios HTML 
 
 Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
 
+IEU tiene cinco entradas independientes: `ieu` para los apuntes completos y
+`ieu-presentacion`, `ieu-estilos-interaccion`, `ieu-end-user-development` e
+`ieu-ux-inteligencia-artificial` para los cuatro decks. Todas publican HTML y
+PDF, con metadatos del curso 2026-27. Seleccionar `ieu` o `dodero/ieu` publica
+las cinco entradas; los identificadores de los decks permiten publicar uno solo.
+`scripts/export_ieu.py` conserva los recursos locales, los enlaces a los apuntes
+y las URLs publicadas antes de separar las tarjetas.
+
+En el builder `custom`, `commands.prepare` es opcional y se ejecuta antes de los
+comandos de formato de cada fuente. Puede generar conjuntamente HTML y PDF
+para que `commands.html` y `commands.pdf` solo exporten sus resultados. Los
+comandos admiten `{source}`, `{html}`, `{pdf}`, `{out_dir}`, `{repo}` y `{site}`;
+este último apunta a la raíz del repositorio publicador.
+
 `github-markdown` convierte Markdown con sintaxis GitHub mediante `marked`, genera el HTML con un estilo documental sencillo y utiliza Chrome para imprimir el PDF.
 
 El builder `mkdocs` genera el sitio HTML completo. Cuando se solicita PDF, imprime todas las páginas de contenido generadas por MkDocs y las combina en un único PDF plano, con marcadores por página. Sus dependencias Python se declaran en `dependencies`; `exclude_docs` permite omitir documentos concretos del HTML, el buscador y el PDF.
