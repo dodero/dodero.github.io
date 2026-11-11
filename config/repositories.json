@@ -752,8 +752,8 @@
         "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material apuntes --pdf \"{pdf}\""
       }
     },
-    {
-      "id": "ieu-presentacion",
+        {
+      "id": "ieu-clase",
       "owner": "dodero",
       "repo": "ieu",
       "private": true,
@@ -761,9 +761,9 @@
       "ref": "changes-2026",
       "subject": "Interacción y Experiencia de Usuario",
       "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
-      "title": "IEU — Presentación",
-      "description": "Presentación de la asignatura: temario, evaluación, historia de las interfaces y fundamentos de interacción, aprendibilidad, affordances y feedback.",
-      "icon": "🧭",
+      "title": "IEU — Clase: lectura, discusión y ampliación",
+      "description": "Deck único para cuatro sesiones de una hora: presentación y tres temas, con lectura previa, preguntas para discutir y materiales de ampliación.",
+      "icon": "💬",
       "language": "es",
       "year": "2026-27",
       "tags": [
@@ -772,10 +772,9 @@
         "2026-27",
         "slides",
         "revealjs",
-        "presentacion",
-        "historia",
-        "ipo",
-        "aprendibilidad"
+        "lectura",
+        "discusion",
+        "ampliacion"
       ],
       "builder": "custom",
       "formats": [
@@ -786,147 +785,14 @@
       "sources": [
         {
           "path": "ieu-00-intro.adoc",
-          "name": "presentacion",
-          "group": "ieu-presentacion"
+          "name": "clase",
+          "group": "ieu-clase"
         }
       ],
       "commands": {
         "prepare": "pnpm install --frozen-lockfile && CHROME_PATH=\"$CHROME_REAL_PATH\" CHROME_NO_SANDBOX=1 pnpm build",
-        "html": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material presentacion --html \"{html}\"",
-        "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material presentacion --pdf \"{pdf}\""
-      }
-    },
-    {
-      "id": "ieu-estilos-interaccion",
-      "owner": "dodero",
-      "repo": "ieu",
-      "private": true,
-      "token_env": "DODERO_PUBLISH_TOKEN",
-      "ref": "changes-2026",
-      "subject": "Interacción y Experiencia de Usuario",
-      "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
-      "title": "IEU — Estilos de interacción",
-      "description": "Manipulación directa, distancia traslacional, comandos, lenguajes visuales, interacción verbal y entornos inmersivos.",
-      "icon": "🖱️",
-      "language": "es",
-      "year": "2026-27",
-      "tags": [
-        "ieu",
-        "muiisc",
-        "2026-27",
-        "slides",
-        "revealjs",
-        "interaccion",
-        "manipulacion-directa",
-        "lenguajes-visuales",
-        "realidad-virtual"
-      ],
-      "builder": "custom",
-      "formats": [
-        "html",
-        "pdf"
-      ],
-      "publish_source": false,
-      "sources": [
-        {
-          "path": "ieu-00-intro.adoc",
-          "name": "estilos-interaccion",
-          "group": "ieu-estilos-interaccion"
-        }
-      ],
-      "commands": {
-        "prepare": "pnpm install --frozen-lockfile && CHROME_PATH=\"$CHROME_REAL_PATH\" CHROME_NO_SANDBOX=1 pnpm build",
-        "html": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material estilos-interaccion --html \"{html}\"",
-        "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material estilos-interaccion --pdf \"{pdf}\""
-      }
-    },
-    {
-      "id": "ieu-end-user-development",
-      "owner": "dodero",
-      "repo": "ieu",
-      "private": true,
-      "token_env": "DODERO_PUBLISH_TOKEN",
-      "ref": "changes-2026",
-      "subject": "Interacción y Experiencia de Usuario",
-      "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
-      "title": "IEU — End-user development",
-      "description": "Desarrollo por usuarios finales: pensamiento computacional, low code, embodiment, programación literaria y herramientas visuales, de bloques y de flujo de datos.",
-      "icon": "🧩",
-      "language": "es",
-      "year": "2026-27",
-      "tags": [
-        "ieu",
-        "muiisc",
-        "2026-27",
-        "slides",
-        "revealjs",
-        "eud",
-        "end-user-development",
-        "low-code",
-        "pensamiento-computacional"
-      ],
-      "builder": "custom",
-      "formats": [
-        "html",
-        "pdf"
-      ],
-      "publish_source": false,
-      "sources": [
-        {
-          "path": "ieu-00-intro.adoc",
-          "name": "end-user-development",
-          "group": "ieu-end-user-development"
-        }
-      ],
-      "commands": {
-        "prepare": "pnpm install --frozen-lockfile && CHROME_PATH=\"$CHROME_REAL_PATH\" CHROME_NO_SANDBOX=1 pnpm build",
-        "html": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material end-user-development --html \"{html}\"",
-        "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material end-user-development --pdf \"{pdf}\""
-      }
-    },
-    {
-      "id": "ieu-ux-inteligencia-artificial",
-      "owner": "dodero",
-      "repo": "ieu",
-      "private": true,
-      "token_env": "DODERO_PUBLISH_TOKEN",
-      "ref": "changes-2026",
-      "subject": "Interacción y Experiencia de Usuario",
-      "degree": "Máster Universitario de Investigación en Ingeniería de Sistemas y Computación",
-      "title": "IEU — UX e inteligencia artificial",
-      "description": "Experiencia de usuario con IA: evolución del EUD, interfaces generativas, agentes, autonomía parcial y supervisión humana.",
-      "icon": "🤖",
-      "language": "es",
-      "year": "2026-27",
-      "tags": [
-        "ieu",
-        "muiisc",
-        "2026-27",
-        "slides",
-        "revealjs",
-        "ux",
-        "inteligencia-artificial",
-        "interfaces-generativas",
-        "agentes",
-        "autonomia-parcial"
-      ],
-      "builder": "custom",
-      "formats": [
-        "html",
-        "pdf"
-      ],
-      "publish_source": false,
-      "sources": [
-        {
-          "path": "ieu-00-intro.adoc",
-          "name": "ux-inteligencia-artificial",
-          "group": "ieu-ux-inteligencia-artificial"
-        }
-      ],
-      "commands": {
-        "prepare": "pnpm install --frozen-lockfile && CHROME_PATH=\"$CHROME_REAL_PATH\" CHROME_NO_SANDBOX=1 pnpm build",
-        "html": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material ux-inteligencia-artificial --html \"{html}\"",
-        "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material ux-inteligencia-artificial --pdf \"{pdf}\""
+        "html": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material clase --html \"{html}\"",
+        "pdf": "python3 \"{site}/scripts/export_ieu.py\" --input dist --material clase --pdf \"{pdf}\""
       }
     },
     {

@@ -10,10 +10,7 @@ from pathlib import Path
 
 MATERIALS = (
     "apuntes",
-    "presentacion",
-    "estilos-interaccion",
-    "end-user-development",
-    "ux-inteligencia-artificial",
+    "clase",
 )
 
 

@@ -64,13 +64,11 @@ El HTML se sanitiza antes de publicarse: se eliminan todos los comentarios HTML 
 
 Los builders JavaScript utilizan `pnpm`; el workflow no usa `npm`.
 
-IEU tiene cinco entradas independientes: `ieu` para los apuntes completos y
-`ieu-presentacion`, `ieu-estilos-interaccion`, `ieu-end-user-development` e
-`ieu-ux-inteligencia-artificial` para los cuatro decks. Todas publican HTML y
-PDF, con metadatos del curso 2026-27. Seleccionar `ieu` o `dodero/ieu` publica
-las cinco entradas; los identificadores de los decks permiten publicar uno solo.
-`scripts/export_ieu.py` conserva los recursos locales, los enlaces a los apuntes
-y las URLs publicadas antes de separar las tarjetas.
+IEU tiene dos entradas: `ieu` para los apuntes completos y `ieu-clase` para un
+único deck Reveal.js que reúne la presentación y los tres temas en cuatro
+sesiones. Ambas publican HTML y PDF, con metadatos del curso 2026-27.
+Seleccionar `ieu` o `dodero/ieu` publica ambas entradas. El deck conserva los
+recursos locales, las lecturas previas y los enlaces a los apuntes completos.
 
 En el builder `custom`, `commands.prepare` es opcional y se ejecuta antes de los
 comandos de formato de cada fuente. Puede generar conjuntamente HTML y PDF
