@@ -13,6 +13,8 @@ Cada entrada permite seleccionar:
 
 También puede declarar `icon`, `subject`, `degree`, `event`, `year` y `tags`. Los tags se normalizan sin el prefijo `#` en el catálogo y se muestran como `#tag` en las tarjetas; la búsqueda los incluye.
 
+La portada admite filtros por tags en el fragmento de la URL: `/#ieu` filtra por `ieu` y `/#ieu#2026-27` exige simultáneamente los tags `ieu` y `2026-27`. Los tags del fragmento se aplican con lógica AND.
+
 Cada fuente puede declarar `language` (`es`, `en`, etc.) y `group`. Las fuentes
 con el mismo `group` se presentan como versiones idiomáticas de una única
 tarjeta. El proceso genera además un paquete `*-html.zip` con el HTML y todas

@@ -23,6 +23,38 @@
     tagFilter.append(option);
   });
 
+  function readHashTags() {
+    const rawHash = window.location.hash.replace(/^#/, "");
+    const decodedHash = (() => {
+      try {
+        return decodeURIComponent(rawHash);
+      } catch (_error) {
+        return rawHash;
+      }
+    })();
+    return [...new Set(decodedHash
+      .split("#")
+      .map((tag) => tag.trim().replace(/^#+/, "").toLocaleLowerCase())
+      .filter(Boolean))];
+  }
+
+  let hashTags = [];
+
+  function clearHashTags() {
+    if (!hashTags.length && !window.location.hash) return;
+    hashTags = [];
+    const url = new URL(window.location);
+    url.hash = "";
+    window.history.replaceState({}, "", url);
+  }
+
+  function applyHashTags() {
+    hashTags = readHashTags();
+    query.value = hashTags.map((tag) => `#${tag}`).join(" ");
+    tagFilter.value = hashTags.length === 1 && tags.includes(hashTags[0]) ? hashTags[0] : "";
+    render();
+  }
+
   function setLanguage(nextLanguage) {
     language = nextLanguage;
     languageOptions.forEach((option) => {
@@ -59,15 +91,17 @@
   }
 
   function render() {
-    const needle = query.value.trim().toLocaleLowerCase().replace(/^#+/, "");
+    const needle = hashTags.length ? "" : query.value.trim().toLocaleLowerCase().replace(/^#+/, "");
     const tag = tagFilter.value;
     let visible = 0;
     cards.forEach((card) => {
       const languages = (card.dataset.languages || "").split(",").filter(Boolean);
+      const cardTags = (card.dataset.tags || "").split(",").filter(Boolean).map((value) => value.toLocaleLowerCase());
       const matchesText = !needle || (card.dataset.search || "").toLocaleLowerCase().includes(needle);
-      const matchesTag = !tag || (card.dataset.tags || "").split(",").includes(tag);
+      const matchesTag = !tag || cardTags.includes(tag.toLocaleLowerCase());
+      const matchesHashTags = hashTags.every((hashTag) => cardTags.includes(hashTag));
       const matchesLanguage = !language || languages.includes(language);
-      const shown = matchesText && matchesTag && matchesLanguage;
+      const shown = matchesText && matchesTag && matchesHashTags && matchesLanguage;
       card.hidden = !shown;
       if (shown) {
         localizeCard(card);
@@ -78,15 +112,25 @@
     if (noResults) noResults.hidden = visible !== 0;
   }
 
-  query.addEventListener("input", render);
-  tagFilter.addEventListener("change", render);
+  query.addEventListener("input", () => {
+    clearHashTags();
+    tagFilter.value = "";
+    render();
+  });
+  tagFilter.addEventListener("change", () => {
+    clearHashTags();
+    render();
+  });
+  window.addEventListener("hashchange", applyHashTags);
   languageOptions.forEach((option) => option.addEventListener("click", () => setLanguage(option.dataset.language)));
   clearFilters?.addEventListener("click", () => {
     query.value = "";
     tagFilter.value = "";
+    clearHashTags();
     setLanguage("");
     query.focus();
   });
 
+  applyHashTags();
   setLanguage(language);
 }());
